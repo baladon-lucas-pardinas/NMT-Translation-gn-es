@@ -1,0 +1,1 @@
+scp -r ./MARIAN alexis.baladon@cluster.uy:/clusteruy/home/alexis.baladon/marian
