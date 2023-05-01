@@ -21,6 +21,6 @@ cd marian && git rev-parse --short HEAD
 rm -rf build
 mkdir -p build
 ldconfig
-cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DUSE_STATIC_LIBS=on
+cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DUSE_STATIC_LIBS=on -DCOMPILE_CUDA=off
 make -j1 -C marian/build
 cd ../..
