@@ -8,4 +8,9 @@ tar -xf Python-3.9.0.tar.xz
 cd Python-3.9.0
 ./configure
 sudo make altinstall
-python --version
+python3.9 --version
+rm usr/local/bin/python3
+ln -s /usr/local/bin/python3.9 /usr/local/bin/python3
+alias python3='/usr/local/bin/python3.9'
+python3 --version
+

@@ -6,10 +6,11 @@ RUN  apt-get update && apt-get install git -y --no-install-recommends && \
      apt-get install sudo -y && \
      apt-get clean && \
      rm -rf /var/lib/apt/lists/* && \
-     useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo && \
-     git clone https://github.com/AlexisBaladon/marianmt.git && \
-     cd marianmt && \
-     bash setup/install-marian.sh
+     useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+     
+RUN git clone https://github.com/AlexisBaladon/marianmt.git && \
+    cd marianmt && \
+    bash setup/install-marian.sh
 
 RUN  bash marianmt/setup/install-mosesscripts.sh
 RUN  bash marianmt/setup/install-python.sh
