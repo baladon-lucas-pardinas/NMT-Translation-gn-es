@@ -1,3 +1,11 @@
 #!/bin/bash
 apt-get update
-apt-get install -y python3.9 python3-pip
+sudo apt install build-essential zlib1g-dev
+libncurses5-dev libgdbm-dev libnss3-dev
+libssl-dev libreadline-dev libffi-dev curl software-properties-common
+wget https://www.python.org/ftp/python/3.9.0/Python-3.9.0.tar.xz
+tar -xf Python-3.9.0.tar.xz
+cd Python-3.9.0
+./configure
+sudo make altinstall
+python --version

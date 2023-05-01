@@ -9,9 +9,8 @@ RUN  apt-get update && apt-get install git -y --no-install-recommends && \
      useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo && \
      git clone https://github.com/AlexisBaladon/marianmt.git && \
      cd marianmt && \
-     bash setup/install-marian.sh && \
-     cd ..
+     bash setup/install-marian.sh
 
-RUN  bash setup/install-mosesscripts.sh && \
-     bash setup/install-python.sh  && \
-     bash setup/install-dependencies.sh     
+RUN  bash marianmt/setup/install-mosesscripts.sh
+RUN  bash marianmt/setup/install-python.sh
+RUN  bash marianmt/setup/install-dependencies.sh     
