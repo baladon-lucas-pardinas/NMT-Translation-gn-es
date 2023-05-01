@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM gcc:latest
 ARG DEBIAN_FRONTEND=noninteractive
 RUN  apt-get update && apt-get install git -y && \
      apt-get install wget -y && \
