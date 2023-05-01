@@ -3,7 +3,7 @@
 # Description: Commands taken from https://groups.google.com/g/marian-nmt/c/uQC6q1PIf3k/m/JGP_4B5NBwAJ?utm_medium=email&utm_source=footer
 
 apt-get update
-apt-get install -y python3.9 python3-pip gcc-11 g++-11
+apt-get install -y gcc-11 g++-11
 apt-get install -y git cmake build-essential libboost-all-dev libprotobuf10 protobuf-compiler libprotobuf-dev openssl libssl-dev libgoogle-perftools-dev doxygen
 apt -y install libboost-tools-dev libboost-thread-dev magics++
 apt-get install -y cmake
@@ -18,9 +18,9 @@ rm /usr/local/bin/cmake
 sudo ln -s /opt/cmake/bin/cmake /usr/local/bin/cmake
 git clone https://github.com/marian-nmt/marian
 cd marian && git rev-parse --short HEAD
-rm -rf marian/build
-mkdir -p marian/build
+rm -rf build
+mkdir -p build
 ldconfig
-cd marian/build && cmake .. -DCMAKE_BUILD_TYPE=Release -DUSE_STATIC_LIBS=on
+cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DUSE_STATIC_LIBS=on
 make -j1 -C marian/build
 cd ../..
