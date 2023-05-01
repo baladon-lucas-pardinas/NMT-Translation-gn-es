@@ -14,4 +14,4 @@ RUN git clone https://github.com/AlexisBaladon/marianmt.git && \
 
 RUN  bash marianmt/setup/install-mosesscripts.sh
 RUN  bash marianmt/setup/install-python.sh
-RUN  bash marianmt/setup/install-dependencies.sh     
+RUN  cd marianmt/setup/ && bash install-dependencies.sh && cd ../..  
