@@ -9,6 +9,10 @@ apt -y install libboost-tools-dev libboost-thread-dev magics++
 apt-get install -y cmake
 apt-get install libboost-all-dev
 apt-get install libpthread-stubs0-dev
+sudo apt-get install google-perftools libgoogle-perftools-dev
+sudo apt install doxygen
+sudo apt install libopenblas-dev
+sudo apt-get -y install intel-mkl
 sudo apt remove cmake
 sudo apt purge --auto-remove cmake
 wget https://cmake.org/files/v3.12/cmake-3.12.3-Linux-x86_64.sh
