@@ -12,6 +12,7 @@ python3.9 --version
 rm usr/local/bin/python3
 ln -s /usr/local/bin/python3.9 /usr/local/bin/python3
 alias python3='/usr/local/bin/python3.9'
+alias python='/usr/local/bin/python3.9'
 python3 --version
 sudo apt install python3-pip -y
 pip install pip==22.3.1 --break-system-packages
