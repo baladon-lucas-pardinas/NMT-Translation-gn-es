@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 -m pip install -r requirements.txt
+RUN pip install -r marianmt/setup/requirements.txt
