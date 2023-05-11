@@ -13,6 +13,19 @@ sudo apt-get install google-perftools libgoogle-perftools-dev
 sudo apt install doxygen
 sudo apt install libopenblas-dev
 sudo apt-get -y install intel-mkl
+
+# CUDA pre-reqs (Marian Doc. CUDA 10.1, Ubuntu 20.04)
+sudo apt-get install git cmake build-essential libboost-system-dev libprotobuf17 protobuf-compiler libprotobuf-dev openssl libssl-dev libgoogle-perftools-dev
+
+# CUDA ChatGPT
+apt-get update && apt-get install -y --no-install-recommends \
+     cuda-cudart-dev-11-4 \
+     cuda-command-line-tools-11-4 \
+     libcublas-dev-11-4 \
+     libcudnn8-dev \
+     && apt-get clean \
+     && rm -rf /var/lib/apt/lists/*
+
 sudo apt remove cmake
 sudo apt purge --auto-remove cmake
 wget https://cmake.org/files/v3.12/cmake-3.12.3-Linux-x86_64.sh
@@ -25,6 +38,6 @@ cd marian && git rev-parse --short HEAD
 rm -rf build
 mkdir -p build
 ldconfig
-cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DUSE_STATIC_LIBS=on -DCOMPILE_CUDA=off
+cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DUSE_STATIC_LIBS=on -DCOMPILE_CUDA=ON
 make -j1 -C marian/build
 cd ../..
