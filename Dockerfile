@@ -16,9 +16,7 @@ RUN cd /home/docker && \
 USER docker
 WORKDIR /home/docker
 
-RUN cd marianmt && \
-    bash setup/install-marian.sh && \
-    cd ..
+RUN bash marianmt/setup/install-marian.sh
 RUN bash marianmt/setup/install-mosesscripts.sh
 RUN bash marianmt/setup/install-python.sh
 RUN cd marianmt/setup/ && bash install-dependencies.sh && cd ../..  

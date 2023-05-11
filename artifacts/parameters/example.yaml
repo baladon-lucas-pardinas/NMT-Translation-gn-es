@@ -1,0 +1,7 @@
+train-sets:
+  - corpus.en
+  - corpus.ro
+vocabs:
+  - vocab.en
+  - vocab.ro
+model: model.npz
