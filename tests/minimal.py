@@ -1,6 +1,7 @@
 import os
 import logging
 from src import logger
+import subprocess
 
 logger = logging.getLogger(__name__)
 
@@ -58,6 +59,9 @@ def minimal_train_gpu(marian_dir: str, corpus_dir: str) -> None:
             --valid-script-path scripts/validate.sh \
             --overwrite
     """
+    command = 'echo This is a test example'
     logger.info(f'Running command: {command}')
-    os.system(command)
+    result = subprocess.run(command, stdout=subprocess.PIPE, shell=True)
     logger.info('Finished minimal_train_gpu')
+    logger.info(f'Process finished with return code: {result.returncode}')
+    logger.info(f'Process output: {result.stdout}')
