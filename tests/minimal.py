@@ -27,8 +27,8 @@ def minimal_evaluation_cpu(base_dir: str) -> None:
     command = f""" \
     content/marian/build/marian-decoder \
         --models ./model.npz \
-        --vocabs {base_dir}/gn_unique_tokens.txt {base_dir}/sp_unique_tokens.txt \
-        --input {base_dir}/test_gn.txt \
+        --vocabs {base_dir}/vocabulary/gn_unique_tokens.txt {base_dir}/vocabulary/sp_unique_tokens.txt \
+        --input {base_dir}/test/test_gn.txt \
         --output test_es.txt \
         --beam-size 12 \
         --normalize 1 \
@@ -40,25 +40,24 @@ def minimal_evaluation_cpu(base_dir: str) -> None:
     """
     os.system(command)
 
-def minimal_train_gpu(base_dir: str) -> None:
+def minimal_train_gpu(marian_dir: str, corpus_dir: str) -> None:
     # TODO: Arreglar direcciones para unirlas con os.path.join
-    # TODO: Docker borra nuevos datos al cerrar
-    logger.info(f'Starting minimal_train_gpu with base_dir: {base_dir}')
+    logger.info(f'Starting minimal_train_gpu with corpus_dir: {corpus_dir} and marian_dir: {marian_dir}')
     command = f""" \
-    content/marian/build/marian \
-        --train-sets {base_dir}/train_gn.txt {base_dir}/train_es.txt \
-        --model ./model.npz \
-        --after-epochs 1 \
-        --vocabs {base_dir}/gn_unique_tokens.txt {base_dir}/sp_unique_tokens.txt \
-        --seed 1234 \
-        --devices 0 \
-        --log model.log \
-        --valid-log dev.log \
-        --valid-sets {base_dir}/val_gn.txt {base_dir}/val_es.txt \
-        --valid-metrics cross-entropy translation \
-        --valid-script-path ./validate.sh \
-        --overwrite
+        {marian_dir}/marian \
+            --train-sets {corpus_dir}/train/train_gn.txt {corpus_dir}/train/train_es.txt \
+            --model {marian_dir}/model.npz \
+            --after-epochs 1 \
+            --vocabs {corpus_dir}/vocabulary/gn_unique_tokens.txt {corpus_dir}/vocabulary/sp_unique_tokens.txt \
+            --seed 1234 \
+            --devices 0 \
+            --log model.log \
+            --valid-log dev.log \
+            --valid-sets {corpus_dir}/validation/val_gn.txt {corpus_dir}/validation/val_es.txt \
+            --valid-metrics cross-entropy translation \
+            --valid-script-path scripts/validate.sh \
+            --overwrite
     """
     logger.info(f'Running command: {command}')
-    #os.system(command)
+    os.system(command)
     logger.info('Finished minimal_train_gpu')
