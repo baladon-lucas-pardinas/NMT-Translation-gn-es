@@ -1,5 +1,5 @@
 # Corpora
-*/data/
+#*/data/ TODO: make data dynamically generated
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
