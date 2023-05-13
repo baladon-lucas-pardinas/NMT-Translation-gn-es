@@ -2,6 +2,7 @@ import os
 import logging
 from src import logger
 import subprocess
+import multiprocessing
 
 logger = logging.getLogger(__name__)
 
@@ -62,7 +63,7 @@ def minimal_train_gpu(marian_dir, corpus_dir):
             --valid-metrics cross-entropy translation \
             --valid-script-path scripts/validate.sh \
             --overwrite
-    """.format(marian_dir=marian_dir, corpus_dir=corpus_dir, cpu_count=os.cpu_count())
+    """.format(marian_dir=marian_dir, corpus_dir=corpus_dir, cpu_count=multiprocessing.cpu_count())
     logger.info('Running command: {}'.format(command))
     result = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True).communicate()[0]
     logger.info('Finished minimal_train_gpu')
