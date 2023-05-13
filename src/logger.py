@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 
 CURRENT_DIR = os.getcwd()
-LOG_FILE = f'{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
+LOG_FILE = '{}.log'.format(datetime.now().strftime("%Y%m%d_%H%M%S"))
 LOG_PATH = os.path.join(CURRENT_DIR, 'logs', 'project')
 
 if not os.path.exists(os.path.dirname(LOG_PATH)):
