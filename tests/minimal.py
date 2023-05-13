@@ -63,9 +63,7 @@ def minimal_train_gpu(marian_dir, corpus_dir):
             --valid-script-path scripts/validate.sh \
             --overwrite
     """.format(marian_dir=marian_dir, corpus_dir=corpus_dir, cpu_count=os.cpu_count())
-    command = 'echo This is a test example'
-    logger.info(f'Running command: {command}')
-    result = subprocess.run(command, stdout=subprocess.PIPE, shell=True)
+    logger.info('Running command: {}'.format(command))
+    result = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True).communicate()[0]
     logger.info('Finished minimal_train_gpu')
-    logger.info(f'Process finished with return code: {result.returncode}')
-    logger.info(f'Process output: {result.stdout}')
+    logger.info('Process output: {}'.format(result))
