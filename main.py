@@ -14,5 +14,5 @@ if __name__ == '__main__':
     try:
         test_methods[test_method](marian_dir, corpus_dir)
     except KeyError:
-        print(f'Unknown test method: {test_method}')
-        print(f'Available test methods: {list(test_methods.keys())}')
+        print('Unknown test method: {test_method}')
+        print('Available test methods: {test_method_keys}'.format(test_method_keys=test_methods.keys()))
