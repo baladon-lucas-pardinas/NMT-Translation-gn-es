@@ -9,7 +9,7 @@ if __name__ == '__main__':
         'minimal_train_gpu': tests.minimal_train_gpu,
     }
 
-    marian_dir = '../marianmt/build'
+    marian_dir = '../../../marian/build'
     corpus_dir = 'artifacts/data'
     try:
         test_methods[test_method](marian_dir, corpus_dir)
