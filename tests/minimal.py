@@ -46,7 +46,7 @@ def minimal_evaluation_cpu(base_dir):
 def minimal_train_gpu(marian_dir, corpus_dir):
     # type: (str, str) -> None
     # TODO: Arreglar direcciones para unirlas con os.path.join
-    logger.info(f'Starting minimal_train_gpu with corpus_dir: {corpus_dir} and marian_dir: {marian_dir}')
+    logger.info('Starting minimal_train_gpu with corpus_dir: {corpus_dir} and marian_dir: {marian_dir}'.format(corpus_dir=corpus_dir, marian_dir=marian_dir))
     command = """ \
         {marian_dir}/marian \
             --train-sets {corpus_dir}/train/train_gn.txt {corpus_dir}/train/train_es.txt \
