@@ -5,7 +5,8 @@ import subprocess
 
 logger = logging.getLogger(__name__)
 
-def minimal_train_cpu(base_dir: str) -> None:
+def minimal_train_cpu(base_dir):
+    # type: (str) -> None
     command = """ \
     content/marian/build/marian \
         --train-sets {base_dir}/train_gn.txt {base_dir}/train_es.txt \
@@ -24,7 +25,8 @@ def minimal_train_cpu(base_dir: str) -> None:
     """.format(base_dir=base_dir)
     os.system(command)
 
-def minimal_evaluation_cpu(base_dir: str) -> None:
+def minimal_evaluation_cpu(base_dir):
+    # type: (str) -> None
     command = """ \
     content/marian/build/marian-decoder \
         --models ./model.npz \
@@ -41,7 +43,8 @@ def minimal_evaluation_cpu(base_dir: str) -> None:
     """.format(base_dir=base_dir)
     os.system(command)
 
-def minimal_train_gpu(marian_dir: str, corpus_dir: str) -> None:
+def minimal_train_gpu(marian_dir, corpus_dir):
+    # type: (str, str) -> None
     # TODO: Arreglar direcciones para unirlas con os.path.join
     logger.info(f'Starting minimal_train_gpu with corpus_dir: {corpus_dir} and marian_dir: {marian_dir}')
     command = """ \
