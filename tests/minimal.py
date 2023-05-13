@@ -51,6 +51,7 @@ def minimal_train_gpu(marian_dir: str, corpus_dir: str) -> None:
             --after-epochs 1 \
             --vocabs {corpus_dir}/vocabulary/gn_unique_tokens.txt {corpus_dir}/vocabulary/sp_unique_tokens.txt \
             --seed 1234 \
+            --cpu-threads {os.cpu_count()} \
             --devices 0 \
             --log model.log \
             --valid-log dev.log \
