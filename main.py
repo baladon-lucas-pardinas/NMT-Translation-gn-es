@@ -1,18 +1,23 @@
-from tests import minimal as tests
+import sys
+from src.model import model
+from src.utils import command_handler
+from src.logger import logging
+from src import config
 
 if __name__ == '__main__':
-    import sys
-    test_method = sys.argv[1]
-    test_methods = {
-        'minimal_train_cpu': tests.minimal_train_cpu,
-        'minimal_evaluation_cpu': tests.minimal_evaluation_cpu,
-        'minimal_train_gpu': tests.minimal_train_gpu,
-    }
+    command_path = sys.argv[1]
+    save_each_epochs = int(sys.argv[2])
+    flags = sys.argv[3:]
+    
+    flags = ' '.join(flags)
+    flags = command_handler.parse_flags(flags)
+    command_config = config.get_command_config(command_path=command_path, flags=flags)
+    logging.info('Training model with config {}'.format(command_config))
 
-    marian_dir = '../../../marian/build'
-    corpus_dir = 'artifacts/data'
     try:
-        test_methods[test_method](marian_dir, corpus_dir)
-    except KeyError:
-        print('Unknown test method: {test_method}')
-        print('Available test methods: {test_method_keys}'.format(test_method_keys=test_methods.keys()))
+        model.train(command_config.command_name, command_config, save_each_epochs=save_each_epochs)
+    except Exception as e:
+        logging.error('Error while training with config {}'.format(command_config))
+        raise e
+
+    

@@ -1,7 +1,7 @@
 import sys
 
-def search_duplicates(file_dir, remove=False, verbose=False):
-    # type: (str, bool, bool) -> (tuple[dict, dict])
+def search_duplicates(file_dir, verbose=False):
+    # type: (str, bool) -> (tuple[dict, dict])
     words = {}
     duplicate_indexes = {}
 
@@ -25,7 +25,7 @@ def search_duplicates(file_dir, remove=False, verbose=False):
 
 if __name__ == '__main__':
     file_dir = sys.argv[1]
-    words, duplicate_indexes = search_duplicates(file_dir, remove=True)
+    words, duplicate_indexes = search_duplicates(file_dir)
     print('Duplicate indexes: {duplicate_indexes}'.format(duplicate_indexes=list(duplicate_indexes.keys())))
     with open(file_dir + '.nodup', 'w', encoding='utf-8') as f:
         for idx, word in enumerate(words.keys()):
