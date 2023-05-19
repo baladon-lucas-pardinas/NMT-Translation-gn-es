@@ -1,5 +1,5 @@
 import os
-from logger import logging
+from src.logger import logging
 from src.utils.command_handler import CommandConfig
 
 MODEL_NAME = 'MODEL_NAME'
@@ -48,7 +48,7 @@ def load_env(absolute_path=False):
     # Loads env variables
     variable_names = ENVIRONMENT_VARIABLES
     environment_variables = {
-        variable_name.lower(): os.getenv(variable_name) 
+        variable_name: os.getenv(variable_name) 
             if dotenv_installed else default_env_variables[variable_name]
         for variable_name in variable_names
     }
