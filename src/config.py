@@ -42,12 +42,20 @@ def load_env(absolute_path=False):
     return environment_variables
 
 class ProjectConfig:
-    def __init__(self, **kwargs):
-        self.base_dir_output = kwargs[BASE_DIR_OUTPUT]
-        self.base_dir_corpus = kwargs[BASE_DIR_CORPUS]
-        self.base_dir_scripts = kwargs[BASE_DIR_SCRIPTS]
-        self.base_dir_vocab = kwargs[BASE_DIR_VOCAB]
-        self.base_dir_artifacts = kwargs[BASE_DIR_ARTIFACTS]
+    def __init__(
+        self, 
+        base_dir_output,
+        base_dir_corpus, 
+        base_dir_scripts, 
+        base_dir_vocab, 
+        base_dir_artifacts
+    ):
+        # type: (str, str, str, str, str) -> None
+        self.base_dir_output = base_dir_output
+        self.base_dir_corpus = base_dir_corpus
+        self.base_dir_scripts = base_dir_scripts
+        self.base_dir_vocab = base_dir_vocab
+        self.base_dir_artifacts = base_dir_artifacts
 
     def __str__(self):
         return str(self.__dict__)
@@ -57,8 +65,20 @@ class ProjectConfig:
 
 def get_project_config ():
     # type: () -> ProjectConfig
-    return ProjectConfig(**load_env())
+    env_variables = load_env()
+    return ProjectConfig(
+        base_dir_output=env_variables[BASE_DIR_OUTPUT],
+        base_dir_corpus=env_variables[BASE_DIR_CORPUS],
+        base_dir_scripts=env_variables[BASE_DIR_SCRIPTS],
+        base_dir_vocab=env_variables[BASE_DIR_VOCAB],
+        base_dir_artifacts=env_variables[BASE_DIR_ARTIFACTS],
+    )
 
-def get_command_config(**kwargs):
-    # type: (dict) -> CommandConfig
-    return CommandConfig(**load_env(), **kwargs)
+def get_command_config(command_path, flags):
+    # type: (str, dict) -> CommandConfig
+    env_variables = load_env()
+    return CommandConfig(
+        command_name=env_variables[COMMAND_NAME],
+        command_path=command_path,
+        flags=flags,
+    )

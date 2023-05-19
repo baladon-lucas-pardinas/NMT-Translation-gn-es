@@ -19,5 +19,3 @@ if __name__ == '__main__':
     except Exception as e:
         logging.error('Error while training with config {}'.format(command_config))
         raise e
-
-    

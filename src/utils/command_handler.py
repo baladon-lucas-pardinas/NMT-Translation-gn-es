@@ -2,7 +2,7 @@ import os
 FLAG_SEPARATOR = '--'
 
 class CommandConfig:
-    def __init__(self, command_name, command_path, flags, flag_separator=FLAG_SEPARATOR, **kwargs):
+    def __init__(self, command_name, command_path, flags, flag_separator=FLAG_SEPARATOR):
         # type: (str, str, dict, str, dict) -> None
         self.command_name = command_name
         self.command_path = command_path
@@ -29,10 +29,10 @@ class CommandConfig:
         # type: () -> str
         return str(self)
 
+# Flags are a string of the form --flag1 value1 ... valueN --flag2 value1 ... valueM
+# The output dict should be like {flag1: [value1, ..., valueN], flag2: [value1, ..., valueM]}
 def parse_flags(flags, flag_separator=FLAG_SEPARATOR):
     # type: (str, str) -> dict
-    # Flags are a string of the form --flag1 value1 ... valueN --flag2 value1 ... valueM
-    # The output dict should be like {flag1: [value1, ..., valueN], flag2: [value1, ..., valueM]}
     flag_dict = {}
     flags = flags.split(flag_separator)
     for flag in flags:
@@ -45,10 +45,10 @@ def parse_flags(flags, flag_separator=FLAG_SEPARATOR):
         flag_dict[flag_name] = flag_values
     return flag_dict
 
+# Flags are a list of tuples (flag, values: list)
+# The output string should be like --flag1 value1 ... valueN --flag2 value1 ... valueM
 def create_command_flags(flags):
     # type: (dict) -> str
-    # Flags are a list of tuples (flag, values: list)
-    # The output string should be like --flag1 value1 ... valueN --flag2 value1 ... valueM
     output = ""
     flags = list(flags.items())
     for flag, values in flags:
