@@ -3,7 +3,7 @@ FLAG_SEPARATOR = '--'
 
 class CommandConfig:
     def __init__(self, command_name, command_path, flags, flag_separator=FLAG_SEPARATOR):
-        # type: (str, str, dict, str, dict) -> None
+        # type: (str, str, dict, str) -> None
         self.command_name = command_name
         self.command_path = command_path
         self.flags = flags

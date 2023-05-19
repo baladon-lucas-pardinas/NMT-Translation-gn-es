@@ -1,7 +1,8 @@
 import os
-import dotenv
+from logger import logging
 from src.utils.command_handler import CommandConfig
 
+MODEL_NAME = 'MODEL_NAME'
 COMMAND_NAME = 'COMMAND_NAME'
 BASE_DIR_OUTPUT = 'BASE_DIR_OUTPUT'
 BASE_DIR_CORPUS = 'BASE_DIR_CORPUS'
@@ -10,6 +11,7 @@ BASE_DIR_VOCAB = 'BASE_DIR_VOCAB'
 BASE_DIR_ARTIFACTS = 'BASE_DIR_ARTIFACTS'
 
 ENVIRONMENT_VARIABLES = [
+    MODEL_NAME,
     COMMAND_NAME,
     BASE_DIR_OUTPUT,
     BASE_DIR_CORPUS,
@@ -18,17 +20,36 @@ ENVIRONMENT_VARIABLES = [
     BASE_DIR_ARTIFACTS,
 ]
 
+default_env_variables = {
+    MODEL_NAME: 'marian',
+    COMMAND_NAME: 'marian',
+    BASE_DIR_OUTPUT: 'output',
+    BASE_DIR_CORPUS: 'corpus',
+    BASE_DIR_SCRIPTS: 'scripts',
+    BASE_DIR_VOCAB: 'vocab',
+    BASE_DIR_ARTIFACTS: 'artifacts',
+}
+
 def load_env(absolute_path=False):
     # type: (bool) -> dict
     # (Assumes env variables are paths)
     root_abs_dir = os.path.join(os.path.dirname(__file__), '..')
     env_abs_dir = os.path.join(root_abs_dir, '.env')
-    dotenv.load_dotenv(env_abs_dir)
+
+    # Checks if dotenv is installed
+    dotenv_installed = False
+    try:
+        import dotenv
+        dotenv.load_dotenv(env_abs_dir)
+        dotenv_installed = True
+    except:
+        logging.warning('dotenv not installed')
 
     # Loads env variables
     variable_names = ENVIRONMENT_VARIABLES
     environment_variables = {
-        variable_name.lower(): os.getenv(variable_name)
+        variable_name.lower(): os.getenv(variable_name) 
+            if dotenv_installed else default_env_variables[variable_name]
         for variable_name in variable_names
     }
 
