@@ -1,0 +1,98 @@
+[2023-05-19 17:52:23] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-19 17:52:23] [valid] First sentence's tokens as scored:
+[2023-05-19 17:52:23] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-19 17:52:23] [valid]   Hyp: El presidente Mario Abdo Benítez, en el marco del presidente Mario Abdo Benítez, en el marco del presidente Mario Abdo Benítez, en el marco del presidente del Ministerio Público en el marco del Ministerio Público en el marco del Paraguay y el Ministerio Público en el marco del país.
+[2023-05-19 17:52:23] [valid]   Ref: El escándalo causado en Taiwán por el hoy exjefe <unk> la Dirección Nacional <unk> Migraciones Julián Vega, que avergüenza a los paraguayos, revela que su nombramiento no respondió precisamente a sus cualidades morales e intelectuales, sino más bien a la necesidad <unk> retribuir con un buen cargo los votos que pudo haber logrado para el actual presidente <unk> la República, Mario Abdo Benítez, sobre todo en las elecciones internas <unk> la ANR.
+[2023-05-19 17:54:09] [valid] Ep. 11 : Up. 2906 : bleu : 0.664301 : new best
+[2023-05-19 17:56:00] [valid] Ep. 11 : Up. 2906 : chrf : 13.8332 : new best
+[2023-05-19 17:56:08] [valid] Ep. 11 : Up. 2906 : cross-entropy : 150.118 : new best
+[2023-05-19 17:57:58] [valid] Ep. 11 : Up. 2906 : translation : 0 : new best
+[2023-05-19 18:08:42] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-19 18:08:42] [valid] First sentence's tokens as scored:
+[2023-05-19 18:08:42] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-19 18:08:42] [valid]   Hyp: El presidente Mario Abdo Benítez dijo a cabo en la zona del presidente Horacio Cartes y en la sede del Ministerio Público y a la Cámara Baja por el Ministerio Público.
+[2023-05-19 18:08:42] [valid]   Ref: El escándalo causado en Taiwán por el hoy exjefe <unk> la Dirección Nacional <unk> Migraciones Julián Vega, que avergüenza a los paraguayos, revela que su nombramiento no respondió precisamente a sus cualidades morales e intelectuales, sino más bien a la necesidad <unk> retribuir con un buen cargo los votos que pudo haber logrado para el actual presidente <unk> la República, Mario Abdo Benítez, sobre todo en las elecciones internas <unk> la ANR.
+[2023-05-19 18:10:10] [valid] Ep. 21 : Up. 5814 : bleu : 0.993281 : new best
+[2023-05-19 18:11:40] [valid] Ep. 21 : Up. 5814 : chrf : 16.3294 : new best
+[2023-05-19 18:11:48] [valid] Ep. 21 : Up. 5814 : cross-entropy : 154.281 : stalled 1 times (last best: 150.118)
+[2023-05-19 18:13:15] [valid] Ep. 21 : Up. 5814 : translation : 0 : stalled 1 times (last best: 0)
+[2023-05-19 18:23:56] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-19 18:23:56] [valid] First sentence's tokens as scored:
+[2023-05-19 18:23:56] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-19 18:23:56] [valid]   Hyp: El presidente Mario Abdo Benítez firmó un comunicado en el Ministerio Público y a la Policía Nacional, mientras que los alumnos fueron beneficiados con relación a la calle Mariscal López.
+[2023-05-19 18:23:56] [valid]   Ref: El escándalo causado en Taiwán por el hoy exjefe <unk> la Dirección Nacional <unk> Migraciones Julián Vega, que avergüenza a los paraguayos, revela que su nombramiento no respondió precisamente a sus cualidades morales e intelectuales, sino más bien a la necesidad <unk> retribuir con un buen cargo los votos que pudo haber logrado para el actual presidente <unk> la República, Mario Abdo Benítez, sobre todo en las elecciones internas <unk> la ANR.
+[2023-05-19 18:25:22] [valid] Ep. 31 : Up. 8722 : bleu : 0.94615 : stalled 1 times (last best: 0.993281)
+[2023-05-19 18:26:48] [valid] Ep. 31 : Up. 8722 : chrf : 17.0948 : new best
+[2023-05-19 18:26:56] [valid] Ep. 31 : Up. 8722 : cross-entropy : 163.313 : stalled 2 times (last best: 150.118)
+[2023-05-19 18:28:21] [valid] Ep. 31 : Up. 8722 : translation : 0 : stalled 2 times (last best: 0)
+[2023-05-19 18:34:24] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-19 18:34:24] [valid] First sentence's tokens as scored:
+[2023-05-19 18:34:24] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-19 18:34:24] [valid]   Hyp: El presidente Mario Abdo Benítez dijo a cabo en la tarde por el Ministerio Público y la Unión Europea. por la avenida Mariscal López.
+[2023-05-19 18:34:24] [valid]   Ref: El escándalo causado en Taiwán por el hoy exjefe <unk> la Dirección Nacional <unk> Migraciones Julián Vega, que avergüenza a los paraguayos, revela que su nombramiento no respondió precisamente a sus cualidades morales e intelectuales, sino más bien a la necesidad <unk> retribuir con un buen cargo los votos que pudo haber logrado para el actual presidente <unk> la República, Mario Abdo Benítez, sobre todo en las elecciones internas <unk> la ANR.
+[2023-05-19 18:35:33] [valid] Ep. 35 : Up. 10000 : bleu : 0.934937 : stalled 2 times (last best: 0.993281)
+[2023-05-19 18:36:54] [valid] Ep. 35 : Up. 10000 : chrf : 16.646 : stalled 1 times (last best: 17.0948)
+[2023-05-19 18:37:02] [valid] Ep. 35 : Up. 10000 : cross-entropy : 168.286 : stalled 3 times (last best: 150.118)
+[2023-05-19 18:38:26] [valid] Ep. 35 : Up. 10000 : translation : 0 : stalled 3 times (last best: 0)
+[2023-05-19 18:45:35] [valid] Ep. 41 : Up. 11628 : bleu : 1.00003 : new best
+[2023-05-19 18:47:04] [valid] Ep. 41 : Up. 11628 : chrf : 17.7762 : new best
+[2023-05-19 18:47:12] [valid] Ep. 41 : Up. 11628 : cross-entropy : 174.214 : stalled 4 times (last best: 150.118)
+[2023-05-19 18:48:43] [valid] Ep. 41 : Up. 11628 : translation : 0 : stalled 4 times (last best: 0)
+[2023-05-19 18:59:40] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-19 18:59:40] [valid] First sentence's tokens as scored:
+[2023-05-19 18:59:40] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-19 18:59:40] [valid]   Hyp: El presidente Mario Abdo Benítez firmó un comunicado en el que adjunta un comunicado en el cual los alumnos fueron entregados por ABC Cardinal y a las 8:00 en la que atraviesa la avenida Mariscal López y para la avenida Mariscal López.
+[2023-05-19 18:59:40] [valid]   Ref: El escándalo causado en Taiwán por el hoy exjefe <unk> la Dirección Nacional <unk> Migraciones Julián Vega, que avergüenza a los paraguayos, revela que su nombramiento no respondió precisamente a sus cualidades morales e intelectuales, sino más bien a la necesidad <unk> retribuir con un buen cargo los votos que pudo haber logrado para el actual presidente <unk> la República, Mario Abdo Benítez, sobre todo en las elecciones internas <unk> la ANR.
+[2023-05-19 19:01:10] [valid] Ep. 51 : Up. 14534 : bleu : 1.01402 : new best
+[2023-05-19 19:02:43] [valid] Ep. 51 : Up. 14534 : chrf : 18.1807 : new best
+[2023-05-19 19:02:51] [valid] Ep. 51 : Up. 14534 : cross-entropy : 185.707 : stalled 5 times (last best: 150.118)
+[2023-05-19 19:04:22] [valid] Ep. 51 : Up. 14534 : translation : 0 : stalled 5 times (last best: 0)
+[2023-05-19 19:15:20] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-19 19:15:21] [valid] First sentence's tokens as scored:
+[2023-05-19 19:15:21] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-19 19:15:21] [valid]   Hyp: El Poder Ejecutivo recordó que este año estará a nivel local, en la fecha para llegar a ABC Cardinal este viernes por la Asociación Nacional Republicana y para que existe este año y contó con la avenida Mariscal López.
+[2023-05-19 19:15:21] [valid]   Ref: El escándalo causado en Taiwán por el hoy exjefe <unk> la Dirección Nacional <unk> Migraciones Julián Vega, que avergüenza a los paraguayos, revela que su nombramiento no respondió precisamente a sus cualidades morales e intelectuales, sino más bien a la necesidad <unk> retribuir con un buen cargo los votos que pudo haber logrado para el actual presidente <unk> la República, Mario Abdo Benítez, sobre todo en las elecciones internas <unk> la ANR.
+[2023-05-19 19:16:49] [valid] Ep. 61 : Up. 17442 : bleu : 1.01227 : stalled 1 times (last best: 1.01402)
+[2023-05-19 19:18:20] [valid] Ep. 61 : Up. 17442 : chrf : 18.0586 : stalled 1 times (last best: 18.1807)
+[2023-05-19 19:18:28] [valid] Ep. 61 : Up. 17442 : cross-entropy : 198.333 : stalled 6 times (last best: 150.118)
+[2023-05-19 19:19:58] [valid] Ep. 61 : Up. 17442 : translation : 0 : stalled 6 times (last best: 0)
+[2023-05-19 19:29:56] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-19 19:29:56] [valid] First sentence's tokens as scored:
+[2023-05-19 19:29:56] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-19 19:29:56] [valid]   Hyp: El Poder Ejecutivo decidió que, esta tarde en la fecha para que las intensas lluvias del Alto Paraguay y la Cámara Baja decidió servir para dar a conocer esta noche y posteriormente para tratar la ruta Mariscal López y su detención en Alto Paraná.
+[2023-05-19 19:29:56] [valid]   Ref: El escándalo causado en Taiwán por el hoy exjefe <unk> la Dirección Nacional <unk> Migraciones Julián Vega, que avergüenza a los paraguayos, revela que su nombramiento no respondió precisamente a sus cualidades morales e intelectuales, sino más bien a la necesidad <unk> retribuir con un buen cargo los votos que pudo haber logrado para el actual presidente <unk> la República, Mario Abdo Benítez, sobre todo en las elecciones internas <unk> la ANR.
+[2023-05-19 19:31:16] [valid] Ep. 69 : Up. 20000 : bleu : 0.986412 : stalled 2 times (last best: 1.01402)
+[2023-05-19 19:32:46] [valid] Ep. 69 : Up. 20000 : chrf : 18.2387 : new best
+[2023-05-19 19:32:55] [valid] Ep. 69 : Up. 20000 : cross-entropy : 209.237 : stalled 7 times (last best: 150.118)
+[2023-05-19 19:34:21] [valid] Ep. 69 : Up. 20000 : translation : 0 : stalled 7 times (last best: 0)
+[2023-05-19 19:37:09] [valid] Ep. 71 : Up. 20350 : bleu : 1.00836 : stalled 3 times (last best: 1.01402)
+[2023-05-19 19:38:44] [valid] Ep. 71 : Up. 20350 : chrf : 18.7132 : new best
+[2023-05-19 19:38:53] [valid] Ep. 71 : Up. 20350 : cross-entropy : 210.21 : stalled 8 times (last best: 150.118)
+[2023-05-19 19:40:26] [valid] Ep. 71 : Up. 20350 : translation : 0 : stalled 8 times (last best: 0)
+[2023-05-19 19:51:06] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-19 19:51:06] [valid] First sentence's tokens as scored:
+[2023-05-19 19:51:06] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-19 19:51:06] [valid]   Hyp: El anuncio del río Paraguay en contacto con ABC Color y aseguró que la institución cuenta con respecto a la calle Mariscal López y para recibir a cabo la ruta Mariscal López y la ciudadanía para solicitar en marcha la ruta Mariscal López y Coronel Núñez.
+[2023-05-19 19:51:06] [valid]   Ref: El escándalo causado en Taiwán por el hoy exjefe <unk> la Dirección Nacional <unk> Migraciones Julián Vega, que avergüenza a los paraguayos, revela que su nombramiento no respondió precisamente a sus cualidades morales e intelectuales, sino más bien a la necesidad <unk> retribuir con un buen cargo los votos que pudo haber logrado para el actual presidente <unk> la República, Mario Abdo Benítez, sobre todo en las elecciones internas <unk> la ANR.
+[2023-05-19 19:52:35] [valid] Ep. 81 : Up. 23256 : bleu : 1.00012 : stalled 4 times (last best: 1.01402)
+[2023-05-19 19:54:10] [valid] Ep. 81 : Up. 23256 : chrf : 18.4778 : stalled 1 times (last best: 18.7132)
+[2023-05-19 19:54:18] [valid] Ep. 81 : Up. 23256 : cross-entropy : 221.907 : stalled 9 times (last best: 150.118)
+[2023-05-19 19:55:49] [valid] Ep. 81 : Up. 23256 : translation : 0 : stalled 9 times (last best: 0)
+[2023-05-19 20:06:33] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-19 20:06:33] [valid] First sentence's tokens as scored:
+[2023-05-19 20:06:33] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-19 20:06:33] [valid]   Hyp: En el mismo momento en la fecha, la Itaipú Binacional realizó esta noche en la sede del Ministerio Público y que en el Paraguay fueron heridos por uno, y ciudadanos afectados por la crecida del río Paraguay en recibir a los ciudadanos corruptos, entre otras autoridades.
+[2023-05-19 20:06:33] [valid]   Ref: El escándalo causado en Taiwán por el hoy exjefe <unk> la Dirección Nacional <unk> Migraciones Julián Vega, que avergüenza a los paraguayos, revela que su nombramiento no respondió precisamente a sus cualidades morales e intelectuales, sino más bien a la necesidad <unk> retribuir con un buen cargo los votos que pudo haber logrado para el actual presidente <unk> la República, Mario Abdo Benítez, sobre todo en las elecciones internas <unk> la ANR.
+[2023-05-19 20:08:02] [valid] Ep. 91 : Up. 26165 : bleu : 0.894994 : stalled 5 times (last best: 1.01402)
+[2023-05-19 20:09:33] [valid] Ep. 91 : Up. 26165 : chrf : 18.1601 : stalled 2 times (last best: 18.7132)
+[2023-05-19 20:09:41] [valid] Ep. 91 : Up. 26165 : cross-entropy : 233.216 : stalled 10 times (last best: 150.118)
+[2023-05-19 20:11:12] [valid] Ep. 91 : Up. 26165 : translation : 0 : stalled 10 times (last best: 0)
+[2023-05-19 20:21:57] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-19 20:21:58] [valid] First sentence's tokens as scored:
+[2023-05-19 20:21:58] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-19 20:21:58] [valid]   Hyp: El decreto, que derogó con ABC Cardinal en el marco del Operativo Liberal Radical Auténtico (PLRA) (PLRA) son las Fuerzas Armadas, quien esta vez ha sido sometida a la ciudadanía y que, en Ciudad del Este.
+[2023-05-19 20:21:58] [valid]   Ref: El escándalo causado en Taiwán por el hoy exjefe <unk> la Dirección Nacional <unk> Migraciones Julián Vega, que avergüenza a los paraguayos, revela que su nombramiento no respondió precisamente a sus cualidades morales e intelectuales, sino más bien a la necesidad <unk> retribuir con un buen cargo los votos que pudo haber logrado para el actual presidente <unk> la República, Mario Abdo Benítez, sobre todo en las elecciones internas <unk> la ANR.
+[2023-05-19 20:23:24] [valid] Ep. 101 : Up. 29073 : bleu : 0.899596 : stalled 6 times (last best: 1.01402)
+[2023-05-19 20:24:57] [valid] Ep. 101 : Up. 29073 : chrf : 18.2 : stalled 3 times (last best: 18.7132)
+[2023-05-19 20:25:06] [valid] Ep. 101 : Up. 29073 : cross-entropy : 243.137 : stalled 11 times (last best: 150.118)
+[2023-05-19 20:26:37] [valid] Ep. 101 : Up. 29073 : translation : 0 : stalled 11 times (last best: 0)
