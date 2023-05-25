@@ -1,33 +1,7 @@
 import os
-FLAG_SEPARATOR = '--'
 
-class CommandConfig:
-    def __init__(self, command_name, command_path, flags, flag_separator=FLAG_SEPARATOR):
-        # type: (str, str, dict, str) -> None
-        self.command_name = command_name
-        self.command_path = command_path
-        self.flags = flags
-        self.flag_separator = flag_separator
-
-    def copy(self):
-        # type: () -> CommandConfig
-        return CommandConfig(
-            command_name=self.command_name,
-            command_path=self.command_path,
-            flags=self.flags,
-        )
-    
-    def __str__(self):
-        # type: () -> str
-        return "CommandConfig(command_name={}, command_path={}, flags={})".format(
-            self.command_name,
-            self.command_path,
-            self.flags
-        )
-    
-    def __repr__(self):
-        # type: () -> str
-        return str(self)
+from src.config.command_config import CommandConfig, \
+    FLAG_SEPARATOR
 
 # Flags are a string of the form --flag1 value1 ... valueN --flag2 value1 ... valueM
 # The output dict should be like {flag1: [value1, ..., valueN], flag2: [value1, ..., valueM]}

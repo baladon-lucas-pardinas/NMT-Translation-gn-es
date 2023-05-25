@@ -1,0 +1,6 @@
+{
+    "model_name": "marian",
+    "command_name": "marian",
+    "base_dir_scripts": "./scripts",
+    "base_dir_artifacts": "./artifacts"
+}

@@ -1,0 +1,1 @@
+python main.py marian 5 --train-sets artifacts\\data\\train\\train_gn.txt artifacts\\data\\train\\train_es.txt --valid-sets artifacts/data/validation/valid_gn.txt artifacts/data/validation/valid_es.txt
