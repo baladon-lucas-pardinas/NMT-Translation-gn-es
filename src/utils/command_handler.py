@@ -9,6 +9,7 @@ def parse_flags(flags, flag_separator=FLAG_SEPARATOR):
     # type: (str, str) -> dict
     flag_dict = {}
     flags = flags.split(flag_separator)
+    print(flags)
     for flag in flags:
         flag = flag.strip()
         if flag == "":

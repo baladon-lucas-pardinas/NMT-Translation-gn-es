@@ -1,1 +1,1 @@
-python -m unittest tests.regression.ingestion
+python -m unittest tests.regression.ingestion_test

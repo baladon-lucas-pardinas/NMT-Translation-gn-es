@@ -1,1 +1,1 @@
-python main.py marian 5 --train-sets artifacts\\data\\train\\train_gn.txt artifacts\\data\\train\\train_es.txt --valid-sets artifacts/data/validation/valid_gn.txt artifacts/data/validation/valid_es.txt
+python main.py --command-path marian --save-each-epochs 5 --ingest --flags "--vocabs artifacts\\data\\vocabulary\\gn_unique_tokens.txt artifacts\\data\\vocabulary\\es_unique_tokens.txt --train-sets artifacts\\data\\train\\train_gn.txt artifacts\\data\\train\\train_es.txt --valid-sets artifacts/data/validation/valid_gn.txt artifacts/data/validation/valid_es.txt"
