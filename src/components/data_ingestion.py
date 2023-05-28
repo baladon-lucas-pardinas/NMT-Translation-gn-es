@@ -75,13 +75,17 @@ def __create_vocabularies(data_ingestion_config, column_to_ingest, train_vocab_o
         
         train_column = data_ingestion_config.raw_data_train_column
         splits = {
-            train_column: {'data': set(default_vocabulary), 'file': train_vocab_f, 'count': 0},
+            train_column: {'data': set(), 'file': train_vocab_f, 'count': 0},
         }
 
         reader = csv.reader(raw_f)
         columns = next(reader)
         column_to_clean_index = columns.index(column_to_ingest)
         split_column_index = columns.index(data_ingestion_config.raw_data_split_column)
+
+        # Default vocabulary should be written first.
+        for word in default_vocabulary:
+            splits[train_column]['file'].write(word + '\n')
 
         for row in reader:
             split = row[split_column_index]

@@ -3,7 +3,9 @@ import os
 
 from src.config.ingestion_config import get_data_ingestion_config
 from src.components.data_ingestion import ingest_data
+from src.components.search_duplicates import search_duplicates
 
+# TODO: Test if there are empty lines or the default vocabulary is not at the beginning of the file
 class TestIngestion(unittest.TestCase):
     def setUp(self) -> None:
         pass
@@ -26,12 +28,18 @@ class TestIngestion(unittest.TestCase):
             self.fail("Ingestion failed with exception {}".format(e))
 
         should_exist_paths = [train_output_dir, validation_output_dir, test_output_dir, vocab_output_dir]
+        vocabulary_indexes = [should_exist_paths.index(vocab_output_dir)]
         should_exist_paths = [path + '.' + column_to_ingest for path in should_exist_paths]
         
         for path in should_exist_paths:
             if not os.path.exists(path):
                 self.fail("Ingestion failed to create file {}".format(path))
             else:
+                for index in vocabulary_indexes:
+                    vocabulary_path = should_exist_paths[index]
+                    _, duplicate_indexes = search_duplicates(vocabulary_path, verbose=False)
+                    if len(duplicate_indexes.keys()) > 0:
+                        self.fail("Ingestion created duplicate word in file {}".format(path))
                 os.remove(path)
 
 def main():
