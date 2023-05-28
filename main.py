@@ -10,8 +10,8 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--command-path', type=str, required=True)
     parser.add_argument('--save-each-epochs', type=int, required=False)
-    parser.add_argument('--ingest', action=argparse.BooleanOptionalAction, required=False, default=False)
-    parser.add_argument('--train', action=argparse.BooleanOptionalAction, required=False, default=False)
+    parser.add_argument('--ingest', action='store_true', required=False, default=False)
+    parser.add_argument('--train', action='store_true', required=False, default=False)
     parser.add_argument('--flags', type=str, required=True)
     return vars(parser.parse_args())
 
