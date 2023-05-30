@@ -2,6 +2,8 @@ import csv
 
 from src.config.ingestion_config import DataIngestionConfig
 from src.logger import logging
+from src.components.processing import tokenizer
+
 
 # TODO: This shouldn't be dependent on the model
 DEFAULT_VOCABULARY = ['<s>', '</s>', '<unk>']
@@ -58,17 +60,16 @@ def __split_dataset(data_ingestion_config, column_to_clean, train_output, valida
         logging.info("Test data count: {}".format(splits[test_column]['count']))
     logging.info("Ingestion complete.")
 
-def __tokenize(text):
-    # type: (str) -> list
-    text = text.split()
-    text = [word.strip() for word in text]
-    return text
-
 def __create_vocabularies(data_ingestion_config, column_to_ingest, train_vocab_output, default_vocabulary=[]):
     # type: (DataIngestionConfig, str, str, list) -> None
     logging.info("Creating vocabulary from {}...".format(data_ingestion_config.raw_data_dir))
     train_vocab_output_path = train_vocab_output + '.' + column_to_ingest
     logging.info("Writing train vocabulary to {}...".format(train_vocab_output_path))
+
+    error = tokenizer.check_tokenizer_module()
+    if error:
+        logging.error("Tokenizer module not found.")
+        logging.error("Using whitespace tokenizer.")
 
     with open(data_ingestion_config.raw_data_file_path, 'r', encoding='utf-8') as raw_f, \
             open(train_vocab_output_path, 'w', encoding='utf-8') as train_vocab_f:
@@ -92,7 +93,7 @@ def __create_vocabularies(data_ingestion_config, column_to_ingest, train_vocab_o
 
             if split == train_column:
                 text = row[column_to_clean_index]
-                tokenized_text = __tokenize(text)
+                tokenized_text = tokenizer.tokenize(text)
                 splits[split]['count'] += len(tokenized_text)
                 splits[split]['data'].update(tokenized_text)
 

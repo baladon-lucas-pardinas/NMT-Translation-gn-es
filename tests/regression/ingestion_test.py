@@ -3,7 +3,7 @@ import os
 
 from src.config.ingestion_config import get_data_ingestion_config
 from src.components.data_ingestion import ingest_data
-from src.components.search_duplicates import search_duplicates
+from src.components.processing.search_duplicates import search_duplicates
 
 # TODO: Test if there are empty lines or the default vocabulary is not at the beginning of the file
 class TestIngestion(unittest.TestCase):

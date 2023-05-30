@@ -1,6 +1,10 @@
 # Corpora
 #*/data/ TODO: make data dynamically generated
 
+# Pickled objects
+*.p
+*.pkl
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
