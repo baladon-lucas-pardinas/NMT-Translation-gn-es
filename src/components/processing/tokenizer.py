@@ -4,12 +4,6 @@ import os
 __spacy_module = None
 __nlp = None
 
-MAIL_TOKEN = '<MAIL>'
-URL_TOKEN = '<URL>'
-NUMBER_TOKEN = '<NUMBER>'
-FLOAT_NUMBER = NUMBER_TOKEN
-IP_TOKEN = NUMBER_TOKEN
-
 # Normalize raw text
 # Normalize "pusó" symbols (https://es.wikipedia.org/wiki/Alfabeto_guaran%C3%AD) 
 def clean_text(text):
@@ -31,8 +25,9 @@ def clean_text(text):
 # Convert non-characters to blank space
 def clean_token(token):
     # type: (str) -> str
-    token = re.sub(' ','',token)
-    token = re.sub('\n|\t|\.|,|%|-','',token)
+    token = token.strip()
+    #token = re.sub(' ','',token)
+    #token = re.sub('\n|\t|\.|,|%|-','',token)
     return token
     
 def check_tokenizer_module():
@@ -72,6 +67,6 @@ def tokenize(text):
                 tokens.append(cleaned_token)
     else:
         text = clean_text(text)
-        tokens = [token for token in text.split()]
+        tokens = [token.strip() for token in text.split()]
 
     return tokens
