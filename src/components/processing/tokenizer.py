@@ -60,7 +60,7 @@ def check_tokenizer_module():
 def tokenize(text):
     # type: (str) -> list
     tokens = []
-    text = clean_text(text)
+    #text = clean_text(text)
 
     global __spacy_module
     if __spacy_module is not None:

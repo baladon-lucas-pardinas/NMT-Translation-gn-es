@@ -66,7 +66,7 @@ def __create_vocabularies(data_ingestion_config, column_to_ingest, train_vocab_o
     train_vocab_output_path = train_vocab_output + '.' + column_to_ingest
     logging.info("Writing train vocabulary to {}...".format(train_vocab_output_path))
 
-    error = tokenizer.check_tokenizer_module()
+    error = not tokenizer.check_tokenizer_module()
     if error:
         logging.error("Tokenizer module not found.")
         logging.error("Using whitespace tokenizer.")

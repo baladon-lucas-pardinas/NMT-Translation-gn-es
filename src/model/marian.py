@@ -27,7 +27,7 @@ def train(config, save_each_epochs=None):
     after_epochs = int(after_epochs)
     artificial_epochs = after_epochs // save_each_epochs
     for i in range(artificial_epochs):
-        current_after_epochs = artificial_epochs * (i + 1)
+        current_after_epochs = save_each_epochs * (i + 1)
         marian_config.flags['after-epochs'] = [str(current_after_epochs)]
         command = command_handler.create_command(marian_config)
         process_manager.run_command(command)
