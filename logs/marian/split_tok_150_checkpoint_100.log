@@ -1,0 +1,170 @@
+[2023-05-31 12:53:25] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 12:53:25] [valid] First sentence's tokens as scored:
+[2023-05-31 12:53:25] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 12:53:25] [valid]   Hyp: En el marco de la ciudadanía en el marco de la ciudadanía en el marco de la ciudadanía en el marco de la ciudadanía en el marco de la ciudadanía en el marco de la ciudadanía en el marco de la ciudadanía en el marco de la ciudadanía en el país en el que no se encuentran en el marco de la ciudadanía en el país en el que no se encuentran en el marco de la lengua guaraní en el marco de la lengua guaraní en el país en el que se puede ser de las personas que se encuentran en el que no se encuentran en el país en el marco de la lengua guaraní en el que no se encuentran en el país en el país en el país en el que se puede ser en el que no se encuentran en el país en el país en el que no se encuentran en el país en el que se puede ser en el que no se encuentran en el país en el país en el que no se encuentran en el país en el país
+[2023-05-31 12:53:25] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 12:56:16] [valid] Ep. 11 : Up. 2968 : bleu : 0.753966 : new best
+[2023-05-31 12:59:08] [valid] Ep. 11 : Up. 2968 : chrf : 15.0711 : new best
+[2023-05-31 12:59:15] [valid] Ep. 11 : Up. 2968 : cross-entropy : 105.698 : new best
+[2023-05-31 12:59:21] [valid] Ep. 11 : Up. 2968 : perplexity : 137.998 : new best
+[2023-05-31 12:59:24] [valid] Ep. 11 : Up. 2968 : valid-script : 0 : new best
+[2023-05-31 13:08:38] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 13:08:38] [valid] First sentence's tokens as scored:
+[2023-05-31 13:08:38] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 13:08:38] [valid]   Hyp: En cuanto a las personas que se trata de la construcción de la ciudadanía en el marco de la ciudadanía en el marco de la ciudadanía en el marco de la construcción de la traducción en la que se encuentran en el marco de la situación de la casa de la casa de la casa de la casa de la casa de la Corte a través de la casa de la casa de la Dirección General de Educación Pública y en la mayoría de la que se puede acceder a la vida de la situación de la ciudad de la ciudad de la ciudad de la administración de la Dirección Nacional de Lenguas en la ciudad de la ciudad de la administración de la Universidad Nacional de febrero de la ciudad en el ámbito de la Dirección Nacional de Lenguas en la ciudad de la ciudad de la administración de la Dirección General de Educación para la ciudad de la administración de la Dirección General de Educación de la Universidad Nacional de la ciudad de la administración de la Dirección General de la Universidad Nacional de la ciudad de
+[2023-05-31 13:08:38] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 13:11:28] [valid] Ep. 21 : Up. 5933 : bleu : 0.919478 : new best
+[2023-05-31 13:14:20] [valid] Ep. 21 : Up. 5933 : chrf : 18.0336 : new best
+[2023-05-31 13:14:27] [valid] Ep. 21 : Up. 5933 : cross-entropy : 108.136 : stalled 1 times (last best: 105.698)
+[2023-05-31 13:14:34] [valid] Ep. 21 : Up. 5933 : perplexity : 154.614 : stalled 1 times (last best: 137.998)
+[2023-05-31 13:14:37] [valid] Ep. 21 : Up. 5933 : valid-script : 0 : stalled 1 times (last best: 0)
+[2023-05-31 13:23:48] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 13:23:48] [valid] First sentence's tokens as scored:
+[2023-05-31 13:23:48] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 13:23:48] [valid]   Hyp: En cuanto a los datos que se dieron a disposición de los niños y en los últimos días se encuentran en el país en el país donde se encuentran en las mujeres y a los que se dieron en cuenta con el país a través de una de las cuales se encuentran en cuenta con el pago del país con la oferta en la administración de la Dirección General de Educación para el cargo de la casa es de un total de los países del país no es lo que se debe a una de las naftas por lo que se debe a su cargo por lo que se ha dado por lo que se debe a una de las naftas por lo que se debe a una de las naftas en los medios del país con lo que se ha convertido en cuenta con lo que se debe a su cargo por lo que se debe a lo que se ha convertido en los medios del Fondo Nacional de Educación para el cargo de la casa del español en los países de la casa del interior de la
+[2023-05-31 13:23:48] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 13:26:37] [valid] Ep. 31 : Up. 8898 : bleu : 0.90243 : stalled 1 times (last best: 0.919478)
+[2023-05-31 13:29:28] [valid] Ep. 31 : Up. 8898 : chrf : 19.5935 : new best
+[2023-05-31 13:29:35] [valid] Ep. 31 : Up. 8898 : cross-entropy : 119.262 : stalled 2 times (last best: 105.698)
+[2023-05-31 13:29:42] [valid] Ep. 31 : Up. 8898 : perplexity : 259.706 : stalled 2 times (last best: 137.998)
+[2023-05-31 13:29:45] [valid] Ep. 31 : Up. 8898 : valid-script : 0 : stalled 2 times (last best: 0)
+[2023-05-31 13:33:17] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 13:33:17] [valid] First sentence's tokens as scored:
+[2023-05-31 13:33:17] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 13:33:17] [valid]   Hyp: En cuanto a los datos que se dieron a disposición del Ministerio de Salud Pública y escapó en las mujeres en el país a pesar de que el Estado no se ha dado a pesar de la construcción de la casa de la casa de la casa de la casa de la casa de la casa de la casa es de la muerte a la casa del español a través de la Dirección Nacional de Educación General de la Universidad Nacional de Asunción para la oferta en la administración de la Corte a pesar de lo que va a pesar de lo que se debe a lo largo como presidente de la Dirección General de Educación para el cargo de la Dirección General de Educación es de la casa de la casa del español en los últimos de la ciudad para la venta de lo que se debe a lo largo como titular de la Dirección General de Educación para el cargo de la Dirección General de Educación es de la casa de la casa del español en los últimos de la casa del presidente de la casa del
+[2023-05-31 13:33:17] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 13:36:06] [valid] Ep. 34 : Up. 10000 : bleu : 0.984389 : new best
+[2023-05-31 13:38:56] [valid] Ep. 34 : Up. 10000 : chrf : 19.9284 : new best
+[2023-05-31 13:39:03] [valid] Ep. 34 : Up. 10000 : cross-entropy : 120.927 : stalled 3 times (last best: 105.698)
+[2023-05-31 13:39:09] [valid] Ep. 34 : Up. 10000 : perplexity : 280.676 : stalled 3 times (last best: 137.998)
+[2023-05-31 13:39:12] [valid] Ep. 34 : Up. 10000 : valid-script : 0 : stalled 3 times (last best: 0)
+[2023-05-31 13:47:44] [valid] Ep. 41 : Up. 11864 : bleu : 1.06917 : new best
+[2023-05-31 13:50:38] [valid] Ep. 41 : Up. 11864 : chrf : 20.7317 : new best
+[2023-05-31 13:50:45] [valid] Ep. 41 : Up. 11864 : cross-entropy : 127.924 : stalled 4 times (last best: 105.698)
+[2023-05-31 13:50:51] [valid] Ep. 41 : Up. 11864 : perplexity : 388.92 : stalled 4 times (last best: 137.998)
+[2023-05-31 13:50:54] [valid] Ep. 41 : Up. 11864 : valid-script : 0 : stalled 4 times (last best: 0)
+[2023-05-31 14:00:14] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 14:00:14] [valid] First sentence's tokens as scored:
+[2023-05-31 14:00:14] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 14:00:14] [valid]   Hyp: De acuerdo a los datos nacionales y que el Ministerio de Obras Públicas refieren que a pesar de los niños y los miembros del Estado no se les permite el traslado de la diferencia para el presidente de la Dirección Nacional de pasaje en lo que le dieron a pesar de que se trata de la diferencia por parte de la Dirección Nacional de Estado en la Dirección Nacional para los colonizadores de la Dirección General de Educación SA de la casa para los damnificados por la Secretaría de Desarrollo Nacional para la Administración Nacional para la venta del Fondo Nacional para la diferencia con la pérdida de investidura por parte general de la Dirección General de Educación Superior para la Dirección Nacional para la venta del presidente de la Dirección Nacional de Educación para toda la Dirección Nacional para la Dirección Nacional general de la casa para la diferencia de la Dirección Nacional de Diputados
+[2023-05-31 14:00:14] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 14:03:03] [valid] Ep. 51 : Up. 14829 : bleu : 1.04739 : stalled 1 times (last best: 1.06916)
+[2023-05-31 14:05:54] [valid] Ep. 51 : Up. 14829 : chrf : 21.4614 : new best
+[2023-05-31 14:06:01] [valid] Ep. 51 : Up. 14829 : cross-entropy : 140.878 : stalled 5 times (last best: 105.698)
+[2023-05-31 14:06:07] [valid] Ep. 51 : Up. 14829 : perplexity : 711.38 : stalled 5 times (last best: 137.998)
+[2023-05-31 14:06:11] [valid] Ep. 51 : Up. 14829 : valid-script : 0 : stalled 5 times (last best: 0)
+[2023-05-31 14:15:39] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 14:15:39] [valid] First sentence's tokens as scored:
+[2023-05-31 14:15:39] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 14:15:39] [valid]   Hyp: En ese sentido manifestó que los niños y jóvenes son necesarios para los damnificados por los damnificados por la Dirección Nacional de Caacupé y a lo largo de lo contrario es lo que va a permitir que el presidente no debe a lo largo es el traslado de lo referente a lo largo de la diferencia de Horacio Cartes y a lo contó con el ingreso a lo referente a los damnificados del presidente de la Dirección Nacional de Caacupé para el traslado de lo que va a pesar por los damnificados es el presidente de la Dirección Nacional general de Brasil en la mano jurídica en Paraguay y a los damnificados por el presidente de la Dirección Nacional de Educación De todos los festivales por la situación general de la casa para la diferencia de lo contrario de la Entidad Binacional se dirigieron hasta toda la ciudad para lograr la diferencia con la Dirección General de Francia en contra de febrero a lo que no se trata de la diferencia para los damnificados por la Secretaría de Desarrollo Nacional para la Jefatura general de la Dirección Nacional de
+[2023-05-31 14:15:39] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 14:18:28] [valid] Ep. 61 : Up. 17795 : bleu : 1.02891 : stalled 2 times (last best: 1.06916)
+[2023-05-31 14:21:23] [valid] Ep. 61 : Up. 17795 : chrf : 21.9157 : new best
+[2023-05-31 14:21:30] [valid] Ep. 61 : Up. 17795 : cross-entropy : 153.585 : stalled 6 times (last best: 105.698)
+[2023-05-31 14:21:37] [valid] Ep. 61 : Up. 17795 : perplexity : 1286.35 : stalled 6 times (last best: 137.998)
+[2023-05-31 14:21:40] [valid] Ep. 61 : Up. 17795 : valid-script : 0 : stalled 6 times (last best: 0)
+[2023-05-31 14:28:45] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 14:28:45] [valid] First sentence's tokens as scored:
+[2023-05-31 14:28:45] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 14:28:45] [valid]   Hyp: De acuerdo a los datos relacionados con el ingreso a los productores de la SEN en el departamento general y dijo que a los niños del Estado no condice con la situación general de obligaciones con uno de los responsables de la casa para el traslado de la diferencia de Horacio Cartes y a lo tanto el titular de lo que debe a uno de los miembros es la pérdida de despacho de la Entidad Binacional Cartes en lo cual es lo que va a parte del presidente de la Dirección Nacional de Caacupé para la pérdida de investidura por parte general de la Dirección General de Educación General de la casa para los damnificados por la Secretaría de Desarrollo Nacional de la Dirección Nacional no lleva a uno es los damnificados por los damnificados de la Secretaría de Emergencia Nacional para la muerte general de la muerte para la muerte general de la muerte para la diferencia del presidente de la Dirección General de Educación Financiera para la economía de la casa no de la diferencia para el presidente de la Dirección Nacional de Educación General de la
+[2023-05-31 14:28:45] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 14:31:38] [valid] Ep. 68 : Up. 20000 : bleu : 1.06849 : stalled 3 times (last best: 1.06916)
+[2023-05-31 14:34:31] [valid] Ep. 68 : Up. 20000 : chrf : 21.9648 : new best
+[2023-05-31 14:34:37] [valid] Ep. 68 : Up. 20000 : cross-entropy : 161.991 : stalled 7 times (last best: 105.698)
+[2023-05-31 14:34:44] [valid] Ep. 68 : Up. 20000 : perplexity : 1903.47 : stalled 7 times (last best: 137.998)
+[2023-05-31 14:34:47] [valid] Ep. 68 : Up. 20000 : valid-script : 0 : stalled 7 times (last best: 0)
+[2023-05-31 14:39:55] [valid] Ep. 71 : Up. 20760 : bleu : 1.02775 : stalled 4 times (last best: 1.06916)
+[2023-05-31 14:42:50] [valid] Ep. 71 : Up. 20760 : chrf : 22.1685 : new best
+[2023-05-31 14:42:57] [valid] Ep. 71 : Up. 20760 : cross-entropy : 164.904 : stalled 8 times (last best: 105.698)
+[2023-05-31 14:43:03] [valid] Ep. 71 : Up. 20760 : perplexity : 2180.33 : stalled 8 times (last best: 137.998)
+[2023-05-31 14:43:06] [valid] Ep. 71 : Up. 20760 : valid-script : 0 : stalled 8 times (last best: 0)
+[2023-05-31 14:52:31] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 14:52:31] [valid] First sentence's tokens as scored:
+[2023-05-31 14:52:31] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 14:52:31] [valid]   Hyp: De acuerdo a los datos y sanción el cambio de agricultores acerca de todos los niños y movimientos de la región se encuentran en contra los alumnos del presidente Mario IPS es acompañado de acuerdo con la nivelación a favor de los niños de la Dirección Nacional de Caacupé para contar con el presidente y finalmente la diferencia de uno es lo resolvieron no a pesar de no contó con lo tanto a lo referente a los damnificados por la Dirección de Fiscalización Rural y de Caacupé para ocupar más de los colonizadores y la liberación es la ampliación de la Dirección General de Educación Superior de Ciudad De Salud para trabajar la diferencia con los damnificados por la Entidad Binacional Central a la Dirección Nacional baja de la casa de quienes es lo referente a los damnificados por lo referente es los damnificados por la Vivienda y el presidente de la Dirección Nacional de Diputados
+[2023-05-31 14:52:31] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 14:55:20] [valid] Ep. 81 : Up. 23727 : bleu : 1.06932 : new best
+[2023-05-31 14:58:15] [valid] Ep. 81 : Up. 23727 : chrf : 22.1634 : stalled 1 times (last best: 22.1685)
+[2023-05-31 14:58:22] [valid] Ep. 81 : Up. 23727 : cross-entropy : 176.965 : stalled 9 times (last best: 105.698)
+[2023-05-31 14:58:29] [valid] Ep. 81 : Up. 23727 : perplexity : 3825.54 : stalled 9 times (last best: 137.998)
+[2023-05-31 14:58:32] [valid] Ep. 81 : Up. 23727 : valid-script : 0 : stalled 9 times (last best: 0)
+[2023-05-31 15:07:57] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 15:07:57] [valid] First sentence's tokens as scored:
+[2023-05-31 15:07:57] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 15:07:57] [valid]   Hyp: De acuerdo a los datos relacionados con todos los alumnos que llegan a todos los municipios y alumnos en contra de los niños del país ya se les otorgan a los niños y otros datos a presidente de la Asociación de Docentes de la Presidencia de la ciudad para el costo inicial de lo referente es los damnificados por el presidente Mario Abdo Benítez y la diferencia de las más directivas de la Dirección Nacional
+[2023-05-31 15:07:57] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 15:10:53] [valid] Ep. 91 : Up. 26693 : bleu : 0.957272 : stalled 1 times (last best: 1.06932)
+[2023-05-31 15:13:52] [valid] Ep. 91 : Up. 26693 : chrf : 22.4223 : new best
+[2023-05-31 15:13:59] [valid] Ep. 91 : Up. 26693 : cross-entropy : 184.352 : stalled 10 times (last best: 105.698)
+[2023-05-31 15:14:06] [valid] Ep. 91 : Up. 26693 : perplexity : 5398.12 : stalled 10 times (last best: 137.998)
+[2023-05-31 15:14:09] [valid] Ep. 91 : Up. 26693 : valid-script : 0 : stalled 10 times (last best: 0)
+[2023-05-31 15:23:37] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 15:23:38] [valid] First sentence's tokens as scored:
+[2023-05-31 15:23:38] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 15:23:38] [valid]   Hyp: De acuerdo a los datos y audios sobre problemas en diferentes puntos como cada uno de los miembros de la recuperación de los transportistas visitaron el Paraguay y a lo tanto es un acuerdo con la diferencia de lo que debe ser incluido por lo referente es los damnificados por el presidente Mario presidente y presidente de la Educación de Horacio Cartes y no es posible no solamente con lo bueno debe también por lo referente es finalmente desde el presidente Horacio Cartes y dentro de la Dirección Nacional baja de la casa no es válido para ver con lo referente a los deseos de la prensa es la diferencia de lo cual estuvo a continuación es la diferencia de lo cual es el monto de la casa con lo referente de toda uno de los miembros de la Dirección General Central y a la Dirección Nacional Central llegó a pesar de todos los alumnos del presidente de la soberanía general de esta ciudad de lo tanto de toda uno es los responsables de la diferencia para el titular de la Dirección Nacional de Misiones
+[2023-05-31 15:23:38] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 15:26:31] [valid] Ep. 101 : Up. 29659 : bleu : 1.04165 : stalled 2 times (last best: 1.06932)
+[2023-05-31 15:29:29] [valid] Ep. 101 : Up. 29659 : chrf : 22.3872 : stalled 1 times (last best: 22.4223)
+[2023-05-31 15:29:35] [valid] Ep. 101 : Up. 29659 : cross-entropy : 195.139 : stalled 11 times (last best: 105.698)
+[2023-05-31 15:29:42] [valid] Ep. 101 : Up. 29659 : perplexity : 8925.57 : stalled 11 times (last best: 137.998)
+[2023-05-31 15:29:45] [valid] Ep. 101 : Up. 29659 : valid-script : 0 : stalled 11 times (last best: 0)
+[2023-05-31 15:30:59] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 15:30:59] [valid] First sentence's tokens as scored:
+[2023-05-31 15:30:59] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 15:30:59] [valid]   Hyp: De acuerdo a los datos relacionados con el cambio de declaración acerca de todos los niños y jóvenes son las siguientes técnicas a pesar de cómo se vieron afectados así como uno de los no participaron en lo que va de acuerdo a lo que va a lo tanto es el titular de lo referente es la diferencia de todos los tales como presidente general y dijeron que es posible lo que le dieron a pesar de lo referente es los damnificados por el presidente de la Dirección de Estado tras la supervisión de lo largo es un largo particular y no cuenta con lo referente a las largo general y dijo a pesar de la apertura del presidente de la Dirección Nacional Central para la Entidad de Tránsito
+[2023-05-31 15:30:59] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 15:33:50] [valid] Ep. 102 : Up. 30000 : bleu : 0.997252 : stalled 3 times (last best: 1.06932)
+[2023-05-31 15:36:50] [valid] Ep. 102 : Up. 30000 : chrf : 22.5012 : new best
+[2023-05-31 15:36:57] [valid] Ep. 102 : Up. 30000 : cross-entropy : 195.144 : stalled 12 times (last best: 105.698)
+[2023-05-31 15:37:04] [valid] Ep. 102 : Up. 30000 : perplexity : 8927.82 : stalled 12 times (last best: 137.998)
+[2023-05-31 15:37:07] [valid] Ep. 102 : Up. 30000 : valid-script : 0 : stalled 12 times (last best: 0)
+[2023-05-31 15:48:20] [valid] Ep. 111 : Up. 32628 : bleu : 0.949177 : stalled 4 times (last best: 1.06932)
+[2023-05-31 15:51:16] [valid] Ep. 111 : Up. 32628 : chrf : 22.344 : stalled 1 times (last best: 22.5012)
+[2023-05-31 15:51:23] [valid] Ep. 111 : Up. 32628 : cross-entropy : 202.75 : stalled 13 times (last best: 105.698)
+[2023-05-31 15:51:30] [valid] Ep. 111 : Up. 32628 : perplexity : 12727.1 : stalled 13 times (last best: 137.998)
+[2023-05-31 15:51:33] [valid] Ep. 111 : Up. 32628 : valid-script : 0 : stalled 13 times (last best: 0)
+[2023-05-31 16:01:00] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 16:01:00] [valid] First sentence's tokens as scored:
+[2023-05-31 16:01:00] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 16:01:00] [valid]   Hyp: Así lo recalcó y si los paraguayos son de grandes proporciones se registraron en los alrededores de la población indígena y inclusive gracias a los últimos de abril a lo largo del presidente y presidente de Horacio Cartes y la diferencia es aún no solo vamos a hacer llegar a lo largo del presidente y presidente de presidente del Brasil con un motivo de lo bueno es trasladado a un balance de Horacio Cartes y a quien les trata de uno no les permite presentar a lo largo del presidente y presidente de presidente ciudad de España ciudad para allí a pesar de los docentes es uno de los miembros de la Dirección Nacional
+[2023-05-31 16:01:00] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 16:03:49] [valid] Ep. 121 : Up. 35593 : bleu : 0.992158 : stalled 5 times (last best: 1.06932)
+[2023-05-31 16:06:44] [valid] Ep. 121 : Up. 35593 : chrf : 22.5432 : new best
+[2023-05-31 16:06:52] [valid] Ep. 121 : Up. 35593 : cross-entropy : 210.378 : stalled 14 times (last best: 105.698)
+[2023-05-31 16:07:00] [valid] Ep. 121 : Up. 35593 : perplexity : 18161.3 : stalled 14 times (last best: 137.998)
+[2023-05-31 16:07:03] [valid] Ep. 121 : Up. 35593 : valid-script : 0 : stalled 14 times (last best: 0)
+[2023-05-31 16:16:31] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 16:16:31] [valid] First sentence's tokens as scored:
+[2023-05-31 16:16:31] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 16:16:31] [valid]   Hyp: De acuerdo a los datos y audios sobre problemas en diferentes puntos como cada uno de los médicos y las siguientes técnicas hechas por el presidente y Mario Abdo Benítez para llamar a ir y destrabar la diferencia para según es uno de los docentes de la Dirección Nacional general en la Dirección Nacional para presentar uno de quienes es lo que les permite presentar a lo largo del presidente y presidente de San Pedro de la Dirección Nacional de Industria De uno a lo largo es uno de quienes tendrá uno de los miembros de la Dirección Nacional
+[2023-05-31 16:16:31] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 16:19:25] [valid] Ep. 131 : Up. 38558 : bleu : 1.02961 : stalled 6 times (last best: 1.06932)
+[2023-05-31 16:22:20] [valid] Ep. 131 : Up. 38558 : chrf : 22.5159 : stalled 1 times (last best: 22.5432)
+[2023-05-31 16:22:27] [valid] Ep. 131 : Up. 38558 : cross-entropy : 216.771 : stalled 15 times (last best: 105.698)
+[2023-05-31 16:22:34] [valid] Ep. 131 : Up. 38558 : perplexity : 24467.5 : stalled 15 times (last best: 137.998)
+[2023-05-31 16:22:38] [valid] Ep. 131 : Up. 38558 : valid-script : 0 : stalled 15 times (last best: 0)
+[2023-05-31 16:27:20] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 16:27:20] [valid] First sentence's tokens as scored:
+[2023-05-31 16:27:20] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 16:27:20] [valid]   Hyp: De acuerdo a los datos y audios sobre problemas en diferentes puntos como los docentes ya llegó a Paraguay y a quienes vienen las nuevas pérdidas de si eso es lo que ir y les informó la definición en el 2018 con el presidente Horacio Cartes y de uno de compatriotas cuando también tendrá solo a lo largo del presidente y presidente de presidente del Paraguay con uno de allí es uno de los docentes es un posible titular de uno de los miembros de la Dirección General de Educación
+[2023-05-31 16:27:20] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 16:30:10] [valid] Ep. 135 : Up. 40000 : bleu : 1.01647 : stalled 7 times (last best: 1.06932)
+[2023-05-31 16:33:06] [valid] Ep. 135 : Up. 40000 : chrf : 22.5088 : stalled 2 times (last best: 22.5432)
+[2023-05-31 16:33:13] [valid] Ep. 135 : Up. 40000 : cross-entropy : 219.139 : stalled 16 times (last best: 105.698)
+[2023-05-31 16:33:20] [valid] Ep. 135 : Up. 40000 : perplexity : 27322.9 : stalled 16 times (last best: 137.998)
+[2023-05-31 16:33:23] [valid] Ep. 135 : Up. 40000 : valid-script : 0 : stalled 16 times (last best: 0)
+[2023-05-31 16:40:57] [valid] Ep. 141 : Up. 41524 : bleu : 1.00319 : stalled 8 times (last best: 1.06932)
+[2023-05-31 16:43:53] [valid] Ep. 141 : Up. 41524 : chrf : 22.5449 : new best
+[2023-05-31 16:44:00] [valid] Ep. 141 : Up. 41524 : cross-entropy : 220.038 : stalled 17 times (last best: 105.698)
+[2023-05-31 16:44:07] [valid] Ep. 141 : Up. 41524 : perplexity : 28491.7 : stalled 17 times (last best: 137.998)
+[2023-05-31 16:44:21] [valid] Ep. 141 : Up. 41524 : valid-script : 0 : stalled 17 times (last best: 0)
+[2023-05-31 16:53:45] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-31 16:53:45] [valid] First sentence's tokens as scored:
+[2023-05-31 16:53:45] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-31 16:53:45] [valid]   Hyp: De acuerdo a los menores jóvenes están relacionados con este lunes con el enfoque y dotar de las fuerzas de votación con apenas allí también como lo que aún era fue también por lo que vamos a permitir como es lo que los alumnos está en el departamento profesional de lo cual lo que les mismos es particular a lo que estamos haciendo lo hizo por permitir llegar a la previa por las 8:00 a lo largo general en particular a enfoque de documentación y presidente de la Presidencia de la Dirección Nacional de Industria deberá también a lo largo lo referente dio a diferencia para los estudiantes presidente y inclusive podrá llamar a permitir el presidente general y presidente de toda Brasil quedó en donde también les gusta lo bueno a ser presidente y finalmente lo contó con mañana llegar a los gobiernos de los 10 días por lo referente es la diferencia de lo que estuvo a continuación es lo referente a los damnificados por la Secretaría de Emergencia Nacional está ofrecida por a diferencia de opinión según informó el presidente de la Dirección General de Educación
+[2023-05-31 16:53:45] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> Luis <unk> y el secretario del <unk> Jorge <unk>
+[2023-05-31 16:56:38] [valid] Ep. 151 : Up. 44493 : bleu : 0.977939 : stalled 9 times (last best: 1.06932)
+[2023-05-31 16:59:30] [valid] Ep. 151 : Up. 44493 : chrf : 22.5887 : new best
+[2023-05-31 16:59:37] [valid] Ep. 151 : Up. 44493 : cross-entropy : 226.621 : stalled 18 times (last best: 105.698)
+[2023-05-31 16:59:44] [valid] Ep. 151 : Up. 44493 : perplexity : 38725.3 : stalled 18 times (last best: 137.998)
+[2023-05-31 16:59:47] [valid] Ep. 151 : Up. 44493 : valid-script : 0 : stalled 18 times (last best: 0)
