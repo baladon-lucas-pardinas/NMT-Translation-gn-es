@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#SBATCH --job-name=MARIAN
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=32G
+#SBATCH --time=72:00:00
+#SBATCH --partition=normal
+#SBATCH --qos=normal
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=alexis.baladon@fing.edu.uy
+#SBATCH --output=minimal.out
+
+#SBATCH --gres=gpu:1      # se solicita una gpu cualquiera( va a tomar la primera que quede disponible indistintamente si es una p100 o una a100)
+#--gres=gpu:p100:1 # se solicita una nvidia p100
+#--gres=gpu:a100:1 # se solicita una nvidia a100, tenga en cuenta que solamente hay 2 a100 disponibles en toda la ifraestructura y están ubicadas en servidores diferentes (node15 y node16)
+#SBATCH --qos=gpu
+
+cd ..
+singularity shell --no-home --contain --bind $(pwd):/docker/home  marian-nmt_1.11.0_sentencepiece_cuda-11.3.0.sif
+ls
+cd docker
+ls
+cd home
+ls
+cd marianmt
+python main.py minimal_train_gpu
