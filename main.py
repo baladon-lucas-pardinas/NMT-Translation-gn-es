@@ -24,7 +24,7 @@ if __name__ == '__main__':
     flags = args.get('flags')
     
     flags = command_handler.parse_flags(flags)
-    command_config = command.get_command_config(command_path=command_path, flags=flags)
+    command_config = command.get_command_config(command_path=command_path, flags=flags) #TODO: configs should be centralized in a single module.
     ingestion_config = ingestion.get_data_ingestion_config()
     train_dir = flags.get('train-sets', [])
     val_dir = flags.get('valid-sets', [])
