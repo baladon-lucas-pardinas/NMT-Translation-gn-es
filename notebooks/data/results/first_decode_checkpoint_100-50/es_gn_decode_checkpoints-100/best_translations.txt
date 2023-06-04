@@ -1,0 +1,99 @@
+Index: 4875
+Reference source: MINISTRA DE LA SPL DISERTÓ SOBRE EL GUARANÍ EN UN CONGRESO INTERNACIONAL.
+Reference destination: SÃMBYHYHÁRA ALCARAZ OÑE'Ẽ GUARANI REHE PETEĨ AMANDAJE GUASÚPE, ARGENTINA PE.
+Decoded output: SÃMBYHYHÁRA ALCARAZ OÑE'Ẽ GUARANI REHE PETEĨ AMANDAJE ÑE'Ẽ
+
+Reference destination tokens: {'ALCARAZ', 'REHE', "OÑE'Ẽ", 'SÃMBYHYHÁRA', 'GUASÚPE,', 'PE.', 'GUARANI', 'ARGENTINA', 'AMANDAJE', 'PETEĨ'}
+Decoded output tokens: {'ALCARAZ', 'REHE', "OÑE'Ẽ", 'SÃMBYHYHÁRA', 'GUARANI', "ÑE'Ẽ", 'AMANDAJE', 'PETEĨ'}
+Overlapping words: {'ALCARAZ', 'REHE', "OÑE'Ẽ", 'SÃMBYHYHÁRA', 'GUARANI', 'AMANDAJE', 'PETEĨ'}
+------------------
+
+Index: 1938
+Reference source: JEM pide informe sobre blanqueo de Javier Zacarías y Sandra McLeod
+Reference destination: JEM ojerúre marandu blanqueo Javier Zacarías ha Sandra McLeod
+Decoded output: Asucop ojerúre marandu ñe'ë Javier Zacarías ha Sandra McLeod
+
+Reference destination tokens: {'ha', 'blanqueo', 'Sandra', 'marandu', 'Javier', 'Zacarías', 'JEM', 'ojerúre', 'McLeod'}
+Decoded output tokens: {'ha', 'Sandra', 'marandu', 'Asucop', 'Javier', 'Zacarías', 'ojerúre', 'McLeod', "ñe'ë"}
+Overlapping words: {'ha', 'Sandra', 'marandu', 'Javier', 'Zacarías', 'ojerúre', 'McLeod'}
+------------------
+
+Index: 4755
+Reference source: La publicación del material se realizó con el apoyo del Centro de Estudios Antropológicos de la Universidad Católica (CEADUC) y la Asociación Indigenista del Paraguay (AIP).
+Reference destination: Oipytyvõ osẽ haĝua ko aranduka Centro de Estudios Antropológicos de la Universidad Católica (CEADUC) ha Asociación Indigenista del Paraguay (AIP).
+Decoded output: Ko mba’e jehesa'ỹijo oiko Centro de Estudios Antropológicos de la Universidad Católica – Paraguay ha Asociación Indigenista del Paraguay róga rógape
+
+Reference destination tokens: {'Universidad', 'Centro', 'haĝua', 'ha', '(AIP).', 'Estudios', 'la', 'Paraguay', 'Indigenista', 'Oipytyvõ', 'Asociación', 'de', 'Católica', 'ko', 'Antropológicos', 'aranduka', '(CEADUC)', 'del', 'osẽ'}
+Decoded output tokens: {'Universidad', 'Centro', "jehesa'ỹijo", 'ha', 'róga', 'Estudios', 'la', 'Paraguay', 'Indigenista', 'Asociación', 'de', 'rógape', 'oiko', 'mba’e', '–', 'Católica', 'Antropológicos', 'Ko', 'del'}
+Overlapping words: {'la', 'Universidad', 'Centro', 'ha', 'Paraguay', 'Indigenista', 'Católica', 'del', 'Estudios', 'Antropológicos', 'Asociación', 'de'}
+------------------
+
+Index: 1709
+Reference source: Feria Internacional de Educación en Encarnación
+Reference destination: Feria Internacional de Educación Tavaguasu Encarnación gotyo
+Decoded output: Feria Internacional de Educación en Encarnación
+
+Reference destination tokens: {'Tavaguasu', 'Encarnación', 'Internacional', 'gotyo', 'Feria', 'Educación', 'de'}
+Decoded output tokens: {'en', 'Encarnación', 'Internacional', 'Feria', 'Educación', 'de'}
+Overlapping words: {'Encarnación', 'Internacional', 'Feria', 'Educación', 'de'}
+------------------
+
+Index: 5276
+Reference source: La Comisión Nacional de Conmemoración del Año Internacional de las Lenguas Indígenas sesionó por cuarta vez este viernes a través de la plataforma Zoom.
+Reference destination: Aty guasu Comisión Nacional de Conmemoración del Año Internacional de las Lenguas Indígenas oñombyaty ha omba’apo irundyha ko arapoteĩme tembipurupyahu Zoom rupive.
+Decoded output: Aty Comisión Nacional de Conmemoración del Año Internacional de las Lenguas Indígenas oikéva omba’apo voi ko arapoteĩ pyharevépe peteî retã tembipurupyahu rupive tembipurupyahu rupive
+
+Reference destination tokens: {'ha', 'Zoom', 'Internacional', 'las', 'Indígenas', 'Nacional', 'guasu', 'Lenguas', 'de', 'tembipurupyahu', 'Año', 'omba’apo', 'Comisión', 'ko', 'Aty', 'Conmemoración', 'arapoteĩme', 'rupive.', 'oñombyaty', 'irundyha', 'del'}
+Decoded output tokens: {'oikéva', 'Internacional', 'las', 'pyharevépe', 'Indígenas', 'Nacional', 'retã', 'rupive', 'Lenguas', 'arapoteĩ', 'de', 'voi', 'tembipurupyahu', 'Año', 'omba’apo', 'Comisión', 'ko', 'Aty', 'Conmemoración', 'peteî', 'del'}
+Overlapping words: {'tembipurupyahu', 'Nacional', 'Año', 'omba’apo', 'Comisión', 'Lenguas', 'Internacional', 'las', 'ko', 'Aty', 'Conmemoración', 'Indígenas', 'del', 'de'}
+------------------
+
+Index: 170
+Reference source: Ciudadanos autoconvocados se movilizaron sobre las calles Mariscal López y San Martín de Asunción.
+Reference destination: Tavaygua oñembyatýva omýi hikuái calle Mariscal López ha San Martín de Asunción.
+Decoded output: Tavaygua ojerúre hikuái tape calle Mariscal López ha San Martín Tesãi rehe
+
+Reference destination tokens: {'ha', 'López', 'omýi', 'Tavaygua', 'calle', 'Mariscal', 'San', 'de', 'Asunción.', 'hikuái', 'oñembyatýva', 'Martín'}
+Decoded output tokens: {'tape', 'hikuái', 'ha', 'Tesãi', 'López', 'rehe', 'Tavaygua', 'calle', 'Mariscal', 'San', 'ojerúre', 'Martín'}
+Overlapping words: {'ha', 'López', 'Tavaygua', 'calle', 'Mariscal', 'San', 'hikuái', 'Martín'}
+------------------
+
+Index: 1090
+Reference source: Piden al presidente de la República Mario Abdo que saque al ministro de Educación Eduardo Petta.
+Reference destination: Ojerúre presidente de la República Mario Abdo osêva ministro de Educación Eduardo Petta.
+Decoded output: Ojerúre presidente de la República Mario Abdo Benítez túva ha túva ministro Eduardo Felippo okyetereígui
+
+Reference destination tokens: {'la', 'Abdo', 'Ojerúre', 'osêva', 'Petta.', 'Mario', 'presidente', 'Eduardo', 'ministro', 'República', 'Educación', 'de'}
+Decoded output tokens: {'la', 'ha', 'Abdo', 'Benítez', 'okyetereígui', 'Ojerúre', 'Felippo', 'Mario', 'presidente', 'Eduardo', 'ministro', 'túva', 'República', 'de'}
+Overlapping words: {'la', 'de', 'Ojerúre', 'Mario', 'presidente', 'Eduardo', 'ministro', 'República', 'Abdo'}
+------------------
+
+Index: 1395
+Reference source: Tras un intenso debate la plenaria de la Cámara de Diputados aprobó el proyecto de ley de Presupuesto General de la Nación 2019, tomando como base el dictamen de la comisión de Presupuesto de la Cámara Baja.
+Reference destination: Péva  omokyre'ÿ plenaria  Cámara de Diputados omoañetéva proyecto de ley Presupuesto General de la Nación 2019, oipyhývo dictamen comisión Presupuesto Cámara Baja.
+Decoded output: Peteî parte orekóva plenaria Cámara de Diputados omonéî proyecto de ley Presupuesto General de la Nación cargo dengue
+
+Reference destination tokens: {'', 'General', 'proyecto', "omokyre'ÿ", 'la', 'dictamen', 'oipyhývo', 'Diputados', 'omoañetéva', 'Péva', 'de', 'Nación', 'ley', '2019,', 'Baja.', 'Presupuesto', 'Cámara', 'comisión', 'plenaria'}
+Decoded output tokens: {'General', 'la', 'Nación', 'omonéî', 'ley', 'dengue', 'parte', 'Cámara', 'de', 'orekóva', 'Diputados', 'proyecto', 'Peteî', 'cargo', 'Presupuesto', 'plenaria'}
+Overlapping words: {'General', 'Nación', 'la', 'ley', 'Cámara', 'proyecto', 'Diputados', 'plenaria', 'Presupuesto', 'de'}
+------------------
+
+Index: 5268
+Reference source: Comisión del Año Internacional de Lenguas Indígenas sesionó vía Zoom
+Reference destination: Ypykuéra Ñe’ẽita Ary Yvy’ape Ári pegua aty omba’apo Zoom rupive
+Decoded output: Ypykuéra Ñe’ẽita Ary Yvy’ape Ári Aty omba’apo ñemoneĩ
+
+Reference destination tokens: {'Yvy’ape', 'Ypykuéra', 'rupive', 'omba’apo', 'Ary', 'pegua', 'aty', 'Zoom', 'Ári', 'Ñe’ẽita'}
+Decoded output tokens: {'Yvy’ape', 'Ypykuéra', 'omba’apo', 'Ary', 'ñemoneĩ', 'Ári', 'Ñe’ẽita', 'Aty'}
+Overlapping words: {'Yvy’ape', 'Ypykuéra', 'omba’apo', 'Ary', 'Ári', 'Ñe’ẽita'}
+------------------
+
+Index: 903
+Reference source: Organizado por el Centro de Estudios Ambientales y Sociales (CEAMSO) y el Centro de Información y Recursos para el Desarrollo (CIRD).
+Reference destination: Ombosako'i Centro de Estudios Ambientales y Sociales (CEAMSO) ha Centro de Información y Recursos para el Desarrollo (CIRD).
+Decoded output: Upe Centro de Estudios Ambientales y Sociales de la Niñez y Agustín INC ha Centro de Información y Cultura para el Desarrollo reheguápe
+
+Reference destination tokens: {'ha', 'Centro', 'Sociales', 'Ambientales', 'y', 'Desarrollo', 'Recursos', '(CIRD).', 'Información', "Ombosako'i", '(CEAMSO)', 'para', 'el', 'Estudios', 'de'}
+Decoded output tokens: {'la', 'ha', 'Centro', 'Upe', 'Ambientales', 'Sociales', 'y', 'Desarrollo', 'Cultura', 'reheguápe', 'Información', 'Agustín', 'INC', 'Niñez', 'para', 'el', 'Estudios', 'de'}
+Overlapping words: {'ha', 'Centro', 'Sociales', 'Ambientales', 'Estudios', 'y', 'Desarrollo', 'para', 'el', 'Información', 'de'}
+------------------
