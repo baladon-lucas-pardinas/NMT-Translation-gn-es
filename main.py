@@ -1,6 +1,6 @@
 import argparse
 import os
-import sys
+
 from src.pipelines import train_pipeline
 from src.utils import command_handler
 from src.logger import logging
