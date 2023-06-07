@@ -4,8 +4,6 @@ from src.config.ingestion_config import DataIngestionConfig
 from src.logger import logging
 from src.components.processing import tokenizer
 
-
-# TODO: This shouldn't be dependent on the model
 DEFAULT_VOCABULARY = ['<s>', '</s>', '<unk>']
 
 def __persist_split_data(splits, split):
@@ -104,11 +102,17 @@ def __create_vocabularies(data_ingestion_config, column_to_ingest, train_vocab_o
     logging.info("Vocabulary creation complete.")
      
 # TODO: Check that length of src and target are equal.
-def ingest_data(data_ingestion_config, train_split_outputs, validation_split_outputs, test_split_outputs, vocab_outputs, persist_each=10000):
-        # type: (DataIngestionConfig, list, list, list, str, int) -> None
+def ingest_data(data_ingestion_config):
+        # type: (DataIngestionConfig,) -> None
+        train_split_outputs = data_ingestion_config.train_data_dir
+        validation_split_outputs = data_ingestion_config.validation_data_dir
+        test_split_outputs = data_ingestion_config.test_data_dir
+        vocab_outputs = data_ingestion_config.vocabulary_dir
+        persist_each = data_ingestion_config.persist_each
         columns_to_ingest = data_ingestion_config.raw_data_columns_to_clean
 
-        for train_dir, validation_dir, test_dir, column_to_ingest in zip(train_split_outputs, validation_split_outputs, test_split_outputs, columns_to_ingest):
+        for train_dir, validation_dir, test_dir, column_to_ingest in \
+              zip(train_split_outputs, validation_split_outputs, test_split_outputs, columns_to_ingest):
             __split_dataset(data_ingestion_config, column_to_ingest, train_dir, validation_dir, test_dir, persist_each)
 
         for column_to_ingest, vocab_output in zip(columns_to_ingest, vocab_outputs):

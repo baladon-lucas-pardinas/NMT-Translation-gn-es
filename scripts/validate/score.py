@@ -14,13 +14,13 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--reference_file', type=str, required=True)
     parser.add_argument('--translation_file', type=str, required=True)
-    parser.add_argument('--score', type=str, default='bleu')
+    parser.add_argument('--score', type=str, default='sacrebleu')
     parser.add_argument('--significant_figures', type=int, default=4)
     args = parser.parse_args()
     return vars(args)
 
 @wrappers.warning_filter
-def main(reference_file, translation_file, score='bleu', significant_figures=4):
+def main(reference_file, translation_file, score='sacrebleu'):
     with open(reference_file, 'r', encoding='utf-8') as f:
         reference_lines = f.readlines()
     with open(translation_file, 'r', encoding='utf-8') as f:

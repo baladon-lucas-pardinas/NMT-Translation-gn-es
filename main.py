@@ -23,29 +23,32 @@ if __name__ == '__main__':
     train = args.get('train')
     flags = args.get('flags')
     
+    command_config = None
+    ingestion_config = None
+
     flags = command_handler.parse_flags(flags)
-    command_config = command.get_command_config(command_path=command_path, flags=flags) #TODO: configs should be centralized in a single module.
-    ingestion_config = ingestion.get_data_ingestion_config()
+    if ingest:
+        ingestion_config = ingestion.get_data_ingestion_config(persist_each=1000)
+        logging.info('Ingesting data with config {}'.format(ingestion_config))
+    if train:
+        command_config = command.get_command_config(command_path, flags, save_each_epochs=save_each_epochs)
+        logging.info('Training model with config {}'.format(command_config))
+
     train_dir = flags.get('train-sets', [])
     val_dir = flags.get('valid-sets', [])
-    test_dirs = [os.path.join(ingestion_config.test_data_dir, 'test_gn.txt'), os.path.join(ingestion_config.test_data_dir, 'test_es.txt')]
+    test_dirs = [os.path.join(ingestion_config.test_data_dir, 'test_gn.txt'), os.path.join(ingestion_config.test_data_dir, 'test_es.txt')] #TODO: this should be a flag
     vocab_dirs = flags.get('vocabs', [])
 
-    logging.info('Training model with config {}'.format(command_config))
+    ingestion_config.train_data_dir      = train_dir
+    ingestion_config.validation_data_dir = val_dir
+    ingestion_config.test_data_dir       = test_dirs
+    ingestion_config.vocabulary_dir      = vocab_dirs
+
     try:
         train_pipeline.train(
-            model_name=command_config.command_name,
-            config=command_config,
+            command_config=command_config, 
             data_ingestion_config=ingestion_config,
-            train_dirs=train_dir,
-            validation_dirs=val_dir,
-            test_dirs=test_dirs,
-            vocab_dirs=vocab_dirs,
-            persist_each=1000,
-            save_each_epochs=save_each_epochs,
-            will_train=train,
-            will_ingest=ingest,
         )
     except Exception as e:
-        logging.error('Error while training with config {}'.format(command_config))
+        logging.error('Error while training with config {} and {}'.format(command_config, ingestion_config))
         raise e
