@@ -6,7 +6,7 @@ current_dir = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(1, os.path.join(current_dir, '..', '..'))
 
 from src.components.evaluation import metrics
-from src.components.processing import tokenizer
+from src.components.processing import tokenization
 from src.logger import logging
 from src.utils import wrappers
 
@@ -26,16 +26,10 @@ def main(reference_file, translation_file, score='sacrebleu'):
     with open(translation_file, 'r', encoding='utf-8') as f:
         translation_lines = f.readlines()
 
-    tokenize_func = tokenizer.tokenize
-
     if score != 'sacrebleu':
-        error = not tokenizer.check_tokenizer_module()
-        if error:
-            logging.error('The tokenizer module is not installed. Please install it before running the validation script.')
-            tokenize_func = lambda x: x.split()
-            
-        reference_lines   = [tokenize_func(line) for line in reference_lines]
-        translation_lines = [tokenize_func(line) for line in translation_lines]
+        tokenizer = tokenization.get_tokenizer()            
+        reference_lines   = [tokenization.tokenize(tokenizer, line) for line in reference_lines]
+        translation_lines = [tokenization.tokenize(tokenizer, line) for line in translation_lines]
 
     scores = []
     for reference_line, translation_line in zip(reference_lines, translation_lines):

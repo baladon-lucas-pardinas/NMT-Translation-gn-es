@@ -2,7 +2,7 @@ import csv
 
 from src.config.ingestion_config import DataIngestionConfig
 from src.logger import logging
-from src.components.processing import tokenizer
+from src.components.processing import tokenization
 
 DEFAULT_VOCABULARY = ['<s>', '</s>', '<unk>']
 
@@ -64,10 +64,7 @@ def __create_vocabularies(data_ingestion_config, column_to_ingest, train_vocab_o
     train_vocab_output_path = train_vocab_output + '.' + column_to_ingest
     logging.info("Writing train vocabulary to {}...".format(train_vocab_output_path))
 
-    error = not tokenizer.check_tokenizer_module()
-    if error:
-        logging.error("Tokenizer module not found.")
-        logging.error("Using whitespace tokenizer.")
+    tokenizer = tokenization.get_tokenizer()
 
     with open(data_ingestion_config.raw_data_file_path, 'r', encoding='utf-8') as raw_f, \
             open(train_vocab_output_path, 'w', encoding='utf-8') as train_vocab_f:
@@ -88,10 +85,9 @@ def __create_vocabularies(data_ingestion_config, column_to_ingest, train_vocab_o
 
         for row in reader:
             split = row[split_column_index]
-
             if split == train_column:
                 text = row[column_to_clean_index]
-                tokenized_text = tokenizer.tokenize(text)
+                tokenized_text = tokenization.tokenize(tokenizer, text)
                 splits[split]['count'] += len(tokenized_text)
                 splits[split]['data'].update(tokenized_text)
 
