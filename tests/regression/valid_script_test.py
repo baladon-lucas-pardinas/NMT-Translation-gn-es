@@ -12,8 +12,13 @@ SCRIPT_DIR = os.path.join(
 
 class TestValidationScript(unittest.TestCase):
     def setUp(self) -> None:
-        self.example_reference = ['This is an example reference sentence.', '', 'Hello']
-        self.example_translation = ['This is an example translation sentence.', 'My name is Marian, but people call me MarianMT', '']
+        self.example_translation = ['This is an example translation sentence.', 'My name is Marian, but people call me MarianMT', '', "Ko'ágã ojehecha hikuái karu guasu 14:00 a la Samaniego oúvape pe dato 42 pasajero elecciones de transporte oúva temimbo’e rupi ha upéi oñemotenonde 1 de abril oúvape pero oiko jave 1 de prensa oikóva oúva ha upéicha ojapóvo ha oñemotenonde upe 1 de prensa"]
+        self.example_reference = ['This is an example reference sentence.', '', 'Hello', "Ojehechava'erã orrenunisava'erã umi concejal Junta Municipal-pe, oñemoherakuãgui ganador elecciones ágã 30 de mayo, ikatu haguã oñepyrû hikuái 1 de julio."]
+
+        # Expected scores calculated using https://huggingface.co/spaces/evaluate-metric/sacrebleu
+        self.expected_scores = [48.89230, 0.0, 0.0, 1.99869780]
+        self.expected_mean_score = sum(self.expected_scores) / len(self.expected_scores)
+        self.precision_epsilon = 1e-4
         pass
 
     def test_validation_script(self):
@@ -44,8 +49,8 @@ class TestValidationScript(unittest.TestCase):
         error = process_result.stderr.decode('utf-8')
 
         if process_result.stderr != b'':
-            print(output)
-            print(error)
+            print('Output:', output)
+            print('Error:', error)
             self.fail('Error while running the validation script.')
 
         self.assertNotEqual(process_result.stdout, b'')
@@ -55,6 +60,7 @@ class TestValidationScript(unittest.TestCase):
             print(output)
             self.fail('Validation script did not return a number.')
         self.assertEqual(process_result.returncode, 0)
+        self.assertAlmostEqual(float(output), self.expected_mean_score, delta=self.precision_epsilon)
 
 def main():
     unittest.main()

@@ -5,9 +5,8 @@ import os
 current_dir = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(1, os.path.join(current_dir, '..', '..'))
 
-from src.components.evaluation import metrics
 from src.components.processing import tokenization
-from src.logger import logging
+from src.components.evaluation import metrics
 from src.utils import wrappers
 
 def parse_args():
@@ -15,18 +14,17 @@ def parse_args():
     parser.add_argument('--reference_file', type=str, required=True)
     parser.add_argument('--translation_file', type=str, required=True)
     parser.add_argument('--score', type=str, default='sacrebleu')
-    parser.add_argument('--significant_figures', type=int, default=4)
     args = parser.parse_args()
     return vars(args)
 
-@wrappers.warning_filter
+@wrappers.warning_filter(logger='spacy')
 def main(reference_file, translation_file, score='sacrebleu'):
     with open(reference_file, 'r', encoding='utf-8') as f:
         reference_lines = f.readlines()
     with open(translation_file, 'r', encoding='utf-8') as f:
         translation_lines = f.readlines()
 
-    if score != 'sacrebleu':
+    if score != 'sacrebleu': 
         tokenizer = tokenization.get_tokenizer()            
         reference_lines   = [tokenization.tokenize(tokenizer, line) for line in reference_lines]
         translation_lines = [tokenization.tokenize(tokenizer, line) for line in translation_lines]
@@ -45,5 +43,4 @@ if __name__ == '__main__':
     reference_file = args['reference_file']
     translation_file = args['translation_file']
     selected_score = args['score']
-    significant_figures = args['significant_figures']
-    main(reference_file, translation_file, selected_score, significant_figures)
+    main(reference_file, translation_file, selected_score)

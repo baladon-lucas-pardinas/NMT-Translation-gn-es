@@ -1,6 +1,7 @@
 import re
 import pickle
 import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' # Done to avoid GPU warnings from Tensorflow
 from src.components.processing.cleaning import clean_text, clean_token
 
 import spacy
