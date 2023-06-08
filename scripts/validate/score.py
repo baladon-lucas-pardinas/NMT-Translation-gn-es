@@ -2,6 +2,7 @@ import argparse
 import sys
 import os
 
+# This is a trick (not the most clean) to import from the root folder
 current_dir = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(1, os.path.join(current_dir, '..', '..'))
 
@@ -17,7 +18,7 @@ def parse_args():
     args = parser.parse_args()
     return vars(args)
 
-@wrappers.warning_filter(logger='spacy')
+@wrappers.warning_filter(logger='spacy') # This is done to avoid warnings from spacy
 def main(reference_file, translation_file, score='sacrebleu'):
     with open(reference_file, 'r', encoding='utf-8') as f:
         reference_lines = f.readlines()
@@ -40,7 +41,7 @@ def main(reference_file, translation_file, score='sacrebleu'):
 
 if __name__ == '__main__':
     args = parse_args()
-    reference_file = args['reference_file']
+    reference_file   = args['reference_file']
     translation_file = args['translation_file']
-    selected_score = args['score']
+    selected_score   = args['score']
     main(reference_file, translation_file, selected_score)

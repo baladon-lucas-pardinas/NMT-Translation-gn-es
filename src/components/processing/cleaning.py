@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import re
 
 MAIL_REGEX = "(\w+)@(\w+)\.(\w+)"
