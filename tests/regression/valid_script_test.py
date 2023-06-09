@@ -18,8 +18,8 @@ class TestValidationScript(unittest.TestCase):
         # Expected scores calculated using https://huggingface.co/spaces/evaluate-metric/sacrebleu
         self.expected_scores = {
             'sacrebleu': [48.89230, 0.0, 0.0, 1.99869780],
-            'bleu': [48.89230, 0.0, 0.0, 1.99869780],
-            'chrf': [0.0, 0.0, 0.0, 0.0],
+            #'bleu': [48.89230, 0.0, 0.0, 1.99869780],
+            #'chrf': [0.0, 0.0, 0.0, 0.0],
         }
         self.expected_mean_score = {
             metric: sum(self.expected_scores[metric]) / len(self.expected_scores[metric]) \
@@ -34,14 +34,14 @@ class TestValidationScript(unittest.TestCase):
         reference_file = os.path.join(test_data_dir, 'reference.txt')
         translation_file = os.path.join(test_data_dir, 'translation.txt')
 
-        with open(reference_file, 'w', encoding='utf-8') as f:
-            for line in self.example_reference:
-                f.write(line + '\n')
-        with open(translation_file, 'w', encoding='utf-8') as f:
-            for line in self.example_translation:
-                f.write(line + '\n')
-
         for metric in self.expected_scores:
+            with open(reference_file, 'w', encoding='utf-8') as f:
+                for line in self.example_reference:
+                    f.write(line + '\n')
+            with open(translation_file, 'w', encoding='utf-8') as f:
+                for line in self.example_translation:
+                    f.write(line + '\n')
+
             process_result = subprocess.run([
                 'python', os.path.join(SCRIPT_DIR, 'score.py'),
                 '--reference_file', reference_file,

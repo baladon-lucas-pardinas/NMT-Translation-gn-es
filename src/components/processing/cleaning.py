@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import re
 
-MAIL_REGEX = "(\w+)@(\w+)\.(\w+)"
-URL_REGEX = "http\S+"
-NUMBER_REGEX = "[+-]?([0-9]*[.])?[0-9]+"
-IP_REGEX = "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
+MAIL_REGEX   = r"(\w+)@(\w+)\.(\w+)"
+URL_REGEX    = r"http\S+"
+NUMBER_REGEX = r"[+-]?([0-9]*[.])?[0-9]+"
+IP_REGEX     = r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
 
 # Normalize raw text
 # Normalize "pusó" symbols (https://es.wikipedia.org/wiki/Alfabeto_guaran%C3%AD) 

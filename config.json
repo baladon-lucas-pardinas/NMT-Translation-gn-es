@@ -1,6 +1,16 @@
 {
     "model_name": "marian",
     "command_name": "marian",
+    "flag_separator": "--",
     "base_dir_scripts": "./scripts",
-    "base_dir_artifacts": "./artifacts"
+    "base_dir_artifacts": "./artifacts",
+    "test_src_corpus_filename": "test_gn.txt",
+    "test_dst_corpus_filename": "test_es.txt",
+    "raw_data_filename": "jojajovai_all.csv",
+    "raw_data_columns_to_clean": ["gn", "es"],
+    "raw_data_split_column": "split",
+    "raw_data_train_column": "train",
+    "raw_data_validation_column": "dev",
+    "raw_data_test_column": "test",
+    "default_vocabulary": ["<s>", "</s>", "<unk>"]
 }

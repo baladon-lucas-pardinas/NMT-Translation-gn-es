@@ -1,10 +1,9 @@
 from src.config.config import load_config_variables, \
-    COMMAND_NAME
-
-FLAG_SEPARATOR = '--'
+    COMMAND_NAME, \
+    FLAG_SEPARATOR
 
 class CommandConfig:
-    def __init__(self, command_name, command_path, flags, flag_separator=FLAG_SEPARATOR, save_each_epochs=None):
+    def __init__(self, command_name, command_path, flags, flag_separator, save_each_epochs=None):
         # type: (str, str, dict, str, int) -> None
         self.command_name = command_name
         self.command_path = command_path
@@ -24,10 +23,11 @@ class CommandConfig:
     
     def __str__(self):
         # type: () -> str
-        return "CommandConfig(command_name={}, command_path={}, flags={}, save_each_epochs={})".format(
+        return "CommandConfig(command_name={}, command_path={}, flags={}, flag_separator={}, save_each_epochs={})".format(
             self.command_name,
             self.command_path,
             self.flags,
+            self.flag_separator,
             self.save_each_epochs,
         )
     
@@ -42,5 +42,6 @@ def get_command_config(command_path, flags, save_each_epochs=None):
         command_name=config_variables[COMMAND_NAME],
         command_path=command_path,
         flags=flags,
+        flag_separator=config_variables[FLAG_SEPARATOR],
         save_each_epochs=save_each_epochs,
     )

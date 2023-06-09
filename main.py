@@ -1,10 +1,10 @@
 import argparse
-import os
 
 from src.pipelines import train_pipeline
 from src.utils import command_handler
 from src.logger import logging
 from src.config import command_config as command, ingestion_config as ingestion, data_transformation_config
+from src.config.config import load_config_variables
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -25,35 +25,29 @@ if __name__ == '__main__':
     train            = args.get('train')
     flags            = args.get('flags')
     
+    config_variables = load_config_variables()
     command_config = None
     ingestion_config = None
 
     flags = command_handler.parse_flags(flags)
+    train_dirs = flags.get('train-sets', [])
+    val_dirs   = flags.get('valid-sets', [])
     if ingest:
-        ingestion_config = ingestion.get_data_ingestion_config(persist_each=1000)
+        vocab_dirs = flags.get('vocabs', [])
+        ingestion_config = ingestion.get_data_ingestion_config(config_variables, train_dirs, val_dirs, vocab_dirs, persist_each=1000)
         logging.info('Ingesting data with config {}'.format(ingestion_config))
     if transform:
         transformation_config = data_transformation_config.get_data_transformation_config()
-        logging.info('Transforming data with config {}'.format(data_transformation_config))
+        logging.info('Transforming data with config {}'.format(transformation_config))
     if train:
         command_config = command.get_command_config(command_path, flags, save_each_epochs=save_each_epochs)
         logging.info('Training model with config {}'.format(command_config))
-
-    train_dir  = flags.get('train-sets', [])
-    val_dir    = flags.get('valid-sets', [])
-    test_dirs  = [os.path.join(ingestion_config.test_data_dir, 'test_gn.txt'), os.path.join(ingestion_config.test_data_dir, 'test_es.txt')] #TODO: this should be a flag
-    vocab_dirs = flags.get('vocabs', [])
-
-    ingestion_config.train_data_dir      = train_dir
-    ingestion_config.validation_data_dir = val_dir
-    ingestion_config.test_data_dir       = test_dirs
-    ingestion_config.vocabulary_dir      = vocab_dirs
 
     try:
         train_pipeline.train(
             command_config=command_config, 
             data_ingestion_config=ingestion_config,
-            data_transformation_config=transformation_config
+            data_transformation_config=transformation_config,
         )
     except Exception as e:
         logging.error('Error while training with config {} and {}'.format(command_config, ingestion_config))
