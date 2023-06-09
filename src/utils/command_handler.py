@@ -1,11 +1,10 @@
 import os
 
-from src.config.command_config import CommandConfig, \
-    FLAG_SEPARATOR
+from src.config.command_config import CommandConfig
 
 # Flags are a string of the form --flag1 value1 ... valueN --flag2 value1 ... valueM
 # The output dict should be like {flag1: [value1, ..., valueN], flag2: [value1, ..., valueM]}
-def parse_flags(flags, flag_separator=FLAG_SEPARATOR):
+def parse_flags(flags, flag_separator=' '):
     # type: (str, str) -> dict
     flag_dict = {}
     flags = flags.split(flag_separator)

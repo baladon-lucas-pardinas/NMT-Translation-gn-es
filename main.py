@@ -4,7 +4,7 @@ from src.pipelines import train_pipeline
 from src.utils import command_handler
 from src.logger import logging
 from src.config import command_config as command, ingestion_config as ingestion, data_transformation_config
-from src.config.config import load_config_variables
+from src.config.config import load_config_variables, FLAG_SEPARATOR
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -26,12 +26,14 @@ if __name__ == '__main__':
     flags            = args.get('flags')
     
     config_variables = load_config_variables()
-    command_config = None
-    ingestion_config = None
+    flag_separator   = config_variables.get(FLAG_SEPARATOR, ' ')
+    command_config, ingestion_config, transformation_config = [None] * 3
 
-    flags = command_handler.parse_flags(flags)
+    flags = command_handler.parse_flags(flags, flag_separator=flag_separator)
     train_dirs = flags.get('train-sets', [])
     val_dirs   = flags.get('valid-sets', [])
+    logging.info('Running with flags {}'.format(flags))
+
     if ingest:
         vocab_dirs = flags.get('vocabs', [])
         ingestion_config = ingestion.get_data_ingestion_config(config_variables, train_dirs, val_dirs, vocab_dirs, persist_each=1000)

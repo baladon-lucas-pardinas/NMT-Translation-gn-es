@@ -9,7 +9,8 @@ from src.config.config import \
     RAW_DATA_VALIDATION_COLUMN, \
     RAW_DATA_TEST_COLUMN, \
     TEST_SRC_CORPUS_FILENAME, \
-    TEST_DST_CORPUS_FILENAME
+    TEST_DST_CORPUS_FILENAME, \
+    DEFAULT_VOCABULARY
 
 class DataIngestionConfig:
     def __init__(
@@ -45,14 +46,14 @@ class DataIngestionConfig:
         self.train_data_dir           = os.path.join(data_dir, 'train')
         self.validation_data_dir      = os.path.join(data_dir, 'validation')
         self.test_data_dir            = os.path.join(data_dir, 'test')
-        self.train_data_src_dir       = os.path.join(self.train_data_dir, train_output_src_dir)
-        self.train_data_tgt_dir       = os.path.join(self.train_data_dir, train_output_dst_dir)
-        self.validation_data_src_dir  = os.path.join(self.validation_data_dir, validation_output_src_dir)
-        self.validation_data_tgt_dir  = os.path.join(self.validation_data_dir, validation_output_dst_dir)
+        self.train_data_src_dir       = train_output_src_dir
+        self.train_data_tgt_dir       = train_output_dst_dir
+        self.validation_data_src_dir  = validation_output_src_dir
+        self.validation_data_tgt_dir  = validation_output_dst_dir
         self.test_data_src_dir        = os.path.join(self.test_data_dir, test_src_output_filename)
         self.test_data_tgt_dir        = os.path.join(self.test_data_dir, test_dst_output_filename)
-        self.vocab_src_dir            = os.path.join(self.vocabulary_dir, vocab_src_output_filename)
-        self.vocab_tgt_dir            = os.path.join(self.vocabulary_dir, vocab_tgt_output_filename)
+        self.vocab_src_dir            = vocab_src_output_filename
+        self.vocab_tgt_dir            = vocab_tgt_output_filename
         self.raw_data_file_path       = os.path.join(self.raw_data_dir, raw_data_filename)
 
         self.raw_data_columns_to_clean  = columns_to_clean
@@ -116,5 +117,6 @@ def get_data_ingestion_config(
         train_column             =config_variables[RAW_DATA_TRAIN_COLUMN],
         validation_column        =config_variables[RAW_DATA_VALIDATION_COLUMN],
         test_column              =config_variables[RAW_DATA_TEST_COLUMN],
+        default_vocabulary       =config_variables[DEFAULT_VOCABULARY],
         persist_each             =persist_each,
     )
