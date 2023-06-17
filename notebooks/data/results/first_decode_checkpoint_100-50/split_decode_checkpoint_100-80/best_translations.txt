@@ -1,0 +1,99 @@
+Index: 4856
+Reference source: Ojoja, peteĩ equipo técnico Paraguái Ñe'ẽnguéra Sãmbyhyha guive, omoakãva Ypykuéra Ñe'ẽ Ñeñongatu ha Ñemombarete Moakãharapavẽ, Nieves Montiel, omba'apohína ko'ã indígena ndive comunidad pe, jahechápe toñeñongatu ha taimbaretejey iñe'ẽnguéra, itenondéva indígena ñe'ẽ ikangyetevéva apytépe ñane retãme.
+Reference destination: Al mismo tiempo, un equipo técnico de la Secretaría de Políticas Lingũísticas liderado por la Directora General de Documentación y Promoción de Lenguas Indígenas, Nieves Montiel, está realizando en la comunidad trabajos de campo en las líneas de documentación y revitalización de la lengua guaná, catalogada en serio riesgo de extinción.
+Decoded output: La Ministra de la SPL y fue acompañada de la Directora General de Documentación y de la Dirección General de Educación De toda la Dirección General de Educación
+
+Reference destination tokens: {'un', 'liderado', 'Al', 'de', 'está', 'revitalización', 'comunidad', 'Directora', 'lengua', 'Lingũísticas', 'Promoción', 'técnico', 'Documentación', 'mismo', 'la', 'trabajos', 'Lenguas', 'realizando', 'y', 'en', 'las', 'serio', 'Políticas', 'Secretaría', 'catalogada', 'tiempo,', 'extinción.', 'por', 'General', 'campo', 'Nieves', 'equipo', 'Indígenas,', 'documentación', 'Montiel,', 'líneas', 'riesgo', 'guaná,'}
+Decoded output tokens: {'la', 'Dirección', 'Directora', 'General', 'toda', 'acompañada', 'Educación', 'De', 'fue', 'de', 'Documentación', 'y', 'SPL', 'La', 'Ministra'}
+Overlapping words: {'la', 'Directora', 'General', 'de', 'Documentación', 'y'}
+------------------
+
+Index: 4885
+Reference source: Oñemohu’ã rueda de negocios oñemotenondéva marco Expo 2019.
+Reference destination: Concluyó la rueda de negocios realizada en el marco de la Expo 2019.
+Decoded output: La ministra de la Secretaría de Cultura del Estado de la Educación de la Educación se reunió en el marco de la documentación y promoción del guaraní en los eventos de la SPL y parte de los miembros del idioma guaraní en la terminología
+
+Reference destination tokens: {'la', 'Concluyó', 'el', 'de', 'marco', 'en', 'negocios', '2019.', 'rueda', 'Expo', 'realizada'}
+Decoded output tokens: {'reunió', 'promoción', 'Educación', 'de', 'marco', 'eventos', 'SPL', 'La', 'guaraní', 'idioma', 'Estado', 'la', 'miembros', 'el', 'los', 'y', 'en', 'del', 'parte', 'Secretaría', 'terminología', 'se', 'Cultura', 'ministra', 'documentación'}
+Overlapping words: {'la', 'el', 'de', 'marco', 'en'}
+------------------
+
+Index: 468
+Reference source: Senador ha titular Jurado de Enjuiciamiento de Magistrados, Enrique Bacchetta omomarandu ABC Cardinal pe bancada kolo'o Añetete oresolve omosãso umi vóto elecciones ministro de la Corte Suprema de Justicia (CSJ),  ñomongeta presidente de la República, Mario Abdo Benítez.
+Reference destination: El senador y titular del Jurado de Enjuiciamiento de Magistrados, Enrique Bacchetta informó este martes a ABC Cardinal que la bancada de Colorado Añetete resolvió liberar los votos en las elecciones a ministro de la Corte Suprema de Justicia (CSJ), tras una reunión con el presidente de la República, Mario Abdo Benítez.
+Decoded output: El evento se desarrolló en la plaza de la República y contó con el apoyo de la presidencia por la cual se llevó a cabo el presidente de la Entidad de teatro de la Entidad vehicular dentro de la Entidad vehicular de
+
+Reference destination tokens: {'informó', 'de', 'Mario', 'una', 'reunión', 'con', 'Bacchetta', 'elecciones', 'presidente', 'votos', 'bancada', 'tras', 'ministro', 'Enrique', 'República,', 'Benítez.', 'la', 'Magistrados,', 'Justicia', 'el', 'Colorado', 'Enjuiciamiento', 'resolvió', 'y', 'liberar', 'los', 'en', 'las', 'Corte', 'a', 'del', 'Añetete', 'que', 'El', 'Suprema', 'senador', 'este', 'martes', '(CSJ),', 'Jurado', 'Cardinal', 'titular', 'Abdo', 'ABC'}
+Decoded output tokens: {'República', 'dentro', 'de', 'contó', 'con', 'presidencia', 'teatro', 'cual', 'presidente', 'evento', 'apoyo', 'cabo', 'la', 'Entidad', 'el', 'y', 'en', 'a', 'El', 'llevó', 'por', 'plaza', 'desarrolló', 'se', 'vehicular'}
+Overlapping words: {'la', 'El', 'presidente', 'el', 'de', 'y', 'en', 'a', 'con'}
+------------------
+
+Index: 137
+Reference source: Ñe'ẽ Rape'apo Moakãharapavẽ, Paraguái Ñe'ẽnguéra Sãmbyhyha pegua, Celia Godoy, ha hembiapo irũnguéra, Alcibiades Brítez ha Rossana Arias, ohesa'ỹijo ko taller Gobernación koty guasúpe.
+Reference destination: La Directora General de Planificación Lingũísticas de la Secretaría de Políticas Lingũísticas, Celia Godoy, y los técnicos de la Dirección, Alcibiades Brítez y Rossana Arias, ofrecieron el taller en la sede de la Gobernación.
+Decoded output: De acuerdo con el director general de Desarrollo Económico y Paraguaya de la Dirección de Cultura de la Dirección de Educación Médicas de la Secretaría de Desarrollo de Francia y la Directora General de Documentación y Desarrollo de Tecnologías y de la Dirección de Educación General de la Amistad y fue presidida por la Directora General de Documentación y Desarrollo de las Personas con la Dirección General de Educación
+
+Reference destination tokens: {'Godoy,', 'técnicos', 'Lingũísticas,', 'sede', 'de', 'La', 'Arias,', 'Directora', 'Lingũísticas', 'Planificación', 'Brítez', 'Celia', 'taller', 'Dirección,', 'la', 'el', 'los', 'y', 'en', 'Políticas', 'Secretaría', 'Rossana', 'General', 'Alcibiades', 'ofrecieron', 'Gobernación.'}
+Decoded output tokens: {'Educación', 'de', 'Médicas', 'con', 'Desarrollo', 'Directora', 'Amistad', 'Personas', 'De', 'Económico', 'Paraguaya', 'Documentación', 'director', 'la', 'Dirección', 'el', 'y', 'las', 'Secretaría', 'Francia', 'general', 'por', 'acuerdo', 'General', 'presidida', 'fue', 'Cultura', 'Tecnologías'}
+Overlapping words: {'la', 'Directora', 'General', 'el', 'de', 'y', 'Secretaría'}
+------------------
+
+Index: 2086
+Reference source: Upéichante avei, Ypykuéra Ñe'ẽ Ñeñongatu ha Ñemoasã, PÑS pegua, Moakãharapavẽ, María De las Nieves Motiel, oĩta oñeñomongetatahápe “Apoyo, acceso y promoción de las lenguas indígenas: empoderar a todas las partes interesadas y crear nuevas sinergias”.
+Reference destination: Así mismo, la Directora General de Documentación y Promoción de Lenguas Indígenas de la SPL, María De las Nieves Montiel, compartirá una mesa de diálogo sobre “Apoyo, acceso y promoción de las lenguas indígenas: empoderar a todas las partes interesadas y crear nuevas sinergias”.
+Decoded output: El conversatorio fue organizado por la Fundación y se extiende con el apoyo de la embajada paraguaya y a través de la vida realizada y será la Directora General de Educación De Brasil y tendrá una diferencia es el evento con la diferencia por lo que es lo general y derivado a la ciudad
+
+Reference destination tokens: {'diálogo', 'SPL,', 'promoción', 'de', 'acceso', 'una', 'Así', 'compartirá', 'sinergias”.', 'mismo,', 'crear', 'Directora', 'nuevas', 'De', 'Promoción', 'Documentación', 'interesadas', 'la', 'Lenguas', 'María', 'y', 'las', 'lenguas', 'mesa', 'a', 'indígenas:', 'todas', 'General', 'Indígenas', 'Nieves', 'partes', '“Apoyo,', 'Montiel,', 'empoderar', 'sobre'}
+Decoded output tokens: {'derivado', 'vida', 'Brasil', 'Educación', 'será', 'de', 'una', 'con', 'embajada', 'paraguaya', 'Directora', 'tendrá', 'conversatorio', 'evento', 'De', 'apoyo', 'la', 'ciudad', 'el', 'organizado', 'y', 'a', 'Fundación', 'que', 'realizada', 'El', 'lo', 'general', 'por', 'General', 'fue', 'extiende', 'se', 'es', 'través', 'diferencia'}
+Overlapping words: {'la', 'Directora', 'General', 'De', 'de', 'una', 'y', 'a'}
+------------------
+
+Index: 108
+Reference source: Araka'ekue ha mba'e aravótapa: arapokõi javéta jepi, ko oúva 9 jasypoteĩ guive, 08:30 aravo guive 11:30 peve; kóva oikóta Academia rógape, opytáva 25 de Mayo ha Estados Unidos rape ojupytyhápe, Paraguay távape.
+Reference destination: El horario y frecuencia del curso será los sábados, a partir del 9 de junio próximo, de 08:30 a 11:30 horas, y se impartirá en la sede de la Academia (25 de Mayo y Estados Unidos, Asunción).
+Decoded output: A través de la Comisión de 1960 por la publicación en contra de lo que llegó esta mañana un grupo de más tardar el pasado presidente de la Presidencia para la explotación abierta en un test de postularse para la habilitación más de uno de la edad por uno de lo que ocurrió en la país en la sede de la Presidencia en uno de los
+
+Reference destination tokens: {'(25', 'sábados,', 'curso', 'será', 'sede', 'de', 'Mayo', '08:30', 'Estados', 'Academia', '11:30', 'próximo,', 'la', 'Unidos,', 'horario', 'partir', 'impartirá', '9', 'los', 'y', 'en', 'a', 'del', 'junio', 'El', 'frecuencia', 'Asunción).', 'se', 'horas,'}
+Decoded output tokens: {'un', 'Comisión', 'para', 'pasado', 'postularse', 'ocurrió', 'país', 'tardar', 'sede', 'de', '1960', 'Presidencia', 'uno', 'test', 'abierta', 'más', 'edad', 'esta', 'presidente', 'habilitación', 'contra', 'grupo', 'la', 'publicación', 'mañana', 'el', 'llegó', 'los', 'en', 'que', 'lo', 'explotación', 'por', 'A', 'través'}
+Overlapping words: {'la', 'sede', 'de', 'los', 'en'}
+------------------
+
+Index: 688
+Reference source: Upéi omoneĩ CONES ha oñepyrũ oñemoarandu umi temimbo’e upe 2016 arýpe ko ypykuéra rekoha oje’emava’ekuépe.
+Reference destination: La carrera recibió la habilitación del CONES y así se inician las clases en el año 2016 en la comunidad indígena mencionada.
+Decoded output: En el año 2016 en el año de este año el 10 de diciembre de 2017 ya lleva a su cargo en la ANDE en cuanto a un monto de creación de uno de lo que lleva a una de enero de lo tanto en cuanto a un mayor de un monto de uno de lo largo
+
+Reference destination tokens: {'año', 'CONES', 'carrera', 'La', 'comunidad', 'indígena', 'clases', 'habilitación', 'mencionada.', 'recibió', '2016', 'la', 'el', 'y', 'las', 'en', 'del', 'así', 'inician', 'se'}
+Decoded output tokens: {'un', 'año', 'ANDE', 'largo', 'de', 'uno', 'una', 'mayor', 'su', 'lleva', 'cuanto', 'enero', 'cargo', 'tanto', '2016', 'la', 'monto', 'el', '2017', 'ya', 'en', 'a', 'que', 'En', 'lo', '10', 'este', 'diciembre', 'creación'}
+Overlapping words: {'la', 'año', 'el', 'en', '2016'}
+------------------
+
+Index: 4493
+Reference source: Péicha imandu'a mburuvichakuéra política ha educativa omoirüva hi'aguï haguã logro oguahëva, "upéicha ikatúta ko historia romopu'ãvo romopu'ã kerayvoty peteî futuro mejor oimehápe umi miembro comunidad-pegua", omoañete coordinadora departamental.
+Reference destination: Además, refirió que si las autoridades políticas y educativas acompañan de cerca los logros, "entonces podemos decir que la historia que vamos a construir nos va permitir soñar por un futuro mejor para cada uno de los miembros de la comunidad", enfatizó la coordinadora departamental.
+Decoded output: De acuerdo a la razón entre lo que la formación en la población de cada uno de los compatriotas que Latinoamérica en donde se han de esa época en la mano para expresar la formación en la vida de todos juntos lo demuestra su trabajo en donde se compone de una población enlhet puede llamar a la economía e interpretación de lo largo importante a partir de lo que tenga la interpretación
+
+Reference destination tokens: {'un', 'cerca', 'para', 'si', 'soñar', 'autoridades', 'de', 'uno', 'acompañan', 'enfatizó', 'va', '"entonces', 'comunidad",', 'historia', 'permitir', 'mejor', 'educativas', 'coordinadora', 'refirió', 'logros,', 'políticas', 'la', 'miembros', 'vamos', 'podemos', 'cada', 'los', 'y', 'las', 'futuro', 'departamental.', 'a', 'que', 'por', 'nos', 'decir', 'Además,', 'construir'}
+Decoded output tokens: {'para', 'vida', 'importante', 'largo', 'época', 'compatriotas', 'de', 'uno', 'una', 'donde', 'economía', 'puede', 'su', 'entre', 'mano', 'expresar', 'e', 'interpretación', 'esa', 'De', 'tenga', 'razón', 'la', 'trabajo', 'demuestra', 'partir', 'juntos', 'cada', 'los', 'todos', 'población', 'en', 'a', 'que', 'llamar', 'lo', 'acuerdo', 'enlhet', 'han', 'formación', 'se', 'compone', 'Latinoamérica'}
+Overlapping words: {'la', 'para', 'cada', 'de', 'uno', 'los', 'a', 'que'}
+------------------
+
+Index: 3223
+Reference source: Ipotî porã umi temimbo’e, bandalisa púpe, umi mitãnguéra, mitãkuña ha mitãkuimba’e ha umi kakuaa oguata hikuái calle Palma rape rehe, oguerohorý ha omomba’eguasúvo Virgen de la Asunción, péva vy’a guasu oikévo ha oñemotenondéva ágã 15 de agosto ára oúvape.
+Reference destination: Con impecable uniforme, al son de bandalisas, centenares de niños, jóvenes y adultos marchan por la calle Palma, en honor de la Virgen de la Asunción, en el marco de los festejos patronales cuyos actos centrales se desarrollarán el próximo 15 de agosto.
+Decoded output: En el marco de los alumnos de la comunidad indígena indígenas de manera virtual y se encuentran a favor de la capacitación de todos los alumnos de los alumnos de toda Asunción y la Directora General de Educación en uno de los alumnos de la opinión de la soberanía es de la muerte de ciencias existentes en toda la ciudad de ciencias para la Memoria es de una de toda información de ciencias para la lectura en la soberanía es casi donde se debe trabajar en el
+
+Reference destination tokens: {'Virgen', 'bandalisas,', 'calle', 'centrales', 'de', 'impecable', 'marco', 'son', 'al', 'festejos', 'Con', '15', 'honor', 'Asunción,', 'agosto.', 'actos', 'marchan', 'la', 'centenares', 'Palma,', 'el', 'niños,', 'los', 'y', 'en', 'por', 'adultos', 'patronales', 'se', 'uniforme,', 'cuyos', 'próximo', 'desarrollarán', 'jóvenes'}
+Decoded output tokens: {'alumnos', 'para', 'toda', 'Educación', 'de', 'uno', 'marco', 'soberanía', 'una', 'donde', 'información', 'Asunción', 'comunidad', 'trabajar', 'indígena', 'Directora', 'casi', 'existentes', 'lectura', 'muerte', 'favor', 'opinión', 'la', 'ciudad', 'el', 'indígenas', 'los', 'todos', 'y', 'en', 'a', 'manera', 'En', 'virtual', 'debe', 'General', 'capacitación', 'Memoria', 'se', 'es', 'ciencias', 'encuentran'}
+Overlapping words: {'la', 'el', 'de', 'los', 'marco', 'y', 'en', 'se'}
+------------------
+
+Index: 2357
+Reference source: Ojejukávo Dalma Rojas hogayguakuéra ndive, ikichiha ojahévaite hese, Bruno Marabel, ramoite feminicidio tetãme umi heta apytépe oikóva ha upévare oñomoirû tetãme, articulación feminista 8M he'i “oîvo pe tuguypochy machista oîta ha oîvéta feminicidio”.
+Reference destination: El asesinato de Dalma Rojas y su familia por parte de la pareja de la mujer, Bruno Marabel, es solo el más reciente caso de feminicidio en el país, y la articulación feminista 8M advirtió que “mientras siga existiendo violencia machista van a seguir existiendo casos de feminicidio”.
+Decoded output: De aquí también se hace que se cumplen una de las regiones una parte de la comunidad ya fue un mayor mayor de lo que siempre fue mucho como uno de un final por lo que es lo que era lo tanto por eso fue de lo que va a ser uno de lo que es la primera vez de un monto de la madre de un monto de un sujeto por parte de la
+
+Reference destination tokens: {'de', 'Rojas', 'feminicidio', 'familia', 'su', 'más', 'feminicidio”.', 'siga', 'Bruno', 'asesinato', 'la', 'machista', 'violencia', '8M', 'el', 'advirtió', 'y', 'en', 'país,', 'van', 'pareja', 'a', 'parte', 'reciente', 'articulación', 'que', 'El', 'Dalma', 'caso', 'casos', 'por', 'mujer,', 'solo', 'Marabel,', 'feminista', 'existiendo', 'es', '“mientras', 'seguir'}
+Decoded output tokens: {'un', 'aquí', 'de', 'uno', 'una', 'mayor', 'mucho', 'comunidad', 'siempre', 'va', 'primera', 'regiones', 'era', 'De', 'tanto', 'cumplen', 'la', 'monto', 'ya', 'final', 'eso', 'ser', 'también', 'las', 'como', 'a', 'parte', 'que', 'lo', 'por', 'vez', 'madre', 'fue', 'se', 'es', 'hace', 'sujeto'}
+Overlapping words: {'la', 'por', 'de', 'es', 'a', 'parte', 'que'}
+------------------

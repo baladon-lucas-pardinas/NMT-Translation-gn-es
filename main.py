@@ -9,7 +9,9 @@ from src.config.config import load_config_variables, FLAG_SEPARATOR
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--command-path', type=str, required=True)
-    parser.add_argument('--save-each-epochs', type=int, required=False)
+    parser.add_argument('--validate-each-epochs', type=int, required=False, default=None)
+    parser.add_argument('--validation_metrics', type=str, required=False, default=None)
+    parser.add_argument('--save-checkpoints', action='store_true', required=False, default=False)
     parser.add_argument('--ingest', action='store_true', required=False, default=False)
     parser.add_argument('--train', action='store_true', required=False, default=False)
     parser.add_argument('--transform', action='store_true', required=False, default=False)
@@ -18,12 +20,14 @@ def parse_args():
 
 if __name__ == '__main__':
     args = parse_args()
-    command_path     = args.get('command_path')
-    save_each_epochs = args.get('save_each_epochs')
-    ingest           = args.get('ingest')
-    transform        = args.get('transform')
-    train            = args.get('train')
-    flags            = args.get('flags')
+    command_path         = args.get('command_path')
+    validate_each_epochs = args.get('validate_each_epochs')
+    validation_metrics   = args.get('validation_metrics')
+    save_checkpoints     = args.get('save_checkpoints')
+    ingest               = args.get('ingest')
+    transform            = args.get('transform')
+    train                = args.get('train')
+    flags                = args.get('flags')
     
     config_variables = load_config_variables()
     flag_separator   = config_variables.get(FLAG_SEPARATOR, ' ')
@@ -42,7 +46,8 @@ if __name__ == '__main__':
         transformation_config = data_transformation_config.get_data_transformation_config()
         logging.info('Transforming data with config {}'.format(transformation_config))
     if train:
-        command_config = command.get_command_config(command_path, flags, save_each_epochs=save_each_epochs)
+        validation_metrics = validation_metrics.split(' ') if validation_metrics else None
+        command_config = command.get_command_config(command_path, flags, validate_each_epochs=validate_each_epochs, validation_metrics=validation_metrics, save_checkpoints=save_checkpoints)
         logging.info('Training model with config {}'.format(command_config))
 
     try:

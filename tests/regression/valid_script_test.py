@@ -14,17 +14,16 @@ class TestValidationScript(unittest.TestCase):
     def setUp(self) -> None:
         self.example_translation = ['This is an example translation sentence.', 'My name is Marian, but people call me MarianMT', '', "Ko'ágã ojehecha hikuái karu guasu 14:00 a la Samaniego oúvape pe dato 42 pasajero elecciones de transporte oúva temimbo’e rupi ha upéi oñemotenonde 1 de abril oúvape pero oiko jave 1 de prensa oikóva oúva ha upéicha ojapóvo ha oñemotenonde upe 1 de prensa"]
         self.example_reference = ['This is an example reference sentence.', '', 'Hello', "Ojehechava'erã orrenunisava'erã umi concejal Junta Municipal-pe, oñemoherakuãgui ganador elecciones ágã 30 de mayo, ikatu haguã oñepyrû hikuái 1 de julio."]
+        
+        # self.example_translation = ['The dog bit the man.', "It wasn't surprising.", 'The man had just bitten him.'] #45.0675,
+        # self.example_reference = ['The dog bit the man.', 'It was not unexpected.', 'The man bit him first.'] #50.0431,
 
         # Expected scores calculated using https://huggingface.co/spaces/evaluate-metric/sacrebleu
         self.expected_scores = {
-            'sacrebleu': [48.89230, 0.0, 0.0, 1.99869780],
-            #'bleu': [48.89230, 0.0, 0.0, 1.99869780],
-            #'chrf': [0.0, 0.0, 0.0, 0.0],
+            'sacrebleu_corpus_bleu': 5.5451, 
+            'sacrebleu_corpus_chrf': 32.0221, 
         }
-        self.expected_mean_score = {
-            metric: sum(self.expected_scores[metric]) / len(self.expected_scores[metric]) \
-                for metric in self.expected_scores
-        }
+        
         self.precision_epsilon = 1e-4
         pass
 
@@ -52,7 +51,7 @@ class TestValidationScript(unittest.TestCase):
             os.remove(reference_file)
             os.remove(translation_file)
 
-            output = process_result.stdout.decode('utf-8')
+            output = process_result.stdout.decode('latin-1') # Accepts guaraní characters (unlike utf-8)
             error = process_result.stderr.decode('utf-8')
             if process_result.stderr != b'':
                 print('Metric:', metric)
@@ -70,7 +69,9 @@ class TestValidationScript(unittest.TestCase):
                 self.fail('Validation script did not return a number.')
 
             self.assertEqual(process_result.returncode, 0)
-            self.assertAlmostEqual(float(output), self.expected_mean_score[metric], delta=self.precision_epsilon)
+            print(); print('Metric:', metric)
+            print('Output:', output)
+            self.assertAlmostEqual(float(output), self.expected_scores[metric], delta=self.precision_epsilon)
 
 def main():
     unittest.main()

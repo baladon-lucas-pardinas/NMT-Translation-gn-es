@@ -99,7 +99,7 @@ def create_vocabularies(
             split = row[split_column_index]
             if split == train_column:
                 text = row[column_to_clean_index]
-                tokenized_text = tokenization.tokenize(tokenizer, text)
+                tokenized_text = tokenizer.tokenize(text)
                 splits[split]['count'] += len(tokenized_text)
                 splits[split]['data'].update(tokenized_text)
 

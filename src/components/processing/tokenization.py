@@ -1,38 +1,69 @@
 import re
 import pickle
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' # Done to avoid GPU warnings from Tensorflow
+from abc import ABC, abstractmethod
+
 from src.components.processing.cleaning import clean_text, clean_token
 
-import spacy
+class Tokenizer(ABC):
+    def __init__(self, tokenizer):
+        self.tokenizer = tokenizer
 
-def get_tokenizer():
-    # type: () -> spacy.lang.es.Spanish
-    tokenizer = None
-    current_dir = os.path.dirname(os.path.realpath(__file__))
-    nlp_path = os.path.join(current_dir, "spacy_nlp.p")
+    @abstractmethod
+    def tokenize(self, text):
+        ...
 
-    if os.path.isfile(nlp_path):
-        with open(nlp_path, "rb") as f:
-            tokenizer = pickle.load(f)
-    else:
-        tokenizer = spacy.load("es_core_news_md")
-        pickle.dump(tokenizer, open(nlp_path, "wb"))
+class SpacyTokenizer(Tokenizer):
+    def __init__(self):
+        import spacy
+        os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' # Done to avoid GPU warnings from Tensorflow
+        tokenizer = None
+        current_dir = os.path.dirname(os.path.realpath(__file__))
+        nlp_path = os.path.join(current_dir, "spacy_nlp.p")
 
-    return tokenizer
-
-def tokenize(tokenizer, text):
-    # type: (str, spacy.lang.es.Spanish) -> list
-    tokens = []
-    #text = clean_text(text)
-
-    doc = tokenizer(text)
-    for token in doc:
-        cleaned_token = clean_token(token.text)
-        if cleaned_token != '':
-            tokens.append(cleaned_token)
+        if os.path.isfile(nlp_path):
+            with open(nlp_path, "rb") as f:
+                tokenizer = pickle.load(f)
         else:
-            text = clean_text(text)
-            tokens = [token.strip() for token in text.split()]
+            tokenizer = spacy.load("es_core_news_md")
+        pickle.dump(tokenizer, open(nlp_path, "wb"))
+        super().__init__(tokenizer)
 
-    return tokens
+    def tokenize(self, text):
+        # type: (str) -> list
+        tokens = []
+        #text = clean_text(text)
+
+        doc = self.tokenizer(text)
+        for token in doc:
+            cleaned_token = clean_token(token.text)
+            if cleaned_token != '':
+                tokens.append(cleaned_token)
+            else:
+                text = clean_text(text)
+                tokens = [token.strip() for token in text.split()]
+
+        return tokens
+
+class NLTKTokenizer(Tokenizer):
+    def __init__(self):
+        import nltk
+        tokenizer = nltk.tokenize.word_tokenize
+        super().__init__(tokenizer)
+
+    def tokenize(self, text):
+        # type: (str) -> list
+        tokens = self.tokenizer(text)
+        tokens = [clean_token(token) for token in tokens]
+        tokens = [token for token in tokens if token != '']
+        return tokens
+
+def get_tokenizer(tokenizer='nltk'):
+    # type: (str) -> Tokenizer
+    tokenizer = tokenizer.lower()
+    if tokenizer == 'nltk':
+        return NLTKTokenizer()
+    elif tokenizer == 'spacy':
+        return SpacyTokenizer()
+    else:
+        raise ValueError('Tokenizer {} not found'.format(tokenizer))

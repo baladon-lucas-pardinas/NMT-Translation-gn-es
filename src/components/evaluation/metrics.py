@@ -1,19 +1,84 @@
 import sacrebleu
-import nltk
+import csv
+from typing import Callable
 
-# Receives a list of tokenized references and a list of tokenized translated sentences
-# If the score is 'sacrebleu', the sentences will not be tokenized
-def calculate_metric(reference, translated, bleu_score_type='bleu'):
-    # type: (list[str], list[str], str) -> float
-    classic_bleu_function = lambda reference, translated: nltk.translate.bleu_score.sentence_bleu([reference], translated)
-    chrf_function = lambda reference, translated: sacrebleu.corpus_chrf(translated, [reference]).score
-    sacrebleu_function = lambda reference, translated: sacrebleu.corpus_bleu([translated], [[reference]]).score
-    
+"""
+https://www.nltk.org/api/nltk.translate.bleu_score.html
+hypothesis1 = ['It', 'is', 'a', 'guide', 'to', 'action', 'which', 'ensures',
+                'that', 'the', 'military', 'always', 'obeys', 'the',
+                'commands', 'of', 'the', 'party']
+reference1 = ['It', 'is', 'a', 'guide', 'to', 'action', 'that', 'ensures',
+              'that', 'the', 'military', 'will', 'forever', 'heed',
+              'Party', 'commands']
+print(sentence_bleu([reference1], hypothesis1))
+"""
+
+# def calculate_sentence_bleu(references, translated):
+#     # type: (list[str], list[str]) -> float
+#     # Each reference is a list of references (in this case, of size 1).
+#     bleu_scores = [sacrebleu.sentence_bleu(translated, reference).score for reference in references]
+#     bleu_score = sum(bleu_scores) / len(bleu_scores)
+#     return bleu_score
+
+def __reshape_1rest(references):
+    # type: (list[list[str]]) -> list[list[list[str]]]
+    references = [references]
+    return references
+
+def __reshape_rest1(references):
+    # type: (list[list[str]]) -> list[list[list[str]]]
+    references = [[reference] for reference in references]
+    return references
+
+def __squeeze(references):
+    # type: (list[list[list[str]]]) -> list[list[str]]
+    return [reference[0] for reference in references]
+
+"""
+https://github.com/mjpost/sacrebleu
+
+refs = [ # First set of references
+         ['The dog bit the man.', 'It was not unexpected.', 'The man bit him first.'],
+         # Second set of references
+         ['The dog had bit the man.', 'No one was surprised.', 'The man had bitten the dog.'],
+       ]
+sys = ['The dog bit the man.', "It wasn't surprising.", 'The man had just bitten him.']
+sacrebleu.corpus_bleu(sys, refs)
+BLEU = 48.53 82.4/50.0/45.5/37.5 (BP = 0.943 ratio = 0.944 hyp_len = 17 ref_len = 18)
+"""
+def calculate_sacrebleu_corpus_bleu(references, translated):
+    # type: (list[str], list[str]) -> float
+    bleu_score = sacrebleu.corpus_bleu(translated, references).score
+    return bleu_score
+
+def calculate_sacrebleu_corpus_chrf(references, translated):
+    # type: (list[str], list[str]) -> float
+    chrf_score = sacrebleu.corpus_chrf(translated, references).score
+    return chrf_score
+
+"""
+https://github.com/mjpost/sacrebleu/blob/e22640/sacrebleu/compat.py#L66-L67
+Disclaimer: computing BLEU on the sentence level is not its intended use,
+BLEU is a corpus-level metric.
+"""
+def calculate_metric(references, translated, bleu_score_type='sacrebleu_corpus_bleu', tokenize=lambda x: x.split()):
+    # type: (list[str], list[str], str, Callable[[str], list[str]]) -> float
     score_functions = {
-        'bleu': classic_bleu_function,
-        'chrf': chrf_function,
-        'sacrebleu': sacrebleu_function
+        'sacrebleu_corpus_bleu': calculate_sacrebleu_corpus_bleu,
+        'sacrebleu_corpus_chrf': calculate_sacrebleu_corpus_chrf,
     }
 
-    bleu_score = score_functions[bleu_score_type](reference, translated)
+    references = __reshape_1rest(references)
+    
+    # SACREBLEU does not need tokenization
+    bleu_score = score_functions[bleu_score_type](references, translated)
     return bleu_score
+
+def save_results(file_name, translation_output, reference, parameters, metrics=['sacrebleu_corpus_bleu']):
+    # type: (str, str, str, dict, list[str]) -> None
+    file_name = file_name + '.csv' if not file_name.endswith('.csv') else file_name
+    writer = csv.writer(open(file_name, 'w'))
+    writer.writerow(['model_name', 'metric', 'score', 'parameters'])
+    for score_type in metrics:
+        bleu_score = calculate_metric(reference, translation_output, bleu_score_type=score_type)
+        writer.writerow([file_name, score_type, bleu_score, str(parameters)])
