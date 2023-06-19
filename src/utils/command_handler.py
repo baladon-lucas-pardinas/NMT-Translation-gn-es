@@ -34,12 +34,7 @@ def create_command_flags(flags):
 def create_command(config):
     # type: (CommandConfig) -> str
     command = ""
-    command_dir = os.path.join(config.command_path, config.command_name)
-    
-    command += command_dir.format(
-        command_path=config.command_path, 
-        command_name=config.command_name
-    )
+    command += os.path.join(config.command_path, config.command_name)
     command += create_command_flags(config.flags)
 
     return command

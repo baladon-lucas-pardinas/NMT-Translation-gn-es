@@ -32,9 +32,11 @@ def main(reference_file, translation_file, metric='sacrebleu_corpus_bleu'):
     rounded_result = '{:g}'.format(float('{:.6g}'.format(score)))
     print(rounded_result)
 
+# Example: python .\scripts\validate\score.py --reference_file artifacts/data/validation/valid_es.txt.es --translation_file .\logs\marian\split_decode_checkpoint_100-80.log --score sacrebleu_corpus_chrf
+# Example: python .\scripts\validate\score.py --reference_file artifacts/data/validation/valid_gn.txt.gn --translation_file .\logs\marian\es_gn_decode_checkpoints-100.log --score sacrebleu_corpus_chrf
 if __name__ == '__main__':
     args = parse_args()
     reference_file   = args['reference_file']
     translation_file = args['translation_file']
-    selected_metric   = args['score']
+    selected_metric  = args['score']
     main(reference_file, translation_file, selected_metric)

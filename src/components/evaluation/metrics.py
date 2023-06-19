@@ -1,6 +1,12 @@
-import sacrebleu
+import sys
+import os
 import csv
+import datetime
 from typing import Callable
+
+from src.utils import file_manager
+
+import sacrebleu
 
 """
 https://www.nltk.org/api/nltk.translate.bleu_score.html
@@ -74,11 +80,33 @@ def calculate_metric(references, translated, bleu_score_type='sacrebleu_corpus_b
     bleu_score = score_functions[bleu_score_type](references, translated)
     return bleu_score
 
+def get_results_filename(file_name):
+    # type: (str) -> str
+    if not file_name.endswith('.csv'):
+        file_name += '.csv'
+    return file_name
+
 def save_results(file_name, translation_output, reference, parameters, metrics=['sacrebleu_corpus_bleu']):
     # type: (str, str, str, dict, list[str]) -> None
-    file_name = file_name + '.csv' if not file_name.endswith('.csv') else file_name
-    writer = csv.writer(open(file_name, 'w'))
-    writer.writerow(['model_name', 'metric', 'score', 'parameters'])
-    for score_type in metrics:
-        bleu_score = calculate_metric(reference, translation_output, bleu_score_type=score_type)
-        writer.writerow([file_name, score_type, bleu_score, str(parameters)])
+    file_name = get_results_filename(file_name)
+    first_time_saving = not os.path.isfile(file_name)
+    columns = ['date', 'model_name', 'source', 'target', 'score_type', 'score', 'epoch', 'parameters']
+
+    with open(file_name, 'a') as f:
+        writer = csv.writer(f)
+
+        if first_time_saving:
+            writer.writerow(columns)
+
+        for score_type in metrics:
+            source, target = parameters.get('valid-sets', ['', ''])
+            source, target = [os.path.basename(path) for path in [source, target]]
+            date = datetime.datetime.now()
+            model_name = os.path.basename(parameters.get('model', [''])[0])
+            reference_lines = file_manager.get_file_lines(reference)
+            translation_lines = file_manager.get_file_lines(translation_output)
+            bleu_score = calculate_metric(reference_lines, translation_lines, bleu_score_type=score_type)
+            epoch = parameters.get('after-epochs', [''])[0]
+
+            writer.writerow([date, model_name, source, target, score_type, bleu_score, epoch, parameters,])
+
