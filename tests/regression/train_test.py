@@ -98,7 +98,7 @@ class TestTrain(unittest.TestCase):
             self.assertTrue(os.path.exists(second_checkpoint_filename))
 
         except AssertionError as e:
-            self.fail("Failed with assertion {}".format(e))
+            self.fail("Failed with assertion {}".format(e.with_traceback()))
         finally:
             os.remove(self.model_dir)
             os.remove(self.command_output_dir)

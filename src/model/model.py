@@ -47,9 +47,9 @@ def train(command_config):
     after_epochs                  = flags.get('after-epochs', [None])[0]
     batch_size                    = flags.get('after-batches', [None])[0]
     _, valid_tgt                  = flags.get('valid-sets', [])
-    command_name                  = marian_config.command_name
     validation_metrics            = marian_config.validation_metrics
     save_checkpoints              = marian_config.save_checkpoints
+    command_name                 = marian_config.command_name
 
     if after_epochs is None:
         raise KeyError('after-epochs flag not found in config but validate_each_epochs is not None')
@@ -84,6 +84,7 @@ def train(command_config):
             evaluation_file = os.path.join(base_dir_evaluation, command_name)
             metrics.save_results(
                 file_name=evaluation_file,
+                model_dir=model_dir,
                 translation_output=validation_translation_output_path,
                 reference=valid_tgt,
                 parameters=marian_config.flags,
