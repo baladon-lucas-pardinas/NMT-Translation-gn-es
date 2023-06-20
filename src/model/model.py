@@ -83,6 +83,7 @@ def train(command_config):
             validation_command = """ {MARIAN_DIR}/marian-decoder -m {MODEL_DIR} \
             --vocabs {VOCABS_DIR_SRC} {VOCABS_DIR_TGT} \
             --seed {SEED} \
+            --quiet-translation \
             --cpu-threads 0 \
             --output  {OUTPUT_DIR} \
             --input {VALIDATION_SRC} \
