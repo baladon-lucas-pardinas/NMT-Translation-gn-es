@@ -80,6 +80,23 @@ def train(command_config):
                 batch=batch_size,
             )
 
+            validation_command = """ {MARIAN_DIR}/marian-decoder -m {MODEL_DIR} \
+            --vocabs {VOCABS_DIR_SRC} {VOCABS_DIR_TGT} \
+            --seed {SEED} \
+            --cpu-threads 0 \
+            --output  {OUTPUT_DIR} \
+            --input {VALIDATION_SRC} \
+            """.format(
+                MARIAN_DIR=marian_config.command_path,
+                MODEL_DIR=model_dir,
+                VOCABS_DIR_SRC=marian_config.flags['vocabs'][0],
+                VOCABS_DIR_TGT=marian_config.flags['vocabs'][1],
+                SEED=marian_config.flags['seed'][0],
+                OUTPUT_DIR=validation_translation_output_path,
+                VALIDATION_SRC=valid_tgt,
+            )
+            process_manager.run_command(validation_command)
+
             base_dir_evaluation = marian_config.base_dir_evaluation
             evaluation_file = os.path.join(base_dir_evaluation, command_name)
             metrics.save_results(
