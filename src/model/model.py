@@ -46,10 +46,10 @@ def train(command_config):
     model_dir                     = flags.get('model', [None])[0]
     after_epochs                  = flags.get('after-epochs', [None])[0]
     batch_size                    = flags.get('after-batches', [None])[0]
-    _, valid_tgt                  = flags.get('valid-sets', [])
+    valid_src, valid_tgt          = flags.get('valid-sets', [])
     validation_metrics            = marian_config.validation_metrics
     save_checkpoints              = marian_config.save_checkpoints
-    command_name                 = marian_config.command_name
+    command_name                  = marian_config.command_name
 
     if after_epochs is None:
         raise KeyError('after-epochs flag not found in config but validate_each_epochs is not None')
@@ -85,7 +85,7 @@ def train(command_config):
             --seed {SEED} \
             --quiet-translation \
             --cpu-threads 0 \
-            --output  {OUTPUT_DIR} \
+            --output {OUTPUT_DIR} \
             --input {VALIDATION_SRC} \
             """.format(
                 MARIAN_DIR=marian_config.command_path,
@@ -94,7 +94,7 @@ def train(command_config):
                 VOCABS_DIR_TGT=marian_config.flags['vocabs'][1],
                 SEED=marian_config.flags['seed'][0],
                 OUTPUT_DIR=validation_translation_output_path,
-                VALIDATION_SRC=valid_tgt,
+                VALIDATION_SRC=valid_src,
             )
             process_manager.run_command(validation_command)
 
