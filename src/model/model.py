@@ -65,7 +65,7 @@ def train(command_config):
         if model_dir is None:
             continue
 
-        if not save_checkpoints is None:
+        if save_checkpoints:
             checkpoint_path = rename_checkpoint(model_dir, current_after_epochs)
             file_manager.save_copy(model_dir, checkpoint_path)
 
