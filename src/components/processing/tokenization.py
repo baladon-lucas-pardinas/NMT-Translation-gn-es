@@ -39,9 +39,6 @@ class SpacyTokenizer(Tokenizer):
             cleaned_token = clean_token(token.text)
             if cleaned_token != '':
                 tokens.append(cleaned_token)
-            else:
-                text = clean_text(text)
-                tokens = [token.strip() for token in text.split()]
 
         return tokens
 
@@ -53,7 +50,8 @@ class NLTKTokenizer(Tokenizer):
 
     def tokenize(self, text):
         # type: (str) -> list
-        tokens = self.tokenizer(text)
+        cleaned_text = clean_text(text) # The cleaning should be performed outside this module
+        tokens = self.tokenizer(cleaned_text)
         tokens = [clean_token(token) for token in tokens]
         tokens = [token for token in tokens if token != '']
         return tokens
