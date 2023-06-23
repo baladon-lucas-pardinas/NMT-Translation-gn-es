@@ -42,6 +42,7 @@ def train(command_config):
         return
     
     flags                         = marian_config.flags
+    model_metrics                 = flags.get('metrics', [])
     validation_translation_output = flags.get('valid-translation-output', [None])[0]
     model_dir                     = flags.get('model', [None])[0]
     after_epochs                  = flags.get('after-epochs', [None])[0]
@@ -50,6 +51,7 @@ def train(command_config):
     validation_metrics            = marian_config.validation_metrics
     save_checkpoints              = marian_config.save_checkpoints
     command_name                  = marian_config.command_name
+    is_translation_disabled       = 'translation' not in model_metrics
 
     if after_epochs is None:
         raise KeyError('after-epochs flag not found in config but validate_each_epochs is not None')
@@ -70,6 +72,7 @@ def train(command_config):
             file_manager.save_copy(model_dir, checkpoint_path)
 
         if not (
+            is_translation_disabled or
             validation_translation_output is None or 
             validation_metrics is None or 
             len(validation_metrics) == 0
@@ -79,24 +82,6 @@ def train(command_config):
                 epoch=current_after_epochs,
                 batch=batch_size,
             )
-
-            validation_command = """ {MARIAN_DIR}/marian-decoder -m {MODEL_DIR} \
-            --vocabs {VOCABS_DIR_SRC} {VOCABS_DIR_TGT} \
-            --seed {SEED} \
-            --quiet-translation \
-            --cpu-threads 0 \
-            --output {OUTPUT_DIR} \
-            --input {VALIDATION_SRC} \
-            """.format(
-                MARIAN_DIR=marian_config.command_path,
-                MODEL_DIR=model_dir,
-                VOCABS_DIR_SRC=marian_config.flags['vocabs'][0],
-                VOCABS_DIR_TGT=marian_config.flags['vocabs'][1],
-                SEED=marian_config.flags['seed'][0],
-                OUTPUT_DIR=validation_translation_output_path,
-                VALIDATION_SRC=valid_src,
-            )
-            process_manager.run_command(validation_command)
 
             base_dir_evaluation = marian_config.base_dir_evaluation
             evaluation_file = os.path.join(base_dir_evaluation, command_name)
