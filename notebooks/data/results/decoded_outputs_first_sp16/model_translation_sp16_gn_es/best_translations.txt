@@ -1,0 +1,99 @@
+Index: 548
+Reference source: Péicha avei Juan Carlos Muñoz, presidente Centro de Armadores Fluviales y Maritimos del Paraguay, ombojoapy permiso poteî jasy buque osyryry jey haguã.
+Reference destination: Por su parte, Juan Carlos Muñoz, presidente del Centro de Armadores Fluviales y Maritimos del Paraguay, añadió que el permiso es por seis meses, a fin de que el buque siga su curso.
+Decoded output: Por su parte, Juan Carlos Muñoz, presidente del Centro de ArmadoresFluviales y Maritimos del Paraguay, añadió que el permiso es por seis meses, a fin de que el buque siga su curso.
+
+Reference destination tokens: {'el', 'es', 'que', 'a', 'buque', 'Armadores', 'parte,', 'seis', 'Paraguay,', 'Por', 'meses,', 'y', 'su', 'añadió', 'del', 'Juan', 'Muñoz,', 'por', 'siga', 'fin', 'presidente', 'de', 'Maritimos', 'curso.', 'Carlos', 'Fluviales', 'permiso', 'Centro'}
+Decoded output tokens: {'el', 'es', 'que', 'a', 'buque', 'parte,', 'seis', 'Paraguay,', 'Por', 'meses,', 'y', 'su', 'añadió', 'del', 'Juan', 'Muñoz,', 'por', 'siga', 'fin', 'presidente', 'de', 'Maritimos', 'curso.', 'Carlos', 'permiso', 'ArmadoresFluviales', 'Centro'}
+Overlapping words: {'el', 'es', 'que', 'a', 'buque', 'parte,', 'seis', 'Paraguay,', 'Por', 'meses,', 'y', 'su', 'añadió', 'del', 'Juan', 'Muñoz,', 'por', 'siga', 'fin', 'presidente', 'de', 'Maritimos', 'curso.', 'Carlos', 'permiso', 'Centro'}
+------------------
+
+Index: 3582
+Reference source: Taupéicha...
+Reference destination: Amén...
+Decoded output: Amén...
+
+Reference destination tokens: {'Amén...'}
+Decoded output tokens: {'Amén...'}
+Overlapping words: {'Amén...'}
+------------------
+
+Index: 3925
+Reference source: Embotyꞌo
+Reference destination: Abrir
+Decoded output: Abrir
+
+Reference destination tokens: {'Abrir'}
+Decoded output tokens: {'Abrir'}
+Overlapping words: {'Abrir'}
+------------------
+
+Index: 3943
+Reference source: Arandukaporupyre
+Reference destination: Bibliografía
+Decoded output: Bibliografía
+
+Reference destination tokens: {'Bibliografía'}
+Decoded output tokens: {'Bibliografía'}
+Overlapping words: {'Bibliografía'}
+------------------
+
+Index: 3945
+Reference source: Erova
+Reference destination: Cambiar
+Decoded output: Cambiar
+
+Reference destination tokens: {'Cambiar'}
+Decoded output tokens: {'Cambiar'}
+Overlapping words: {'Cambiar'}
+------------------
+
+Index: 3946
+Reference source: Emboty ovetã
+Reference destination: Cerrar ventana
+Decoded output: Cerrar ventana
+
+Reference destination tokens: {'Cerrar', 'ventana'}
+Decoded output tokens: {'Cerrar', 'ventana'}
+Overlapping words: {'Cerrar', 'ventana'}
+------------------
+
+Index: 3963
+Reference source: Ojehaiporãmbápa
+Reference destination: Corrección lingüística
+Decoded output: Corrección lingüística
+
+Reference destination tokens: {'Corrección', 'lingüística'}
+Decoded output tokens: {'Corrección', 'lingüística'}
+Overlapping words: {'Corrección', 'lingüística'}
+------------------
+
+Index: 4008
+Reference source: Kuatiajopyha
+Reference destination: Impresora
+Decoded output: Impresora
+
+Reference destination tokens: {'Impresora'}
+Decoded output tokens: {'Impresora'}
+Overlapping words: {'Impresora'}
+------------------
+
+Index: 4050
+Reference source: Pyrenda
+Reference destination: Placa
+Decoded output: Placa
+
+Reference destination tokens: {'Placa'}
+Decoded output tokens: {'Placa'}
+Overlapping words: {'Placa'}
+------------------
+
+Index: 4077
+Reference source: Embojevyjey
+Reference destination: Restaurar
+Decoded output: Restaurar
+
+Reference destination tokens: {'Restaurar'}
+Decoded output tokens: {'Restaurar'}
+Overlapping words: {'Restaurar'}
+------------------

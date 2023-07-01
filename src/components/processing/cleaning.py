@@ -12,7 +12,7 @@ IP_REGEX     = r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
 def normalize_text(text):
     # type: (str) -> str
     cleaned_text = text
-    cleaned_text = re.sub("’|`|^", "'", cleaned_text) # TODO: Hablar con Santiago (agregué | |)
+    cleaned_text = re.sub("’`^", "'", cleaned_text)
     cleaned_text = re.sub("´`|´´", "'", cleaned_text)
     cleaned_text = re.sub("’|`|ʼ", "'", cleaned_text)
     cleaned_text = cleaned_text.lower()
