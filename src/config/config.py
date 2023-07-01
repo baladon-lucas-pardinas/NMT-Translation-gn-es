@@ -37,8 +37,8 @@ CONFIG_VARIABLES = [
     DEFAULT_VOCABULARY,
 ]
 
-def load_config_variables():
-    # type: () -> dict
+def load_config_variables(config_variables_names=CONFIG_VARIABLES):
+    # type: (list) -> dict
     root_abs_dir = os.path.join(os.path.dirname(__file__), '..', '..')
     config_variables_path = os.path.join(root_abs_dir, 'config.json')
 
@@ -46,7 +46,7 @@ def load_config_variables():
     with open(config_variables_path, 'r') as config_variables_file:
         config_variables = json.load(config_variables_file)
 
-    variable_names = CONFIG_VARIABLES
+    variable_names = config_variables_names
     config_variables = {
         variable_name: config_variables[variable_name.lower()] 
         for variable_name in variable_names

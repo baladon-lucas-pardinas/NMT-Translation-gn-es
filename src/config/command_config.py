@@ -4,8 +4,20 @@ from src.config.config import load_config_variables, \
     BASE_DIR_EVALUATION
 
 class CommandConfig:
-    def __init__(self, command_name, command_path, flags, flag_separator, validate_each_epochs=None, validation_metrics=None, save_checkpoints=False, results_dir=None, base_dir_evaluation=None):
-        # type: (str, str, dict, str, int, list[str], bool, str, str) -> None
+    def __init__(
+        self, 
+        command_name, 
+        command_path, 
+        flags, 
+        flag_separator, 
+        validate_each_epochs=None, 
+        validation_metrics=None, 
+        save_checkpoints=False, 
+        results_dir=None, 
+        base_dir_evaluation=None,
+        not_delete_model_after=False,
+    ):
+        # type: (str, str, dict, str, int, list[str], bool, str, str, bool) -> None
         self.command_name = command_name
         self.command_path = command_path
         self.flags = flags
@@ -15,6 +27,7 @@ class CommandConfig:
         self.save_checkpoints = save_checkpoints
         self.results_dir = results_dir
         self.base_dir_evaluation = base_dir_evaluation
+        self.not_delete_model_after = not_delete_model_after
 
     def copy(self, deep=False):
         # type: (bool) -> CommandConfig
@@ -28,11 +41,12 @@ class CommandConfig:
             save_checkpoints=self.save_checkpoints,
             results_dir=self.results_dir,
             base_dir_evaluation=self.base_dir_evaluation,
+            not_delete_model_after=self.not_delete_model_after,
         )
     
     def __str__(self):
         # type: () -> str
-        return "CommandConfig(command_name={}, command_path={}, flags={}, flag_separator={}, validate_each_epochs={}, validation_metrics={}, save_checkpoints={}, results_dir={}, base_dir_evaluation={})".format(
+        return "CommandConfig(command_name={}, command_path={}, flags={}, flag_separator={}, validate_each_epochs={}, validation_metrics={}, save_checkpoints={}, results_dir={}, base_dir_evaluation={}, not_delete_model_after={})".format(
             self.command_name,
             self.command_path,
             self.flags,
@@ -42,14 +56,15 @@ class CommandConfig:
             self.save_checkpoints,
             self.results_dir,
             self.base_dir_evaluation,
+            self.not_delete_model_after,
         )
     
     def __repr__(self):
         # type: () -> str
         return str(self)
 
-def get_command_config(command_path, flags, validate_each_epochs=None, validation_metrics=None, save_checkpoints=False, results_dir=None):
-    # type: (str, dict, int, list[str], bool, str) -> CommandConfig
+def get_command_config(command_path, flags, validate_each_epochs=None, validation_metrics=None, save_checkpoints=False, results_dir=None, not_delete_model_after=False):
+    # type: (str, dict, int, list[str], bool, str, bool) -> CommandConfig
     config_variables = load_config_variables()
     return CommandConfig(
         command_name=config_variables[COMMAND_NAME],
@@ -61,4 +76,5 @@ def get_command_config(command_path, flags, validate_each_epochs=None, validatio
         save_checkpoints=save_checkpoints,
         results_dir=results_dir,
         base_dir_evaluation=config_variables[BASE_DIR_EVALUATION],
+        not_delete_model_after=not_delete_model_after,
     )

@@ -12,3 +12,15 @@ def get_file_lines(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         lines = f.readlines()
     return lines
+
+def delete_files(path):
+    # type: (str) -> None
+    dirs = os.listdir(path)
+    for file in dirs:
+        file_path = os.path.join(path, file)
+        if os.path.isdir(file_path):
+            logging.warning('Attempting to delete directory {}'.format(file_path))
+            continue
+        elif os.path.isfile(file_path):
+            logging.info('Deleting file {}'.format(file_path))
+            os.remove(file_path)
