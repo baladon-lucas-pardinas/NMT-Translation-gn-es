@@ -63,7 +63,15 @@ class CommandConfig:
         # type: () -> str
         return str(self)
 
-def get_command_config(command_path, flags, validate_each_epochs=None, validation_metrics=None, save_checkpoints=False, results_dir=None, not_delete_model_after=False):
+def get_command_config(
+    command_path, 
+    flags, 
+    validate_each_epochs=None, 
+    validation_metrics=None, 
+    save_checkpoints=False, 
+    results_dir=None, 
+    not_delete_model_after=False,
+):
     # type: (str, dict, int, list[str], bool, str, bool) -> CommandConfig
     config_variables = load_config_variables()
     return CommandConfig(

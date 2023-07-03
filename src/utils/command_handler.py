@@ -18,6 +18,10 @@ def parse_flags(flags, flag_separator=' '):
         flag_dict[flag_name] = flag_values
     return flag_dict
 
+def deep_copy_flags(flags):
+    # type: (dict) -> dict
+    return {flag: values[:] for flag, values in flags.items()}
+
 # Flags are a list of tuples (flag, values: list)
 # The output string should be like --flag1 value1 ... valueN --flag2 value1 ... valueM
 def create_command_flags(flags):

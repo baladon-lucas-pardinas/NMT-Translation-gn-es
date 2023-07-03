@@ -1,0 +1,6 @@
+{
+    "dropout-rnn": 0.5,
+    "learning-rate": 1e-4,
+    "enc-cell": "tanh",
+    "optimizer": "adagrad"
+}
