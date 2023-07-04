@@ -204,4 +204,4 @@ def train(command_config):
         validate_each_epochs=validate_each_epochs
     )
     if not not_delete_model_after:
-        delete_model_files(model_dir)
+        delete_model_files(model_base_dir)
