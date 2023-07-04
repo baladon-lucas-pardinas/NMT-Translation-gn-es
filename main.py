@@ -15,7 +15,7 @@ def parse_args():
     # Training
     parser.add_argument('--command-path', type=str, required=True, help='Path to the model executable')
     parser.add_argument('--validate-each-epochs', type=int, required=False, default=None, help='Number of epochs between validations')
-    parser.add_argument('--validation_metrics', type=str, required=False, default=None, help='Whitespace separated list of metrics to use for validation')
+    parser.add_argument('--validation-metrics', type=str, required=False, default=None, help='Whitespace separated list of metrics to use for validation')
     parser.add_argument('--save-checkpoints', action='store_true', required=False, default=False, help='Save a copy of the model after each validation')
     parser.add_argument('--not-delete-model-after', action='store_true', required=False, default=False, help='Do not delete the model after training')
 
@@ -27,9 +27,8 @@ def parse_args():
     # Tuning
     parser.add_argument('--hyperparameter-tuning', action='store_true', required=False, default=False, help='Run hyperparameter tuning')
     parser.add_argument('--tuning-grid-files', type=str, required=False, default=None, help='Whitespace separated list of files with a grid of configurations')
-    parser.add_argument('--tuning-params_files', type=str, required=False, default=None, help='Whitespace separated list of files with only one configuration')
-    parser.add_argument('--search-method', type=str, required=False, default='grid', help='Search method for hyperparameter tuning (grid or random)')
-    parser.add_argument('--seed', type=int, required=False, default=None, help='Seed for random search')
+    parser.add_argument('--tuning-params-files', type=str, required=False, default=None, help='Whitespace separated list of files with only one configuration')
+    parser.add_argument('--search-method', type=str, required=False, default='grid', help='Search method for hyperparameter tuning (grid)')
 
     return vars(parser.parse_args())
 
@@ -74,10 +73,9 @@ if __name__ == '__main__':
 
         if hyperparameter_tuning:
             search_method = args.get('search_method')
-            seed = args.get('seed')
             tuning_config = hyperparameter_tuning_config.get_hyperparameter_tuning_config(
                 tuning_grid_files=tuning_grid_files, tuning_params_files=tuning_params_files, 
-                search_method=search_method, seed=seed)
+                search_method=search_method)
             logging.info('Hyperparameter tuning with config {}'.format(tuning_config))
 
     try:
