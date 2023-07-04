@@ -1,5 +1,4 @@
 import os
-import random
 
 from src.model import model
 from src.components import data_ingestion
@@ -35,13 +34,12 @@ def delete_checkpoint(temp_file):
     os.remove(temp_file)
 
 def train(
-        data_ingestion_config,
-        data_transformation_config,
-        command_config,
-        hyperparameter_tuning_config,
-    ):
+    data_ingestion_config,
+    data_transformation_config,
+    command_config,
+    hyperparameter_tuning_config,
+):
     # type: (DataIngestionConfig, DataTransformationConfig, CommandConfig, HyperparameterTuningConfig) -> None
-
     default_flags = command_config.flags
     trained_flags = [default_flags]
 
