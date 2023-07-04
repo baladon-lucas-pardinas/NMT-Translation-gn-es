@@ -79,7 +79,6 @@ class TestTrain(unittest.TestCase):
             tuning_grid_files=[self.grid1_filename, self.grid2_filename],
             tuning_params_files=[self.params1_filename, self.params2_filename],
             search_method='grid',
-            seed=None,
         )
         self.tuning_flags = command_handler.deep_copy_flags(self.flags)
         self.tuning_flags['valid-translation-output'] = [self.hyperparameter_validation_output_dir]
@@ -183,11 +182,7 @@ class TestTrain(unittest.TestCase):
             os.remove(self.grid2_filename)
             os.remove(self.params1_filename)
             os.remove(self.params2_filename)
-            os.remove(self.csv_file_name)
             os.remove(self.hyperparameter_validation_output_dir)
-            # os.remove(self.model_dir)
-            # os.remove(self.command_output_dir)
-            # os.remove(self.csv_file_name)
 
 def main():
     unittest.main()

@@ -11,17 +11,13 @@ from src.components import hyperparameter_tuning
 
 TEMP_DIR = 'temp.txt'
 
-def get_hyperparameter_flags(default_flags, hyperparameter_grids, hyperparameter_configs, search_method, seed):
-    # type: (list[str], list[list[dict]], list[dict], str, int) -> list[list[str]]
+def get_hyperparameter_flags(default_flags, hyperparameter_grids, hyperparameter_configs, search_method):
+    # type: (list[str], list[list[dict]], list[dict], str) -> list[dict]
     hyperparameter_grids_flags = []
     for hyperparameter_grid in hyperparameter_grids:
         hyperparameter_grids_flags.extend(hyperparameter_tuning.get_grid_flags(default_flags, hyperparameter_grid))
     hyperparameter_configs_flags = [hyperparameter_tuning.get_custom_config_flags(default_flags, hyperparamter_config) for hyperparamter_config in hyperparameter_configs]
     trained_flags = [*hyperparameter_configs_flags, *hyperparameter_grids_flags]
-
-    if search_method == 'random':
-        random.seed(seed)
-        random.shuffle(trained_flags)
     return trained_flags
 
 def save_checkpoint(temp_file, checkpoint):
@@ -50,10 +46,10 @@ def train(
     trained_flags = [default_flags]
 
     if hyperparameter_tuning_config is not None:
-        hyperparamter_grids, hyperparameter_configs, hyperparameter_method, hyperparameter_seed = \
+        hyperparamter_grids, hyperparameter_configs, hyperparameter_method = \
             hyperparameter_tuning_config.tuning_grid_files, hyperparameter_tuning_config.tuning_params_files, \
-            hyperparameter_tuning_config.search_method, hyperparameter_tuning_config.seed
-        trained_flags = get_hyperparameter_flags(default_flags, hyperparamter_grids, hyperparameter_configs, hyperparameter_method, hyperparameter_seed)
+            hyperparameter_tuning_config.search_method
+        trained_flags = get_hyperparameter_flags(default_flags, hyperparamter_grids, hyperparameter_configs, hyperparameter_method)
 
     loaded_checkpoint = load_checkpoint(TEMP_DIR)
     for idx, current_flags in enumerate(trained_flags[loaded_checkpoint:]):
