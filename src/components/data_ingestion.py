@@ -9,15 +9,15 @@ def __persist_split_data(splits, split):
         splits[split]['data'] = []
 
 def split_dataset(
-        raw_data_file_path, 
-        raw_data_columns, 
-        raw_data_split_column, 
-        column_to_clean, 
-        train_output, 
-        validation_output, 
-        test_output, 
-        persist_each=10000
-    ):
+    raw_data_file_path, 
+    raw_data_columns, 
+    raw_data_split_column, 
+    column_to_clean, 
+    train_output, 
+    validation_output, 
+    test_output, 
+    persist_each=10000
+):
     # type: (str, list, str, str, str, str, str, int) -> None
     logging.info("Splitting data from {}...".format(raw_data_file_path))
     train_output_path = train_output + '.' + column_to_clean
@@ -29,9 +29,9 @@ def split_dataset(
     logging.info("Writing test data to {}...".format(test_output_path))
 
     with open(raw_data_file_path, 'r', encoding='utf-8') as raw_f, \
-            open(train_output_path, 'w', encoding='utf-8') as train_f, \
-            open(validation_output_path, 'w', encoding='utf-8') as validation_f, \
-            open(test_output_path, 'w', encoding='utf-8') as test_f:
+         open(train_output_path, 'w', encoding='utf-8') as train_f, \
+         open(validation_output_path, 'w', encoding='utf-8') as validation_f, \
+         open(test_output_path, 'w', encoding='utf-8') as test_f:
         
         train_column, validation_column, test_column = raw_data_columns
         splits = {
@@ -64,13 +64,13 @@ def split_dataset(
     logging.info("Ingestion complete.")
 
 def create_vocabularies(
-        raw_data_file_path,
-        raw_data_train_column,
-        raw_data_split_column,
-        column_to_ingest, 
-        train_vocab_output, 
-        default_vocabulary=[]
-    ):
+    raw_data_file_path,
+    raw_data_train_column,
+    raw_data_split_column,
+    column_to_ingest, 
+    train_vocab_output, 
+    default_vocabulary=[]
+):
     # type: (str, str, str, str, str, list) -> None
     logging.info("Creating vocabulary from {}...".format(raw_data_file_path))
     train_vocab_output_path = train_vocab_output + '.' + column_to_ingest
@@ -112,12 +112,18 @@ def create_vocabularies(
 # TODO: Check that length of src and target are equal.
 def ingest_data(data_ingestion_config):
         # type: (DataIngestionConfig,) -> None
-        train_split_outputs = [data_ingestion_config.train_data_src_dir, data_ingestion_config.train_data_tgt_dir]
-        validation_split_outputs = [data_ingestion_config.validation_data_src_dir, data_ingestion_config.validation_data_tgt_dir]
-        test_split_outputs = [data_ingestion_config.test_data_src_dir, data_ingestion_config.test_data_tgt_dir]
-        vocab_outputs = [data_ingestion_config.vocab_src_dir, data_ingestion_config.vocab_tgt_dir]
-        raw_data_columns = [data_ingestion_config.raw_data_train_column, data_ingestion_config.raw_data_validation_column, data_ingestion_config.raw_data_test_column]
-        columns_to_ingest = data_ingestion_config.raw_data_columns_to_clean
+        train_split_outputs      = [data_ingestion_config.train_data_src_dir, 
+                                    data_ingestion_config.train_data_tgt_dir]
+        validation_split_outputs = [data_ingestion_config.validation_data_src_dir, 
+                                    data_ingestion_config.validation_data_tgt_dir]
+        test_split_outputs       = [data_ingestion_config.test_data_src_dir, 
+                                    data_ingestion_config.test_data_tgt_dir]
+        vocab_outputs            = [data_ingestion_config.vocab_src_dir, 
+                                    data_ingestion_config.vocab_tgt_dir]
+        raw_data_columns         = [data_ingestion_config.raw_data_train_column, 
+                                    data_ingestion_config.raw_data_validation_column, 
+                                    data_ingestion_config.raw_data_test_column]
+        columns_to_ingest        = data_ingestion_config.raw_data_columns_to_clean
 
         for train_dir, validation_dir, test_dir, column_to_ingest in \
               zip(train_split_outputs, validation_split_outputs, test_split_outputs, columns_to_ingest):

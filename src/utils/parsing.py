@@ -1,4 +1,5 @@
 import os
+import re
 
 from src.config.command_config import CommandConfig
 
@@ -42,3 +43,15 @@ def create_command(config):
     command += create_command_flags(config.flags)
 
     return command
+
+def parse_line_groups(lines, regex):
+    # type: (list[str], re.Pattern) -> list[tuple[str, str, str, str, str, str]]
+    line_groups = []
+
+    for line in lines:
+        match = regex.match(line)
+        if match:
+            line_groups.append(match.groups()) 
+
+    return line_groups
+

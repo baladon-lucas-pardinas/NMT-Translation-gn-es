@@ -1,7 +1,7 @@
 import argparse
 
 from src.pipelines import train_pipeline
-from src.utils import command_handler
+from src.utils import parsing
 from src.logger import logging
 from src.config import command_config as command, ingestion_config as ingestion, data_transformation_config, hyperparameter_tuning_config
 from src.config.config import load_config_variables, FLAG_SEPARATOR
@@ -51,7 +51,7 @@ if __name__ == '__main__':
     flag_separator   = config_variables.get(FLAG_SEPARATOR, ' ')
     command_config, ingestion_config, transformation_config, tuning_config = 4*[None]
 
-    flags = command_handler.parse_flags(flags, flag_separator=flag_separator)
+    flags = parsing.parse_flags(flags, flag_separator=flag_separator)
     train_dirs = flags.get('train-sets', [])
     val_dirs   = flags.get('valid-sets', [])
     logging.info('Running with flags {}'.format(flags))

@@ -1,8 +1,7 @@
 import json
 import itertools
 
-from src.utils.command_handler import deep_copy_flags
-# TODO: Change model names on each config...
+from src.utils.parsing import deep_copy_flags
 
 # If the flag value is bool: 
 #     If its value is True, the flag value should be an empty list (e.g. '--overwrite' has no value, unlike '--model model.npz')

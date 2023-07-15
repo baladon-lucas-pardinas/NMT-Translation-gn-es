@@ -1,7 +1,7 @@
 import os
 
 from ..utils import process_manager
-from ..utils import command_handler
+from ..utils import parsing
 from ..utils import file_manager
 from src.components.evaluation import metrics
 
@@ -34,39 +34,46 @@ def rename_checkpoint(model_dir, added_str):
 def validate(
     flags,
     base_dir_evaluation,
-    validation_translation_output,
     after_epochs,
     batch_size,
-    valid_tgt,
     model_dir, 
     validation_metrics, 
-    command_name
+    command_name,
+    validation_log=None,
+    valid_tgt=None,
+    validation_translation_output=None,
 ):
-    # type: (dict[str, list[str]], str, str, int, int, str, str, list[str], str) -> None
-    validation_translation_output_path = parse_output_filename(
-        validation_translation_output, 
-        epoch=after_epochs,
-        batch=batch_size,
-    )
+    # type: (dict[str, list[str]], str, str, str, str, list[str], str, str, str, str) -> None
     evaluation_file = os.path.join(base_dir_evaluation, command_name)
+    validation_translation_output_path = None
+    if validation_translation_output is not None:
+        validation_translation_output_path = parse_output_filename(
+            validation_translation_output, 
+            epoch=after_epochs,
+            batch=batch_size,
+        )
     metrics.save_results(
         file_name=evaluation_file,
         model_dir=model_dir,
-        translation_output=validation_translation_output_path,
-        reference=valid_tgt,
         parameters=flags,
         metrics=validation_metrics,
+        validation_log=validation_log,
+        translation_output=validation_translation_output_path,
+        reference=valid_tgt,
     )
 
-def validation_enabled(model_metrics, validation_translation_output, validation_metrics):
-    # type: (list[str], str, list[str]) -> bool
-    is_validation_enabled = not (
-        'translation' not in model_metrics or
-        validation_translation_output is None or 
-        validation_metrics is None or 
-        len(validation_metrics) == 0
-    )
-    return not is_validation_enabled
+def validation_enabled(validation_metrics, artificial_epoch_training, validation_log, model_metrics, validation_translation_output):
+    # type: (list[str], bool, str, list[str], str) -> bool
+    if validation_metrics is None or len(validation_metrics) > 0:
+        return True
+    
+    if artificial_epoch_training and 'translation' in model_metrics and validation_translation_output is not None:
+        return True
+    
+    if validation_log is not None:
+        return True
+    
+    return False
 
 def delete_model_files(model_dir):
     # type: (str) -> None
@@ -77,33 +84,33 @@ def simple_training(
     is_validation_enabled, 
     flags, 
     base_dir_evaluation, 
-    validation_translation_output, 
     after_epochs, 
     batch_size, 
-    valid_tgt, 
     model_dir, 
     validation_metrics, 
     command_name, 
-    not_delete_model_after
+    not_delete_model_after,
+    validation_log, 
 ):
-    command = command_handler.create_command(marian_config)
+    # type: (parsing.CommandConfig, bool, dict[str, list[str]], str, str, str, str, list[str], str, bool, str) -> None
+    command = parsing.create_command(marian_config)
     process_manager.run_command(command)
+
     if is_validation_enabled:
         validate(
             flags=flags,
             base_dir_evaluation=base_dir_evaluation,
-            validation_translation_output=validation_translation_output,
             after_epochs=after_epochs,
             batch_size=batch_size,
-            valid_tgt=valid_tgt,
             model_dir=model_dir, 
             validation_metrics=validation_metrics, 
-            command_name=command_name
+            command_name=command_name,
+            validation_log=validation_log,
         )
     if not not_delete_model_after:
         delete_model_files(model_dir)
 
-def training_with_checkpoints(
+def training_with_artificial_epochs(
     marian_config,
     is_validation_enabled,
     flags,
@@ -124,7 +131,7 @@ def training_with_checkpoints(
     for i in range(artificial_epochs):
         current_after_epochs = validate_each_epochs * (i+1)
         flags['after-epochs'] = [str(current_after_epochs)]
-        command = command_handler.create_command(marian_config)
+        command = parsing.create_command(marian_config)
         process_manager.run_command(command)
 
         if model_dir is None:
@@ -148,9 +155,8 @@ def training_with_checkpoints(
             )
 
 def train(command_config):
-    # type: (command_handler.CommandConfig) -> None
-    marian_config = command_config.copy(deep=True)
-    
+    # type: (parsing.CommandConfig) -> None
+    marian_config                 = command_config.copy(deep=True)
     flags                         = marian_config.flags
     model_metrics                 = flags.get('metrics', [])
     validation_translation_output = flags.get('valid-translation-output', [None])[0]
@@ -158,29 +164,30 @@ def train(command_config):
     after_epochs                  = flags.get('after-epochs', [None])[0]
     batch_size                    = flags.get('after-batches', [None])[0]
     _, valid_tgt                  = flags.get('valid-sets', [])
+    validation_log                = flags.get('valid-log', [None])[0]
     validate_each_epochs          = marian_config.validate_each_epochs
     validation_metrics            = marian_config.validation_metrics
     base_dir_evaluation           = marian_config.base_dir_evaluation
     save_checkpoints              = marian_config.save_checkpoints
     command_name                  = marian_config.command_name
     not_delete_model_after        = marian_config.not_delete_model_after
-    is_validation_enabled         = validation_enabled(model_metrics, validation_translation_output, validation_metrics)
+    artificial_epoch_training     = validate_each_epochs is not None
+    is_validation_enabled         = validation_enabled(validation_metrics, artificial_epoch_training, validation_log, model_metrics, validation_translation_output)
     model_base_dir                = os.path.dirname(model_dir)
 
-    if validate_each_epochs is None:
+    if not artificial_epoch_training:
         simple_training(
             marian_config=marian_config,
             is_validation_enabled=is_validation_enabled,
             flags=flags,
             base_dir_evaluation=base_dir_evaluation,
-            validation_translation_output=validation_translation_output,
             after_epochs=after_epochs,
             batch_size=batch_size,
-            valid_tgt=valid_tgt,
             model_dir=model_dir,
             validation_metrics=validation_metrics,
             command_name=command_name,
-            not_delete_model_after=not_delete_model_after
+            not_delete_model_after=not_delete_model_after,
+            validation_log=validation_log,
         )
         if not not_delete_model_after:
             delete_model_files(model_base_dir)
@@ -188,7 +195,8 @@ def train(command_config):
 
     if after_epochs is None:
         raise KeyError('after-epochs flag not found in config but validate_each_epochs is not None')
-    training_with_checkpoints(
+    
+    training_with_artificial_epochs(
         marian_config=marian_config,
         is_validation_enabled=is_validation_enabled,
         flags=flags,
