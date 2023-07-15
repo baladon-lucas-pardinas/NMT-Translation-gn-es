@@ -3,6 +3,8 @@ import os
 import itertools
 import csv
 import json
+import pprint
+import re
 
 from src.config.config import load_config_variables, \
     FLAG_SEPARATOR
@@ -10,13 +12,13 @@ from src.config import command_config as command, hyperparameter_tuning_config a
 from src.model import model
 from src.components.evaluation import metrics
 from src.pipelines import train_pipeline
-from src.utils import file_manager, command_handler
+from src.utils import file_manager, parsing
 
 class TestTrain(unittest.TestCase):
     def setUp(self) -> None:
         self.config_variables = load_config_variables()
-        self.current_dir = os.path.dirname(os.path.realpath(__file__))
-        self.test_data_dir = os.path.join(self.current_dir, '..', 'data')
+        self.current_dir             = os.path.dirname(os.path.realpath(__file__))
+        self.test_data_dir           = os.path.join(self.current_dir, '..', 'data')
         self.test_valid_data_dir_src = os.path.join(self.test_data_dir, 'valid_gn.txt.gn')
         self.test_valid_data_dir_tgt = os.path.join(self.test_data_dir, 'valid_gn.txt.gn')
 
@@ -62,10 +64,12 @@ class TestTrain(unittest.TestCase):
 
         command_length = len(self.command_dir) + 1
         injected_length = len(self.flags['echo-injection'][0])
-        self.expected_output = command_handler.create_command(self.command_config)
+        self.expected_output = parsing.create_command(self.command_config)
         self.expected_output = self.expected_output[command_length:-injected_length].strip()
 
         # Hyperparameter tuning
+        self.log_metric_count = 10
+        self.valid_log_dir = os.path.join(self.test_data_dir, 'test_log.log')
         self.hyperparameter_validation_output_dir = os.path.join(self.test_data_dir, 'hyperparameter_validation_output.txt')
         self.grid1 = {"k11": ['v11', 'v12'],"k12": ['v13', 'v14']}
         self.grid2 = {"k21": ['v22'],"k21": ['v22']}
@@ -80,8 +84,9 @@ class TestTrain(unittest.TestCase):
             tuning_params_files=[self.params1_filename, self.params2_filename],
             search_method='grid',
         )
-        self.tuning_flags = command_handler.deep_copy_flags(self.flags)
+        self.tuning_flags = parsing.deep_copy_flags(self.flags)
         self.tuning_flags['valid-translation-output'] = [self.hyperparameter_validation_output_dir]
+        self.tuning_flags['valid-log'] = [self.valid_log_dir]
         self.tuning_command_config = command.CommandConfig(
             command_name=self.command_name,
             command_path=self.command_path,
@@ -91,7 +96,6 @@ class TestTrain(unittest.TestCase):
             base_dir_evaluation=self.test_data_dir,
             not_delete_model_after=True,
         )
-
         pass
 
     def test_train_marian(self):
@@ -120,8 +124,13 @@ class TestTrain(unittest.TestCase):
             # Metric csv score should be 100, as files are equal
             with open(self.csv_file_name, 'r') as f:
                 reader = csv.DictReader(f)
+                has_model = False
                 for row in reader:
+                    if row['model_name'] != 'model.npz':
+                        continue
+                    has_model = True
                     self.assertEqual(row['score'].split('.')[0], '100')
+                self.assertTrue(has_model)
 
             # Should exist checkpoint
             first_checkpoint_filename = model.rename_checkpoint(self.model_dir, self.validate_each_epochs)
@@ -132,6 +141,7 @@ class TestTrain(unittest.TestCase):
         except AssertionError as e:
             self.fail("Failed with assertion {}".format(e.with_traceback()))
         finally:
+            ""
             os.remove(self.model_dir)
             os.remove(self.command_output_dir)
             os.remove(self.csv_file_name)
@@ -165,10 +175,10 @@ class TestTrain(unittest.TestCase):
             )
 
             # Metric csv should have n rows
-            n_combinations = (len(list(itertools.product(*self.grid1.values()))) + \
-                                len(list(itertools.product(*self.grid2.values()))) + \
-                                len(hyperparameter_tuning_config.tuning_params_files)) * \
-                                len(self.validation_metrics)
+            n_combinations = self.log_metric_count * \
+                            (len(list(itertools.product(*self.grid1.values()))) + \
+                             len(list(itertools.product(*self.grid2.values()))) + \
+                             len(hyperparameter_tuning_config.tuning_params_files))
             
             with open(self.csv_file_name, 'r') as f:
                 reader = csv.DictReader(f)
@@ -177,7 +187,7 @@ class TestTrain(unittest.TestCase):
         except AssertionError as e:
             self.fail("Failed with assertion {}".format(e.with_traceback()))
         finally:
-            print()
+            ""
             os.remove(self.grid1_filename)
             os.remove(self.grid2_filename)
             os.remove(self.params1_filename)
