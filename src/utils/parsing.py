@@ -14,13 +14,12 @@ def parse_flags(flags, flag_separator=' '):
         if flag == "":
             continue
 
-        # Flags of type --valid-script-path "bash script.sh"
-        if flag[0] == flag[-1] == '"':
+        splitted_flag = flag.split(' ')
+        flag_name = splitted_flag[0]
+        if flag[0] == flag[-1] == '"': # Flags of type --valid-script-path "bash script.sh"
             flag_values = [flag]
         else:
-            flag = flag.split(' ')
-            flag_name = flag[0]
-            flag_values = flag[1:]
+            flag_values = splitted_flag[1:]
 
         flag_dict[flag_name] = flag_values
     return flag_dict
