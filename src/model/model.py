@@ -87,10 +87,9 @@ def simple_training(
     model_dir, 
     validation_metrics, 
     command_name, 
-    not_delete_model_after,
     validation_log, 
 ):
-    # type: (parsing.CommandConfig, bool, dict[str, list[str]], str, str, list[str], str, bool, str) -> None
+    # type: (parsing.CommandConfig, bool, dict[str, list[str]], str, str, list[str], str, str) -> None
     command = parsing.create_command(marian_config)
     process_manager.run_command(command)
 
@@ -103,8 +102,6 @@ def simple_training(
             validation_metrics=validation_metrics, 
             validation_log=validation_log,
         )
-    if not not_delete_model_after:
-        delete_model_files(model_dir)
 
 def training_with_artificial_epochs(
     marian_config,
@@ -177,7 +174,6 @@ def train(command_config):
             model_dir=model_dir,
             validation_metrics=validation_metrics,
             command_name=command_name,
-            not_delete_model_after=not_delete_model_after,
             validation_log=validation_log,
         )
     else:
