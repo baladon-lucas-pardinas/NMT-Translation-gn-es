@@ -174,7 +174,6 @@ def train(command_config):
             is_validation_enabled=is_validation_enabled,
             flags=flags,
             base_dir_evaluation=base_dir_evaluation,
-            batch_size=batch_size,
             model_dir=model_dir,
             validation_metrics=validation_metrics,
             command_name=command_name,
