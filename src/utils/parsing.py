@@ -16,7 +16,7 @@ def parse_flags(flags, flag_separator=' '):
 
         splitted_flag = flag.split(' ')
         flag_name = splitted_flag[0]
-        if flag[0] == flag[-1] == '"': # Flags of type --valid-script-path "bash script.sh"
+        if all([c in ['"', "'"] for c in [flag[0], flag[-1]]]): # Flags of type --valid-script-path "bash script.sh"
             flag_values = [flag]
         else:
             flag_values = splitted_flag[1:]
