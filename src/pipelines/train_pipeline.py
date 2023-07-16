@@ -45,7 +45,8 @@ def train(
 
     if hyperparameter_tuning_config is not None:
         hyperparamter_grids, hyperparameter_configs, hyperparameter_method = \
-            hyperparameter_tuning_config.tuning_grid_files, hyperparameter_tuning_config.tuning_params_files, \
+            hyperparameter_tuning_config.tuning_grid_files, \
+            hyperparameter_tuning_config.tuning_params_files, \
             hyperparameter_tuning_config.search_method
         trained_flags = get_hyperparameter_flags(default_flags, hyperparamter_grids, hyperparameter_configs, hyperparameter_method)
 

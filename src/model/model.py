@@ -84,7 +84,6 @@ def simple_training(
     is_validation_enabled, 
     flags, 
     base_dir_evaluation, 
-    after_epochs, 
     batch_size, 
     model_dir, 
     validation_metrics, 
@@ -92,7 +91,7 @@ def simple_training(
     not_delete_model_after,
     validation_log, 
 ):
-    # type: (parsing.CommandConfig, bool, dict[str, list[str]], str, str, str, str, list[str], str, bool, str) -> None
+    # type: (parsing.CommandConfig, bool, dict[str, list[str]], str, str, str, list[str], str, bool, str) -> None
     command = parsing.create_command(marian_config)
     process_manager.run_command(command)
 
@@ -100,7 +99,6 @@ def simple_training(
         validate(
             flags=flags,
             base_dir_evaluation=base_dir_evaluation,
-            after_epochs=after_epochs,
             batch_size=batch_size,
             model_dir=model_dir, 
             validation_metrics=validation_metrics, 
@@ -133,9 +131,6 @@ def training_with_artificial_epochs(
         flags['after-epochs'] = [str(current_after_epochs)]
         command = parsing.create_command(marian_config)
         process_manager.run_command(command)
-
-        if model_dir is None:
-            continue
 
         if save_checkpoints:
             checkpoint_path = rename_checkpoint(model_dir, current_after_epochs)
@@ -181,7 +176,6 @@ def train(command_config):
             is_validation_enabled=is_validation_enabled,
             flags=flags,
             base_dir_evaluation=base_dir_evaluation,
-            after_epochs=after_epochs,
             batch_size=batch_size,
             model_dir=model_dir,
             validation_metrics=validation_metrics,
@@ -189,27 +183,24 @@ def train(command_config):
             not_delete_model_after=not_delete_model_after,
             validation_log=validation_log,
         )
-        if not not_delete_model_after:
-            delete_model_files(model_base_dir)
-        return
+    else:
+        if after_epochs is None:
+            raise KeyError('after-epochs flag not found in config but validate_each_epochs is not None')
+        training_with_artificial_epochs(
+            marian_config=marian_config,
+            is_validation_enabled=is_validation_enabled,
+            flags=flags,
+            base_dir_evaluation=base_dir_evaluation,
+            validation_translation_output=validation_translation_output,
+            after_epochs=after_epochs,
+            batch_size=batch_size,
+            valid_tgt=valid_tgt,
+            model_dir=model_dir,
+            validation_metrics=validation_metrics,
+            command_name=command_name,
+            save_checkpoints=save_checkpoints,
+            validate_each_epochs=validate_each_epochs
+        )
 
-    if after_epochs is None:
-        raise KeyError('after-epochs flag not found in config but validate_each_epochs is not None')
-    
-    training_with_artificial_epochs(
-        marian_config=marian_config,
-        is_validation_enabled=is_validation_enabled,
-        flags=flags,
-        base_dir_evaluation=base_dir_evaluation,
-        validation_translation_output=validation_translation_output,
-        after_epochs=after_epochs,
-        batch_size=batch_size,
-        valid_tgt=valid_tgt,
-        model_dir=model_dir,
-        validation_metrics=validation_metrics,
-        command_name=command_name,
-        save_checkpoints=save_checkpoints,
-        validate_each_epochs=validate_each_epochs
-    )
     if not not_delete_model_after:
         delete_model_files(model_base_dir)
