@@ -34,16 +34,16 @@ def rename_checkpoint(model_dir, added_str):
 def validate(
     flags,
     base_dir_evaluation,
-    after_epochs,
-    batch_size,
     model_dir, 
     validation_metrics, 
     command_name,
+    batch_size=None,
+    after_epochs=None,
     validation_log=None,
     valid_tgt=None,
     validation_translation_output=None,
 ):
-    # type: (dict[str, list[str]], str, str, str, str, list[str], str, str, str, str) -> None
+    # type: (dict[str, list[str]], str, str, list[str], str, str, str, str, str, str) -> None
     evaluation_file = os.path.join(base_dir_evaluation, command_name)
     validation_translation_output_path = None
     if validation_translation_output is not None:
@@ -84,14 +84,13 @@ def simple_training(
     is_validation_enabled, 
     flags, 
     base_dir_evaluation, 
-    batch_size, 
     model_dir, 
     validation_metrics, 
     command_name, 
     not_delete_model_after,
     validation_log, 
 ):
-    # type: (parsing.CommandConfig, bool, dict[str, list[str]], str, str, str, list[str], str, bool, str) -> None
+    # type: (parsing.CommandConfig, bool, dict[str, list[str]], str, str, list[str], str, bool, str) -> None
     command = parsing.create_command(marian_config)
     process_manager.run_command(command)
 
@@ -99,10 +98,9 @@ def simple_training(
         validate(
             flags=flags,
             base_dir_evaluation=base_dir_evaluation,
-            batch_size=batch_size,
             model_dir=model_dir, 
-            validation_metrics=validation_metrics, 
             command_name=command_name,
+            validation_metrics=validation_metrics, 
             validation_log=validation_log,
         )
     if not not_delete_model_after:
