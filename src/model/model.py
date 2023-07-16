@@ -64,13 +64,13 @@ def validate(
 
 def validation_enabled(validation_metrics, artificial_epoch_training, validation_log, model_metrics, validation_translation_output):
     # type: (list[str], bool, str, list[str], str) -> bool
-    if validation_metrics is None or len(validation_metrics) > 0:
-        return True
+    if validation_metrics is None or len(validation_metrics) == 0:
+        return False
     
     if artificial_epoch_training and 'translation' in model_metrics and validation_translation_output is not None:
         return True
     
-    if validation_log is not None:
+    if not artificial_epoch_training and validation_log is not None:
         return True
     
     return False
@@ -85,11 +85,10 @@ def simple_training(
     flags, 
     base_dir_evaluation, 
     model_dir, 
-    validation_metrics, 
     command_name, 
     validation_log, 
 ):
-    # type: (parsing.CommandConfig, bool, dict[str, list[str]], str, str, list[str], str, str) -> None
+    # type: (parsing.CommandConfig, bool, dict[str, list[str]], str, str, str, str) -> None
     command = parsing.create_command(marian_config)
     process_manager.run_command(command)
 
@@ -99,7 +98,6 @@ def simple_training(
             base_dir_evaluation=base_dir_evaluation,
             model_dir=model_dir, 
             command_name=command_name,
-            validation_metrics=validation_metrics, 
             validation_log=validation_log,
         )
 
@@ -172,7 +170,6 @@ def train(command_config):
             flags=flags,
             base_dir_evaluation=base_dir_evaluation,
             model_dir=model_dir,
-            validation_metrics=validation_metrics,
             command_name=command_name,
             validation_log=validation_log,
         )
