@@ -14,10 +14,10 @@ sudo apt install doxygen
 sudo apt install libopenblas-dev
 sudo apt-get -y install intel-mkl
 
-# CUDA pre-reqs (Marian Doc. CUDA 10.1, Ubuntu 20.04)
+# CUDA pre-reqs (Marian Doc. CUDA 10.1, Ubuntu 20.04) [Marian needs more than this to work with GPUs]
 sudo apt-get install git cmake build-essential libboost-system-dev libprotobuf17 protobuf-compiler libprotobuf-dev openssl libssl-dev libgoogle-perftools-dev
 
-# CUDA ChatGPT
+# CUDA [Marian needs more than this to work with GPUs]
 apt-get update && apt-get install -y --no-install-recommends \
      cuda-cudart-dev-11-4 \
      cuda-command-line-tools-11-4 \
