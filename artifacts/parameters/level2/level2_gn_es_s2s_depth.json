@@ -1,4 +1,4 @@
 {
-    "enc-depth": [1, 2],
-    "dec-depth": [1, 2]
+    "enc-depth": [2],
+    "dec-depth": [2]
 }
