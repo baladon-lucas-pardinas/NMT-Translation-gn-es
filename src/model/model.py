@@ -35,8 +35,8 @@ def validate(
     flags,
     base_dir_evaluation,
     model_dir, 
-    validation_metrics, 
     command_name,
+    validation_metrics=None, 
     batch_size=None,
     after_epochs=None,
     validation_log=None,
@@ -63,11 +63,13 @@ def validate(
     )
 
 def validation_enabled(validation_metrics, artificial_epoch_training, validation_log, model_metrics, validation_translation_output):
-    # type: (list[str], bool, str, list[str], str) -> bool
-    if validation_metrics is None or len(validation_metrics) == 0:
-        return False
-    
-    if artificial_epoch_training and 'translation' in model_metrics and validation_translation_output is not None:
+    # type: (list[str], bool, str, list[str], str) -> bool    
+    if artificial_epoch_training and \
+        'translation' in model_metrics and \
+        validation_metrics is not None and \
+        len(validation_metrics) > 0 and \
+        validation_translation_output is not None and \
+        True:
         return True
     
     if not artificial_epoch_training and validation_log is not None:
@@ -146,7 +148,7 @@ def train(command_config):
     # type: (parsing.CommandConfig) -> None
     marian_config                 = command_config.copy(deep=True)
     flags                         = marian_config.flags
-    model_metrics                 = flags.get('metrics', [])
+    model_metrics                 = flags.get('valid-metrics', [])
     validation_translation_output = flags.get('valid-translation-output', [None])[0]
     model_dir                     = flags.get('model', [None])[0]
     after_epochs                  = flags.get('after-epochs', [None])[0]
