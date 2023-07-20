@@ -1,5 +1,6 @@
 import os
 
+from src.logger import logging
 from src.model import model
 from src.components import data_ingestion
 from src.config.ingestion_config import DataIngestionConfig
@@ -24,11 +25,11 @@ def save_checkpoint(temp_file, checkpoint):
         f.write(checkpoint)
 
 def load_checkpoint(temp_file):
-    checkpoint = 0
-    if os.path.isfile(temp_file):
-        with open(temp_file, 'r') as f:
-            checkpoint = int(f.read())
-    return checkpoint
+    if not os.path.isfile(temp_file):
+        return 0
+    
+    with open(temp_file, 'r') as f:
+        return int(f.read())
 
 def delete_checkpoint(temp_file):
     os.remove(temp_file)
@@ -49,10 +50,15 @@ def train(
             hyperparameter_tuning_config.tuning_params_files, \
             hyperparameter_tuning_config.search_method
         trained_flags = get_hyperparameter_flags(default_flags, hyperparamter_grids, hyperparameter_configs, hyperparameter_method)
+    logging.info('Starting training with {} flag combinations'.format(len(trained_flags)))
 
     loaded_checkpoint = load_checkpoint(TEMP_DIR)
-    for idx, current_flags in enumerate(trained_flags[loaded_checkpoint:]):
+    logging.info('Loaded training checkpoint: {}'.format(loaded_checkpoint))
+
+    idx = loaded_checkpoint # Enumerate shouldn't be used as idx would start in 0 after the checkpoint is loaded
+    for current_flags in trained_flags[loaded_checkpoint:]:
         save_checkpoint(TEMP_DIR, str(idx))
+        logging.info('Saving training checkpoint: {}'.format(idx))
 
         if data_ingestion_config:
             data_ingestion.ingest_data(data_ingestion_config)
@@ -63,5 +69,7 @@ def train(
         if command_config:
             command_config.flags = current_flags
             model.train(command_config)
+
+        idx += 1
 
     delete_checkpoint(TEMP_DIR)
