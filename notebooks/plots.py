@@ -2,6 +2,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 
+DATE_COL = 'date'
 SCORE_TYPE_COL = 'score_type'
 SCORE_COL = 'score'
 EPOCH_COL = 'epoch'
@@ -27,15 +28,22 @@ def plot_metrics_by_epoch(dataframe, metrics, save_path=None):
     plt.tight_layout()
     plt.savefig(save_path) if save_path is not None else plt.show()
 
-def plot_metric_by_epoch_foreach_model(df, metric, save_path=None):
 
+
+def plot_metric_by_x_foreach_model(df, metric, x, save_path=None):
     df = df[df[SCORE_TYPE_COL] == metric]
     sns.set(style='darkgrid')
     plt.figure(figsize=(12, 8))
-    sns.lineplot(x=EPOCH_COL, y=SCORE_COL, hue=MODEL_ID, data=df, errorbar=None)
+    sns.lineplot(x=x, y=SCORE_COL, hue=MODEL_ID, data=df, errorbar=None)
     plt.title(metric)
     plt.tight_layout()
     plt.savefig(save_path) if save_path is not None else plt.show()
+
+def plot_metric_by_epoch_foreach_model(df, metric, save_path=None):
+    plot_metric_by_x_foreach_model(df, metric, EPOCH_COL, save_path)
+
+def plot_metric_by_time_foreach_model(df, metric, save_path=None):
+    plot_metric_by_x_foreach_model(df, metric, DATE_COL, save_path)
 
 def create_df_from_results_csv(results_csv_path):
     df = pd.read_csv(results_csv_path)
