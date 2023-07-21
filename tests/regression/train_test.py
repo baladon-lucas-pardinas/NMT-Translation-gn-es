@@ -80,6 +80,7 @@ class TestTrain(unittest.TestCase):
         self.params1_filename = os.path.join(self.test_data_dir, 'params1.json')
         self.params2_filename = os.path.join(self.test_data_dir, 'params2.json')
         self.tuning_config = hyperparameter_tuning.HyperparameterTuningConfig(
+            run_id='test',
             tuning_grid_files=[self.grid1_filename, self.grid2_filename],
             tuning_params_files=[self.params1_filename, self.params2_filename],
             search_method='grid',

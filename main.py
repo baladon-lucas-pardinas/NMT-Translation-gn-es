@@ -13,6 +13,7 @@ def parse_args():
     parser.add_argument('--flags', type=str, required=True)
 
     # Training
+    parser.add_argument('--train-sets', type=str, required=False, default=None, help='Whitespace separated list of training sets')
     parser.add_argument('--command-path', type=str, required=True, help='Path to the model executable')
     parser.add_argument('--validate-each-epochs', type=int, required=False, default=None, help='Number of epochs between validations')
     parser.add_argument('--validation-metrics', type=str, required=False, default=None, help='Whitespace separated list of metrics to use for validation')
@@ -25,10 +26,12 @@ def parse_args():
     parser.add_argument('--transform', action='store_true', required=False, default=False)
 
     # Tuning
+    parser.add_argument('--run-id', type=str, required=False, default='default', help='Run id to distinguish between different runs checkpoints')
     parser.add_argument('--hyperparameter-tuning', action='store_true', required=False, default=False, help='Run hyperparameter tuning')
     parser.add_argument('--tuning-grid-files', type=str, required=False, default=None, help='Whitespace separated list of files with a grid of configurations')
     parser.add_argument('--tuning-params-files', type=str, required=False, default=None, help='Whitespace separated list of files with only one configuration')
-    parser.add_argument('--search-method', type=str, required=False, default='grid', help='Search method for hyperparameter tuning (grid)')
+    parser.add_argument('--from-flags', type=int, required=False, default=None, help='Loads from flag combination number N from all configs from the provided configs/grids')
+    parser.add_argument('--to-flags', type=int, required=False, default=None, help='Stops after flag combination number N from all configs from the provided configs/grids')
 
     return vars(parser.parse_args())
 
@@ -43,9 +46,12 @@ if __name__ == '__main__':
     ingest                 = args.get('ingest')
     transform              = args.get('transform')
     train                  = args.get('train')
+    run_id                 = args.get('run_id')
     hyperparameter_tuning  = args.get('hyperparameter_tuning')
     tuning_grid_files      = args.get('tuning_grid_files')
     tuning_params_files    = args.get('tuning_params_files')
+    from_flags             = args.get('from_flags')
+    to_flags               = args.get('to_flags')
     
     config_variables = load_config_variables()
     flag_separator   = config_variables.get(FLAG_SEPARATOR, ' ')
@@ -67,15 +73,23 @@ if __name__ == '__main__':
         validation_metrics = validation_metrics.split(' ') if validation_metrics else None
         tuning_grid_files = tuning_grid_files.split(' ') if tuning_grid_files else []
         tuning_params_files = tuning_params_files.split(' ') if tuning_params_files else []
-        command_config = command.get_command_config(command_path, flags, validate_each_epochs=validate_each_epochs, 
-            validation_metrics=validation_metrics, save_checkpoints=save_checkpoints, not_delete_model_after=not_delete_model_after)
+        command_config = command.get_command_config(
+            command_path, flags, 
+            validate_each_epochs=validate_each_epochs, 
+            validation_metrics=validation_metrics, 
+            save_checkpoints=save_checkpoints, 
+            not_delete_model_after=not_delete_model_after
+        )
         logging.info('Training model with config {}'.format(command_config))
 
         if hyperparameter_tuning:
-            search_method = args.get('search_method')
             tuning_config = hyperparameter_tuning_config.get_hyperparameter_tuning_config(
-                tuning_grid_files=tuning_grid_files, tuning_params_files=tuning_params_files, 
-                search_method=search_method)
+                run_id=run_id,
+                tuning_grid_files=tuning_grid_files, 
+                tuning_params_files=tuning_params_files,
+                from_flags=from_flags, 
+                to_flags=to_flags,
+            )
             logging.info('Hyperparameter tuning with config {}'.format(tuning_config))
 
     try:

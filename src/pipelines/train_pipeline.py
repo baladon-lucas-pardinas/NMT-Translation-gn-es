@@ -9,8 +9,6 @@ from src.config.data_transformation_config import DataTransformationConfig
 from src.config.hyperparameter_tuning_config import HyperparameterTuningConfig
 from src.components import hyperparameter_tuning
 
-TEMP_DIR = 'temp.txt'
-
 def get_hyperparameter_flags(default_flags, hyperparameter_grids, hyperparameter_configs, search_method):
     # type: (list[str], list[list[dict]], list[dict], str) -> list[dict]
     hyperparameter_grids_flags = []
@@ -34,6 +32,9 @@ def load_checkpoint(temp_file):
 def delete_checkpoint(temp_file):
     os.remove(temp_file)
 
+def create_checkpoint_temp_dir_name(id):
+    return 'temp_{}.txt'.format(id)
+
 def train(
     data_ingestion_config,
     data_transformation_config,
@@ -45,20 +46,29 @@ def train(
     trained_flags = [default_flags]
 
     if hyperparameter_tuning_config is not None:
-        hyperparamter_grids, hyperparameter_configs, hyperparameter_method = \
+        run_id, hyperparamter_grids, hyperparameter_configs, hyperparameter_method, from_flag, to_flag = \
+            hyperparameter_tuning_config.run_id, \
             hyperparameter_tuning_config.tuning_grid_files, \
             hyperparameter_tuning_config.tuning_params_files, \
-            hyperparameter_tuning_config.search_method
+            hyperparameter_tuning_config.search_method, \
+            hyperparameter_tuning_config.from_flags, \
+            hyperparameter_tuning_config.to_flags
         trained_flags = get_hyperparameter_flags(default_flags, hyperparamter_grids, hyperparameter_configs, hyperparameter_method)
     logging.info('Starting training with {} flag combinations'.format(len(trained_flags)))
 
-    loaded_checkpoint = load_checkpoint(TEMP_DIR)
-    logging.info('Loaded training checkpoint: {}'.format(loaded_checkpoint))
+    temp_dir = create_checkpoint_temp_dir_name(run_id)
+    to_flag = to_flag if to_flag is not None else len(trained_flags)
 
-    idx = loaded_checkpoint # Enumerate shouldn't be used as idx would start in 0 after the checkpoint is loaded
-    for current_flags in trained_flags[loaded_checkpoint:]:
-        save_checkpoint(TEMP_DIR, str(idx))
-        logging.info('Saving training checkpoint: {}'.format(idx))
+    if from_flag is not None:
+        logging.info('Starting training from flag combination {}'.format(from_flag))
+    else:
+        from_flag = load_checkpoint(temp_dir)
+        logging.info('Loaded training checkpoint: {}'.format(from_flag))
+        
+    idx = from_flag # Enumerate shouldn't be used in loop as idx would start in 0 after the checkpoint is loaded
+    for current_flags in trained_flags[from_flag:to_flag]:
+        save_checkpoint(temp_dir, str(idx))
+        logging.info('Training checkpoint: {} saved correctly'.format(idx))
 
         if data_ingestion_config:
             data_ingestion.ingest_data(data_ingestion_config)
@@ -72,4 +82,5 @@ def train(
 
         idx += 1
 
-    delete_checkpoint(TEMP_DIR)
+    delete_checkpoint(temp_dir)
+    logging.info('Temp checkpoint file {} deleted'.format(temp_dir))
