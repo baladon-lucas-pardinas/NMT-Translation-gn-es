@@ -1,7 +1,7 @@
+from typing import Any
 import os
 import re
-
-from src.config.command_config import CommandConfig
+import copy
 
 # Flags are a string of the form --flag1 value1 ... valueN --flag2 value1 ... valueM
 # The output dict should be like {flag1: [value1, ..., valueN], flag2: [value1, ..., valueM]}
@@ -26,7 +26,7 @@ def parse_flags(flags, flag_separator=' '):
 
 def deep_copy_flags(flags):
     # type: (dict) -> dict
-    return {flag: values[:] for flag, values in flags.items()}
+    return copy.deepcopy(flags)
 
 # Flags are a list of tuples (flag, values: list)
 # The output string should be like --flag1 value1 ... valueN --flag2 value1 ... valueM
@@ -42,7 +42,7 @@ def create_command_flags(flags):
     return output
 
 def create_command(config):
-    # type: (CommandConfig) -> str
+    # type: (Any) -> str
     command = ""
     command += os.path.join(config.command_path, config.command_name)
     command += create_command_flags(config.flags)

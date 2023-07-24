@@ -26,7 +26,7 @@ def parse_args():
     parser.add_argument('--transform', action='store_true', required=False, default=False)
 
     # Tuning
-    parser.add_argument('--run-id', type=str, required=False, default='default', help='Run id to distinguish between different runs checkpoints')
+    parser.add_argument('--run-id', type=str, required=False, default='default', help='Run id to distinguish within different runs checkpoints')
     parser.add_argument('--hyperparameter-tuning', action='store_true', required=False, default=False, help='Run hyperparameter tuning')
     parser.add_argument('--tuning-grid-files', type=str, required=False, default=None, help='Whitespace separated list of files with a grid of configurations')
     parser.add_argument('--tuning-params-files', type=str, required=False, default=None, help='Whitespace separated list of files with only one configuration')
@@ -66,9 +66,11 @@ if __name__ == '__main__':
         vocab_dirs = flags.get('vocabs', [])
         ingestion_config = ingestion.get_data_ingestion_config(config_variables, train_dirs, val_dirs, vocab_dirs, persist_each=1000)
         logging.info('Ingesting data with config {}'.format(ingestion_config))
+
     if transform:
         transformation_config = data_transformation_config.get_data_transformation_config()
         logging.info('Transforming data with config {}'.format(transformation_config))
+
     if train:
         validation_metrics = validation_metrics.split(' ') if validation_metrics else None
         tuning_grid_files = tuning_grid_files.split(' ') if tuning_grid_files else []
@@ -91,7 +93,6 @@ if __name__ == '__main__':
                 to_flags=to_flags,
             )
             logging.info('Hyperparameter tuning with config {}'.format(tuning_config))
-
     try:
         train_pipeline.train(
             command_config=command_config, 

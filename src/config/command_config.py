@@ -1,7 +1,10 @@
+import copy
+
 from src.config.config import load_config_variables, \
     COMMAND_NAME, \
     FLAG_SEPARATOR, \
     BASE_DIR_EVALUATION
+from src.utils.parsing import deep_copy_flags
 
 class CommandConfig:
     def __init__(
@@ -34,10 +37,10 @@ class CommandConfig:
         return CommandConfig(
             command_name=self.command_name,
             command_path=self.command_path,
-            flags=self.flags.copy() if deep else self.flags,
+            flags=deep_copy_flags(self.flags) if deep else self.flags,
             flag_separator=self.flag_separator,
             validate_each_epochs=self.validate_each_epochs,
-            validation_metrics=self.validation_metrics.copy() if deep else self.validation_metrics,
+            validation_metrics=deep_copy_flags(self.validation_metrics) if deep else self.validation_metrics,
             save_checkpoints=self.save_checkpoints,
             results_dir=self.results_dir,
             base_dir_evaluation=self.base_dir_evaluation,

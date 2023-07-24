@@ -22,6 +22,7 @@ class TestTrain(unittest.TestCase):
         self.test_valid_data_dir_src = os.path.join(self.test_data_dir, 'valid_gn.txt.gn')
         self.test_valid_data_dir_tgt = os.path.join(self.test_data_dir, 'valid_gn.txt.gn')
 
+        ############# Train Test #############
         # Command
         self.command_path = ''
         self.command_name = 'echo'
@@ -67,7 +68,7 @@ class TestTrain(unittest.TestCase):
         self.expected_output = parsing.create_command(self.command_config)
         self.expected_output = self.expected_output[command_length:-injected_length].strip()
 
-        # Hyperparameter tuning
+        ############# Hyperparameter tuning Test #############
         self.log_metric_count = 10
         self.valid_log_dir = os.path.join(self.test_data_dir, 'test_log.log')
         self.hyperparameter_validation_output_dir = os.path.join(self.test_data_dir, 'hyperparameter_validation_output.txt')
@@ -98,6 +99,10 @@ class TestTrain(unittest.TestCase):
             not_delete_model_after=True,
         )
         pass
+
+        ############# Early stopping Test #############
+        self.early_stopping_config = self.command_config.copy(deep=True)
+        self.early_stopping_config.flags['early-stopping'] = ['2']
 
     def test_train_marian(self):
         # Create mock translation output
@@ -194,6 +199,46 @@ class TestTrain(unittest.TestCase):
             os.remove(self.params1_filename)
             os.remove(self.params2_filename)
             os.remove(self.hyperparameter_validation_output_dir)
+
+    def test_early_stopping(self):
+        try:
+            # Add early stopping values
+            command_config = self.early_stopping_config
+
+            # Create mock translation output
+            first_output_filename = model.parse_output_filename(self.valid_translation_output, epoch=self.validate_each_epochs)
+            second_output_filename = model.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 2)
+            third_output_filename = model.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 3)
+            file_manager.save_copy(self.test_valid_data_dir_tgt, first_output_filename)
+            file_manager.save_copy(self.test_valid_data_dir_tgt, second_output_filename)
+            file_manager.save_copy(self.test_valid_data_dir_tgt, third_output_filename)
+
+            # Create mock checkpoint
+            with open(self.model_dir, 'w') as f:
+                f.write('')
+
+            # Train with early stopping
+            model.train(command_config)
+
+            # Should exist only len(metrics)*early_stopping rows in csv
+            with open(self.csv_file_name, 'r') as f:
+                rows = list(csv.reader(f))
+                rows = rows[1:] # Columns
+                rows = [row for row in rows if row] # Remove empty rows
+                n_rows = len(rows)
+                n_metrics = len(self.early_stopping_config.validation_metrics)
+                early_stopping = int(self.early_stopping_config.flags['early-stopping'][0])
+                self.assertEqual(n_rows, n_metrics * early_stopping)
+
+        except AssertionError as e:
+            self.fail("Failed with assertion {}".format(e.with_traceback()))
+        finally:
+            ""
+            os.remove(self.model_dir)
+            os.remove(self.csv_file_name)
+            os.remove(first_output_filename)
+            os.remove(second_output_filename)
+            os.remove(third_output_filename)
 
 def main():
     unittest.main()

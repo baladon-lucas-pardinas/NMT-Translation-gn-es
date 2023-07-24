@@ -3,6 +3,7 @@ import csv
 import datetime
 import re
 from typing import Callable
+import collections
 
 from src.utils import file_manager, parsing, arrays
 
@@ -127,7 +128,7 @@ def save_results(
     translation_output=None,
     reference=None
 ):
-    # type: (str, str, dict, list[str], str, str, str) -> None
+    # type: (str, str, dict, list[str], str, str, str) -> dict[str, list[float]]
     columns           = ['date', 'model_name', 'source', 'target', 'score_type', 'score', 'epoch', 'parameters']
     file_name         = get_results_filename(file_name)
     first_time_saving = not os.path.isfile(file_name)
@@ -148,3 +149,8 @@ def save_results(
             writer.writerow(columns)
         for score_row in scores:
             writer.writerow(score_row)
+
+    returned_scores = collections.defaultdict(list)
+    for score in scores:
+        returned_scores[score[4]].append(score[5]) # Metric name is in score[4], metric value is in score[5].
+    return returned_scores
