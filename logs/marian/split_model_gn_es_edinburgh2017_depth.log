@@ -1,0 +1,2592 @@
+[2023-06-24 19:52:33] [marian] Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-24 19:52:33] [marian] Running on node07.datos.cluster.uy as process 34408 with command line:
+[2023-06-24 19:52:33] [marian] /marian/build/marian --train-sets /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn /docker/home/marianmt/artifacts/data/train/train_es.txt.es --model /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz --after-epochs 10 --valid-freq 5000000 --vocabs /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es --seed 1234 --type s2s --max-length 100 --mini-batch-fit --mini-batch 1000 --maxi-batch 1000 --beam-size 12 --normalize 1 --cost-type ce-mean-words --enc-type bidirectional --enc-depth 4 --enc-cell-depth 4 --dec-depth 4 --dec-cell-base-depth 8 --dec-cell-high-depth 1 --layer-normalization --dropout-rnn 0.1 --label-smoothing 0.1 --learn-rate 0.0003 --lr-decay-inv-sqrt 16000 --optimizer-params 0.9 0.98 1e-09 --clip-norm 5 --sync-sgd --exponential-smoothing --cpu-threads 0 --log /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log --valid-log /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log --valid-sets /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es --valid-metrics cross-entropy translation --valid-translation-output /docker/home/marianmt/evaluation/model-epochs.txt --quiet-translation
+[2023-06-24 19:52:33] [config] after: 0e
+[2023-06-24 19:52:33] [config] after-batches: 0
+[2023-06-24 19:52:33] [config] after-epochs: 10
+[2023-06-24 19:52:33] [config] all-caps-every: 0
+[2023-06-24 19:52:33] [config] allow-unk: false
+[2023-06-24 19:52:33] [config] authors: false
+[2023-06-24 19:52:33] [config] beam-size: 12
+[2023-06-24 19:52:33] [config] bert-class-symbol: "[CLS]"
+[2023-06-24 19:52:33] [config] bert-mask-symbol: "[MASK]"
+[2023-06-24 19:52:33] [config] bert-masking-fraction: 0.15
+[2023-06-24 19:52:33] [config] bert-sep-symbol: "[SEP]"
+[2023-06-24 19:52:33] [config] bert-train-type-embeddings: true
+[2023-06-24 19:52:33] [config] bert-type-vocab-size: 2
+[2023-06-24 19:52:33] [config] build-info: ""
+[2023-06-24 19:52:33] [config] check-gradient-nan: false
+[2023-06-24 19:52:33] [config] check-nan: false
+[2023-06-24 19:52:33] [config] cite: false
+[2023-06-24 19:52:33] [config] clip-norm: 5
+[2023-06-24 19:52:33] [config] cost-scaling:
+[2023-06-24 19:52:33] [config]   []
+[2023-06-24 19:52:33] [config] cost-type: ce-mean-words
+[2023-06-24 19:52:33] [config] cpu-threads: 0
+[2023-06-24 19:52:33] [config] data-threads: 8
+[2023-06-24 19:52:33] [config] data-weighting: ""
+[2023-06-24 19:52:33] [config] data-weighting-type: sentence
+[2023-06-24 19:52:33] [config] dec-cell: gru
+[2023-06-24 19:52:33] [config] dec-cell-base-depth: 8
+[2023-06-24 19:52:33] [config] dec-cell-high-depth: 1
+[2023-06-24 19:52:33] [config] dec-depth: 4
+[2023-06-24 19:52:33] [config] devices:
+[2023-06-24 19:52:33] [config]   - 0
+[2023-06-24 19:52:33] [config] dim-emb: 512
+[2023-06-24 19:52:33] [config] dim-rnn: 1024
+[2023-06-24 19:52:33] [config] dim-vocabs:
+[2023-06-24 19:52:33] [config]   - 0
+[2023-06-24 19:52:33] [config]   - 0
+[2023-06-24 19:52:33] [config] disp-first: 0
+[2023-06-24 19:52:33] [config] disp-freq: 1000u
+[2023-06-24 19:52:33] [config] disp-label-counts: true
+[2023-06-24 19:52:33] [config] dropout-rnn: 0.1
+[2023-06-24 19:52:33] [config] dropout-src: 0
+[2023-06-24 19:52:33] [config] dropout-trg: 0
+[2023-06-24 19:52:33] [config] dump-config: ""
+[2023-06-24 19:52:33] [config] dynamic-gradient-scaling:
+[2023-06-24 19:52:33] [config]   []
+[2023-06-24 19:52:33] [config] early-stopping: 10
+[2023-06-24 19:52:33] [config] early-stopping-on: first
+[2023-06-24 19:52:33] [config] embedding-fix-src: false
+[2023-06-24 19:52:33] [config] embedding-fix-trg: false
+[2023-06-24 19:52:33] [config] embedding-normalization: false
+[2023-06-24 19:52:33] [config] embedding-vectors:
+[2023-06-24 19:52:33] [config]   []
+[2023-06-24 19:52:33] [config] enc-cell: gru
+[2023-06-24 19:52:33] [config] enc-cell-depth: 4
+[2023-06-24 19:52:33] [config] enc-depth: 4
+[2023-06-24 19:52:33] [config] enc-type: bidirectional
+[2023-06-24 19:52:33] [config] english-title-case-every: 0
+[2023-06-24 19:52:33] [config] exponential-smoothing: 0.0001
+[2023-06-24 19:52:33] [config] factor-weight: 1
+[2023-06-24 19:52:33] [config] factors-combine: sum
+[2023-06-24 19:52:33] [config] factors-dim-emb: 0
+[2023-06-24 19:52:33] [config] gradient-checkpointing: false
+[2023-06-24 19:52:33] [config] gradient-norm-average-window: 100
+[2023-06-24 19:52:33] [config] guided-alignment: none
+[2023-06-24 19:52:33] [config] guided-alignment-cost: mse
+[2023-06-24 19:52:33] [config] guided-alignment-weight: 0.1
+[2023-06-24 19:52:33] [config] ignore-model-config: false
+[2023-06-24 19:52:33] [config] input-types:
+[2023-06-24 19:52:33] [config]   []
+[2023-06-24 19:52:33] [config] interpolate-env-vars: false
+[2023-06-24 19:52:33] [config] keep-best: false
+[2023-06-24 19:52:33] [config] label-smoothing: 0.1
+[2023-06-24 19:52:33] [config] layer-normalization: true
+[2023-06-24 19:52:33] [config] learn-rate: 0.0003
+[2023-06-24 19:52:33] [config] lemma-dependency: ""
+[2023-06-24 19:52:33] [config] lemma-dim-emb: 0
+[2023-06-24 19:52:33] [config] log: /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log
+[2023-06-24 19:52:33] [config] log-level: info
+[2023-06-24 19:52:33] [config] log-time-zone: ""
+[2023-06-24 19:52:33] [config] logical-epoch:
+[2023-06-24 19:52:33] [config]   - 1e
+[2023-06-24 19:52:33] [config]   - 0
+[2023-06-24 19:52:33] [config] lr-decay: 0
+[2023-06-24 19:52:33] [config] lr-decay-freq: 50000
+[2023-06-24 19:52:33] [config] lr-decay-inv-sqrt:
+[2023-06-24 19:52:33] [config]   - 16000
+[2023-06-24 19:52:33] [config] lr-decay-repeat-warmup: false
+[2023-06-24 19:52:33] [config] lr-decay-reset-optimizer: false
+[2023-06-24 19:52:33] [config] lr-decay-start:
+[2023-06-24 19:52:33] [config]   - 10
+[2023-06-24 19:52:33] [config]   - 1
+[2023-06-24 19:52:33] [config] lr-decay-strategy: epoch+stalled
+[2023-06-24 19:52:33] [config] lr-report: false
+[2023-06-24 19:52:33] [config] lr-warmup: 0
+[2023-06-24 19:52:33] [config] lr-warmup-at-reload: false
+[2023-06-24 19:52:33] [config] lr-warmup-cycle: false
+[2023-06-24 19:52:33] [config] lr-warmup-start-rate: 0
+[2023-06-24 19:52:33] [config] max-length: 100
+[2023-06-24 19:52:33] [config] max-length-crop: false
+[2023-06-24 19:52:33] [config] max-length-factor: 3
+[2023-06-24 19:52:33] [config] maxi-batch: 1000
+[2023-06-24 19:52:33] [config] maxi-batch-sort: trg
+[2023-06-24 19:52:33] [config] mini-batch: 1000
+[2023-06-24 19:52:33] [config] mini-batch-fit: true
+[2023-06-24 19:52:33] [config] mini-batch-fit-step: 10
+[2023-06-24 19:52:33] [config] mini-batch-round-up: true
+[2023-06-24 19:52:33] [config] mini-batch-track-lr: false
+[2023-06-24 19:52:33] [config] mini-batch-warmup: 0
+[2023-06-24 19:52:33] [config] mini-batch-words: 0
+[2023-06-24 19:52:33] [config] mini-batch-words-ref: 0
+[2023-06-24 19:52:33] [config] model: /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-24 19:52:33] [config] multi-loss-type: sum
+[2023-06-24 19:52:33] [config] n-best: false
+[2023-06-24 19:52:33] [config] no-nccl: false
+[2023-06-24 19:52:33] [config] no-reload: false
+[2023-06-24 19:52:33] [config] no-restore-corpus: false
+[2023-06-24 19:52:33] [config] normalize: 1
+[2023-06-24 19:52:33] [config] normalize-gradient: false
+[2023-06-24 19:52:33] [config] num-devices: 0
+[2023-06-24 19:52:33] [config] optimizer: adam
+[2023-06-24 19:52:33] [config] optimizer-delay: 1
+[2023-06-24 19:52:33] [config] optimizer-params:
+[2023-06-24 19:52:33] [config]   - 0.9
+[2023-06-24 19:52:33] [config]   - 0.98
+[2023-06-24 19:52:33] [config]   - 1e-09
+[2023-06-24 19:52:33] [config] output-omit-bias: false
+[2023-06-24 19:52:33] [config] overwrite: false
+[2023-06-24 19:52:33] [config] precision:
+[2023-06-24 19:52:33] [config]   - float32
+[2023-06-24 19:52:33] [config]   - float32
+[2023-06-24 19:52:33] [config] pretrained-model: ""
+[2023-06-24 19:52:33] [config] quantize-biases: false
+[2023-06-24 19:52:33] [config] quantize-bits: 0
+[2023-06-24 19:52:33] [config] quantize-log-based: false
+[2023-06-24 19:52:33] [config] quantize-optimization-steps: 0
+[2023-06-24 19:52:33] [config] quiet: false
+[2023-06-24 19:52:33] [config] quiet-translation: true
+[2023-06-24 19:52:33] [config] relative-paths: false
+[2023-06-24 19:52:33] [config] right-left: false
+[2023-06-24 19:52:33] [config] save-freq: 10000u
+[2023-06-24 19:52:33] [config] seed: 1234
+[2023-06-24 19:52:33] [config] sentencepiece-alphas:
+[2023-06-24 19:52:33] [config]   []
+[2023-06-24 19:52:33] [config] sentencepiece-max-lines: 2000000
+[2023-06-24 19:52:33] [config] sentencepiece-options: ""
+[2023-06-24 19:52:33] [config] sharding: global
+[2023-06-24 19:52:33] [config] shuffle: data
+[2023-06-24 19:52:33] [config] shuffle-in-ram: false
+[2023-06-24 19:52:33] [config] sigterm: save-and-exit
+[2023-06-24 19:52:33] [config] skip: false
+[2023-06-24 19:52:33] [config] sqlite: ""
+[2023-06-24 19:52:33] [config] sqlite-drop: false
+[2023-06-24 19:52:33] [config] sync-freq: 200u
+[2023-06-24 19:52:33] [config] sync-sgd: true
+[2023-06-24 19:52:33] [config] tempdir: /tmp
+[2023-06-24 19:52:33] [config] tied-embeddings: false
+[2023-06-24 19:52:33] [config] tied-embeddings-all: false
+[2023-06-24 19:52:33] [config] tied-embeddings-src: false
+[2023-06-24 19:52:33] [config] train-embedder-rank:
+[2023-06-24 19:52:33] [config]   []
+[2023-06-24 19:52:33] [config] train-sets:
+[2023-06-24 19:52:33] [config]   - /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn
+[2023-06-24 19:52:33] [config]   - /docker/home/marianmt/artifacts/data/train/train_es.txt.es
+[2023-06-24 19:52:33] [config] transformer-aan-activation: swish
+[2023-06-24 19:52:33] [config] transformer-aan-depth: 2
+[2023-06-24 19:52:33] [config] transformer-aan-nogate: false
+[2023-06-24 19:52:33] [config] transformer-decoder-autoreg: self-attention
+[2023-06-24 19:52:33] [config] transformer-decoder-dim-ffn: 0
+[2023-06-24 19:52:33] [config] transformer-decoder-ffn-depth: 0
+[2023-06-24 19:52:33] [config] transformer-depth-scaling: false
+[2023-06-24 19:52:33] [config] transformer-dim-aan: 2048
+[2023-06-24 19:52:33] [config] transformer-dim-ffn: 2048
+[2023-06-24 19:52:33] [config] transformer-dropout: 0
+[2023-06-24 19:52:33] [config] transformer-dropout-attention: 0
+[2023-06-24 19:52:33] [config] transformer-dropout-ffn: 0
+[2023-06-24 19:52:33] [config] transformer-ffn-activation: swish
+[2023-06-24 19:52:33] [config] transformer-ffn-depth: 2
+[2023-06-24 19:52:33] [config] transformer-guided-alignment-layer: last
+[2023-06-24 19:52:33] [config] transformer-heads: 8
+[2023-06-24 19:52:33] [config] transformer-no-projection: false
+[2023-06-24 19:52:33] [config] transformer-pool: false
+[2023-06-24 19:52:33] [config] transformer-postprocess: dan
+[2023-06-24 19:52:33] [config] transformer-postprocess-emb: d
+[2023-06-24 19:52:33] [config] transformer-postprocess-top: ""
+[2023-06-24 19:52:33] [config] transformer-preprocess: ""
+[2023-06-24 19:52:33] [config] transformer-tied-layers:
+[2023-06-24 19:52:33] [config]   []
+[2023-06-24 19:52:33] [config] transformer-train-position-embeddings: false
+[2023-06-24 19:52:33] [config] tsv: false
+[2023-06-24 19:52:33] [config] tsv-fields: 0
+[2023-06-24 19:52:33] [config] type: s2s
+[2023-06-24 19:52:33] [config] ulr: false
+[2023-06-24 19:52:33] [config] ulr-dim-emb: 0
+[2023-06-24 19:52:33] [config] ulr-dropout: 0
+[2023-06-24 19:52:33] [config] ulr-keys-vectors: ""
+[2023-06-24 19:52:33] [config] ulr-query-vectors: ""
+[2023-06-24 19:52:33] [config] ulr-softmax-temperature: 1
+[2023-06-24 19:52:33] [config] ulr-trainable-transformation: false
+[2023-06-24 19:52:33] [config] unlikelihood-loss: false
+[2023-06-24 19:52:33] [config] valid-freq: 5000000
+[2023-06-24 19:52:33] [config] valid-log: /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log
+[2023-06-24 19:52:33] [config] valid-max-length: 1000
+[2023-06-24 19:52:33] [config] valid-metrics:
+[2023-06-24 19:52:33] [config]   - cross-entropy
+[2023-06-24 19:52:33] [config]   - translation
+[2023-06-24 19:52:33] [config] valid-mini-batch: 32
+[2023-06-24 19:52:33] [config] valid-reset-stalled: false
+[2023-06-24 19:52:33] [config] valid-script-args:
+[2023-06-24 19:52:33] [config]   []
+[2023-06-24 19:52:33] [config] valid-script-path: ""
+[2023-06-24 19:52:33] [config] valid-sets:
+[2023-06-24 19:52:33] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn
+[2023-06-24 19:52:33] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-06-24 19:52:33] [config] valid-translation-output: /docker/home/marianmt/evaluation/model-epochs.txt
+[2023-06-24 19:52:33] [config] vocabs:
+[2023-06-24 19:52:33] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-24 19:52:33] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-24 19:52:33] [config] word-penalty: 0
+[2023-06-24 19:52:33] [config] word-scores: false
+[2023-06-24 19:52:33] [config] workspace: 2048
+[2023-06-24 19:52:33] [config] Model is being created with Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-24 19:52:33] Using synchronous SGD
+[2023-06-24 19:52:34] Synced seed 1234
+[2023-06-24 19:52:34] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-24 19:52:34] [data] Setting vocabulary size for input 0 to 54,042
+[2023-06-24 19:52:34] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-24 19:52:34] [data] Setting vocabulary size for input 1 to 36,507
+[2023-06-24 19:52:34] [batching] Collecting statistics for batch fitting with step size 10
+[2023-06-24 19:52:34] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-24 19:52:34] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-24 19:52:35] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-24 19:52:35] [comm] Using global sharding
+[2023-06-24 19:52:35] [comm] NCCLCommunicators constructed successfully
+[2023-06-24 19:52:35] [training] Using 1 GPUs
+[2023-06-24 19:52:35] [logits] Applying loss function for 1 factor(s)
+[2023-06-24 19:52:35] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 19:52:38] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2023-06-24 19:52:38] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 19:53:03] [batching] Done. Typical MB size is 630 target words
+[2023-06-24 19:53:03] [valid] No post-processing script given for validating translator
+[2023-06-24 19:53:03] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-24 19:53:03] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-24 19:53:03] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-24 19:53:03] [comm] Using global sharding
+[2023-06-24 19:53:03] [comm] NCCLCommunicators constructed successfully
+[2023-06-24 19:53:03] [training] Using 1 GPUs
+[2023-06-24 19:53:03] Training started
+[2023-06-24 19:53:03] [data] Shuffling data
+[2023-06-24 19:53:04] [data] Done reading 20,192 sentences
+[2023-06-24 19:53:04] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 19:53:04] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2023-06-24 19:53:04] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 19:53:04] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 19:53:04] Parameter type float32, optimization type float32, casting types false
+[2023-06-24 19:53:04] Allocating memory for general optimizer shards
+[2023-06-24 19:53:04] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 19:53:05] Allocating memory for Adam-specific shards
+[2023-06-24 19:53:05] [memory] Reserving 1909 MB, device gpu0
+[2023-06-24 20:01:12] Seen 20,177 samples
+[2023-06-24 20:01:12] Starting data epoch 2 in logical epoch 2
+[2023-06-24 20:01:12] [data] Shuffling data
+[2023-06-24 20:01:12] [data] Done reading 20,192 sentences
+[2023-06-24 20:01:12] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 20:02:00] Ep. 2 : Up. 1000 : Sen. 1,885 : Cost 6.45566273 : Time 537.14s : 976.51 words/s : gNorm 0.9956
+[2023-06-24 20:09:35] Seen 20,177 samples
+[2023-06-24 20:09:35] Starting data epoch 3 in logical epoch 3
+[2023-06-24 20:09:35] [data] Shuffling data
+[2023-06-24 20:09:35] [data] Done reading 20,192 sentences
+[2023-06-24 20:09:36] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 20:11:14] Ep. 3 : Up. 2000 : Sen. 3,948 : Cost 5.78805923 : Time 553.59s : 945.26 words/s : gNorm 1.0909
+[2023-06-24 20:17:59] Seen 20,177 samples
+[2023-06-24 20:17:59] Starting data epoch 4 in logical epoch 4
+[2023-06-24 20:17:59] [data] Shuffling data
+[2023-06-24 20:17:59] [data] Done reading 20,192 sentences
+[2023-06-24 20:17:59] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 20:20:24] Ep. 4 : Up. 3000 : Sen. 5,690 : Cost 5.55325031 : Time 549.69s : 952.04 words/s : gNorm 1.2077
+[2023-06-24 20:26:22] Seen 20,177 samples
+[2023-06-24 20:26:22] Starting data epoch 5 in logical epoch 5
+[2023-06-24 20:26:22] [data] Shuffling data
+[2023-06-24 20:26:22] [data] Done reading 20,192 sentences
+[2023-06-24 20:26:22] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 20:29:40] Ep. 5 : Up. 4000 : Sen. 7,520 : Cost 5.35718250 : Time 555.83s : 945.91 words/s : gNorm 0.9594
+[2023-06-24 20:34:46] Seen 20,177 samples
+[2023-06-24 20:34:46] Starting data epoch 6 in logical epoch 6
+[2023-06-24 20:34:46] [data] Shuffling data
+[2023-06-24 20:34:46] [data] Done reading 20,192 sentences
+[2023-06-24 20:34:46] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 20:38:45] Ep. 6 : Up. 5000 : Sen. 9,709 : Cost 5.20433903 : Time 544.56s : 958.40 words/s : gNorm 1.0317
+[2023-06-24 20:43:09] Seen 20,177 samples
+[2023-06-24 20:43:09] Starting data epoch 7 in logical epoch 7
+[2023-06-24 20:43:09] [data] Shuffling data
+[2023-06-24 20:43:09] [data] Done reading 20,192 sentences
+[2023-06-24 20:43:09] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 20:48:03] Ep. 7 : Up. 6000 : Sen. 11,306 : Cost 5.04909658 : Time 557.78s : 941.57 words/s : gNorm 1.0097
+[2023-06-24 20:51:32] Seen 20,177 samples
+[2023-06-24 20:51:32] Starting data epoch 8 in logical epoch 8
+[2023-06-24 20:51:32] [data] Shuffling data
+[2023-06-24 20:51:32] [data] Done reading 20,192 sentences
+[2023-06-24 20:51:32] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 20:57:12] Ep. 8 : Up. 7000 : Sen. 13,540 : Cost 4.89683628 : Time 548.80s : 952.26 words/s : gNorm 1.0819
+[2023-06-24 20:59:56] Seen 20,177 samples
+[2023-06-24 20:59:56] Starting data epoch 9 in logical epoch 9
+[2023-06-24 20:59:56] [data] Shuffling data
+[2023-06-24 20:59:56] [data] Done reading 20,192 sentences
+[2023-06-24 20:59:56] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 21:06:26] Ep. 9 : Up. 8000 : Sen. 15,486 : Cost 4.76228094 : Time 553.95s : 946.78 words/s : gNorm 1.0666
+[2023-06-24 21:08:19] Seen 20,177 samples
+[2023-06-24 21:08:19] Starting data epoch 10 in logical epoch 10
+[2023-06-24 21:08:19] [data] Shuffling data
+[2023-06-24 21:08:19] [data] Done reading 20,192 sentences
+[2023-06-24 21:08:19] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 21:15:36] Ep. 10 : Up. 9000 : Sen. 17,327 : Cost 4.62671280 : Time 550.47s : 954.69 words/s : gNorm 1.2820
+[2023-06-24 21:16:43] Seen 20,177 samples
+[2023-06-24 21:16:43] Starting data epoch 11 in logical epoch 11
+[2023-06-24 21:16:43] Training finished
+[2023-06-24 21:17:06] [valid] Ep. 11 : Up. 9120 : cross-entropy : 101.441 : new best
+[2023-06-24 21:21:01] [valid] Ep. 11 : Up. 9120 : translation : 0 : new best
+[2023-06-24 21:21:01] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-24 21:21:11] Saving Adam parameters
+[2023-06-24 21:21:16] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-24 21:32:52] [marian] Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-24 21:32:52] [marian] Running on node07.datos.cluster.uy as process 40898 with command line:
+[2023-06-24 21:32:52] [marian] /marian/build/marian --train-sets /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn /docker/home/marianmt/artifacts/data/train/train_es.txt.es --model /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz --after-epochs 20 --valid-freq 5000000 --vocabs /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es --seed 1234 --type s2s --max-length 100 --mini-batch-fit --mini-batch 1000 --maxi-batch 1000 --beam-size 12 --normalize 1 --cost-type ce-mean-words --enc-type bidirectional --enc-depth 4 --enc-cell-depth 4 --dec-depth 4 --dec-cell-base-depth 8 --dec-cell-high-depth 1 --layer-normalization --dropout-rnn 0.1 --label-smoothing 0.1 --learn-rate 0.0003 --lr-decay-inv-sqrt 16000 --optimizer-params 0.9 0.98 1e-09 --clip-norm 5 --sync-sgd --exponential-smoothing --cpu-threads 0 --log /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log --valid-log /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log --valid-sets /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es --valid-metrics cross-entropy translation --valid-translation-output /docker/home/marianmt/evaluation/model-epochs.txt --quiet-translation
+[2023-06-24 21:32:52] [config] after: 0e
+[2023-06-24 21:32:52] [config] after-batches: 0
+[2023-06-24 21:32:52] [config] after-epochs: 20
+[2023-06-24 21:32:52] [config] all-caps-every: 0
+[2023-06-24 21:32:52] [config] allow-unk: false
+[2023-06-24 21:32:52] [config] authors: false
+[2023-06-24 21:32:52] [config] beam-size: 12
+[2023-06-24 21:32:52] [config] bert-class-symbol: "[CLS]"
+[2023-06-24 21:32:52] [config] bert-mask-symbol: "[MASK]"
+[2023-06-24 21:32:52] [config] bert-masking-fraction: 0.15
+[2023-06-24 21:32:52] [config] bert-sep-symbol: "[SEP]"
+[2023-06-24 21:32:52] [config] bert-train-type-embeddings: true
+[2023-06-24 21:32:52] [config] bert-type-vocab-size: 2
+[2023-06-24 21:32:52] [config] build-info: ""
+[2023-06-24 21:32:52] [config] check-gradient-nan: false
+[2023-06-24 21:32:52] [config] check-nan: false
+[2023-06-24 21:32:52] [config] cite: false
+[2023-06-24 21:32:52] [config] clip-norm: 5
+[2023-06-24 21:32:52] [config] cost-scaling:
+[2023-06-24 21:32:52] [config]   []
+[2023-06-24 21:32:52] [config] cost-type: ce-mean-words
+[2023-06-24 21:32:52] [config] cpu-threads: 0
+[2023-06-24 21:32:52] [config] data-threads: 8
+[2023-06-24 21:32:52] [config] data-weighting: ""
+[2023-06-24 21:32:52] [config] data-weighting-type: sentence
+[2023-06-24 21:32:52] [config] dec-cell: gru
+[2023-06-24 21:32:52] [config] dec-cell-base-depth: 8
+[2023-06-24 21:32:52] [config] dec-cell-high-depth: 1
+[2023-06-24 21:32:52] [config] dec-depth: 4
+[2023-06-24 21:32:52] [config] devices:
+[2023-06-24 21:32:52] [config]   - 0
+[2023-06-24 21:32:52] [config] dim-emb: 512
+[2023-06-24 21:32:52] [config] dim-rnn: 1024
+[2023-06-24 21:32:52] [config] dim-vocabs:
+[2023-06-24 21:32:52] [config]   - 54042
+[2023-06-24 21:32:52] [config]   - 36507
+[2023-06-24 21:32:52] [config] disp-first: 0
+[2023-06-24 21:32:52] [config] disp-freq: 1000u
+[2023-06-24 21:32:52] [config] disp-label-counts: true
+[2023-06-24 21:32:52] [config] dropout-rnn: 0.1
+[2023-06-24 21:32:52] [config] dropout-src: 0
+[2023-06-24 21:32:52] [config] dropout-trg: 0
+[2023-06-24 21:32:52] [config] dump-config: ""
+[2023-06-24 21:32:52] [config] dynamic-gradient-scaling:
+[2023-06-24 21:32:52] [config]   []
+[2023-06-24 21:32:52] [config] early-stopping: 10
+[2023-06-24 21:32:52] [config] early-stopping-on: first
+[2023-06-24 21:32:52] [config] embedding-fix-src: false
+[2023-06-24 21:32:52] [config] embedding-fix-trg: false
+[2023-06-24 21:32:52] [config] embedding-normalization: false
+[2023-06-24 21:32:52] [config] embedding-vectors:
+[2023-06-24 21:32:52] [config]   []
+[2023-06-24 21:32:52] [config] enc-cell: gru
+[2023-06-24 21:32:52] [config] enc-cell-depth: 4
+[2023-06-24 21:32:52] [config] enc-depth: 4
+[2023-06-24 21:32:52] [config] enc-type: bidirectional
+[2023-06-24 21:32:52] [config] english-title-case-every: 0
+[2023-06-24 21:32:52] [config] exponential-smoothing: 0.0001
+[2023-06-24 21:32:52] [config] factor-weight: 1
+[2023-06-24 21:32:52] [config] factors-combine: sum
+[2023-06-24 21:32:52] [config] factors-dim-emb: 0
+[2023-06-24 21:32:52] [config] gradient-checkpointing: false
+[2023-06-24 21:32:52] [config] gradient-norm-average-window: 100
+[2023-06-24 21:32:52] [config] guided-alignment: none
+[2023-06-24 21:32:52] [config] guided-alignment-cost: mse
+[2023-06-24 21:32:52] [config] guided-alignment-weight: 0.1
+[2023-06-24 21:32:52] [config] ignore-model-config: false
+[2023-06-24 21:32:52] [config] input-types:
+[2023-06-24 21:32:52] [config]   []
+[2023-06-24 21:32:52] [config] interpolate-env-vars: false
+[2023-06-24 21:32:52] [config] keep-best: false
+[2023-06-24 21:32:52] [config] label-smoothing: 0.1
+[2023-06-24 21:32:52] [config] layer-normalization: true
+[2023-06-24 21:32:52] [config] learn-rate: 0.0003
+[2023-06-24 21:32:52] [config] lemma-dependency: ""
+[2023-06-24 21:32:52] [config] lemma-dim-emb: 0
+[2023-06-24 21:32:52] [config] log: /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log
+[2023-06-24 21:32:52] [config] log-level: info
+[2023-06-24 21:32:52] [config] log-time-zone: ""
+[2023-06-24 21:32:52] [config] logical-epoch:
+[2023-06-24 21:32:52] [config]   - 1e
+[2023-06-24 21:32:52] [config]   - 0
+[2023-06-24 21:32:52] [config] lr-decay: 0
+[2023-06-24 21:32:52] [config] lr-decay-freq: 50000
+[2023-06-24 21:32:52] [config] lr-decay-inv-sqrt:
+[2023-06-24 21:32:52] [config]   - 16000
+[2023-06-24 21:32:52] [config] lr-decay-repeat-warmup: false
+[2023-06-24 21:32:52] [config] lr-decay-reset-optimizer: false
+[2023-06-24 21:32:52] [config] lr-decay-start:
+[2023-06-24 21:32:52] [config]   - 10
+[2023-06-24 21:32:52] [config]   - 1
+[2023-06-24 21:32:52] [config] lr-decay-strategy: epoch+stalled
+[2023-06-24 21:32:52] [config] lr-report: false
+[2023-06-24 21:32:52] [config] lr-warmup: 0
+[2023-06-24 21:32:52] [config] lr-warmup-at-reload: false
+[2023-06-24 21:32:52] [config] lr-warmup-cycle: false
+[2023-06-24 21:32:52] [config] lr-warmup-start-rate: 0
+[2023-06-24 21:32:52] [config] max-length: 100
+[2023-06-24 21:32:52] [config] max-length-crop: false
+[2023-06-24 21:32:52] [config] max-length-factor: 3
+[2023-06-24 21:32:52] [config] maxi-batch: 1000
+[2023-06-24 21:32:52] [config] maxi-batch-sort: trg
+[2023-06-24 21:32:52] [config] mini-batch: 1000
+[2023-06-24 21:32:52] [config] mini-batch-fit: true
+[2023-06-24 21:32:52] [config] mini-batch-fit-step: 10
+[2023-06-24 21:32:52] [config] mini-batch-round-up: true
+[2023-06-24 21:32:52] [config] mini-batch-track-lr: false
+[2023-06-24 21:32:52] [config] mini-batch-warmup: 0
+[2023-06-24 21:32:52] [config] mini-batch-words: 0
+[2023-06-24 21:32:52] [config] mini-batch-words-ref: 0
+[2023-06-24 21:32:52] [config] model: /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-24 21:32:52] [config] multi-loss-type: sum
+[2023-06-24 21:32:52] [config] n-best: false
+[2023-06-24 21:32:52] [config] no-nccl: false
+[2023-06-24 21:32:52] [config] no-reload: false
+[2023-06-24 21:32:52] [config] no-restore-corpus: false
+[2023-06-24 21:32:52] [config] normalize: 1
+[2023-06-24 21:32:52] [config] normalize-gradient: false
+[2023-06-24 21:32:52] [config] num-devices: 0
+[2023-06-24 21:32:52] [config] optimizer: adam
+[2023-06-24 21:32:52] [config] optimizer-delay: 1
+[2023-06-24 21:32:52] [config] optimizer-params:
+[2023-06-24 21:32:52] [config]   - 0.9
+[2023-06-24 21:32:52] [config]   - 0.98
+[2023-06-24 21:32:52] [config]   - 1e-09
+[2023-06-24 21:32:52] [config] output-omit-bias: false
+[2023-06-24 21:32:52] [config] overwrite: false
+[2023-06-24 21:32:52] [config] precision:
+[2023-06-24 21:32:52] [config]   - float32
+[2023-06-24 21:32:52] [config]   - float32
+[2023-06-24 21:32:52] [config] pretrained-model: ""
+[2023-06-24 21:32:52] [config] quantize-biases: false
+[2023-06-24 21:32:52] [config] quantize-bits: 0
+[2023-06-24 21:32:52] [config] quantize-log-based: false
+[2023-06-24 21:32:52] [config] quantize-optimization-steps: 0
+[2023-06-24 21:32:52] [config] quiet: false
+[2023-06-24 21:32:52] [config] quiet-translation: true
+[2023-06-24 21:32:52] [config] relative-paths: false
+[2023-06-24 21:32:52] [config] right-left: false
+[2023-06-24 21:32:52] [config] save-freq: 10000u
+[2023-06-24 21:32:52] [config] seed: 1234
+[2023-06-24 21:32:52] [config] sentencepiece-alphas:
+[2023-06-24 21:32:52] [config]   []
+[2023-06-24 21:32:52] [config] sentencepiece-max-lines: 2000000
+[2023-06-24 21:32:52] [config] sentencepiece-options: ""
+[2023-06-24 21:32:52] [config] sharding: global
+[2023-06-24 21:32:52] [config] shuffle: data
+[2023-06-24 21:32:52] [config] shuffle-in-ram: false
+[2023-06-24 21:32:52] [config] sigterm: save-and-exit
+[2023-06-24 21:32:52] [config] skip: false
+[2023-06-24 21:32:52] [config] sqlite: ""
+[2023-06-24 21:32:52] [config] sqlite-drop: false
+[2023-06-24 21:32:52] [config] sync-freq: 200u
+[2023-06-24 21:32:52] [config] sync-sgd: true
+[2023-06-24 21:32:52] [config] tempdir: /tmp
+[2023-06-24 21:32:52] [config] tied-embeddings: false
+[2023-06-24 21:32:52] [config] tied-embeddings-all: false
+[2023-06-24 21:32:52] [config] tied-embeddings-src: false
+[2023-06-24 21:32:52] [config] train-embedder-rank:
+[2023-06-24 21:32:52] [config]   []
+[2023-06-24 21:32:52] [config] train-sets:
+[2023-06-24 21:32:52] [config]   - /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn
+[2023-06-24 21:32:52] [config]   - /docker/home/marianmt/artifacts/data/train/train_es.txt.es
+[2023-06-24 21:32:52] [config] transformer-aan-activation: swish
+[2023-06-24 21:32:52] [config] transformer-aan-depth: 2
+[2023-06-24 21:32:52] [config] transformer-aan-nogate: false
+[2023-06-24 21:32:52] [config] transformer-decoder-autoreg: self-attention
+[2023-06-24 21:32:52] [config] transformer-decoder-dim-ffn: 0
+[2023-06-24 21:32:52] [config] transformer-decoder-ffn-depth: 0
+[2023-06-24 21:32:52] [config] transformer-depth-scaling: false
+[2023-06-24 21:32:52] [config] transformer-dim-aan: 2048
+[2023-06-24 21:32:52] [config] transformer-dim-ffn: 2048
+[2023-06-24 21:32:52] [config] transformer-dropout: 0
+[2023-06-24 21:32:52] [config] transformer-dropout-attention: 0
+[2023-06-24 21:32:52] [config] transformer-dropout-ffn: 0
+[2023-06-24 21:32:52] [config] transformer-ffn-activation: swish
+[2023-06-24 21:32:52] [config] transformer-ffn-depth: 2
+[2023-06-24 21:32:52] [config] transformer-guided-alignment-layer: last
+[2023-06-24 21:32:52] [config] transformer-heads: 8
+[2023-06-24 21:32:52] [config] transformer-no-projection: false
+[2023-06-24 21:32:52] [config] transformer-pool: false
+[2023-06-24 21:32:52] [config] transformer-postprocess: dan
+[2023-06-24 21:32:52] [config] transformer-postprocess-emb: d
+[2023-06-24 21:32:52] [config] transformer-postprocess-top: ""
+[2023-06-24 21:32:52] [config] transformer-preprocess: ""
+[2023-06-24 21:32:52] [config] transformer-tied-layers:
+[2023-06-24 21:32:52] [config]   []
+[2023-06-24 21:32:52] [config] transformer-train-position-embeddings: false
+[2023-06-24 21:32:52] [config] tsv: false
+[2023-06-24 21:32:52] [config] tsv-fields: 0
+[2023-06-24 21:32:52] [config] type: s2s
+[2023-06-24 21:32:52] [config] ulr: false
+[2023-06-24 21:32:52] [config] ulr-dim-emb: 0
+[2023-06-24 21:32:52] [config] ulr-dropout: 0
+[2023-06-24 21:32:52] [config] ulr-keys-vectors: ""
+[2023-06-24 21:32:52] [config] ulr-query-vectors: ""
+[2023-06-24 21:32:52] [config] ulr-softmax-temperature: 1
+[2023-06-24 21:32:52] [config] ulr-trainable-transformation: false
+[2023-06-24 21:32:52] [config] unlikelihood-loss: false
+[2023-06-24 21:32:52] [config] valid-freq: 5000000
+[2023-06-24 21:32:52] [config] valid-log: /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log
+[2023-06-24 21:32:52] [config] valid-max-length: 1000
+[2023-06-24 21:32:52] [config] valid-metrics:
+[2023-06-24 21:32:52] [config]   - cross-entropy
+[2023-06-24 21:32:52] [config]   - translation
+[2023-06-24 21:32:52] [config] valid-mini-batch: 32
+[2023-06-24 21:32:52] [config] valid-reset-stalled: false
+[2023-06-24 21:32:52] [config] valid-script-args:
+[2023-06-24 21:32:52] [config]   []
+[2023-06-24 21:32:52] [config] valid-script-path: ""
+[2023-06-24 21:32:52] [config] valid-sets:
+[2023-06-24 21:32:52] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn
+[2023-06-24 21:32:52] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-06-24 21:32:52] [config] valid-translation-output: /docker/home/marianmt/evaluation/model-epochs.txt
+[2023-06-24 21:32:52] [config] version: v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-24 21:32:52] [config] vocabs:
+[2023-06-24 21:32:52] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-24 21:32:52] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-24 21:32:52] [config] word-penalty: 0
+[2023-06-24 21:32:52] [config] word-scores: false
+[2023-06-24 21:32:52] [config] workspace: 2048
+[2023-06-24 21:32:52] [config] Loaded model has been created with Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-24 21:32:52] Using synchronous SGD
+[2023-06-24 21:32:54] Synced seed 1234
+[2023-06-24 21:32:54] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-24 21:32:54] [data] Setting vocabulary size for input 0 to 54,042
+[2023-06-24 21:32:54] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-24 21:32:54] [data] Setting vocabulary size for input 1 to 36,507
+[2023-06-24 21:32:54] [batching] Collecting statistics for batch fitting with step size 10
+[2023-06-24 21:32:54] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-24 21:32:55] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-24 21:32:55] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-24 21:32:55] [comm] Using global sharding
+[2023-06-24 21:32:55] [comm] NCCLCommunicators constructed successfully
+[2023-06-24 21:32:55] [training] Using 1 GPUs
+[2023-06-24 21:32:55] [logits] Applying loss function for 1 factor(s)
+[2023-06-24 21:32:55] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 21:32:55] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2023-06-24 21:32:56] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 21:33:21] [batching] Done. Typical MB size is 630 target words
+[2023-06-24 21:33:21] [valid] No post-processing script given for validating translator
+[2023-06-24 21:33:21] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-24 21:33:21] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-24 21:33:21] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-24 21:33:21] [comm] Using global sharding
+[2023-06-24 21:33:21] [comm] NCCLCommunicators constructed successfully
+[2023-06-24 21:33:21] [training] Using 1 GPUs
+[2023-06-24 21:33:21] Loading model from /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-24 21:33:29] Allocating memory for general optimizer shards
+[2023-06-24 21:33:29] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 21:33:30] Loading Adam parameters
+[2023-06-24 21:33:30] [memory] Reserving 1909 MB, device gpu0
+[2023-06-24 21:33:31] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 21:33:31] [training] Master parameters and optimizers restored from training checkpoint /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-24 21:33:31] [data] Restoring the corpus state to epoch 11, batch 9120
+[2023-06-24 21:33:31] [data] Shuffling data
+[2023-06-24 21:33:31] [data] Done reading 20,192 sentences
+[2023-06-24 21:33:31] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 21:33:31] Training started
+[2023-06-24 21:33:31] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2023-06-24 21:33:32] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 21:33:32] Parameter type float32, optimization type float32, casting types false
+[2023-06-24 21:41:35] Ep. 11 : Up. 10000 : Sen. 19,532 : Cost 4.50252342 : Time 494.20s : 1059.37 words/s : gNorm 1.1087
+[2023-06-24 21:41:35] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.iter10000.npz
+[2023-06-24 21:41:45] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-24 21:41:55] Saving Adam parameters
+[2023-06-24 21:41:59] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-24 21:42:50] Seen 20,177 samples
+[2023-06-24 21:42:50] Starting data epoch 12 in logical epoch 12
+[2023-06-24 21:42:50] [data] Shuffling data
+[2023-06-24 21:42:50] [data] Done reading 20,192 sentences
+[2023-06-24 21:42:50] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 21:51:10] Seen 20,177 samples
+[2023-06-24 21:51:10] Starting data epoch 13 in logical epoch 13
+[2023-06-24 21:51:10] [data] Shuffling data
+[2023-06-24 21:51:10] [data] Done reading 20,192 sentences
+[2023-06-24 21:51:10] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 21:51:41] Ep. 13 : Up. 11000 : Sen. 1,133 : Cost 4.35584688 : Time 606.28s : 863.99 words/s : gNorm 1.1161
+[2023-06-24 21:59:35] Seen 20,177 samples
+[2023-06-24 21:59:35] Starting data epoch 14 in logical epoch 14
+[2023-06-24 21:59:35] [data] Shuffling data
+[2023-06-24 21:59:35] [data] Done reading 20,192 sentences
+[2023-06-24 21:59:35] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 22:00:53] Ep. 14 : Up. 12000 : Sen. 3,218 : Cost 4.22175646 : Time 551.99s : 950.57 words/s : gNorm 1.1327
+[2023-06-24 22:07:59] Seen 20,177 samples
+[2023-06-24 22:07:59] Starting data epoch 15 in logical epoch 15
+[2023-06-24 22:07:59] [data] Shuffling data
+[2023-06-24 22:07:59] [data] Done reading 20,192 sentences
+[2023-06-24 22:07:59] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 22:10:09] Ep. 15 : Up. 13000 : Sen. 5,233 : Cost 4.10613251 : Time 555.50s : 941.63 words/s : gNorm 1.1883
+[2023-06-24 22:16:24] Seen 20,177 samples
+[2023-06-24 22:16:24] Starting data epoch 16 in logical epoch 16
+[2023-06-24 22:16:24] [data] Shuffling data
+[2023-06-24 22:16:24] [data] Done reading 20,192 sentences
+[2023-06-24 22:16:24] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 22:19:22] Ep. 16 : Up. 14000 : Sen. 6,939 : Cost 3.98793483 : Time 553.24s : 946.98 words/s : gNorm 1.2257
+[2023-06-24 22:24:49] Seen 20,177 samples
+[2023-06-24 22:24:49] Starting data epoch 17 in logical epoch 17
+[2023-06-24 22:24:49] [data] Shuffling data
+[2023-06-24 22:24:49] [data] Done reading 20,192 sentences
+[2023-06-24 22:24:49] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 22:28:36] Ep. 17 : Up. 15000 : Sen. 8,782 : Cost 3.87194252 : Time 553.55s : 946.82 words/s : gNorm 1.2578
+[2023-06-24 22:33:14] Seen 20,177 samples
+[2023-06-24 22:33:14] Starting data epoch 18 in logical epoch 18
+[2023-06-24 22:33:14] [data] Shuffling data
+[2023-06-24 22:33:14] [data] Done reading 20,192 sentences
+[2023-06-24 22:33:14] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 22:37:50] Ep. 18 : Up. 16000 : Sen. 10,833 : Cost 3.74759269 : Time 554.02s : 943.57 words/s : gNorm 1.2685
+[2023-06-24 22:41:39] Seen 20,177 samples
+[2023-06-24 22:41:39] Starting data epoch 19 in logical epoch 19
+[2023-06-24 22:41:39] [data] Shuffling data
+[2023-06-24 22:41:39] [data] Done reading 20,192 sentences
+[2023-06-24 22:41:40] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 22:47:05] Ep. 19 : Up. 17000 : Sen. 12,742 : Cost 3.63863444 : Time 554.80s : 944.00 words/s : gNorm 1.2705
+[2023-06-24 22:50:05] Seen 20,177 samples
+[2023-06-24 22:50:05] Starting data epoch 20 in logical epoch 20
+[2023-06-24 22:50:05] [data] Shuffling data
+[2023-06-24 22:50:05] [data] Done reading 20,192 sentences
+[2023-06-24 22:50:05] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 22:56:17] Ep. 20 : Up. 18000 : Sen. 15,080 : Cost 3.51620555 : Time 552.36s : 952.32 words/s : gNorm 1.2850
+[2023-06-24 22:58:30] Seen 20,177 samples
+[2023-06-24 22:58:30] Starting data epoch 21 in logical epoch 21
+[2023-06-24 22:58:30] Training finished
+[2023-06-24 22:58:53] [valid] Ep. 21 : Up. 18240 : cross-entropy : 110.83 : stalled 1 times (last best: 101.441)
+[2023-06-24 23:02:48] [valid] Ep. 21 : Up. 18240 : translation : 0 : new best
+[2023-06-24 23:02:48] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-24 23:02:57] Saving Adam parameters
+[2023-06-24 23:03:00] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-24 23:14:35] [marian] Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-24 23:14:35] [marian] Running on node07.datos.cluster.uy as process 7235 with command line:
+[2023-06-24 23:14:35] [marian] /marian/build/marian --train-sets /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn /docker/home/marianmt/artifacts/data/train/train_es.txt.es --model /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz --after-epochs 30 --valid-freq 5000000 --vocabs /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es --seed 1234 --type s2s --max-length 100 --mini-batch-fit --mini-batch 1000 --maxi-batch 1000 --beam-size 12 --normalize 1 --cost-type ce-mean-words --enc-type bidirectional --enc-depth 4 --enc-cell-depth 4 --dec-depth 4 --dec-cell-base-depth 8 --dec-cell-high-depth 1 --layer-normalization --dropout-rnn 0.1 --label-smoothing 0.1 --learn-rate 0.0003 --lr-decay-inv-sqrt 16000 --optimizer-params 0.9 0.98 1e-09 --clip-norm 5 --sync-sgd --exponential-smoothing --cpu-threads 0 --log /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log --valid-log /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log --valid-sets /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es --valid-metrics cross-entropy translation --valid-translation-output /docker/home/marianmt/evaluation/model-epochs.txt --quiet-translation
+[2023-06-24 23:14:35] [config] after: 0e
+[2023-06-24 23:14:35] [config] after-batches: 0
+[2023-06-24 23:14:35] [config] after-epochs: 30
+[2023-06-24 23:14:35] [config] all-caps-every: 0
+[2023-06-24 23:14:35] [config] allow-unk: false
+[2023-06-24 23:14:35] [config] authors: false
+[2023-06-24 23:14:35] [config] beam-size: 12
+[2023-06-24 23:14:35] [config] bert-class-symbol: "[CLS]"
+[2023-06-24 23:14:35] [config] bert-mask-symbol: "[MASK]"
+[2023-06-24 23:14:35] [config] bert-masking-fraction: 0.15
+[2023-06-24 23:14:35] [config] bert-sep-symbol: "[SEP]"
+[2023-06-24 23:14:35] [config] bert-train-type-embeddings: true
+[2023-06-24 23:14:35] [config] bert-type-vocab-size: 2
+[2023-06-24 23:14:35] [config] build-info: ""
+[2023-06-24 23:14:35] [config] check-gradient-nan: false
+[2023-06-24 23:14:35] [config] check-nan: false
+[2023-06-24 23:14:35] [config] cite: false
+[2023-06-24 23:14:35] [config] clip-norm: 5
+[2023-06-24 23:14:35] [config] cost-scaling:
+[2023-06-24 23:14:35] [config]   []
+[2023-06-24 23:14:35] [config] cost-type: ce-mean-words
+[2023-06-24 23:14:35] [config] cpu-threads: 0
+[2023-06-24 23:14:35] [config] data-threads: 8
+[2023-06-24 23:14:35] [config] data-weighting: ""
+[2023-06-24 23:14:35] [config] data-weighting-type: sentence
+[2023-06-24 23:14:35] [config] dec-cell: gru
+[2023-06-24 23:14:35] [config] dec-cell-base-depth: 8
+[2023-06-24 23:14:35] [config] dec-cell-high-depth: 1
+[2023-06-24 23:14:35] [config] dec-depth: 4
+[2023-06-24 23:14:35] [config] devices:
+[2023-06-24 23:14:35] [config]   - 0
+[2023-06-24 23:14:35] [config] dim-emb: 512
+[2023-06-24 23:14:35] [config] dim-rnn: 1024
+[2023-06-24 23:14:35] [config] dim-vocabs:
+[2023-06-24 23:14:35] [config]   - 54042
+[2023-06-24 23:14:35] [config]   - 36507
+[2023-06-24 23:14:35] [config] disp-first: 0
+[2023-06-24 23:14:35] [config] disp-freq: 1000u
+[2023-06-24 23:14:35] [config] disp-label-counts: true
+[2023-06-24 23:14:35] [config] dropout-rnn: 0.1
+[2023-06-24 23:14:35] [config] dropout-src: 0
+[2023-06-24 23:14:35] [config] dropout-trg: 0
+[2023-06-24 23:14:35] [config] dump-config: ""
+[2023-06-24 23:14:35] [config] dynamic-gradient-scaling:
+[2023-06-24 23:14:35] [config]   []
+[2023-06-24 23:14:35] [config] early-stopping: 10
+[2023-06-24 23:14:35] [config] early-stopping-on: first
+[2023-06-24 23:14:35] [config] embedding-fix-src: false
+[2023-06-24 23:14:35] [config] embedding-fix-trg: false
+[2023-06-24 23:14:35] [config] embedding-normalization: false
+[2023-06-24 23:14:35] [config] embedding-vectors:
+[2023-06-24 23:14:35] [config]   []
+[2023-06-24 23:14:35] [config] enc-cell: gru
+[2023-06-24 23:14:35] [config] enc-cell-depth: 4
+[2023-06-24 23:14:35] [config] enc-depth: 4
+[2023-06-24 23:14:35] [config] enc-type: bidirectional
+[2023-06-24 23:14:35] [config] english-title-case-every: 0
+[2023-06-24 23:14:35] [config] exponential-smoothing: 0.0001
+[2023-06-24 23:14:35] [config] factor-weight: 1
+[2023-06-24 23:14:35] [config] factors-combine: sum
+[2023-06-24 23:14:35] [config] factors-dim-emb: 0
+[2023-06-24 23:14:35] [config] gradient-checkpointing: false
+[2023-06-24 23:14:35] [config] gradient-norm-average-window: 100
+[2023-06-24 23:14:35] [config] guided-alignment: none
+[2023-06-24 23:14:35] [config] guided-alignment-cost: mse
+[2023-06-24 23:14:35] [config] guided-alignment-weight: 0.1
+[2023-06-24 23:14:35] [config] ignore-model-config: false
+[2023-06-24 23:14:35] [config] input-types:
+[2023-06-24 23:14:35] [config]   []
+[2023-06-24 23:14:35] [config] interpolate-env-vars: false
+[2023-06-24 23:14:35] [config] keep-best: false
+[2023-06-24 23:14:35] [config] label-smoothing: 0.1
+[2023-06-24 23:14:35] [config] layer-normalization: true
+[2023-06-24 23:14:35] [config] learn-rate: 0.0003
+[2023-06-24 23:14:35] [config] lemma-dependency: ""
+[2023-06-24 23:14:35] [config] lemma-dim-emb: 0
+[2023-06-24 23:14:35] [config] log: /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log
+[2023-06-24 23:14:35] [config] log-level: info
+[2023-06-24 23:14:35] [config] log-time-zone: ""
+[2023-06-24 23:14:35] [config] logical-epoch:
+[2023-06-24 23:14:35] [config]   - 1e
+[2023-06-24 23:14:35] [config]   - 0
+[2023-06-24 23:14:35] [config] lr-decay: 0
+[2023-06-24 23:14:35] [config] lr-decay-freq: 50000
+[2023-06-24 23:14:35] [config] lr-decay-inv-sqrt:
+[2023-06-24 23:14:35] [config]   - 16000
+[2023-06-24 23:14:35] [config] lr-decay-repeat-warmup: false
+[2023-06-24 23:14:35] [config] lr-decay-reset-optimizer: false
+[2023-06-24 23:14:35] [config] lr-decay-start:
+[2023-06-24 23:14:35] [config]   - 10
+[2023-06-24 23:14:35] [config]   - 1
+[2023-06-24 23:14:35] [config] lr-decay-strategy: epoch+stalled
+[2023-06-24 23:14:35] [config] lr-report: false
+[2023-06-24 23:14:35] [config] lr-warmup: 0
+[2023-06-24 23:14:35] [config] lr-warmup-at-reload: false
+[2023-06-24 23:14:35] [config] lr-warmup-cycle: false
+[2023-06-24 23:14:35] [config] lr-warmup-start-rate: 0
+[2023-06-24 23:14:35] [config] max-length: 100
+[2023-06-24 23:14:35] [config] max-length-crop: false
+[2023-06-24 23:14:35] [config] max-length-factor: 3
+[2023-06-24 23:14:35] [config] maxi-batch: 1000
+[2023-06-24 23:14:35] [config] maxi-batch-sort: trg
+[2023-06-24 23:14:35] [config] mini-batch: 1000
+[2023-06-24 23:14:35] [config] mini-batch-fit: true
+[2023-06-24 23:14:35] [config] mini-batch-fit-step: 10
+[2023-06-24 23:14:35] [config] mini-batch-round-up: true
+[2023-06-24 23:14:35] [config] mini-batch-track-lr: false
+[2023-06-24 23:14:35] [config] mini-batch-warmup: 0
+[2023-06-24 23:14:35] [config] mini-batch-words: 0
+[2023-06-24 23:14:35] [config] mini-batch-words-ref: 0
+[2023-06-24 23:14:35] [config] model: /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-24 23:14:35] [config] multi-loss-type: sum
+[2023-06-24 23:14:35] [config] n-best: false
+[2023-06-24 23:14:35] [config] no-nccl: false
+[2023-06-24 23:14:35] [config] no-reload: false
+[2023-06-24 23:14:35] [config] no-restore-corpus: false
+[2023-06-24 23:14:35] [config] normalize: 1
+[2023-06-24 23:14:35] [config] normalize-gradient: false
+[2023-06-24 23:14:35] [config] num-devices: 0
+[2023-06-24 23:14:35] [config] optimizer: adam
+[2023-06-24 23:14:35] [config] optimizer-delay: 1
+[2023-06-24 23:14:35] [config] optimizer-params:
+[2023-06-24 23:14:35] [config]   - 0.9
+[2023-06-24 23:14:35] [config]   - 0.98
+[2023-06-24 23:14:35] [config]   - 1e-09
+[2023-06-24 23:14:35] [config] output-omit-bias: false
+[2023-06-24 23:14:35] [config] overwrite: false
+[2023-06-24 23:14:35] [config] precision:
+[2023-06-24 23:14:35] [config]   - float32
+[2023-06-24 23:14:35] [config]   - float32
+[2023-06-24 23:14:35] [config] pretrained-model: ""
+[2023-06-24 23:14:35] [config] quantize-biases: false
+[2023-06-24 23:14:35] [config] quantize-bits: 0
+[2023-06-24 23:14:35] [config] quantize-log-based: false
+[2023-06-24 23:14:35] [config] quantize-optimization-steps: 0
+[2023-06-24 23:14:35] [config] quiet: false
+[2023-06-24 23:14:35] [config] quiet-translation: true
+[2023-06-24 23:14:35] [config] relative-paths: false
+[2023-06-24 23:14:35] [config] right-left: false
+[2023-06-24 23:14:35] [config] save-freq: 10000u
+[2023-06-24 23:14:35] [config] seed: 1234
+[2023-06-24 23:14:35] [config] sentencepiece-alphas:
+[2023-06-24 23:14:35] [config]   []
+[2023-06-24 23:14:35] [config] sentencepiece-max-lines: 2000000
+[2023-06-24 23:14:35] [config] sentencepiece-options: ""
+[2023-06-24 23:14:35] [config] sharding: global
+[2023-06-24 23:14:35] [config] shuffle: data
+[2023-06-24 23:14:35] [config] shuffle-in-ram: false
+[2023-06-24 23:14:35] [config] sigterm: save-and-exit
+[2023-06-24 23:14:35] [config] skip: false
+[2023-06-24 23:14:35] [config] sqlite: ""
+[2023-06-24 23:14:35] [config] sqlite-drop: false
+[2023-06-24 23:14:35] [config] sync-freq: 200u
+[2023-06-24 23:14:35] [config] sync-sgd: true
+[2023-06-24 23:14:35] [config] tempdir: /tmp
+[2023-06-24 23:14:35] [config] tied-embeddings: false
+[2023-06-24 23:14:35] [config] tied-embeddings-all: false
+[2023-06-24 23:14:35] [config] tied-embeddings-src: false
+[2023-06-24 23:14:35] [config] train-embedder-rank:
+[2023-06-24 23:14:35] [config]   []
+[2023-06-24 23:14:35] [config] train-sets:
+[2023-06-24 23:14:35] [config]   - /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn
+[2023-06-24 23:14:35] [config]   - /docker/home/marianmt/artifacts/data/train/train_es.txt.es
+[2023-06-24 23:14:35] [config] transformer-aan-activation: swish
+[2023-06-24 23:14:35] [config] transformer-aan-depth: 2
+[2023-06-24 23:14:35] [config] transformer-aan-nogate: false
+[2023-06-24 23:14:35] [config] transformer-decoder-autoreg: self-attention
+[2023-06-24 23:14:35] [config] transformer-decoder-dim-ffn: 0
+[2023-06-24 23:14:35] [config] transformer-decoder-ffn-depth: 0
+[2023-06-24 23:14:35] [config] transformer-depth-scaling: false
+[2023-06-24 23:14:35] [config] transformer-dim-aan: 2048
+[2023-06-24 23:14:35] [config] transformer-dim-ffn: 2048
+[2023-06-24 23:14:35] [config] transformer-dropout: 0
+[2023-06-24 23:14:35] [config] transformer-dropout-attention: 0
+[2023-06-24 23:14:35] [config] transformer-dropout-ffn: 0
+[2023-06-24 23:14:35] [config] transformer-ffn-activation: swish
+[2023-06-24 23:14:35] [config] transformer-ffn-depth: 2
+[2023-06-24 23:14:35] [config] transformer-guided-alignment-layer: last
+[2023-06-24 23:14:35] [config] transformer-heads: 8
+[2023-06-24 23:14:35] [config] transformer-no-projection: false
+[2023-06-24 23:14:35] [config] transformer-pool: false
+[2023-06-24 23:14:35] [config] transformer-postprocess: dan
+[2023-06-24 23:14:35] [config] transformer-postprocess-emb: d
+[2023-06-24 23:14:35] [config] transformer-postprocess-top: ""
+[2023-06-24 23:14:35] [config] transformer-preprocess: ""
+[2023-06-24 23:14:35] [config] transformer-tied-layers:
+[2023-06-24 23:14:35] [config]   []
+[2023-06-24 23:14:35] [config] transformer-train-position-embeddings: false
+[2023-06-24 23:14:35] [config] tsv: false
+[2023-06-24 23:14:35] [config] tsv-fields: 0
+[2023-06-24 23:14:35] [config] type: s2s
+[2023-06-24 23:14:35] [config] ulr: false
+[2023-06-24 23:14:35] [config] ulr-dim-emb: 0
+[2023-06-24 23:14:35] [config] ulr-dropout: 0
+[2023-06-24 23:14:35] [config] ulr-keys-vectors: ""
+[2023-06-24 23:14:35] [config] ulr-query-vectors: ""
+[2023-06-24 23:14:35] [config] ulr-softmax-temperature: 1
+[2023-06-24 23:14:35] [config] ulr-trainable-transformation: false
+[2023-06-24 23:14:35] [config] unlikelihood-loss: false
+[2023-06-24 23:14:35] [config] valid-freq: 5000000
+[2023-06-24 23:14:35] [config] valid-log: /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log
+[2023-06-24 23:14:35] [config] valid-max-length: 1000
+[2023-06-24 23:14:35] [config] valid-metrics:
+[2023-06-24 23:14:35] [config]   - cross-entropy
+[2023-06-24 23:14:35] [config]   - translation
+[2023-06-24 23:14:35] [config] valid-mini-batch: 32
+[2023-06-24 23:14:35] [config] valid-reset-stalled: false
+[2023-06-24 23:14:35] [config] valid-script-args:
+[2023-06-24 23:14:35] [config]   []
+[2023-06-24 23:14:35] [config] valid-script-path: ""
+[2023-06-24 23:14:35] [config] valid-sets:
+[2023-06-24 23:14:35] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn
+[2023-06-24 23:14:35] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-06-24 23:14:35] [config] valid-translation-output: /docker/home/marianmt/evaluation/model-epochs.txt
+[2023-06-24 23:14:35] [config] version: v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-24 23:14:35] [config] vocabs:
+[2023-06-24 23:14:35] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-24 23:14:35] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-24 23:14:35] [config] word-penalty: 0
+[2023-06-24 23:14:35] [config] word-scores: false
+[2023-06-24 23:14:35] [config] workspace: 2048
+[2023-06-24 23:14:35] [config] Loaded model has been created with Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-24 23:14:35] Using synchronous SGD
+[2023-06-24 23:14:36] Synced seed 1234
+[2023-06-24 23:14:36] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-24 23:14:36] [data] Setting vocabulary size for input 0 to 54,042
+[2023-06-24 23:14:36] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-24 23:14:36] [data] Setting vocabulary size for input 1 to 36,507
+[2023-06-24 23:14:36] [batching] Collecting statistics for batch fitting with step size 10
+[2023-06-24 23:14:36] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-24 23:14:37] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-24 23:14:37] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-24 23:14:37] [comm] Using global sharding
+[2023-06-24 23:14:37] [comm] NCCLCommunicators constructed successfully
+[2023-06-24 23:14:37] [training] Using 1 GPUs
+[2023-06-24 23:14:37] [logits] Applying loss function for 1 factor(s)
+[2023-06-24 23:14:37] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 23:14:37] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2023-06-24 23:14:38] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 23:15:03] [batching] Done. Typical MB size is 630 target words
+[2023-06-24 23:15:03] [valid] No post-processing script given for validating translator
+[2023-06-24 23:15:03] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-24 23:15:03] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-24 23:15:03] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-24 23:15:03] [comm] Using global sharding
+[2023-06-24 23:15:03] [comm] NCCLCommunicators constructed successfully
+[2023-06-24 23:15:03] [training] Using 1 GPUs
+[2023-06-24 23:15:03] Loading model from /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-24 23:15:11] Allocating memory for general optimizer shards
+[2023-06-24 23:15:11] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 23:15:12] Loading Adam parameters
+[2023-06-24 23:15:13] [memory] Reserving 1909 MB, device gpu0
+[2023-06-24 23:15:13] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 23:15:13] [training] Master parameters and optimizers restored from training checkpoint /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-24 23:15:13] [data] Restoring the corpus state to epoch 21, batch 18240
+[2023-06-24 23:15:13] [data] Shuffling data
+[2023-06-24 23:15:13] [data] Done reading 20,192 sentences
+[2023-06-24 23:15:14] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 23:15:14] Training started
+[2023-06-24 23:15:14] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2023-06-24 23:15:14] [memory] Reserving 954 MB, device gpu0
+[2023-06-24 23:15:14] Parameter type float32, optimization type float32, casting types false
+[2023-06-24 23:22:15] Ep. 21 : Up. 19000 : Sen. 16,556 : Cost 3.40832806 : Time 432.43s : 1214.37 words/s : gNorm 1.3031
+[2023-06-24 23:23:36] Seen 20,177 samples
+[2023-06-24 23:23:36] Starting data epoch 22 in logical epoch 22
+[2023-06-24 23:23:36] [data] Shuffling data
+[2023-06-24 23:23:36] [data] Done reading 20,192 sentences
+[2023-06-24 23:23:36] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 23:31:25] Ep. 22 : Up. 20000 : Sen. 18,570 : Cost 3.30492926 : Time 549.47s : 951.62 words/s : gNorm 1.2779
+[2023-06-24 23:31:25] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.iter20000.npz
+[2023-06-24 23:31:33] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-24 23:31:45] Saving Adam parameters
+[2023-06-24 23:31:49] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-24 23:32:52] Seen 20,177 samples
+[2023-06-24 23:32:52] Starting data epoch 23 in logical epoch 23
+[2023-06-24 23:32:52] [data] Shuffling data
+[2023-06-24 23:32:52] [data] Done reading 20,192 sentences
+[2023-06-24 23:32:52] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 23:41:12] Seen 20,177 samples
+[2023-06-24 23:41:12] Starting data epoch 24 in logical epoch 24
+[2023-06-24 23:41:12] [data] Shuffling data
+[2023-06-24 23:41:12] [data] Done reading 20,192 sentences
+[2023-06-24 23:41:12] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 23:41:25] Ep. 24 : Up. 21000 : Sen. 535 : Cost 3.19597673 : Time 600.57s : 872.79 words/s : gNorm 1.2227
+[2023-06-24 23:49:36] Seen 20,177 samples
+[2023-06-24 23:49:36] Starting data epoch 25 in logical epoch 25
+[2023-06-24 23:49:36] [data] Shuffling data
+[2023-06-24 23:49:36] [data] Done reading 20,192 sentences
+[2023-06-24 23:49:36] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 23:50:38] Ep. 25 : Up. 22000 : Sen. 2,411 : Cost 3.06971908 : Time 552.32s : 947.64 words/s : gNorm 1.1673
+[2023-06-24 23:58:00] Seen 20,177 samples
+[2023-06-24 23:58:00] Starting data epoch 26 in logical epoch 26
+[2023-06-24 23:58:00] [data] Shuffling data
+[2023-06-24 23:58:00] [data] Done reading 20,192 sentences
+[2023-06-24 23:58:00] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-24 23:59:56] Ep. 26 : Up. 23000 : Sen. 4,315 : Cost 2.98015308 : Time 558.49s : 941.33 words/s : gNorm 1.1401
+[2023-06-25 00:06:25] Seen 20,177 samples
+[2023-06-25 00:06:25] Starting data epoch 27 in logical epoch 27
+[2023-06-25 00:06:25] [data] Shuffling data
+[2023-06-25 00:06:25] [data] Done reading 20,192 sentences
+[2023-06-25 00:06:25] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 00:09:04] Ep. 27 : Up. 24000 : Sen. 6,563 : Cost 2.89572644 : Time 547.93s : 953.50 words/s : gNorm 1.1066
+[2023-06-25 00:14:49] Seen 20,177 samples
+[2023-06-25 00:14:49] Starting data epoch 28 in logical epoch 28
+[2023-06-25 00:14:49] [data] Shuffling data
+[2023-06-25 00:14:49] [data] Done reading 20,192 sentences
+[2023-06-25 00:14:49] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 00:18:23] Ep. 28 : Up. 25000 : Sen. 8,207 : Cost 2.82428908 : Time 558.57s : 944.11 words/s : gNorm 1.1148
+[2023-06-25 00:23:13] Seen 20,177 samples
+[2023-06-25 00:23:13] Starting data epoch 29 in logical epoch 29
+[2023-06-25 00:23:13] [data] Shuffling data
+[2023-06-25 00:23:13] [data] Done reading 20,192 sentences
+[2023-06-25 00:23:13] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 00:27:31] Ep. 29 : Up. 26000 : Sen. 10,391 : Cost 2.75476742 : Time 548.20s : 952.12 words/s : gNorm 1.0833
+[2023-06-25 00:31:37] Seen 20,177 samples
+[2023-06-25 00:31:37] Starting data epoch 30 in logical epoch 30
+[2023-06-25 00:31:37] [data] Shuffling data
+[2023-06-25 00:31:37] [data] Done reading 20,192 sentences
+[2023-06-25 00:31:37] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 00:36:41] Ep. 30 : Up. 27000 : Sen. 12,656 : Cost 2.68799734 : Time 550.60s : 951.18 words/s : gNorm 1.0820
+[2023-06-25 00:40:01] Seen 20,177 samples
+[2023-06-25 00:40:01] Starting data epoch 31 in logical epoch 31
+[2023-06-25 00:40:01] Training finished
+[2023-06-25 00:40:24] [valid] Ep. 31 : Up. 27360 : cross-entropy : 120.694 : stalled 2 times (last best: 101.441)
+[2023-06-25 00:44:16] [valid] Ep. 31 : Up. 27360 : translation : 0 : new best
+[2023-06-25 00:44:16] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 00:44:27] Saving Adam parameters
+[2023-06-25 00:44:31] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-25 00:56:02] [marian] Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 00:56:02] [marian] Running on node07.datos.cluster.uy as process 13824 with command line:
+[2023-06-25 00:56:02] [marian] /marian/build/marian --train-sets /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn /docker/home/marianmt/artifacts/data/train/train_es.txt.es --model /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz --after-epochs 40 --valid-freq 5000000 --vocabs /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es --seed 1234 --type s2s --max-length 100 --mini-batch-fit --mini-batch 1000 --maxi-batch 1000 --beam-size 12 --normalize 1 --cost-type ce-mean-words --enc-type bidirectional --enc-depth 4 --enc-cell-depth 4 --dec-depth 4 --dec-cell-base-depth 8 --dec-cell-high-depth 1 --layer-normalization --dropout-rnn 0.1 --label-smoothing 0.1 --learn-rate 0.0003 --lr-decay-inv-sqrt 16000 --optimizer-params 0.9 0.98 1e-09 --clip-norm 5 --sync-sgd --exponential-smoothing --cpu-threads 0 --log /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log --valid-log /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log --valid-sets /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es --valid-metrics cross-entropy translation --valid-translation-output /docker/home/marianmt/evaluation/model-epochs.txt --quiet-translation
+[2023-06-25 00:56:03] [config] after: 0e
+[2023-06-25 00:56:03] [config] after-batches: 0
+[2023-06-25 00:56:03] [config] after-epochs: 40
+[2023-06-25 00:56:03] [config] all-caps-every: 0
+[2023-06-25 00:56:03] [config] allow-unk: false
+[2023-06-25 00:56:03] [config] authors: false
+[2023-06-25 00:56:03] [config] beam-size: 12
+[2023-06-25 00:56:03] [config] bert-class-symbol: "[CLS]"
+[2023-06-25 00:56:03] [config] bert-mask-symbol: "[MASK]"
+[2023-06-25 00:56:03] [config] bert-masking-fraction: 0.15
+[2023-06-25 00:56:03] [config] bert-sep-symbol: "[SEP]"
+[2023-06-25 00:56:03] [config] bert-train-type-embeddings: true
+[2023-06-25 00:56:03] [config] bert-type-vocab-size: 2
+[2023-06-25 00:56:03] [config] build-info: ""
+[2023-06-25 00:56:03] [config] check-gradient-nan: false
+[2023-06-25 00:56:03] [config] check-nan: false
+[2023-06-25 00:56:03] [config] cite: false
+[2023-06-25 00:56:03] [config] clip-norm: 5
+[2023-06-25 00:56:03] [config] cost-scaling:
+[2023-06-25 00:56:03] [config]   []
+[2023-06-25 00:56:03] [config] cost-type: ce-mean-words
+[2023-06-25 00:56:03] [config] cpu-threads: 0
+[2023-06-25 00:56:03] [config] data-threads: 8
+[2023-06-25 00:56:03] [config] data-weighting: ""
+[2023-06-25 00:56:03] [config] data-weighting-type: sentence
+[2023-06-25 00:56:03] [config] dec-cell: gru
+[2023-06-25 00:56:03] [config] dec-cell-base-depth: 8
+[2023-06-25 00:56:03] [config] dec-cell-high-depth: 1
+[2023-06-25 00:56:03] [config] dec-depth: 4
+[2023-06-25 00:56:03] [config] devices:
+[2023-06-25 00:56:03] [config]   - 0
+[2023-06-25 00:56:03] [config] dim-emb: 512
+[2023-06-25 00:56:03] [config] dim-rnn: 1024
+[2023-06-25 00:56:03] [config] dim-vocabs:
+[2023-06-25 00:56:03] [config]   - 54042
+[2023-06-25 00:56:03] [config]   - 36507
+[2023-06-25 00:56:03] [config] disp-first: 0
+[2023-06-25 00:56:03] [config] disp-freq: 1000u
+[2023-06-25 00:56:03] [config] disp-label-counts: true
+[2023-06-25 00:56:03] [config] dropout-rnn: 0.1
+[2023-06-25 00:56:03] [config] dropout-src: 0
+[2023-06-25 00:56:03] [config] dropout-trg: 0
+[2023-06-25 00:56:03] [config] dump-config: ""
+[2023-06-25 00:56:03] [config] dynamic-gradient-scaling:
+[2023-06-25 00:56:03] [config]   []
+[2023-06-25 00:56:03] [config] early-stopping: 10
+[2023-06-25 00:56:03] [config] early-stopping-on: first
+[2023-06-25 00:56:03] [config] embedding-fix-src: false
+[2023-06-25 00:56:03] [config] embedding-fix-trg: false
+[2023-06-25 00:56:03] [config] embedding-normalization: false
+[2023-06-25 00:56:03] [config] embedding-vectors:
+[2023-06-25 00:56:03] [config]   []
+[2023-06-25 00:56:03] [config] enc-cell: gru
+[2023-06-25 00:56:03] [config] enc-cell-depth: 4
+[2023-06-25 00:56:03] [config] enc-depth: 4
+[2023-06-25 00:56:03] [config] enc-type: bidirectional
+[2023-06-25 00:56:03] [config] english-title-case-every: 0
+[2023-06-25 00:56:03] [config] exponential-smoothing: 0.0001
+[2023-06-25 00:56:03] [config] factor-weight: 1
+[2023-06-25 00:56:03] [config] factors-combine: sum
+[2023-06-25 00:56:03] [config] factors-dim-emb: 0
+[2023-06-25 00:56:03] [config] gradient-checkpointing: false
+[2023-06-25 00:56:03] [config] gradient-norm-average-window: 100
+[2023-06-25 00:56:03] [config] guided-alignment: none
+[2023-06-25 00:56:03] [config] guided-alignment-cost: mse
+[2023-06-25 00:56:03] [config] guided-alignment-weight: 0.1
+[2023-06-25 00:56:03] [config] ignore-model-config: false
+[2023-06-25 00:56:03] [config] input-types:
+[2023-06-25 00:56:03] [config]   []
+[2023-06-25 00:56:03] [config] interpolate-env-vars: false
+[2023-06-25 00:56:03] [config] keep-best: false
+[2023-06-25 00:56:03] [config] label-smoothing: 0.1
+[2023-06-25 00:56:03] [config] layer-normalization: true
+[2023-06-25 00:56:03] [config] learn-rate: 0.0003
+[2023-06-25 00:56:03] [config] lemma-dependency: ""
+[2023-06-25 00:56:03] [config] lemma-dim-emb: 0
+[2023-06-25 00:56:03] [config] log: /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log
+[2023-06-25 00:56:03] [config] log-level: info
+[2023-06-25 00:56:03] [config] log-time-zone: ""
+[2023-06-25 00:56:03] [config] logical-epoch:
+[2023-06-25 00:56:03] [config]   - 1e
+[2023-06-25 00:56:03] [config]   - 0
+[2023-06-25 00:56:03] [config] lr-decay: 0
+[2023-06-25 00:56:03] [config] lr-decay-freq: 50000
+[2023-06-25 00:56:03] [config] lr-decay-inv-sqrt:
+[2023-06-25 00:56:03] [config]   - 16000
+[2023-06-25 00:56:03] [config] lr-decay-repeat-warmup: false
+[2023-06-25 00:56:03] [config] lr-decay-reset-optimizer: false
+[2023-06-25 00:56:03] [config] lr-decay-start:
+[2023-06-25 00:56:03] [config]   - 10
+[2023-06-25 00:56:03] [config]   - 1
+[2023-06-25 00:56:03] [config] lr-decay-strategy: epoch+stalled
+[2023-06-25 00:56:03] [config] lr-report: false
+[2023-06-25 00:56:03] [config] lr-warmup: 0
+[2023-06-25 00:56:03] [config] lr-warmup-at-reload: false
+[2023-06-25 00:56:03] [config] lr-warmup-cycle: false
+[2023-06-25 00:56:03] [config] lr-warmup-start-rate: 0
+[2023-06-25 00:56:03] [config] max-length: 100
+[2023-06-25 00:56:03] [config] max-length-crop: false
+[2023-06-25 00:56:03] [config] max-length-factor: 3
+[2023-06-25 00:56:03] [config] maxi-batch: 1000
+[2023-06-25 00:56:03] [config] maxi-batch-sort: trg
+[2023-06-25 00:56:03] [config] mini-batch: 1000
+[2023-06-25 00:56:03] [config] mini-batch-fit: true
+[2023-06-25 00:56:03] [config] mini-batch-fit-step: 10
+[2023-06-25 00:56:03] [config] mini-batch-round-up: true
+[2023-06-25 00:56:03] [config] mini-batch-track-lr: false
+[2023-06-25 00:56:03] [config] mini-batch-warmup: 0
+[2023-06-25 00:56:03] [config] mini-batch-words: 0
+[2023-06-25 00:56:03] [config] mini-batch-words-ref: 0
+[2023-06-25 00:56:03] [config] model: /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 00:56:03] [config] multi-loss-type: sum
+[2023-06-25 00:56:03] [config] n-best: false
+[2023-06-25 00:56:03] [config] no-nccl: false
+[2023-06-25 00:56:03] [config] no-reload: false
+[2023-06-25 00:56:03] [config] no-restore-corpus: false
+[2023-06-25 00:56:03] [config] normalize: 1
+[2023-06-25 00:56:03] [config] normalize-gradient: false
+[2023-06-25 00:56:03] [config] num-devices: 0
+[2023-06-25 00:56:03] [config] optimizer: adam
+[2023-06-25 00:56:03] [config] optimizer-delay: 1
+[2023-06-25 00:56:03] [config] optimizer-params:
+[2023-06-25 00:56:03] [config]   - 0.9
+[2023-06-25 00:56:03] [config]   - 0.98
+[2023-06-25 00:56:03] [config]   - 1e-09
+[2023-06-25 00:56:03] [config] output-omit-bias: false
+[2023-06-25 00:56:03] [config] overwrite: false
+[2023-06-25 00:56:03] [config] precision:
+[2023-06-25 00:56:03] [config]   - float32
+[2023-06-25 00:56:03] [config]   - float32
+[2023-06-25 00:56:03] [config] pretrained-model: ""
+[2023-06-25 00:56:03] [config] quantize-biases: false
+[2023-06-25 00:56:03] [config] quantize-bits: 0
+[2023-06-25 00:56:03] [config] quantize-log-based: false
+[2023-06-25 00:56:03] [config] quantize-optimization-steps: 0
+[2023-06-25 00:56:03] [config] quiet: false
+[2023-06-25 00:56:03] [config] quiet-translation: true
+[2023-06-25 00:56:03] [config] relative-paths: false
+[2023-06-25 00:56:03] [config] right-left: false
+[2023-06-25 00:56:03] [config] save-freq: 10000u
+[2023-06-25 00:56:03] [config] seed: 1234
+[2023-06-25 00:56:03] [config] sentencepiece-alphas:
+[2023-06-25 00:56:03] [config]   []
+[2023-06-25 00:56:03] [config] sentencepiece-max-lines: 2000000
+[2023-06-25 00:56:03] [config] sentencepiece-options: ""
+[2023-06-25 00:56:03] [config] sharding: global
+[2023-06-25 00:56:03] [config] shuffle: data
+[2023-06-25 00:56:03] [config] shuffle-in-ram: false
+[2023-06-25 00:56:03] [config] sigterm: save-and-exit
+[2023-06-25 00:56:03] [config] skip: false
+[2023-06-25 00:56:03] [config] sqlite: ""
+[2023-06-25 00:56:03] [config] sqlite-drop: false
+[2023-06-25 00:56:03] [config] sync-freq: 200u
+[2023-06-25 00:56:03] [config] sync-sgd: true
+[2023-06-25 00:56:03] [config] tempdir: /tmp
+[2023-06-25 00:56:03] [config] tied-embeddings: false
+[2023-06-25 00:56:03] [config] tied-embeddings-all: false
+[2023-06-25 00:56:03] [config] tied-embeddings-src: false
+[2023-06-25 00:56:03] [config] train-embedder-rank:
+[2023-06-25 00:56:03] [config]   []
+[2023-06-25 00:56:03] [config] train-sets:
+[2023-06-25 00:56:03] [config]   - /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn
+[2023-06-25 00:56:03] [config]   - /docker/home/marianmt/artifacts/data/train/train_es.txt.es
+[2023-06-25 00:56:03] [config] transformer-aan-activation: swish
+[2023-06-25 00:56:03] [config] transformer-aan-depth: 2
+[2023-06-25 00:56:03] [config] transformer-aan-nogate: false
+[2023-06-25 00:56:03] [config] transformer-decoder-autoreg: self-attention
+[2023-06-25 00:56:03] [config] transformer-decoder-dim-ffn: 0
+[2023-06-25 00:56:03] [config] transformer-decoder-ffn-depth: 0
+[2023-06-25 00:56:03] [config] transformer-depth-scaling: false
+[2023-06-25 00:56:03] [config] transformer-dim-aan: 2048
+[2023-06-25 00:56:03] [config] transformer-dim-ffn: 2048
+[2023-06-25 00:56:03] [config] transformer-dropout: 0
+[2023-06-25 00:56:03] [config] transformer-dropout-attention: 0
+[2023-06-25 00:56:03] [config] transformer-dropout-ffn: 0
+[2023-06-25 00:56:03] [config] transformer-ffn-activation: swish
+[2023-06-25 00:56:03] [config] transformer-ffn-depth: 2
+[2023-06-25 00:56:03] [config] transformer-guided-alignment-layer: last
+[2023-06-25 00:56:03] [config] transformer-heads: 8
+[2023-06-25 00:56:03] [config] transformer-no-projection: false
+[2023-06-25 00:56:03] [config] transformer-pool: false
+[2023-06-25 00:56:03] [config] transformer-postprocess: dan
+[2023-06-25 00:56:03] [config] transformer-postprocess-emb: d
+[2023-06-25 00:56:03] [config] transformer-postprocess-top: ""
+[2023-06-25 00:56:03] [config] transformer-preprocess: ""
+[2023-06-25 00:56:03] [config] transformer-tied-layers:
+[2023-06-25 00:56:03] [config]   []
+[2023-06-25 00:56:03] [config] transformer-train-position-embeddings: false
+[2023-06-25 00:56:03] [config] tsv: false
+[2023-06-25 00:56:03] [config] tsv-fields: 0
+[2023-06-25 00:56:03] [config] type: s2s
+[2023-06-25 00:56:03] [config] ulr: false
+[2023-06-25 00:56:03] [config] ulr-dim-emb: 0
+[2023-06-25 00:56:03] [config] ulr-dropout: 0
+[2023-06-25 00:56:03] [config] ulr-keys-vectors: ""
+[2023-06-25 00:56:03] [config] ulr-query-vectors: ""
+[2023-06-25 00:56:03] [config] ulr-softmax-temperature: 1
+[2023-06-25 00:56:03] [config] ulr-trainable-transformation: false
+[2023-06-25 00:56:03] [config] unlikelihood-loss: false
+[2023-06-25 00:56:03] [config] valid-freq: 5000000
+[2023-06-25 00:56:03] [config] valid-log: /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log
+[2023-06-25 00:56:03] [config] valid-max-length: 1000
+[2023-06-25 00:56:03] [config] valid-metrics:
+[2023-06-25 00:56:03] [config]   - cross-entropy
+[2023-06-25 00:56:03] [config]   - translation
+[2023-06-25 00:56:03] [config] valid-mini-batch: 32
+[2023-06-25 00:56:03] [config] valid-reset-stalled: false
+[2023-06-25 00:56:03] [config] valid-script-args:
+[2023-06-25 00:56:03] [config]   []
+[2023-06-25 00:56:03] [config] valid-script-path: ""
+[2023-06-25 00:56:03] [config] valid-sets:
+[2023-06-25 00:56:03] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn
+[2023-06-25 00:56:03] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-06-25 00:56:03] [config] valid-translation-output: /docker/home/marianmt/evaluation/model-epochs.txt
+[2023-06-25 00:56:03] [config] version: v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 00:56:03] [config] vocabs:
+[2023-06-25 00:56:03] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-25 00:56:03] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-25 00:56:03] [config] word-penalty: 0
+[2023-06-25 00:56:03] [config] word-scores: false
+[2023-06-25 00:56:03] [config] workspace: 2048
+[2023-06-25 00:56:03] [config] Loaded model has been created with Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 00:56:03] Using synchronous SGD
+[2023-06-25 00:56:06] Synced seed 1234
+[2023-06-25 00:56:06] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-25 00:56:06] [data] Setting vocabulary size for input 0 to 54,042
+[2023-06-25 00:56:06] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-25 00:56:06] [data] Setting vocabulary size for input 1 to 36,507
+[2023-06-25 00:56:06] [batching] Collecting statistics for batch fitting with step size 10
+[2023-06-25 00:56:06] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-25 00:56:07] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-25 00:56:07] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-25 00:56:07] [comm] Using global sharding
+[2023-06-25 00:56:07] [comm] NCCLCommunicators constructed successfully
+[2023-06-25 00:56:07] [training] Using 1 GPUs
+[2023-06-25 00:56:07] [logits] Applying loss function for 1 factor(s)
+[2023-06-25 00:56:07] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 00:56:07] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2023-06-25 00:56:08] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 00:56:33] [batching] Done. Typical MB size is 630 target words
+[2023-06-25 00:56:33] [valid] No post-processing script given for validating translator
+[2023-06-25 00:56:33] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-25 00:56:33] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-25 00:56:33] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-25 00:56:33] [comm] Using global sharding
+[2023-06-25 00:56:33] [comm] NCCLCommunicators constructed successfully
+[2023-06-25 00:56:33] [training] Using 1 GPUs
+[2023-06-25 00:56:33] Loading model from /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 00:56:54] Allocating memory for general optimizer shards
+[2023-06-25 00:56:54] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 00:56:54] Loading Adam parameters
+[2023-06-25 00:56:55] [memory] Reserving 1909 MB, device gpu0
+[2023-06-25 00:56:55] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 00:56:56] [training] Master parameters and optimizers restored from training checkpoint /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-25 00:56:56] [data] Restoring the corpus state to epoch 31, batch 27360
+[2023-06-25 00:56:56] [data] Shuffling data
+[2023-06-25 00:56:56] [data] Done reading 20,192 sentences
+[2023-06-25 00:56:56] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 00:56:56] Training started
+[2023-06-25 00:56:56] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2023-06-25 00:56:56] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 00:56:57] Parameter type float32, optimization type float32, casting types false
+[2023-06-25 01:02:49] Ep. 31 : Up. 28000 : Sen. 14,016 : Cost 2.63281536 : Time 376.34s : 1393.30 words/s : gNorm 1.0505
+[2023-06-25 01:05:18] Seen 20,177 samples
+[2023-06-25 01:05:18] Starting data epoch 32 in logical epoch 32
+[2023-06-25 01:05:18] [data] Shuffling data
+[2023-06-25 01:05:18] [data] Done reading 20,192 sentences
+[2023-06-25 01:05:18] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 01:12:03] Ep. 32 : Up. 29000 : Sen. 16,050 : Cost 2.57758832 : Time 553.39s : 948.63 words/s : gNorm 1.0331
+[2023-06-25 01:13:42] Seen 20,177 samples
+[2023-06-25 01:13:42] Starting data epoch 33 in logical epoch 33
+[2023-06-25 01:13:42] [data] Shuffling data
+[2023-06-25 01:13:42] [data] Done reading 20,192 sentences
+[2023-06-25 01:13:42] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 01:21:14] Ep. 33 : Up. 30000 : Sen. 17,825 : Cost 2.52860570 : Time 551.46s : 949.74 words/s : gNorm 1.0147
+[2023-06-25 01:21:14] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.iter30000.npz
+[2023-06-25 01:21:27] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 01:21:40] Saving Adam parameters
+[2023-06-25 01:21:44] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-25 01:23:08] Seen 20,177 samples
+[2023-06-25 01:23:08] Starting data epoch 34 in logical epoch 34
+[2023-06-25 01:23:08] [data] Shuffling data
+[2023-06-25 01:23:08] [data] Done reading 20,192 sentences
+[2023-06-25 01:23:08] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 01:31:22] Ep. 34 : Up. 31000 : Sen. 20,048 : Cost 2.48050189 : Time 607.62s : 858.88 words/s : gNorm 0.9944
+[2023-06-25 01:31:27] Seen 20,177 samples
+[2023-06-25 01:31:27] Starting data epoch 35 in logical epoch 35
+[2023-06-25 01:31:27] [data] Shuffling data
+[2023-06-25 01:31:27] [data] Done reading 20,192 sentences
+[2023-06-25 01:31:27] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 01:39:52] Seen 20,177 samples
+[2023-06-25 01:39:52] Starting data epoch 36 in logical epoch 36
+[2023-06-25 01:39:52] [data] Shuffling data
+[2023-06-25 01:39:52] [data] Done reading 20,192 sentences
+[2023-06-25 01:39:52] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 01:40:34] Ep. 36 : Up. 32000 : Sen. 1,768 : Cost 2.42490911 : Time 552.40s : 946.99 words/s : gNorm 0.8928
+[2023-06-25 01:48:15] Seen 20,177 samples
+[2023-06-25 01:48:15] Starting data epoch 37 in logical epoch 37
+[2023-06-25 01:48:15] [data] Shuffling data
+[2023-06-25 01:48:15] [data] Done reading 20,192 sentences
+[2023-06-25 01:48:15] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 01:49:46] Ep. 37 : Up. 33000 : Sen. 3,791 : Cost 2.38389182 : Time 551.71s : 950.21 words/s : gNorm 0.8214
+[2023-06-25 01:56:39] Seen 20,177 samples
+[2023-06-25 01:56:39] Starting data epoch 38 in logical epoch 38
+[2023-06-25 01:56:39] [data] Shuffling data
+[2023-06-25 01:56:39] [data] Done reading 20,192 sentences
+[2023-06-25 01:56:39] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 01:58:57] Ep. 38 : Up. 34000 : Sen. 6,057 : Cost 2.35535407 : Time 550.82s : 950.65 words/s : gNorm 0.8095
+[2023-06-25 02:05:03] Seen 20,177 samples
+[2023-06-25 02:05:03] Starting data epoch 39 in logical epoch 39
+[2023-06-25 02:05:03] [data] Shuffling data
+[2023-06-25 02:05:03] [data] Done reading 20,192 sentences
+[2023-06-25 02:05:03] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 02:08:10] Ep. 39 : Up. 35000 : Sen. 7,602 : Cost 2.32090831 : Time 553.63s : 949.24 words/s : gNorm 0.7982
+[2023-06-25 02:13:26] Seen 20,177 samples
+[2023-06-25 02:13:26] Starting data epoch 40 in logical epoch 40
+[2023-06-25 02:13:26] [data] Shuffling data
+[2023-06-25 02:13:26] [data] Done reading 20,192 sentences
+[2023-06-25 02:13:26] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 02:17:26] Ep. 40 : Up. 36000 : Sen. 9,303 : Cost 2.30075884 : Time 555.09s : 941.99 words/s : gNorm 0.8020
+[2023-06-25 02:21:50] Seen 20,177 samples
+[2023-06-25 02:21:50] Starting data epoch 41 in logical epoch 41
+[2023-06-25 02:21:50] Training finished
+[2023-06-25 02:22:13] [valid] Ep. 41 : Up. 36480 : cross-entropy : 124.586 : stalled 3 times (last best: 101.441)
+[2023-06-25 02:26:05] [valid] Ep. 41 : Up. 36480 : translation : 0 : new best
+[2023-06-25 02:26:05] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 02:26:17] Saving Adam parameters
+[2023-06-25 02:26:21] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-25 02:37:53] [marian] Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 02:37:53] [marian] Running on node07.datos.cluster.uy as process 20368 with command line:
+[2023-06-25 02:37:53] [marian] /marian/build/marian --train-sets /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn /docker/home/marianmt/artifacts/data/train/train_es.txt.es --model /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz --after-epochs 50 --valid-freq 5000000 --vocabs /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es --seed 1234 --type s2s --max-length 100 --mini-batch-fit --mini-batch 1000 --maxi-batch 1000 --beam-size 12 --normalize 1 --cost-type ce-mean-words --enc-type bidirectional --enc-depth 4 --enc-cell-depth 4 --dec-depth 4 --dec-cell-base-depth 8 --dec-cell-high-depth 1 --layer-normalization --dropout-rnn 0.1 --label-smoothing 0.1 --learn-rate 0.0003 --lr-decay-inv-sqrt 16000 --optimizer-params 0.9 0.98 1e-09 --clip-norm 5 --sync-sgd --exponential-smoothing --cpu-threads 0 --log /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log --valid-log /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log --valid-sets /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es --valid-metrics cross-entropy translation --valid-translation-output /docker/home/marianmt/evaluation/model-epochs.txt --quiet-translation
+[2023-06-25 02:37:53] [config] after: 0e
+[2023-06-25 02:37:53] [config] after-batches: 0
+[2023-06-25 02:37:53] [config] after-epochs: 50
+[2023-06-25 02:37:53] [config] all-caps-every: 0
+[2023-06-25 02:37:53] [config] allow-unk: false
+[2023-06-25 02:37:53] [config] authors: false
+[2023-06-25 02:37:53] [config] beam-size: 12
+[2023-06-25 02:37:53] [config] bert-class-symbol: "[CLS]"
+[2023-06-25 02:37:53] [config] bert-mask-symbol: "[MASK]"
+[2023-06-25 02:37:53] [config] bert-masking-fraction: 0.15
+[2023-06-25 02:37:53] [config] bert-sep-symbol: "[SEP]"
+[2023-06-25 02:37:53] [config] bert-train-type-embeddings: true
+[2023-06-25 02:37:53] [config] bert-type-vocab-size: 2
+[2023-06-25 02:37:53] [config] build-info: ""
+[2023-06-25 02:37:53] [config] check-gradient-nan: false
+[2023-06-25 02:37:53] [config] check-nan: false
+[2023-06-25 02:37:53] [config] cite: false
+[2023-06-25 02:37:53] [config] clip-norm: 5
+[2023-06-25 02:37:53] [config] cost-scaling:
+[2023-06-25 02:37:53] [config]   []
+[2023-06-25 02:37:53] [config] cost-type: ce-mean-words
+[2023-06-25 02:37:53] [config] cpu-threads: 0
+[2023-06-25 02:37:53] [config] data-threads: 8
+[2023-06-25 02:37:53] [config] data-weighting: ""
+[2023-06-25 02:37:53] [config] data-weighting-type: sentence
+[2023-06-25 02:37:53] [config] dec-cell: gru
+[2023-06-25 02:37:53] [config] dec-cell-base-depth: 8
+[2023-06-25 02:37:53] [config] dec-cell-high-depth: 1
+[2023-06-25 02:37:53] [config] dec-depth: 4
+[2023-06-25 02:37:53] [config] devices:
+[2023-06-25 02:37:53] [config]   - 0
+[2023-06-25 02:37:53] [config] dim-emb: 512
+[2023-06-25 02:37:53] [config] dim-rnn: 1024
+[2023-06-25 02:37:53] [config] dim-vocabs:
+[2023-06-25 02:37:53] [config]   - 54042
+[2023-06-25 02:37:53] [config]   - 36507
+[2023-06-25 02:37:53] [config] disp-first: 0
+[2023-06-25 02:37:53] [config] disp-freq: 1000u
+[2023-06-25 02:37:53] [config] disp-label-counts: true
+[2023-06-25 02:37:53] [config] dropout-rnn: 0.1
+[2023-06-25 02:37:53] [config] dropout-src: 0
+[2023-06-25 02:37:53] [config] dropout-trg: 0
+[2023-06-25 02:37:53] [config] dump-config: ""
+[2023-06-25 02:37:53] [config] dynamic-gradient-scaling:
+[2023-06-25 02:37:53] [config]   []
+[2023-06-25 02:37:53] [config] early-stopping: 10
+[2023-06-25 02:37:53] [config] early-stopping-on: first
+[2023-06-25 02:37:53] [config] embedding-fix-src: false
+[2023-06-25 02:37:53] [config] embedding-fix-trg: false
+[2023-06-25 02:37:53] [config] embedding-normalization: false
+[2023-06-25 02:37:53] [config] embedding-vectors:
+[2023-06-25 02:37:53] [config]   []
+[2023-06-25 02:37:53] [config] enc-cell: gru
+[2023-06-25 02:37:53] [config] enc-cell-depth: 4
+[2023-06-25 02:37:53] [config] enc-depth: 4
+[2023-06-25 02:37:53] [config] enc-type: bidirectional
+[2023-06-25 02:37:53] [config] english-title-case-every: 0
+[2023-06-25 02:37:53] [config] exponential-smoothing: 0.0001
+[2023-06-25 02:37:53] [config] factor-weight: 1
+[2023-06-25 02:37:53] [config] factors-combine: sum
+[2023-06-25 02:37:53] [config] factors-dim-emb: 0
+[2023-06-25 02:37:53] [config] gradient-checkpointing: false
+[2023-06-25 02:37:53] [config] gradient-norm-average-window: 100
+[2023-06-25 02:37:53] [config] guided-alignment: none
+[2023-06-25 02:37:53] [config] guided-alignment-cost: mse
+[2023-06-25 02:37:53] [config] guided-alignment-weight: 0.1
+[2023-06-25 02:37:53] [config] ignore-model-config: false
+[2023-06-25 02:37:53] [config] input-types:
+[2023-06-25 02:37:53] [config]   []
+[2023-06-25 02:37:53] [config] interpolate-env-vars: false
+[2023-06-25 02:37:53] [config] keep-best: false
+[2023-06-25 02:37:53] [config] label-smoothing: 0.1
+[2023-06-25 02:37:53] [config] layer-normalization: true
+[2023-06-25 02:37:53] [config] learn-rate: 0.0003
+[2023-06-25 02:37:53] [config] lemma-dependency: ""
+[2023-06-25 02:37:53] [config] lemma-dim-emb: 0
+[2023-06-25 02:37:53] [config] log: /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log
+[2023-06-25 02:37:53] [config] log-level: info
+[2023-06-25 02:37:53] [config] log-time-zone: ""
+[2023-06-25 02:37:53] [config] logical-epoch:
+[2023-06-25 02:37:53] [config]   - 1e
+[2023-06-25 02:37:53] [config]   - 0
+[2023-06-25 02:37:53] [config] lr-decay: 0
+[2023-06-25 02:37:53] [config] lr-decay-freq: 50000
+[2023-06-25 02:37:53] [config] lr-decay-inv-sqrt:
+[2023-06-25 02:37:53] [config]   - 16000
+[2023-06-25 02:37:53] [config] lr-decay-repeat-warmup: false
+[2023-06-25 02:37:53] [config] lr-decay-reset-optimizer: false
+[2023-06-25 02:37:53] [config] lr-decay-start:
+[2023-06-25 02:37:53] [config]   - 10
+[2023-06-25 02:37:53] [config]   - 1
+[2023-06-25 02:37:53] [config] lr-decay-strategy: epoch+stalled
+[2023-06-25 02:37:53] [config] lr-report: false
+[2023-06-25 02:37:53] [config] lr-warmup: 0
+[2023-06-25 02:37:53] [config] lr-warmup-at-reload: false
+[2023-06-25 02:37:53] [config] lr-warmup-cycle: false
+[2023-06-25 02:37:53] [config] lr-warmup-start-rate: 0
+[2023-06-25 02:37:53] [config] max-length: 100
+[2023-06-25 02:37:53] [config] max-length-crop: false
+[2023-06-25 02:37:53] [config] max-length-factor: 3
+[2023-06-25 02:37:53] [config] maxi-batch: 1000
+[2023-06-25 02:37:53] [config] maxi-batch-sort: trg
+[2023-06-25 02:37:53] [config] mini-batch: 1000
+[2023-06-25 02:37:53] [config] mini-batch-fit: true
+[2023-06-25 02:37:53] [config] mini-batch-fit-step: 10
+[2023-06-25 02:37:53] [config] mini-batch-round-up: true
+[2023-06-25 02:37:53] [config] mini-batch-track-lr: false
+[2023-06-25 02:37:53] [config] mini-batch-warmup: 0
+[2023-06-25 02:37:53] [config] mini-batch-words: 0
+[2023-06-25 02:37:53] [config] mini-batch-words-ref: 0
+[2023-06-25 02:37:53] [config] model: /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 02:37:53] [config] multi-loss-type: sum
+[2023-06-25 02:37:53] [config] n-best: false
+[2023-06-25 02:37:53] [config] no-nccl: false
+[2023-06-25 02:37:53] [config] no-reload: false
+[2023-06-25 02:37:53] [config] no-restore-corpus: false
+[2023-06-25 02:37:53] [config] normalize: 1
+[2023-06-25 02:37:53] [config] normalize-gradient: false
+[2023-06-25 02:37:53] [config] num-devices: 0
+[2023-06-25 02:37:53] [config] optimizer: adam
+[2023-06-25 02:37:53] [config] optimizer-delay: 1
+[2023-06-25 02:37:53] [config] optimizer-params:
+[2023-06-25 02:37:53] [config]   - 0.9
+[2023-06-25 02:37:53] [config]   - 0.98
+[2023-06-25 02:37:53] [config]   - 1e-09
+[2023-06-25 02:37:53] [config] output-omit-bias: false
+[2023-06-25 02:37:53] [config] overwrite: false
+[2023-06-25 02:37:53] [config] precision:
+[2023-06-25 02:37:53] [config]   - float32
+[2023-06-25 02:37:53] [config]   - float32
+[2023-06-25 02:37:53] [config] pretrained-model: ""
+[2023-06-25 02:37:53] [config] quantize-biases: false
+[2023-06-25 02:37:53] [config] quantize-bits: 0
+[2023-06-25 02:37:53] [config] quantize-log-based: false
+[2023-06-25 02:37:53] [config] quantize-optimization-steps: 0
+[2023-06-25 02:37:53] [config] quiet: false
+[2023-06-25 02:37:53] [config] quiet-translation: true
+[2023-06-25 02:37:53] [config] relative-paths: false
+[2023-06-25 02:37:53] [config] right-left: false
+[2023-06-25 02:37:53] [config] save-freq: 10000u
+[2023-06-25 02:37:53] [config] seed: 1234
+[2023-06-25 02:37:53] [config] sentencepiece-alphas:
+[2023-06-25 02:37:53] [config]   []
+[2023-06-25 02:37:53] [config] sentencepiece-max-lines: 2000000
+[2023-06-25 02:37:53] [config] sentencepiece-options: ""
+[2023-06-25 02:37:53] [config] sharding: global
+[2023-06-25 02:37:53] [config] shuffle: data
+[2023-06-25 02:37:53] [config] shuffle-in-ram: false
+[2023-06-25 02:37:53] [config] sigterm: save-and-exit
+[2023-06-25 02:37:53] [config] skip: false
+[2023-06-25 02:37:53] [config] sqlite: ""
+[2023-06-25 02:37:53] [config] sqlite-drop: false
+[2023-06-25 02:37:53] [config] sync-freq: 200u
+[2023-06-25 02:37:53] [config] sync-sgd: true
+[2023-06-25 02:37:53] [config] tempdir: /tmp
+[2023-06-25 02:37:53] [config] tied-embeddings: false
+[2023-06-25 02:37:53] [config] tied-embeddings-all: false
+[2023-06-25 02:37:53] [config] tied-embeddings-src: false
+[2023-06-25 02:37:53] [config] train-embedder-rank:
+[2023-06-25 02:37:53] [config]   []
+[2023-06-25 02:37:53] [config] train-sets:
+[2023-06-25 02:37:53] [config]   - /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn
+[2023-06-25 02:37:53] [config]   - /docker/home/marianmt/artifacts/data/train/train_es.txt.es
+[2023-06-25 02:37:53] [config] transformer-aan-activation: swish
+[2023-06-25 02:37:53] [config] transformer-aan-depth: 2
+[2023-06-25 02:37:53] [config] transformer-aan-nogate: false
+[2023-06-25 02:37:53] [config] transformer-decoder-autoreg: self-attention
+[2023-06-25 02:37:53] [config] transformer-decoder-dim-ffn: 0
+[2023-06-25 02:37:53] [config] transformer-decoder-ffn-depth: 0
+[2023-06-25 02:37:53] [config] transformer-depth-scaling: false
+[2023-06-25 02:37:53] [config] transformer-dim-aan: 2048
+[2023-06-25 02:37:53] [config] transformer-dim-ffn: 2048
+[2023-06-25 02:37:53] [config] transformer-dropout: 0
+[2023-06-25 02:37:53] [config] transformer-dropout-attention: 0
+[2023-06-25 02:37:53] [config] transformer-dropout-ffn: 0
+[2023-06-25 02:37:53] [config] transformer-ffn-activation: swish
+[2023-06-25 02:37:53] [config] transformer-ffn-depth: 2
+[2023-06-25 02:37:53] [config] transformer-guided-alignment-layer: last
+[2023-06-25 02:37:53] [config] transformer-heads: 8
+[2023-06-25 02:37:53] [config] transformer-no-projection: false
+[2023-06-25 02:37:53] [config] transformer-pool: false
+[2023-06-25 02:37:53] [config] transformer-postprocess: dan
+[2023-06-25 02:37:53] [config] transformer-postprocess-emb: d
+[2023-06-25 02:37:53] [config] transformer-postprocess-top: ""
+[2023-06-25 02:37:53] [config] transformer-preprocess: ""
+[2023-06-25 02:37:53] [config] transformer-tied-layers:
+[2023-06-25 02:37:53] [config]   []
+[2023-06-25 02:37:53] [config] transformer-train-position-embeddings: false
+[2023-06-25 02:37:53] [config] tsv: false
+[2023-06-25 02:37:53] [config] tsv-fields: 0
+[2023-06-25 02:37:53] [config] type: s2s
+[2023-06-25 02:37:53] [config] ulr: false
+[2023-06-25 02:37:53] [config] ulr-dim-emb: 0
+[2023-06-25 02:37:53] [config] ulr-dropout: 0
+[2023-06-25 02:37:53] [config] ulr-keys-vectors: ""
+[2023-06-25 02:37:53] [config] ulr-query-vectors: ""
+[2023-06-25 02:37:53] [config] ulr-softmax-temperature: 1
+[2023-06-25 02:37:53] [config] ulr-trainable-transformation: false
+[2023-06-25 02:37:53] [config] unlikelihood-loss: false
+[2023-06-25 02:37:53] [config] valid-freq: 5000000
+[2023-06-25 02:37:53] [config] valid-log: /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log
+[2023-06-25 02:37:53] [config] valid-max-length: 1000
+[2023-06-25 02:37:53] [config] valid-metrics:
+[2023-06-25 02:37:53] [config]   - cross-entropy
+[2023-06-25 02:37:53] [config]   - translation
+[2023-06-25 02:37:53] [config] valid-mini-batch: 32
+[2023-06-25 02:37:53] [config] valid-reset-stalled: false
+[2023-06-25 02:37:53] [config] valid-script-args:
+[2023-06-25 02:37:53] [config]   []
+[2023-06-25 02:37:53] [config] valid-script-path: ""
+[2023-06-25 02:37:53] [config] valid-sets:
+[2023-06-25 02:37:53] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn
+[2023-06-25 02:37:53] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-06-25 02:37:53] [config] valid-translation-output: /docker/home/marianmt/evaluation/model-epochs.txt
+[2023-06-25 02:37:53] [config] version: v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 02:37:53] [config] vocabs:
+[2023-06-25 02:37:53] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-25 02:37:53] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-25 02:37:53] [config] word-penalty: 0
+[2023-06-25 02:37:53] [config] word-scores: false
+[2023-06-25 02:37:53] [config] workspace: 2048
+[2023-06-25 02:37:53] [config] Loaded model has been created with Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 02:37:53] Using synchronous SGD
+[2023-06-25 02:37:56] Synced seed 1234
+[2023-06-25 02:37:56] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-25 02:37:56] [data] Setting vocabulary size for input 0 to 54,042
+[2023-06-25 02:37:56] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-25 02:37:56] [data] Setting vocabulary size for input 1 to 36,507
+[2023-06-25 02:37:56] [batching] Collecting statistics for batch fitting with step size 10
+[2023-06-25 02:37:56] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-25 02:37:56] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-25 02:37:56] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-25 02:37:56] [comm] Using global sharding
+[2023-06-25 02:37:56] [comm] NCCLCommunicators constructed successfully
+[2023-06-25 02:37:56] [training] Using 1 GPUs
+[2023-06-25 02:37:56] [logits] Applying loss function for 1 factor(s)
+[2023-06-25 02:37:56] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 02:37:57] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2023-06-25 02:37:57] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 02:38:22] [batching] Done. Typical MB size is 630 target words
+[2023-06-25 02:38:22] [valid] No post-processing script given for validating translator
+[2023-06-25 02:38:23] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-25 02:38:23] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-25 02:38:23] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-25 02:38:23] [comm] Using global sharding
+[2023-06-25 02:38:23] [comm] NCCLCommunicators constructed successfully
+[2023-06-25 02:38:23] [training] Using 1 GPUs
+[2023-06-25 02:38:23] Loading model from /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 02:38:31] Allocating memory for general optimizer shards
+[2023-06-25 02:38:31] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 02:38:31] Loading Adam parameters
+[2023-06-25 02:38:32] [memory] Reserving 1909 MB, device gpu0
+[2023-06-25 02:38:32] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 02:38:33] [training] Master parameters and optimizers restored from training checkpoint /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-25 02:38:33] [data] Restoring the corpus state to epoch 41, batch 36480
+[2023-06-25 02:38:33] [data] Shuffling data
+[2023-06-25 02:38:33] [data] Done reading 20,192 sentences
+[2023-06-25 02:38:33] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 02:38:33] Training started
+[2023-06-25 02:38:33] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2023-06-25 02:38:33] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 02:38:34] Parameter type float32, optimization type float32, casting types false
+[2023-06-25 02:43:21] Ep. 41 : Up. 37000 : Sen. 11,578 : Cost 2.27260494 : Time 298.20s : 1759.17 words/s : gNorm 0.7773
+[2023-06-25 02:46:57] Seen 20,177 samples
+[2023-06-25 02:46:57] Starting data epoch 42 in logical epoch 42
+[2023-06-25 02:46:57] [data] Shuffling data
+[2023-06-25 02:46:57] [data] Done reading 20,192 sentences
+[2023-06-25 02:46:57] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 02:52:38] Ep. 42 : Up. 38000 : Sen. 13,378 : Cost 2.24858737 : Time 557.58s : 943.44 words/s : gNorm 0.7643
+[2023-06-25 02:55:22] Seen 20,177 samples
+[2023-06-25 02:55:22] Starting data epoch 43 in logical epoch 43
+[2023-06-25 02:55:22] [data] Shuffling data
+[2023-06-25 02:55:22] [data] Done reading 20,192 sentences
+[2023-06-25 02:55:22] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 03:01:44] Ep. 43 : Up. 39000 : Sen. 15,406 : Cost 2.23136067 : Time 545.45s : 956.12 words/s : gNorm 0.7622
+[2023-06-25 03:03:46] Seen 20,177 samples
+[2023-06-25 03:03:46] Starting data epoch 44 in logical epoch 44
+[2023-06-25 03:03:46] [data] Shuffling data
+[2023-06-25 03:03:46] [data] Done reading 20,192 sentences
+[2023-06-25 03:03:46] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 03:10:58] Ep. 44 : Up. 40000 : Sen. 17,327 : Cost 2.21132255 : Time 554.13s : 949.57 words/s : gNorm 0.7362
+[2023-06-25 03:10:58] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.iter40000.npz
+[2023-06-25 03:11:09] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 03:11:23] Saving Adam parameters
+[2023-06-25 03:11:27] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-25 03:13:11] Seen 20,177 samples
+[2023-06-25 03:13:11] Starting data epoch 45 in logical epoch 45
+[2023-06-25 03:13:11] [data] Shuffling data
+[2023-06-25 03:13:11] [data] Done reading 20,192 sentences
+[2023-06-25 03:13:11] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 03:21:08] Ep. 45 : Up. 41000 : Sen. 19,415 : Cost 2.19753742 : Time 610.09s : 855.82 words/s : gNorm 0.7201
+[2023-06-25 03:21:32] Seen 20,177 samples
+[2023-06-25 03:21:32] Starting data epoch 46 in logical epoch 46
+[2023-06-25 03:21:32] [data] Shuffling data
+[2023-06-25 03:21:32] [data] Done reading 20,192 sentences
+[2023-06-25 03:21:32] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 03:29:56] Seen 20,177 samples
+[2023-06-25 03:29:56] Starting data epoch 47 in logical epoch 47
+[2023-06-25 03:29:56] [data] Shuffling data
+[2023-06-25 03:29:56] [data] Done reading 20,192 sentences
+[2023-06-25 03:29:56] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 03:30:22] Ep. 47 : Up. 42000 : Sen. 1,263 : Cost 2.17578292 : Time 554.24s : 945.85 words/s : gNorm 0.6650
+[2023-06-25 03:38:21] Seen 20,177 samples
+[2023-06-25 03:38:21] Starting data epoch 48 in logical epoch 48
+[2023-06-25 03:38:21] [data] Shuffling data
+[2023-06-25 03:38:21] [data] Done reading 20,192 sentences
+[2023-06-25 03:38:21] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 03:39:36] Ep. 48 : Up. 43000 : Sen. 3,036 : Cost 2.15670347 : Time 554.28s : 945.05 words/s : gNorm 0.6403
+[2023-06-25 03:46:45] Seen 20,177 samples
+[2023-06-25 03:46:45] Starting data epoch 49 in logical epoch 49
+[2023-06-25 03:46:45] [data] Shuffling data
+[2023-06-25 03:46:45] [data] Done reading 20,192 sentences
+[2023-06-25 03:46:45] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 03:48:52] Ep. 49 : Up. 44000 : Sen. 4,768 : Cost 2.14406371 : Time 555.81s : 942.28 words/s : gNorm 0.6308
+[2023-06-25 03:55:09] Seen 20,177 samples
+[2023-06-25 03:55:09] Starting data epoch 50 in logical epoch 50
+[2023-06-25 03:55:09] [data] Shuffling data
+[2023-06-25 03:55:09] [data] Done reading 20,192 sentences
+[2023-06-25 03:55:09] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 03:58:03] Ep. 50 : Up. 45000 : Sen. 6,733 : Cost 2.13364387 : Time 550.91s : 953.68 words/s : gNorm 0.6232
+[2023-06-25 04:03:33] Seen 20,177 samples
+[2023-06-25 04:03:33] Starting data epoch 51 in logical epoch 51
+[2023-06-25 04:03:33] Training finished
+[2023-06-25 04:03:56] [valid] Ep. 51 : Up. 45600 : cross-entropy : 127.021 : stalled 4 times (last best: 101.441)
+[2023-06-25 04:07:48] [valid] Ep. 51 : Up. 45600 : translation : 0 : new best
+[2023-06-25 04:07:48] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 04:08:01] Saving Adam parameters
+[2023-06-25 04:08:05] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-25 04:19:49] [marian] Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 04:19:49] [marian] Running on node07.datos.cluster.uy as process 31897 with command line:
+[2023-06-25 04:19:49] [marian] /marian/build/marian --train-sets /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn /docker/home/marianmt/artifacts/data/train/train_es.txt.es --model /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz --after-epochs 60 --valid-freq 5000000 --vocabs /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es --seed 1234 --type s2s --max-length 100 --mini-batch-fit --mini-batch 1000 --maxi-batch 1000 --beam-size 12 --normalize 1 --cost-type ce-mean-words --enc-type bidirectional --enc-depth 4 --enc-cell-depth 4 --dec-depth 4 --dec-cell-base-depth 8 --dec-cell-high-depth 1 --layer-normalization --dropout-rnn 0.1 --label-smoothing 0.1 --learn-rate 0.0003 --lr-decay-inv-sqrt 16000 --optimizer-params 0.9 0.98 1e-09 --clip-norm 5 --sync-sgd --exponential-smoothing --cpu-threads 0 --log /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log --valid-log /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log --valid-sets /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es --valid-metrics cross-entropy translation --valid-translation-output /docker/home/marianmt/evaluation/model-epochs.txt --quiet-translation
+[2023-06-25 04:19:49] [config] after: 0e
+[2023-06-25 04:19:49] [config] after-batches: 0
+[2023-06-25 04:19:49] [config] after-epochs: 60
+[2023-06-25 04:19:49] [config] all-caps-every: 0
+[2023-06-25 04:19:49] [config] allow-unk: false
+[2023-06-25 04:19:49] [config] authors: false
+[2023-06-25 04:19:49] [config] beam-size: 12
+[2023-06-25 04:19:49] [config] bert-class-symbol: "[CLS]"
+[2023-06-25 04:19:49] [config] bert-mask-symbol: "[MASK]"
+[2023-06-25 04:19:49] [config] bert-masking-fraction: 0.15
+[2023-06-25 04:19:49] [config] bert-sep-symbol: "[SEP]"
+[2023-06-25 04:19:49] [config] bert-train-type-embeddings: true
+[2023-06-25 04:19:49] [config] bert-type-vocab-size: 2
+[2023-06-25 04:19:49] [config] build-info: ""
+[2023-06-25 04:19:49] [config] check-gradient-nan: false
+[2023-06-25 04:19:49] [config] check-nan: false
+[2023-06-25 04:19:49] [config] cite: false
+[2023-06-25 04:19:49] [config] clip-norm: 5
+[2023-06-25 04:19:49] [config] cost-scaling:
+[2023-06-25 04:19:49] [config]   []
+[2023-06-25 04:19:49] [config] cost-type: ce-mean-words
+[2023-06-25 04:19:49] [config] cpu-threads: 0
+[2023-06-25 04:19:49] [config] data-threads: 8
+[2023-06-25 04:19:49] [config] data-weighting: ""
+[2023-06-25 04:19:49] [config] data-weighting-type: sentence
+[2023-06-25 04:19:49] [config] dec-cell: gru
+[2023-06-25 04:19:49] [config] dec-cell-base-depth: 8
+[2023-06-25 04:19:49] [config] dec-cell-high-depth: 1
+[2023-06-25 04:19:49] [config] dec-depth: 4
+[2023-06-25 04:19:49] [config] devices:
+[2023-06-25 04:19:49] [config]   - 0
+[2023-06-25 04:19:49] [config] dim-emb: 512
+[2023-06-25 04:19:49] [config] dim-rnn: 1024
+[2023-06-25 04:19:49] [config] dim-vocabs:
+[2023-06-25 04:19:49] [config]   - 54042
+[2023-06-25 04:19:49] [config]   - 36507
+[2023-06-25 04:19:49] [config] disp-first: 0
+[2023-06-25 04:19:49] [config] disp-freq: 1000u
+[2023-06-25 04:19:49] [config] disp-label-counts: true
+[2023-06-25 04:19:49] [config] dropout-rnn: 0.1
+[2023-06-25 04:19:49] [config] dropout-src: 0
+[2023-06-25 04:19:49] [config] dropout-trg: 0
+[2023-06-25 04:19:49] [config] dump-config: ""
+[2023-06-25 04:19:49] [config] dynamic-gradient-scaling:
+[2023-06-25 04:19:49] [config]   []
+[2023-06-25 04:19:49] [config] early-stopping: 10
+[2023-06-25 04:19:49] [config] early-stopping-on: first
+[2023-06-25 04:19:49] [config] embedding-fix-src: false
+[2023-06-25 04:19:49] [config] embedding-fix-trg: false
+[2023-06-25 04:19:49] [config] embedding-normalization: false
+[2023-06-25 04:19:49] [config] embedding-vectors:
+[2023-06-25 04:19:49] [config]   []
+[2023-06-25 04:19:49] [config] enc-cell: gru
+[2023-06-25 04:19:49] [config] enc-cell-depth: 4
+[2023-06-25 04:19:49] [config] enc-depth: 4
+[2023-06-25 04:19:49] [config] enc-type: bidirectional
+[2023-06-25 04:19:49] [config] english-title-case-every: 0
+[2023-06-25 04:19:49] [config] exponential-smoothing: 0.0001
+[2023-06-25 04:19:49] [config] factor-weight: 1
+[2023-06-25 04:19:49] [config] factors-combine: sum
+[2023-06-25 04:19:49] [config] factors-dim-emb: 0
+[2023-06-25 04:19:49] [config] gradient-checkpointing: false
+[2023-06-25 04:19:49] [config] gradient-norm-average-window: 100
+[2023-06-25 04:19:49] [config] guided-alignment: none
+[2023-06-25 04:19:49] [config] guided-alignment-cost: mse
+[2023-06-25 04:19:49] [config] guided-alignment-weight: 0.1
+[2023-06-25 04:19:49] [config] ignore-model-config: false
+[2023-06-25 04:19:49] [config] input-types:
+[2023-06-25 04:19:49] [config]   []
+[2023-06-25 04:19:49] [config] interpolate-env-vars: false
+[2023-06-25 04:19:49] [config] keep-best: false
+[2023-06-25 04:19:49] [config] label-smoothing: 0.1
+[2023-06-25 04:19:49] [config] layer-normalization: true
+[2023-06-25 04:19:49] [config] learn-rate: 0.0003
+[2023-06-25 04:19:49] [config] lemma-dependency: ""
+[2023-06-25 04:19:49] [config] lemma-dim-emb: 0
+[2023-06-25 04:19:49] [config] log: /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log
+[2023-06-25 04:19:49] [config] log-level: info
+[2023-06-25 04:19:49] [config] log-time-zone: ""
+[2023-06-25 04:19:49] [config] logical-epoch:
+[2023-06-25 04:19:49] [config]   - 1e
+[2023-06-25 04:19:49] [config]   - 0
+[2023-06-25 04:19:49] [config] lr-decay: 0
+[2023-06-25 04:19:49] [config] lr-decay-freq: 50000
+[2023-06-25 04:19:49] [config] lr-decay-inv-sqrt:
+[2023-06-25 04:19:49] [config]   - 16000
+[2023-06-25 04:19:49] [config] lr-decay-repeat-warmup: false
+[2023-06-25 04:19:49] [config] lr-decay-reset-optimizer: false
+[2023-06-25 04:19:49] [config] lr-decay-start:
+[2023-06-25 04:19:49] [config]   - 10
+[2023-06-25 04:19:49] [config]   - 1
+[2023-06-25 04:19:49] [config] lr-decay-strategy: epoch+stalled
+[2023-06-25 04:19:49] [config] lr-report: false
+[2023-06-25 04:19:49] [config] lr-warmup: 0
+[2023-06-25 04:19:49] [config] lr-warmup-at-reload: false
+[2023-06-25 04:19:49] [config] lr-warmup-cycle: false
+[2023-06-25 04:19:49] [config] lr-warmup-start-rate: 0
+[2023-06-25 04:19:49] [config] max-length: 100
+[2023-06-25 04:19:49] [config] max-length-crop: false
+[2023-06-25 04:19:49] [config] max-length-factor: 3
+[2023-06-25 04:19:49] [config] maxi-batch: 1000
+[2023-06-25 04:19:49] [config] maxi-batch-sort: trg
+[2023-06-25 04:19:49] [config] mini-batch: 1000
+[2023-06-25 04:19:49] [config] mini-batch-fit: true
+[2023-06-25 04:19:49] [config] mini-batch-fit-step: 10
+[2023-06-25 04:19:49] [config] mini-batch-round-up: true
+[2023-06-25 04:19:49] [config] mini-batch-track-lr: false
+[2023-06-25 04:19:49] [config] mini-batch-warmup: 0
+[2023-06-25 04:19:49] [config] mini-batch-words: 0
+[2023-06-25 04:19:49] [config] mini-batch-words-ref: 0
+[2023-06-25 04:19:49] [config] model: /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 04:19:49] [config] multi-loss-type: sum
+[2023-06-25 04:19:49] [config] n-best: false
+[2023-06-25 04:19:49] [config] no-nccl: false
+[2023-06-25 04:19:49] [config] no-reload: false
+[2023-06-25 04:19:49] [config] no-restore-corpus: false
+[2023-06-25 04:19:49] [config] normalize: 1
+[2023-06-25 04:19:49] [config] normalize-gradient: false
+[2023-06-25 04:19:49] [config] num-devices: 0
+[2023-06-25 04:19:49] [config] optimizer: adam
+[2023-06-25 04:19:49] [config] optimizer-delay: 1
+[2023-06-25 04:19:49] [config] optimizer-params:
+[2023-06-25 04:19:49] [config]   - 0.9
+[2023-06-25 04:19:49] [config]   - 0.98
+[2023-06-25 04:19:49] [config]   - 1e-09
+[2023-06-25 04:19:49] [config] output-omit-bias: false
+[2023-06-25 04:19:49] [config] overwrite: false
+[2023-06-25 04:19:49] [config] precision:
+[2023-06-25 04:19:49] [config]   - float32
+[2023-06-25 04:19:49] [config]   - float32
+[2023-06-25 04:19:49] [config] pretrained-model: ""
+[2023-06-25 04:19:49] [config] quantize-biases: false
+[2023-06-25 04:19:49] [config] quantize-bits: 0
+[2023-06-25 04:19:49] [config] quantize-log-based: false
+[2023-06-25 04:19:49] [config] quantize-optimization-steps: 0
+[2023-06-25 04:19:49] [config] quiet: false
+[2023-06-25 04:19:49] [config] quiet-translation: true
+[2023-06-25 04:19:49] [config] relative-paths: false
+[2023-06-25 04:19:49] [config] right-left: false
+[2023-06-25 04:19:49] [config] save-freq: 10000u
+[2023-06-25 04:19:49] [config] seed: 1234
+[2023-06-25 04:19:49] [config] sentencepiece-alphas:
+[2023-06-25 04:19:49] [config]   []
+[2023-06-25 04:19:49] [config] sentencepiece-max-lines: 2000000
+[2023-06-25 04:19:49] [config] sentencepiece-options: ""
+[2023-06-25 04:19:49] [config] sharding: global
+[2023-06-25 04:19:49] [config] shuffle: data
+[2023-06-25 04:19:49] [config] shuffle-in-ram: false
+[2023-06-25 04:19:49] [config] sigterm: save-and-exit
+[2023-06-25 04:19:49] [config] skip: false
+[2023-06-25 04:19:49] [config] sqlite: ""
+[2023-06-25 04:19:49] [config] sqlite-drop: false
+[2023-06-25 04:19:49] [config] sync-freq: 200u
+[2023-06-25 04:19:49] [config] sync-sgd: true
+[2023-06-25 04:19:49] [config] tempdir: /tmp
+[2023-06-25 04:19:49] [config] tied-embeddings: false
+[2023-06-25 04:19:49] [config] tied-embeddings-all: false
+[2023-06-25 04:19:49] [config] tied-embeddings-src: false
+[2023-06-25 04:19:49] [config] train-embedder-rank:
+[2023-06-25 04:19:49] [config]   []
+[2023-06-25 04:19:49] [config] train-sets:
+[2023-06-25 04:19:49] [config]   - /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn
+[2023-06-25 04:19:49] [config]   - /docker/home/marianmt/artifacts/data/train/train_es.txt.es
+[2023-06-25 04:19:49] [config] transformer-aan-activation: swish
+[2023-06-25 04:19:49] [config] transformer-aan-depth: 2
+[2023-06-25 04:19:49] [config] transformer-aan-nogate: false
+[2023-06-25 04:19:49] [config] transformer-decoder-autoreg: self-attention
+[2023-06-25 04:19:49] [config] transformer-decoder-dim-ffn: 0
+[2023-06-25 04:19:49] [config] transformer-decoder-ffn-depth: 0
+[2023-06-25 04:19:49] [config] transformer-depth-scaling: false
+[2023-06-25 04:19:49] [config] transformer-dim-aan: 2048
+[2023-06-25 04:19:49] [config] transformer-dim-ffn: 2048
+[2023-06-25 04:19:49] [config] transformer-dropout: 0
+[2023-06-25 04:19:49] [config] transformer-dropout-attention: 0
+[2023-06-25 04:19:49] [config] transformer-dropout-ffn: 0
+[2023-06-25 04:19:49] [config] transformer-ffn-activation: swish
+[2023-06-25 04:19:49] [config] transformer-ffn-depth: 2
+[2023-06-25 04:19:49] [config] transformer-guided-alignment-layer: last
+[2023-06-25 04:19:49] [config] transformer-heads: 8
+[2023-06-25 04:19:49] [config] transformer-no-projection: false
+[2023-06-25 04:19:49] [config] transformer-pool: false
+[2023-06-25 04:19:49] [config] transformer-postprocess: dan
+[2023-06-25 04:19:49] [config] transformer-postprocess-emb: d
+[2023-06-25 04:19:49] [config] transformer-postprocess-top: ""
+[2023-06-25 04:19:49] [config] transformer-preprocess: ""
+[2023-06-25 04:19:49] [config] transformer-tied-layers:
+[2023-06-25 04:19:49] [config]   []
+[2023-06-25 04:19:49] [config] transformer-train-position-embeddings: false
+[2023-06-25 04:19:49] [config] tsv: false
+[2023-06-25 04:19:49] [config] tsv-fields: 0
+[2023-06-25 04:19:49] [config] type: s2s
+[2023-06-25 04:19:49] [config] ulr: false
+[2023-06-25 04:19:49] [config] ulr-dim-emb: 0
+[2023-06-25 04:19:49] [config] ulr-dropout: 0
+[2023-06-25 04:19:49] [config] ulr-keys-vectors: ""
+[2023-06-25 04:19:49] [config] ulr-query-vectors: ""
+[2023-06-25 04:19:49] [config] ulr-softmax-temperature: 1
+[2023-06-25 04:19:49] [config] ulr-trainable-transformation: false
+[2023-06-25 04:19:49] [config] unlikelihood-loss: false
+[2023-06-25 04:19:49] [config] valid-freq: 5000000
+[2023-06-25 04:19:49] [config] valid-log: /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log
+[2023-06-25 04:19:49] [config] valid-max-length: 1000
+[2023-06-25 04:19:49] [config] valid-metrics:
+[2023-06-25 04:19:49] [config]   - cross-entropy
+[2023-06-25 04:19:49] [config]   - translation
+[2023-06-25 04:19:49] [config] valid-mini-batch: 32
+[2023-06-25 04:19:49] [config] valid-reset-stalled: false
+[2023-06-25 04:19:49] [config] valid-script-args:
+[2023-06-25 04:19:49] [config]   []
+[2023-06-25 04:19:49] [config] valid-script-path: ""
+[2023-06-25 04:19:49] [config] valid-sets:
+[2023-06-25 04:19:49] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn
+[2023-06-25 04:19:49] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-06-25 04:19:49] [config] valid-translation-output: /docker/home/marianmt/evaluation/model-epochs.txt
+[2023-06-25 04:19:49] [config] version: v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 04:19:49] [config] vocabs:
+[2023-06-25 04:19:49] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-25 04:19:49] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-25 04:19:49] [config] word-penalty: 0
+[2023-06-25 04:19:49] [config] word-scores: false
+[2023-06-25 04:19:49] [config] workspace: 2048
+[2023-06-25 04:19:49] [config] Loaded model has been created with Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 04:19:49] Using synchronous SGD
+[2023-06-25 04:19:50] Synced seed 1234
+[2023-06-25 04:19:50] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-25 04:19:50] [data] Setting vocabulary size for input 0 to 54,042
+[2023-06-25 04:19:50] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-25 04:19:50] [data] Setting vocabulary size for input 1 to 36,507
+[2023-06-25 04:19:50] [batching] Collecting statistics for batch fitting with step size 10
+[2023-06-25 04:19:50] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-25 04:19:51] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-25 04:19:52] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-25 04:19:52] [comm] Using global sharding
+[2023-06-25 04:19:52] [comm] NCCLCommunicators constructed successfully
+[2023-06-25 04:19:52] [training] Using 1 GPUs
+[2023-06-25 04:19:52] [logits] Applying loss function for 1 factor(s)
+[2023-06-25 04:19:52] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 04:19:52] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2023-06-25 04:19:52] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 04:20:17] [batching] Done. Typical MB size is 630 target words
+[2023-06-25 04:20:18] [valid] No post-processing script given for validating translator
+[2023-06-25 04:20:18] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-25 04:20:18] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-25 04:20:18] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-25 04:20:18] [comm] Using global sharding
+[2023-06-25 04:20:18] [comm] NCCLCommunicators constructed successfully
+[2023-06-25 04:20:18] [training] Using 1 GPUs
+[2023-06-25 04:20:18] Loading model from /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 04:20:28] Allocating memory for general optimizer shards
+[2023-06-25 04:20:28] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 04:20:28] Loading Adam parameters
+[2023-06-25 04:20:29] [memory] Reserving 1909 MB, device gpu0
+[2023-06-25 04:20:30] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 04:20:30] [training] Master parameters and optimizers restored from training checkpoint /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-25 04:20:30] [data] Restoring the corpus state to epoch 51, batch 45600
+[2023-06-25 04:20:30] [data] Shuffling data
+[2023-06-25 04:20:30] [data] Done reading 20,192 sentences
+[2023-06-25 04:20:30] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 04:20:30] Training started
+[2023-06-25 04:20:30] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2023-06-25 04:20:30] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 04:20:31] Parameter type float32, optimization type float32, casting types false
+[2023-06-25 04:24:09] Ep. 51 : Up. 46000 : Sen. 8,503 : Cost 2.12140059 : Time 231.25s : 2273.48 words/s : gNorm 0.6243
+[2023-06-25 04:28:52] Seen 20,177 samples
+[2023-06-25 04:28:52] Starting data epoch 52 in logical epoch 52
+[2023-06-25 04:28:52] [data] Shuffling data
+[2023-06-25 04:28:52] [data] Done reading 20,192 sentences
+[2023-06-25 04:28:52] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 04:33:26] Ep. 52 : Up. 47000 : Sen. 10,728 : Cost 2.12684274 : Time 557.10s : 938.73 words/s : gNorm 0.6304
+[2023-06-25 04:37:16] Seen 20,177 samples
+[2023-06-25 04:37:16] Starting data epoch 53 in logical epoch 53
+[2023-06-25 04:37:16] [data] Shuffling data
+[2023-06-25 04:37:16] [data] Done reading 20,192 sentences
+[2023-06-25 04:37:16] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 04:42:39] Ep. 53 : Up. 48000 : Sen. 12,660 : Cost 2.10734463 : Time 553.03s : 945.46 words/s : gNorm 0.6186
+[2023-06-25 04:45:41] Seen 20,177 samples
+[2023-06-25 04:45:41] Starting data epoch 54 in logical epoch 54
+[2023-06-25 04:45:41] [data] Shuffling data
+[2023-06-25 04:45:41] [data] Done reading 20,192 sentences
+[2023-06-25 04:45:41] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 04:51:44] Ep. 54 : Up. 49000 : Sen. 15,031 : Cost 2.10706592 : Time 544.91s : 955.96 words/s : gNorm 0.6082
+[2023-06-25 04:54:05] Seen 20,177 samples
+[2023-06-25 04:54:05] Starting data epoch 55 in logical epoch 55
+[2023-06-25 04:54:05] [data] Shuffling data
+[2023-06-25 04:54:05] [data] Done reading 20,192 sentences
+[2023-06-25 04:54:05] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 05:01:02] Ep. 55 : Up. 50000 : Sen. 16,709 : Cost 2.09322214 : Time 557.95s : 945.77 words/s : gNorm 0.6026
+[2023-06-25 05:01:02] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.iter50000.npz
+[2023-06-25 05:01:14] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 05:01:26] Saving Adam parameters
+[2023-06-25 05:01:29] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-25 05:03:26] Seen 20,177 samples
+[2023-06-25 05:03:26] Starting data epoch 56 in logical epoch 56
+[2023-06-25 05:03:26] [data] Shuffling data
+[2023-06-25 05:03:26] [data] Done reading 20,192 sentences
+[2023-06-25 05:03:26] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 05:11:06] Ep. 56 : Up. 51000 : Sen. 18,585 : Cost 2.08377409 : Time 604.53s : 864.49 words/s : gNorm 0.6020
+[2023-06-25 05:11:48] Seen 20,177 samples
+[2023-06-25 05:11:48] Starting data epoch 57 in logical epoch 57
+[2023-06-25 05:11:48] [data] Shuffling data
+[2023-06-25 05:11:48] [data] Done reading 20,192 sentences
+[2023-06-25 05:11:48] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 05:20:14] Seen 20,177 samples
+[2023-06-25 05:20:14] Starting data epoch 58 in logical epoch 58
+[2023-06-25 05:20:14] [data] Shuffling data
+[2023-06-25 05:20:14] [data] Done reading 20,192 sentences
+[2023-06-25 05:20:14] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 05:20:22] Ep. 58 : Up. 52000 : Sen. 339 : Cost 2.08366823 : Time 555.89s : 943.41 words/s : gNorm 0.5795
+[2023-06-25 05:28:40] Seen 20,177 samples
+[2023-06-25 05:28:40] Starting data epoch 59 in logical epoch 59
+[2023-06-25 05:28:40] [data] Shuffling data
+[2023-06-25 05:28:40] [data] Done reading 20,192 sentences
+[2023-06-25 05:28:40] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 05:29:34] Ep. 59 : Up. 53000 : Sen. 2,441 : Cost 2.06803083 : Time 552.24s : 948.24 words/s : gNorm 0.5407
+[2023-06-25 05:37:05] Seen 20,177 samples
+[2023-06-25 05:37:05] Starting data epoch 60 in logical epoch 60
+[2023-06-25 05:37:05] [data] Shuffling data
+[2023-06-25 05:37:05] [data] Done reading 20,192 sentences
+[2023-06-25 05:37:05] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 05:38:44] Ep. 60 : Up. 54000 : Sen. 4,501 : Cost 2.06491399 : Time 549.35s : 950.46 words/s : gNorm 0.5506
+[2023-06-25 05:45:29] Seen 20,177 samples
+[2023-06-25 05:45:29] Starting data epoch 61 in logical epoch 61
+[2023-06-25 05:45:29] Training finished
+[2023-06-25 05:45:53] [valid] Ep. 61 : Up. 54720 : cross-entropy : 127.956 : stalled 5 times (last best: 101.441)
+[2023-06-25 05:49:42] [valid] Ep. 61 : Up. 54720 : translation : 0 : new best
+[2023-06-25 05:49:42] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 05:49:54] Saving Adam parameters
+[2023-06-25 05:49:57] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-25 06:01:31] [marian] Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 06:01:31] [marian] Running on node07.datos.cluster.uy as process 882 with command line:
+[2023-06-25 06:01:31] [marian] /marian/build/marian --train-sets /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn /docker/home/marianmt/artifacts/data/train/train_es.txt.es --model /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz --after-epochs 70 --valid-freq 5000000 --vocabs /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es --seed 1234 --type s2s --max-length 100 --mini-batch-fit --mini-batch 1000 --maxi-batch 1000 --beam-size 12 --normalize 1 --cost-type ce-mean-words --enc-type bidirectional --enc-depth 4 --enc-cell-depth 4 --dec-depth 4 --dec-cell-base-depth 8 --dec-cell-high-depth 1 --layer-normalization --dropout-rnn 0.1 --label-smoothing 0.1 --learn-rate 0.0003 --lr-decay-inv-sqrt 16000 --optimizer-params 0.9 0.98 1e-09 --clip-norm 5 --sync-sgd --exponential-smoothing --cpu-threads 0 --log /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log --valid-log /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log --valid-sets /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es --valid-metrics cross-entropy translation --valid-translation-output /docker/home/marianmt/evaluation/model-epochs.txt --quiet-translation
+[2023-06-25 06:01:31] [config] after: 0e
+[2023-06-25 06:01:31] [config] after-batches: 0
+[2023-06-25 06:01:31] [config] after-epochs: 70
+[2023-06-25 06:01:31] [config] all-caps-every: 0
+[2023-06-25 06:01:31] [config] allow-unk: false
+[2023-06-25 06:01:31] [config] authors: false
+[2023-06-25 06:01:31] [config] beam-size: 12
+[2023-06-25 06:01:31] [config] bert-class-symbol: "[CLS]"
+[2023-06-25 06:01:31] [config] bert-mask-symbol: "[MASK]"
+[2023-06-25 06:01:31] [config] bert-masking-fraction: 0.15
+[2023-06-25 06:01:31] [config] bert-sep-symbol: "[SEP]"
+[2023-06-25 06:01:31] [config] bert-train-type-embeddings: true
+[2023-06-25 06:01:31] [config] bert-type-vocab-size: 2
+[2023-06-25 06:01:31] [config] build-info: ""
+[2023-06-25 06:01:31] [config] check-gradient-nan: false
+[2023-06-25 06:01:31] [config] check-nan: false
+[2023-06-25 06:01:31] [config] cite: false
+[2023-06-25 06:01:31] [config] clip-norm: 5
+[2023-06-25 06:01:31] [config] cost-scaling:
+[2023-06-25 06:01:31] [config]   []
+[2023-06-25 06:01:31] [config] cost-type: ce-mean-words
+[2023-06-25 06:01:31] [config] cpu-threads: 0
+[2023-06-25 06:01:31] [config] data-threads: 8
+[2023-06-25 06:01:31] [config] data-weighting: ""
+[2023-06-25 06:01:31] [config] data-weighting-type: sentence
+[2023-06-25 06:01:31] [config] dec-cell: gru
+[2023-06-25 06:01:31] [config] dec-cell-base-depth: 8
+[2023-06-25 06:01:31] [config] dec-cell-high-depth: 1
+[2023-06-25 06:01:31] [config] dec-depth: 4
+[2023-06-25 06:01:31] [config] devices:
+[2023-06-25 06:01:31] [config]   - 0
+[2023-06-25 06:01:31] [config] dim-emb: 512
+[2023-06-25 06:01:31] [config] dim-rnn: 1024
+[2023-06-25 06:01:31] [config] dim-vocabs:
+[2023-06-25 06:01:31] [config]   - 54042
+[2023-06-25 06:01:31] [config]   - 36507
+[2023-06-25 06:01:31] [config] disp-first: 0
+[2023-06-25 06:01:31] [config] disp-freq: 1000u
+[2023-06-25 06:01:31] [config] disp-label-counts: true
+[2023-06-25 06:01:31] [config] dropout-rnn: 0.1
+[2023-06-25 06:01:31] [config] dropout-src: 0
+[2023-06-25 06:01:31] [config] dropout-trg: 0
+[2023-06-25 06:01:31] [config] dump-config: ""
+[2023-06-25 06:01:31] [config] dynamic-gradient-scaling:
+[2023-06-25 06:01:31] [config]   []
+[2023-06-25 06:01:31] [config] early-stopping: 10
+[2023-06-25 06:01:31] [config] early-stopping-on: first
+[2023-06-25 06:01:31] [config] embedding-fix-src: false
+[2023-06-25 06:01:31] [config] embedding-fix-trg: false
+[2023-06-25 06:01:31] [config] embedding-normalization: false
+[2023-06-25 06:01:31] [config] embedding-vectors:
+[2023-06-25 06:01:31] [config]   []
+[2023-06-25 06:01:31] [config] enc-cell: gru
+[2023-06-25 06:01:31] [config] enc-cell-depth: 4
+[2023-06-25 06:01:31] [config] enc-depth: 4
+[2023-06-25 06:01:31] [config] enc-type: bidirectional
+[2023-06-25 06:01:31] [config] english-title-case-every: 0
+[2023-06-25 06:01:31] [config] exponential-smoothing: 0.0001
+[2023-06-25 06:01:31] [config] factor-weight: 1
+[2023-06-25 06:01:31] [config] factors-combine: sum
+[2023-06-25 06:01:31] [config] factors-dim-emb: 0
+[2023-06-25 06:01:31] [config] gradient-checkpointing: false
+[2023-06-25 06:01:31] [config] gradient-norm-average-window: 100
+[2023-06-25 06:01:31] [config] guided-alignment: none
+[2023-06-25 06:01:31] [config] guided-alignment-cost: mse
+[2023-06-25 06:01:31] [config] guided-alignment-weight: 0.1
+[2023-06-25 06:01:31] [config] ignore-model-config: false
+[2023-06-25 06:01:31] [config] input-types:
+[2023-06-25 06:01:31] [config]   []
+[2023-06-25 06:01:31] [config] interpolate-env-vars: false
+[2023-06-25 06:01:31] [config] keep-best: false
+[2023-06-25 06:01:31] [config] label-smoothing: 0.1
+[2023-06-25 06:01:31] [config] layer-normalization: true
+[2023-06-25 06:01:31] [config] learn-rate: 0.0003
+[2023-06-25 06:01:31] [config] lemma-dependency: ""
+[2023-06-25 06:01:31] [config] lemma-dim-emb: 0
+[2023-06-25 06:01:31] [config] log: /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log
+[2023-06-25 06:01:31] [config] log-level: info
+[2023-06-25 06:01:31] [config] log-time-zone: ""
+[2023-06-25 06:01:31] [config] logical-epoch:
+[2023-06-25 06:01:31] [config]   - 1e
+[2023-06-25 06:01:31] [config]   - 0
+[2023-06-25 06:01:31] [config] lr-decay: 0
+[2023-06-25 06:01:31] [config] lr-decay-freq: 50000
+[2023-06-25 06:01:31] [config] lr-decay-inv-sqrt:
+[2023-06-25 06:01:31] [config]   - 16000
+[2023-06-25 06:01:31] [config] lr-decay-repeat-warmup: false
+[2023-06-25 06:01:31] [config] lr-decay-reset-optimizer: false
+[2023-06-25 06:01:31] [config] lr-decay-start:
+[2023-06-25 06:01:31] [config]   - 10
+[2023-06-25 06:01:31] [config]   - 1
+[2023-06-25 06:01:31] [config] lr-decay-strategy: epoch+stalled
+[2023-06-25 06:01:31] [config] lr-report: false
+[2023-06-25 06:01:31] [config] lr-warmup: 0
+[2023-06-25 06:01:31] [config] lr-warmup-at-reload: false
+[2023-06-25 06:01:31] [config] lr-warmup-cycle: false
+[2023-06-25 06:01:31] [config] lr-warmup-start-rate: 0
+[2023-06-25 06:01:31] [config] max-length: 100
+[2023-06-25 06:01:31] [config] max-length-crop: false
+[2023-06-25 06:01:31] [config] max-length-factor: 3
+[2023-06-25 06:01:31] [config] maxi-batch: 1000
+[2023-06-25 06:01:31] [config] maxi-batch-sort: trg
+[2023-06-25 06:01:31] [config] mini-batch: 1000
+[2023-06-25 06:01:31] [config] mini-batch-fit: true
+[2023-06-25 06:01:31] [config] mini-batch-fit-step: 10
+[2023-06-25 06:01:31] [config] mini-batch-round-up: true
+[2023-06-25 06:01:31] [config] mini-batch-track-lr: false
+[2023-06-25 06:01:31] [config] mini-batch-warmup: 0
+[2023-06-25 06:01:31] [config] mini-batch-words: 0
+[2023-06-25 06:01:31] [config] mini-batch-words-ref: 0
+[2023-06-25 06:01:31] [config] model: /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 06:01:31] [config] multi-loss-type: sum
+[2023-06-25 06:01:31] [config] n-best: false
+[2023-06-25 06:01:31] [config] no-nccl: false
+[2023-06-25 06:01:31] [config] no-reload: false
+[2023-06-25 06:01:31] [config] no-restore-corpus: false
+[2023-06-25 06:01:31] [config] normalize: 1
+[2023-06-25 06:01:31] [config] normalize-gradient: false
+[2023-06-25 06:01:31] [config] num-devices: 0
+[2023-06-25 06:01:31] [config] optimizer: adam
+[2023-06-25 06:01:31] [config] optimizer-delay: 1
+[2023-06-25 06:01:31] [config] optimizer-params:
+[2023-06-25 06:01:31] [config]   - 0.9
+[2023-06-25 06:01:31] [config]   - 0.98
+[2023-06-25 06:01:31] [config]   - 1e-09
+[2023-06-25 06:01:31] [config] output-omit-bias: false
+[2023-06-25 06:01:31] [config] overwrite: false
+[2023-06-25 06:01:31] [config] precision:
+[2023-06-25 06:01:31] [config]   - float32
+[2023-06-25 06:01:31] [config]   - float32
+[2023-06-25 06:01:31] [config] pretrained-model: ""
+[2023-06-25 06:01:31] [config] quantize-biases: false
+[2023-06-25 06:01:31] [config] quantize-bits: 0
+[2023-06-25 06:01:31] [config] quantize-log-based: false
+[2023-06-25 06:01:31] [config] quantize-optimization-steps: 0
+[2023-06-25 06:01:31] [config] quiet: false
+[2023-06-25 06:01:31] [config] quiet-translation: true
+[2023-06-25 06:01:31] [config] relative-paths: false
+[2023-06-25 06:01:31] [config] right-left: false
+[2023-06-25 06:01:31] [config] save-freq: 10000u
+[2023-06-25 06:01:31] [config] seed: 1234
+[2023-06-25 06:01:31] [config] sentencepiece-alphas:
+[2023-06-25 06:01:31] [config]   []
+[2023-06-25 06:01:31] [config] sentencepiece-max-lines: 2000000
+[2023-06-25 06:01:31] [config] sentencepiece-options: ""
+[2023-06-25 06:01:31] [config] sharding: global
+[2023-06-25 06:01:31] [config] shuffle: data
+[2023-06-25 06:01:31] [config] shuffle-in-ram: false
+[2023-06-25 06:01:31] [config] sigterm: save-and-exit
+[2023-06-25 06:01:31] [config] skip: false
+[2023-06-25 06:01:31] [config] sqlite: ""
+[2023-06-25 06:01:31] [config] sqlite-drop: false
+[2023-06-25 06:01:31] [config] sync-freq: 200u
+[2023-06-25 06:01:31] [config] sync-sgd: true
+[2023-06-25 06:01:31] [config] tempdir: /tmp
+[2023-06-25 06:01:31] [config] tied-embeddings: false
+[2023-06-25 06:01:31] [config] tied-embeddings-all: false
+[2023-06-25 06:01:31] [config] tied-embeddings-src: false
+[2023-06-25 06:01:31] [config] train-embedder-rank:
+[2023-06-25 06:01:31] [config]   []
+[2023-06-25 06:01:31] [config] train-sets:
+[2023-06-25 06:01:31] [config]   - /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn
+[2023-06-25 06:01:31] [config]   - /docker/home/marianmt/artifacts/data/train/train_es.txt.es
+[2023-06-25 06:01:31] [config] transformer-aan-activation: swish
+[2023-06-25 06:01:31] [config] transformer-aan-depth: 2
+[2023-06-25 06:01:31] [config] transformer-aan-nogate: false
+[2023-06-25 06:01:31] [config] transformer-decoder-autoreg: self-attention
+[2023-06-25 06:01:31] [config] transformer-decoder-dim-ffn: 0
+[2023-06-25 06:01:31] [config] transformer-decoder-ffn-depth: 0
+[2023-06-25 06:01:31] [config] transformer-depth-scaling: false
+[2023-06-25 06:01:31] [config] transformer-dim-aan: 2048
+[2023-06-25 06:01:31] [config] transformer-dim-ffn: 2048
+[2023-06-25 06:01:31] [config] transformer-dropout: 0
+[2023-06-25 06:01:31] [config] transformer-dropout-attention: 0
+[2023-06-25 06:01:31] [config] transformer-dropout-ffn: 0
+[2023-06-25 06:01:31] [config] transformer-ffn-activation: swish
+[2023-06-25 06:01:31] [config] transformer-ffn-depth: 2
+[2023-06-25 06:01:31] [config] transformer-guided-alignment-layer: last
+[2023-06-25 06:01:31] [config] transformer-heads: 8
+[2023-06-25 06:01:31] [config] transformer-no-projection: false
+[2023-06-25 06:01:31] [config] transformer-pool: false
+[2023-06-25 06:01:31] [config] transformer-postprocess: dan
+[2023-06-25 06:01:31] [config] transformer-postprocess-emb: d
+[2023-06-25 06:01:31] [config] transformer-postprocess-top: ""
+[2023-06-25 06:01:31] [config] transformer-preprocess: ""
+[2023-06-25 06:01:31] [config] transformer-tied-layers:
+[2023-06-25 06:01:31] [config]   []
+[2023-06-25 06:01:31] [config] transformer-train-position-embeddings: false
+[2023-06-25 06:01:31] [config] tsv: false
+[2023-06-25 06:01:31] [config] tsv-fields: 0
+[2023-06-25 06:01:31] [config] type: s2s
+[2023-06-25 06:01:31] [config] ulr: false
+[2023-06-25 06:01:31] [config] ulr-dim-emb: 0
+[2023-06-25 06:01:31] [config] ulr-dropout: 0
+[2023-06-25 06:01:31] [config] ulr-keys-vectors: ""
+[2023-06-25 06:01:31] [config] ulr-query-vectors: ""
+[2023-06-25 06:01:31] [config] ulr-softmax-temperature: 1
+[2023-06-25 06:01:31] [config] ulr-trainable-transformation: false
+[2023-06-25 06:01:31] [config] unlikelihood-loss: false
+[2023-06-25 06:01:31] [config] valid-freq: 5000000
+[2023-06-25 06:01:31] [config] valid-log: /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log
+[2023-06-25 06:01:31] [config] valid-max-length: 1000
+[2023-06-25 06:01:31] [config] valid-metrics:
+[2023-06-25 06:01:31] [config]   - cross-entropy
+[2023-06-25 06:01:31] [config]   - translation
+[2023-06-25 06:01:31] [config] valid-mini-batch: 32
+[2023-06-25 06:01:31] [config] valid-reset-stalled: false
+[2023-06-25 06:01:31] [config] valid-script-args:
+[2023-06-25 06:01:31] [config]   []
+[2023-06-25 06:01:31] [config] valid-script-path: ""
+[2023-06-25 06:01:31] [config] valid-sets:
+[2023-06-25 06:01:31] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn
+[2023-06-25 06:01:31] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-06-25 06:01:31] [config] valid-translation-output: /docker/home/marianmt/evaluation/model-epochs.txt
+[2023-06-25 06:01:31] [config] version: v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 06:01:31] [config] vocabs:
+[2023-06-25 06:01:31] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-25 06:01:31] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-25 06:01:31] [config] word-penalty: 0
+[2023-06-25 06:01:31] [config] word-scores: false
+[2023-06-25 06:01:31] [config] workspace: 2048
+[2023-06-25 06:01:31] [config] Loaded model has been created with Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 06:01:31] Using synchronous SGD
+[2023-06-25 06:01:35] Synced seed 1234
+[2023-06-25 06:01:35] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-25 06:01:35] [data] Setting vocabulary size for input 0 to 54,042
+[2023-06-25 06:01:35] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-25 06:01:35] [data] Setting vocabulary size for input 1 to 36,507
+[2023-06-25 06:01:35] [batching] Collecting statistics for batch fitting with step size 10
+[2023-06-25 06:01:35] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-25 06:01:35] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-25 06:01:35] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-25 06:01:35] [comm] Using global sharding
+[2023-06-25 06:01:35] [comm] NCCLCommunicators constructed successfully
+[2023-06-25 06:01:35] [training] Using 1 GPUs
+[2023-06-25 06:01:35] [logits] Applying loss function for 1 factor(s)
+[2023-06-25 06:01:35] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 06:01:36] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2023-06-25 06:01:36] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 06:02:01] [batching] Done. Typical MB size is 630 target words
+[2023-06-25 06:02:01] [valid] No post-processing script given for validating translator
+[2023-06-25 06:02:01] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-25 06:02:01] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-25 06:02:02] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-25 06:02:02] [comm] Using global sharding
+[2023-06-25 06:02:02] [comm] NCCLCommunicators constructed successfully
+[2023-06-25 06:02:02] [training] Using 1 GPUs
+[2023-06-25 06:02:02] Loading model from /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 06:02:12] Allocating memory for general optimizer shards
+[2023-06-25 06:02:12] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 06:02:12] Loading Adam parameters
+[2023-06-25 06:02:13] [memory] Reserving 1909 MB, device gpu0
+[2023-06-25 06:02:13] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 06:02:14] [training] Master parameters and optimizers restored from training checkpoint /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-25 06:02:14] [data] Restoring the corpus state to epoch 61, batch 54720
+[2023-06-25 06:02:14] [data] Shuffling data
+[2023-06-25 06:02:14] [data] Done reading 20,192 sentences
+[2023-06-25 06:02:14] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 06:02:14] Training started
+[2023-06-25 06:02:14] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2023-06-25 06:02:14] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 06:02:15] Parameter type float32, optimization type float32, casting types false
+[2023-06-25 06:04:42] Ep. 61 : Up. 55000 : Sen. 6,672 : Cost 2.06014824 : Time 160.24s : 3279.54 words/s : gNorm 0.5490
+[2023-06-25 06:10:36] Seen 20,177 samples
+[2023-06-25 06:10:36] Starting data epoch 62 in logical epoch 62
+[2023-06-25 06:10:36] [data] Shuffling data
+[2023-06-25 06:10:36] [data] Done reading 20,192 sentences
+[2023-06-25 06:10:36] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 06:14:04] Ep. 62 : Up. 56000 : Sen. 7,898 : Cost 2.05013609 : Time 562.20s : 933.96 words/s : gNorm 0.5495
+[2023-06-25 06:18:59] Seen 20,177 samples
+[2023-06-25 06:18:59] Starting data epoch 63 in logical epoch 63
+[2023-06-25 06:18:59] [data] Shuffling data
+[2023-06-25 06:18:59] [data] Done reading 20,192 sentences
+[2023-06-25 06:18:59] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 06:23:10] Ep. 63 : Up. 57000 : Sen. 10,157 : Cost 2.05368209 : Time 546.27s : 960.16 words/s : gNorm 0.5359
+[2023-06-25 06:27:23] Seen 20,177 samples
+[2023-06-25 06:27:23] Starting data epoch 64 in logical epoch 64
+[2023-06-25 06:27:23] [data] Shuffling data
+[2023-06-25 06:27:23] [data] Done reading 20,192 sentences
+[2023-06-25 06:27:23] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 06:32:18] Ep. 64 : Up. 58000 : Sen. 12,400 : Cost 2.04494143 : Time 548.12s : 954.15 words/s : gNorm 0.5430
+[2023-06-25 06:35:46] Seen 20,177 samples
+[2023-06-25 06:35:46] Starting data epoch 65 in logical epoch 65
+[2023-06-25 06:35:46] [data] Shuffling data
+[2023-06-25 06:35:46] [data] Done reading 20,192 sentences
+[2023-06-25 06:35:46] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 06:41:34] Ep. 65 : Up. 59000 : Sen. 14,035 : Cost 2.04406667 : Time 555.32s : 944.26 words/s : gNorm 0.5345
+[2023-06-25 06:44:09] Seen 20,177 samples
+[2023-06-25 06:44:09] Starting data epoch 66 in logical epoch 66
+[2023-06-25 06:44:09] [data] Shuffling data
+[2023-06-25 06:44:09] [data] Done reading 20,192 sentences
+[2023-06-25 06:44:09] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 06:50:47] Ep. 66 : Up. 60000 : Sen. 15,785 : Cost 2.03879285 : Time 553.60s : 945.67 words/s : gNorm 0.5428
+[2023-06-25 06:50:47] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.iter60000.npz
+[2023-06-25 06:50:58] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 06:51:10] Saving Adam parameters
+[2023-06-25 06:51:14] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-25 06:53:28] Seen 20,177 samples
+[2023-06-25 06:53:28] Starting data epoch 67 in logical epoch 67
+[2023-06-25 06:53:28] [data] Shuffling data
+[2023-06-25 06:53:28] [data] Done reading 20,192 sentences
+[2023-06-25 06:53:28] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 07:00:59] Ep. 67 : Up. 61000 : Sen. 17,747 : Cost 2.03609014 : Time 611.43s : 858.34 words/s : gNorm 0.5300
+[2023-06-25 07:01:54] Seen 20,177 samples
+[2023-06-25 07:01:54] Starting data epoch 68 in logical epoch 68
+[2023-06-25 07:01:54] [data] Shuffling data
+[2023-06-25 07:01:54] [data] Done reading 20,192 sentences
+[2023-06-25 07:01:54] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 07:10:12] Ep. 68 : Up. 62000 : Sen. 19,808 : Cost 2.03429461 : Time 552.98s : 947.20 words/s : gNorm 0.5282
+[2023-06-25 07:10:20] Seen 20,177 samples
+[2023-06-25 07:10:20] Starting data epoch 69 in logical epoch 69
+[2023-06-25 07:10:20] [data] Shuffling data
+[2023-06-25 07:10:21] [data] Done reading 20,192 sentences
+[2023-06-25 07:10:21] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 07:18:47] Seen 20,177 samples
+[2023-06-25 07:18:47] Starting data epoch 70 in logical epoch 70
+[2023-06-25 07:18:47] [data] Shuffling data
+[2023-06-25 07:18:47] [data] Done reading 20,192 sentences
+[2023-06-25 07:18:47] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 07:19:30] Ep. 70 : Up. 63000 : Sen. 1,372 : Cost 2.02358699 : Time 558.08s : 940.40 words/s : gNorm 0.4951
+[2023-06-25 07:27:10] Seen 20,177 samples
+[2023-06-25 07:27:10] Starting data epoch 71 in logical epoch 71
+[2023-06-25 07:27:10] Training finished
+[2023-06-25 07:27:34] [valid] Ep. 71 : Up. 63840 : cross-entropy : 128.253 : stalled 6 times (last best: 101.441)
+[2023-06-25 07:31:25] [valid] Ep. 71 : Up. 63840 : translation : 0 : new best
+[2023-06-25 07:31:25] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 07:31:37] Saving Adam parameters
+[2023-06-25 07:31:40] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-25 07:43:13] [marian] Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 07:43:13] [marian] Running on node07.datos.cluster.uy as process 5208 with command line:
+[2023-06-25 07:43:13] [marian] /marian/build/marian --train-sets /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn /docker/home/marianmt/artifacts/data/train/train_es.txt.es --model /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz --after-epochs 80 --valid-freq 5000000 --vocabs /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es --seed 1234 --type s2s --max-length 100 --mini-batch-fit --mini-batch 1000 --maxi-batch 1000 --beam-size 12 --normalize 1 --cost-type ce-mean-words --enc-type bidirectional --enc-depth 4 --enc-cell-depth 4 --dec-depth 4 --dec-cell-base-depth 8 --dec-cell-high-depth 1 --layer-normalization --dropout-rnn 0.1 --label-smoothing 0.1 --learn-rate 0.0003 --lr-decay-inv-sqrt 16000 --optimizer-params 0.9 0.98 1e-09 --clip-norm 5 --sync-sgd --exponential-smoothing --cpu-threads 0 --log /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log --valid-log /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log --valid-sets /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es --valid-metrics cross-entropy translation --valid-translation-output /docker/home/marianmt/evaluation/model-epochs.txt --quiet-translation
+[2023-06-25 07:43:13] [config] after: 0e
+[2023-06-25 07:43:13] [config] after-batches: 0
+[2023-06-25 07:43:13] [config] after-epochs: 80
+[2023-06-25 07:43:13] [config] all-caps-every: 0
+[2023-06-25 07:43:13] [config] allow-unk: false
+[2023-06-25 07:43:13] [config] authors: false
+[2023-06-25 07:43:13] [config] beam-size: 12
+[2023-06-25 07:43:13] [config] bert-class-symbol: "[CLS]"
+[2023-06-25 07:43:13] [config] bert-mask-symbol: "[MASK]"
+[2023-06-25 07:43:13] [config] bert-masking-fraction: 0.15
+[2023-06-25 07:43:13] [config] bert-sep-symbol: "[SEP]"
+[2023-06-25 07:43:13] [config] bert-train-type-embeddings: true
+[2023-06-25 07:43:13] [config] bert-type-vocab-size: 2
+[2023-06-25 07:43:13] [config] build-info: ""
+[2023-06-25 07:43:13] [config] check-gradient-nan: false
+[2023-06-25 07:43:13] [config] check-nan: false
+[2023-06-25 07:43:13] [config] cite: false
+[2023-06-25 07:43:13] [config] clip-norm: 5
+[2023-06-25 07:43:13] [config] cost-scaling:
+[2023-06-25 07:43:13] [config]   []
+[2023-06-25 07:43:13] [config] cost-type: ce-mean-words
+[2023-06-25 07:43:13] [config] cpu-threads: 0
+[2023-06-25 07:43:13] [config] data-threads: 8
+[2023-06-25 07:43:13] [config] data-weighting: ""
+[2023-06-25 07:43:13] [config] data-weighting-type: sentence
+[2023-06-25 07:43:13] [config] dec-cell: gru
+[2023-06-25 07:43:13] [config] dec-cell-base-depth: 8
+[2023-06-25 07:43:13] [config] dec-cell-high-depth: 1
+[2023-06-25 07:43:13] [config] dec-depth: 4
+[2023-06-25 07:43:13] [config] devices:
+[2023-06-25 07:43:13] [config]   - 0
+[2023-06-25 07:43:13] [config] dim-emb: 512
+[2023-06-25 07:43:13] [config] dim-rnn: 1024
+[2023-06-25 07:43:13] [config] dim-vocabs:
+[2023-06-25 07:43:13] [config]   - 54042
+[2023-06-25 07:43:13] [config]   - 36507
+[2023-06-25 07:43:13] [config] disp-first: 0
+[2023-06-25 07:43:13] [config] disp-freq: 1000u
+[2023-06-25 07:43:13] [config] disp-label-counts: true
+[2023-06-25 07:43:13] [config] dropout-rnn: 0.1
+[2023-06-25 07:43:13] [config] dropout-src: 0
+[2023-06-25 07:43:13] [config] dropout-trg: 0
+[2023-06-25 07:43:13] [config] dump-config: ""
+[2023-06-25 07:43:13] [config] dynamic-gradient-scaling:
+[2023-06-25 07:43:13] [config]   []
+[2023-06-25 07:43:13] [config] early-stopping: 10
+[2023-06-25 07:43:13] [config] early-stopping-on: first
+[2023-06-25 07:43:13] [config] embedding-fix-src: false
+[2023-06-25 07:43:13] [config] embedding-fix-trg: false
+[2023-06-25 07:43:13] [config] embedding-normalization: false
+[2023-06-25 07:43:13] [config] embedding-vectors:
+[2023-06-25 07:43:13] [config]   []
+[2023-06-25 07:43:13] [config] enc-cell: gru
+[2023-06-25 07:43:13] [config] enc-cell-depth: 4
+[2023-06-25 07:43:13] [config] enc-depth: 4
+[2023-06-25 07:43:13] [config] enc-type: bidirectional
+[2023-06-25 07:43:13] [config] english-title-case-every: 0
+[2023-06-25 07:43:13] [config] exponential-smoothing: 0.0001
+[2023-06-25 07:43:13] [config] factor-weight: 1
+[2023-06-25 07:43:13] [config] factors-combine: sum
+[2023-06-25 07:43:13] [config] factors-dim-emb: 0
+[2023-06-25 07:43:13] [config] gradient-checkpointing: false
+[2023-06-25 07:43:13] [config] gradient-norm-average-window: 100
+[2023-06-25 07:43:13] [config] guided-alignment: none
+[2023-06-25 07:43:13] [config] guided-alignment-cost: mse
+[2023-06-25 07:43:13] [config] guided-alignment-weight: 0.1
+[2023-06-25 07:43:13] [config] ignore-model-config: false
+[2023-06-25 07:43:13] [config] input-types:
+[2023-06-25 07:43:13] [config]   []
+[2023-06-25 07:43:13] [config] interpolate-env-vars: false
+[2023-06-25 07:43:13] [config] keep-best: false
+[2023-06-25 07:43:13] [config] label-smoothing: 0.1
+[2023-06-25 07:43:13] [config] layer-normalization: true
+[2023-06-25 07:43:13] [config] learn-rate: 0.0003
+[2023-06-25 07:43:13] [config] lemma-dependency: ""
+[2023-06-25 07:43:13] [config] lemma-dim-emb: 0
+[2023-06-25 07:43:13] [config] log: /docker/home/marianmt/logs/marian/split_model_gn_es_edinburgh2017_depth.log
+[2023-06-25 07:43:13] [config] log-level: info
+[2023-06-25 07:43:13] [config] log-time-zone: ""
+[2023-06-25 07:43:13] [config] logical-epoch:
+[2023-06-25 07:43:13] [config]   - 1e
+[2023-06-25 07:43:13] [config]   - 0
+[2023-06-25 07:43:13] [config] lr-decay: 0
+[2023-06-25 07:43:13] [config] lr-decay-freq: 50000
+[2023-06-25 07:43:13] [config] lr-decay-inv-sqrt:
+[2023-06-25 07:43:13] [config]   - 16000
+[2023-06-25 07:43:13] [config] lr-decay-repeat-warmup: false
+[2023-06-25 07:43:13] [config] lr-decay-reset-optimizer: false
+[2023-06-25 07:43:13] [config] lr-decay-start:
+[2023-06-25 07:43:13] [config]   - 10
+[2023-06-25 07:43:13] [config]   - 1
+[2023-06-25 07:43:13] [config] lr-decay-strategy: epoch+stalled
+[2023-06-25 07:43:13] [config] lr-report: false
+[2023-06-25 07:43:13] [config] lr-warmup: 0
+[2023-06-25 07:43:13] [config] lr-warmup-at-reload: false
+[2023-06-25 07:43:13] [config] lr-warmup-cycle: false
+[2023-06-25 07:43:13] [config] lr-warmup-start-rate: 0
+[2023-06-25 07:43:13] [config] max-length: 100
+[2023-06-25 07:43:13] [config] max-length-crop: false
+[2023-06-25 07:43:13] [config] max-length-factor: 3
+[2023-06-25 07:43:13] [config] maxi-batch: 1000
+[2023-06-25 07:43:13] [config] maxi-batch-sort: trg
+[2023-06-25 07:43:13] [config] mini-batch: 1000
+[2023-06-25 07:43:13] [config] mini-batch-fit: true
+[2023-06-25 07:43:13] [config] mini-batch-fit-step: 10
+[2023-06-25 07:43:13] [config] mini-batch-round-up: true
+[2023-06-25 07:43:13] [config] mini-batch-track-lr: false
+[2023-06-25 07:43:13] [config] mini-batch-warmup: 0
+[2023-06-25 07:43:13] [config] mini-batch-words: 0
+[2023-06-25 07:43:13] [config] mini-batch-words-ref: 0
+[2023-06-25 07:43:13] [config] model: /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 07:43:13] [config] multi-loss-type: sum
+[2023-06-25 07:43:13] [config] n-best: false
+[2023-06-25 07:43:13] [config] no-nccl: false
+[2023-06-25 07:43:13] [config] no-reload: false
+[2023-06-25 07:43:13] [config] no-restore-corpus: false
+[2023-06-25 07:43:13] [config] normalize: 1
+[2023-06-25 07:43:13] [config] normalize-gradient: false
+[2023-06-25 07:43:13] [config] num-devices: 0
+[2023-06-25 07:43:13] [config] optimizer: adam
+[2023-06-25 07:43:13] [config] optimizer-delay: 1
+[2023-06-25 07:43:13] [config] optimizer-params:
+[2023-06-25 07:43:13] [config]   - 0.9
+[2023-06-25 07:43:13] [config]   - 0.98
+[2023-06-25 07:43:13] [config]   - 1e-09
+[2023-06-25 07:43:13] [config] output-omit-bias: false
+[2023-06-25 07:43:13] [config] overwrite: false
+[2023-06-25 07:43:13] [config] precision:
+[2023-06-25 07:43:13] [config]   - float32
+[2023-06-25 07:43:13] [config]   - float32
+[2023-06-25 07:43:13] [config] pretrained-model: ""
+[2023-06-25 07:43:13] [config] quantize-biases: false
+[2023-06-25 07:43:13] [config] quantize-bits: 0
+[2023-06-25 07:43:13] [config] quantize-log-based: false
+[2023-06-25 07:43:13] [config] quantize-optimization-steps: 0
+[2023-06-25 07:43:13] [config] quiet: false
+[2023-06-25 07:43:13] [config] quiet-translation: true
+[2023-06-25 07:43:13] [config] relative-paths: false
+[2023-06-25 07:43:13] [config] right-left: false
+[2023-06-25 07:43:13] [config] save-freq: 10000u
+[2023-06-25 07:43:13] [config] seed: 1234
+[2023-06-25 07:43:13] [config] sentencepiece-alphas:
+[2023-06-25 07:43:13] [config]   []
+[2023-06-25 07:43:13] [config] sentencepiece-max-lines: 2000000
+[2023-06-25 07:43:13] [config] sentencepiece-options: ""
+[2023-06-25 07:43:13] [config] sharding: global
+[2023-06-25 07:43:13] [config] shuffle: data
+[2023-06-25 07:43:13] [config] shuffle-in-ram: false
+[2023-06-25 07:43:13] [config] sigterm: save-and-exit
+[2023-06-25 07:43:13] [config] skip: false
+[2023-06-25 07:43:13] [config] sqlite: ""
+[2023-06-25 07:43:13] [config] sqlite-drop: false
+[2023-06-25 07:43:13] [config] sync-freq: 200u
+[2023-06-25 07:43:13] [config] sync-sgd: true
+[2023-06-25 07:43:13] [config] tempdir: /tmp
+[2023-06-25 07:43:13] [config] tied-embeddings: false
+[2023-06-25 07:43:13] [config] tied-embeddings-all: false
+[2023-06-25 07:43:13] [config] tied-embeddings-src: false
+[2023-06-25 07:43:13] [config] train-embedder-rank:
+[2023-06-25 07:43:13] [config]   []
+[2023-06-25 07:43:13] [config] train-sets:
+[2023-06-25 07:43:13] [config]   - /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn
+[2023-06-25 07:43:13] [config]   - /docker/home/marianmt/artifacts/data/train/train_es.txt.es
+[2023-06-25 07:43:13] [config] transformer-aan-activation: swish
+[2023-06-25 07:43:13] [config] transformer-aan-depth: 2
+[2023-06-25 07:43:13] [config] transformer-aan-nogate: false
+[2023-06-25 07:43:13] [config] transformer-decoder-autoreg: self-attention
+[2023-06-25 07:43:13] [config] transformer-decoder-dim-ffn: 0
+[2023-06-25 07:43:13] [config] transformer-decoder-ffn-depth: 0
+[2023-06-25 07:43:13] [config] transformer-depth-scaling: false
+[2023-06-25 07:43:13] [config] transformer-dim-aan: 2048
+[2023-06-25 07:43:13] [config] transformer-dim-ffn: 2048
+[2023-06-25 07:43:13] [config] transformer-dropout: 0
+[2023-06-25 07:43:13] [config] transformer-dropout-attention: 0
+[2023-06-25 07:43:13] [config] transformer-dropout-ffn: 0
+[2023-06-25 07:43:13] [config] transformer-ffn-activation: swish
+[2023-06-25 07:43:13] [config] transformer-ffn-depth: 2
+[2023-06-25 07:43:13] [config] transformer-guided-alignment-layer: last
+[2023-06-25 07:43:13] [config] transformer-heads: 8
+[2023-06-25 07:43:13] [config] transformer-no-projection: false
+[2023-06-25 07:43:13] [config] transformer-pool: false
+[2023-06-25 07:43:13] [config] transformer-postprocess: dan
+[2023-06-25 07:43:13] [config] transformer-postprocess-emb: d
+[2023-06-25 07:43:13] [config] transformer-postprocess-top: ""
+[2023-06-25 07:43:13] [config] transformer-preprocess: ""
+[2023-06-25 07:43:13] [config] transformer-tied-layers:
+[2023-06-25 07:43:13] [config]   []
+[2023-06-25 07:43:13] [config] transformer-train-position-embeddings: false
+[2023-06-25 07:43:13] [config] tsv: false
+[2023-06-25 07:43:13] [config] tsv-fields: 0
+[2023-06-25 07:43:13] [config] type: s2s
+[2023-06-25 07:43:13] [config] ulr: false
+[2023-06-25 07:43:13] [config] ulr-dim-emb: 0
+[2023-06-25 07:43:13] [config] ulr-dropout: 0
+[2023-06-25 07:43:13] [config] ulr-keys-vectors: ""
+[2023-06-25 07:43:13] [config] ulr-query-vectors: ""
+[2023-06-25 07:43:13] [config] ulr-softmax-temperature: 1
+[2023-06-25 07:43:13] [config] ulr-trainable-transformation: false
+[2023-06-25 07:43:13] [config] unlikelihood-loss: false
+[2023-06-25 07:43:13] [config] valid-freq: 5000000
+[2023-06-25 07:43:13] [config] valid-log: /docker/home/marianmt/logs/marian/split_tok_150_gn_es_edinburgh2017_depth.log
+[2023-06-25 07:43:13] [config] valid-max-length: 1000
+[2023-06-25 07:43:13] [config] valid-metrics:
+[2023-06-25 07:43:13] [config]   - cross-entropy
+[2023-06-25 07:43:13] [config]   - translation
+[2023-06-25 07:43:13] [config] valid-mini-batch: 32
+[2023-06-25 07:43:13] [config] valid-reset-stalled: false
+[2023-06-25 07:43:13] [config] valid-script-args:
+[2023-06-25 07:43:13] [config]   []
+[2023-06-25 07:43:13] [config] valid-script-path: ""
+[2023-06-25 07:43:13] [config] valid-sets:
+[2023-06-25 07:43:13] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn
+[2023-06-25 07:43:13] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-06-25 07:43:13] [config] valid-translation-output: /docker/home/marianmt/evaluation/model-epochs.txt
+[2023-06-25 07:43:13] [config] version: v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 07:43:13] [config] vocabs:
+[2023-06-25 07:43:13] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-25 07:43:13] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-25 07:43:13] [config] word-penalty: 0
+[2023-06-25 07:43:13] [config] word-scores: false
+[2023-06-25 07:43:13] [config] workspace: 2048
+[2023-06-25 07:43:13] [config] Loaded model has been created with Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-25 07:43:13] Using synchronous SGD
+[2023-06-25 07:43:14] Synced seed 1234
+[2023-06-25 07:43:14] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-25 07:43:14] [data] Setting vocabulary size for input 0 to 54,042
+[2023-06-25 07:43:14] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-25 07:43:14] [data] Setting vocabulary size for input 1 to 36,507
+[2023-06-25 07:43:14] [batching] Collecting statistics for batch fitting with step size 10
+[2023-06-25 07:43:14] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-25 07:43:15] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-25 07:43:15] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-25 07:43:15] [comm] Using global sharding
+[2023-06-25 07:43:15] [comm] NCCLCommunicators constructed successfully
+[2023-06-25 07:43:15] [training] Using 1 GPUs
+[2023-06-25 07:43:15] [logits] Applying loss function for 1 factor(s)
+[2023-06-25 07:43:15] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 07:43:15] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2023-06-25 07:43:16] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 07:43:41] [batching] Done. Typical MB size is 630 target words
+[2023-06-25 07:43:41] [valid] No post-processing script given for validating translator
+[2023-06-25 07:43:41] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-25 07:43:41] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-06-25 07:43:41] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-06-25 07:43:41] [comm] Using global sharding
+[2023-06-25 07:43:41] [comm] NCCLCommunicators constructed successfully
+[2023-06-25 07:43:41] [training] Using 1 GPUs
+[2023-06-25 07:43:41] Loading model from /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz
+[2023-06-25 07:43:52] Allocating memory for general optimizer shards
+[2023-06-25 07:43:52] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 07:43:52] Loading Adam parameters
+[2023-06-25 07:43:53] [memory] Reserving 1909 MB, device gpu0
+[2023-06-25 07:43:54] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 07:43:54] [training] Master parameters and optimizers restored from training checkpoint /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz and /docker/home/marianmt/artifacts/models/model_gn_es_edinburgh2017_depth/gn_es_edinburgh2017_depth.npz.optimizer.npz
+[2023-06-25 07:43:54] [data] Restoring the corpus state to epoch 71, batch 63840
+[2023-06-25 07:43:54] [data] Shuffling data
+[2023-06-25 07:43:54] [data] Done reading 20,192 sentences
+[2023-06-25 07:43:54] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 07:43:54] Training started
+[2023-06-25 07:43:54] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2023-06-25 07:43:54] [memory] Reserving 954 MB, device gpu0
+[2023-06-25 07:43:55] Parameter type float32, optimization type float32, casting types false
+[2023-06-25 07:45:23] Ep. 71 : Up. 64000 : Sen. 3,469 : Cost 2.02213788 : Time 101.96s : 5127.20 words/s : gNorm 0.4821
+[2023-06-25 07:52:18] Seen 20,177 samples
+[2023-06-25 07:52:18] Starting data epoch 72 in logical epoch 72
+[2023-06-25 07:52:18] [data] Shuffling data
+[2023-06-25 07:52:18] [data] Done reading 20,192 sentences
+[2023-06-25 07:52:18] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 07:54:29] Ep. 72 : Up. 65000 : Sen. 5,886 : Cost 2.01871490 : Time 546.00s : 960.37 words/s : gNorm 0.4797
+[2023-06-25 08:00:42] Seen 20,177 samples
+[2023-06-25 08:00:42] Starting data epoch 73 in logical epoch 73
+[2023-06-25 08:00:42] [data] Shuffling data
+[2023-06-25 08:00:42] [data] Done reading 20,192 sentences
+[2023-06-25 08:00:42] [data] Done shuffling 20,192 sentences to temp files
+[2023-06-25 08:03:50] Ep. 73 : Up. 66000 : Sen. 7,225 : Cost 2.01314306 : Time 560.98s : 935.76 words/s : gNorm 0.4811
+[2023-06-25 08:09:06] Seen 20,177 samples
+[2023-06-25 08:09:06] Starting data epoch 74 in logical epoch 74
+[2023-06-25 08:09:06] [data] Shuffling data
+[2023-06-25 08:09:06] [data] Done reading 20,192 sentences
+[2023-06-25 08:09:06] [data] Done shuffling 20,192 sentences to temp files

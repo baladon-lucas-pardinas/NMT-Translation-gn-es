@@ -1,0 +1,149 @@
+[2023-06-03 23:29:00] [marian] Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-03 23:29:00] [marian] Running on node15.datos.cluster.uy as process 28725 with command line:
+[2023-06-03 23:29:00] [marian] /marian/build/marian-decoder -m /docker/home/marianmt/artifacts/models/model_checkpoints_es_gn/checkpoints_es_gn-90.npz --vocabs /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn --seed 1234 --devices 0 --log /docker/home/marianmt/logs/marian/es_gn_decode_model_checkpoints_es_gn-90.log --output /docker/home/marianmt/logs/marian/es_gn_decode_checkpoints_es_gn-90.log --input /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-06-03 23:29:01] [config] alignment: ""
+[2023-06-03 23:29:01] [config] allow-special: false
+[2023-06-03 23:29:01] [config] allow-unk: false
+[2023-06-03 23:29:01] [config] authors: false
+[2023-06-03 23:29:01] [config] beam-size: 12
+[2023-06-03 23:29:01] [config] bert-class-symbol: "[CLS]"
+[2023-06-03 23:29:01] [config] bert-mask-symbol: "[MASK]"
+[2023-06-03 23:29:01] [config] bert-masking-fraction: 0.15
+[2023-06-03 23:29:01] [config] bert-sep-symbol: "[SEP]"
+[2023-06-03 23:29:01] [config] bert-train-type-embeddings: true
+[2023-06-03 23:29:01] [config] bert-type-vocab-size: 2
+[2023-06-03 23:29:01] [config] best-deep: false
+[2023-06-03 23:29:01] [config] build-info: ""
+[2023-06-03 23:29:01] [config] check-nan: false
+[2023-06-03 23:29:01] [config] cite: false
+[2023-06-03 23:29:01] [config] cpu-threads: 0
+[2023-06-03 23:29:01] [config] data-threads: 8
+[2023-06-03 23:29:01] [config] dec-cell: gru
+[2023-06-03 23:29:01] [config] dec-cell-base-depth: 2
+[2023-06-03 23:29:01] [config] dec-cell-high-depth: 1
+[2023-06-03 23:29:01] [config] dec-depth: 1
+[2023-06-03 23:29:01] [config] devices:
+[2023-06-03 23:29:01] [config]   - 0
+[2023-06-03 23:29:01] [config] dim-emb: 512
+[2023-06-03 23:29:01] [config] dim-rnn: 1024
+[2023-06-03 23:29:01] [config] dim-vocabs:
+[2023-06-03 23:29:01] [config]   - 35201
+[2023-06-03 23:29:01] [config]   - 47784
+[2023-06-03 23:29:01] [config] dump-config: ""
+[2023-06-03 23:29:01] [config] enc-cell: gru
+[2023-06-03 23:29:01] [config] enc-cell-depth: 1
+[2023-06-03 23:29:01] [config] enc-depth: 1
+[2023-06-03 23:29:01] [config] enc-type: bidirectional
+[2023-06-03 23:29:01] [config] factors-combine: sum
+[2023-06-03 23:29:01] [config] factors-dim-emb: 0
+[2023-06-03 23:29:01] [config] gemm-type: float32
+[2023-06-03 23:29:01] [config] ignore-model-config: false
+[2023-06-03 23:29:01] [config] input:
+[2023-06-03 23:29:01] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-06-03 23:29:01] [config] input-types:
+[2023-06-03 23:29:01] [config]   []
+[2023-06-03 23:29:01] [config] interpolate-env-vars: false
+[2023-06-03 23:29:01] [config] layer-normalization: false
+[2023-06-03 23:29:01] [config] lemma-dependency: ""
+[2023-06-03 23:29:01] [config] lemma-dim-emb: 0
+[2023-06-03 23:29:01] [config] log: /docker/home/marianmt/logs/marian/es_gn_decode_model_checkpoints_es_gn-90.log
+[2023-06-03 23:29:01] [config] log-level: info
+[2023-06-03 23:29:01] [config] log-time-zone: ""
+[2023-06-03 23:29:01] [config] max-length: 1000
+[2023-06-03 23:29:01] [config] max-length-crop: false
+[2023-06-03 23:29:01] [config] max-length-factor: 3
+[2023-06-03 23:29:01] [config] maxi-batch: 1
+[2023-06-03 23:29:01] [config] maxi-batch-sort: none
+[2023-06-03 23:29:01] [config] mini-batch: 1
+[2023-06-03 23:29:01] [config] mini-batch-words: 0
+[2023-06-03 23:29:01] [config] model-mmap: false
+[2023-06-03 23:29:01] [config] models:
+[2023-06-03 23:29:01] [config]   - /docker/home/marianmt/artifacts/models/model_checkpoints_es_gn/checkpoints_es_gn-90.npz
+[2023-06-03 23:29:01] [config] n-best: false
+[2023-06-03 23:29:01] [config] no-spm-decode: false
+[2023-06-03 23:29:01] [config] normalize: 0
+[2023-06-03 23:29:01] [config] num-devices: 0
+[2023-06-03 23:29:01] [config] optimize: false
+[2023-06-03 23:29:01] [config] output: /docker/home/marianmt/logs/marian/es_gn_decode_checkpoints_es_gn-90.log
+[2023-06-03 23:29:01] [config] output-approx-knn:
+[2023-06-03 23:29:01] [config]   []
+[2023-06-03 23:29:01] [config] output-omit-bias: false
+[2023-06-03 23:29:01] [config] output-sampling:
+[2023-06-03 23:29:01] [config]   []
+[2023-06-03 23:29:01] [config] precision:
+[2023-06-03 23:29:01] [config]   - float32
+[2023-06-03 23:29:01] [config] quantize-range: 0
+[2023-06-03 23:29:01] [config] quiet: false
+[2023-06-03 23:29:01] [config] quiet-translation: false
+[2023-06-03 23:29:01] [config] relative-paths: false
+[2023-06-03 23:29:01] [config] right-left: false
+[2023-06-03 23:29:01] [config] seed: 1234
+[2023-06-03 23:29:01] [config] shortlist:
+[2023-06-03 23:29:01] [config]   []
+[2023-06-03 23:29:01] [config] skip: false
+[2023-06-03 23:29:01] [config] skip-cost: false
+[2023-06-03 23:29:01] [config] stat-freq: 0
+[2023-06-03 23:29:01] [config] tied-embeddings: false
+[2023-06-03 23:29:01] [config] tied-embeddings-all: false
+[2023-06-03 23:29:01] [config] tied-embeddings-src: false
+[2023-06-03 23:29:01] [config] transformer-aan-activation: swish
+[2023-06-03 23:29:01] [config] transformer-aan-depth: 2
+[2023-06-03 23:29:01] [config] transformer-aan-nogate: false
+[2023-06-03 23:29:01] [config] transformer-decoder-autoreg: self-attention
+[2023-06-03 23:29:01] [config] transformer-decoder-dim-ffn: 0
+[2023-06-03 23:29:01] [config] transformer-decoder-ffn-depth: 0
+[2023-06-03 23:29:01] [config] transformer-depth-scaling: false
+[2023-06-03 23:29:01] [config] transformer-dim-aan: 2048
+[2023-06-03 23:29:01] [config] transformer-dim-ffn: 2048
+[2023-06-03 23:29:01] [config] transformer-ffn-activation: swish
+[2023-06-03 23:29:01] [config] transformer-ffn-depth: 2
+[2023-06-03 23:29:01] [config] transformer-guided-alignment-layer: last
+[2023-06-03 23:29:01] [config] transformer-heads: 8
+[2023-06-03 23:29:01] [config] transformer-no-projection: false
+[2023-06-03 23:29:01] [config] transformer-pool: false
+[2023-06-03 23:29:01] [config] transformer-postprocess: dan
+[2023-06-03 23:29:01] [config] transformer-postprocess-emb: d
+[2023-06-03 23:29:01] [config] transformer-postprocess-top: ""
+[2023-06-03 23:29:01] [config] transformer-preprocess: ""
+[2023-06-03 23:29:01] [config] transformer-tied-layers:
+[2023-06-03 23:29:01] [config]   []
+[2023-06-03 23:29:01] [config] transformer-train-position-embeddings: false
+[2023-06-03 23:29:01] [config] tsv: false
+[2023-06-03 23:29:01] [config] tsv-fields: 0
+[2023-06-03 23:29:01] [config] type: amun
+[2023-06-03 23:29:01] [config] ulr: false
+[2023-06-03 23:29:01] [config] ulr-dim-emb: 0
+[2023-06-03 23:29:01] [config] ulr-trainable-transformation: false
+[2023-06-03 23:29:01] [config] version: v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-03 23:29:01] [config] vocabs:
+[2023-06-03 23:29:01] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-03 23:29:01] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-03 23:29:01] [config] weights:
+[2023-06-03 23:29:01] [config]   []
+[2023-06-03 23:29:01] [config] word-penalty: 0
+[2023-06-03 23:29:01] [config] word-scores: false
+[2023-06-03 23:29:01] [config] workspace: 512
+[2023-06-03 23:29:01] [config] Loaded model has been created with Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-06-03 23:29:01] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-06-03 23:29:01] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-06-03 23:29:01] [MPI rank 0 out of 1]: GPU[0]
+[2023-06-03 23:29:01] Loading model from /docker/home/marianmt/artifacts/models/model_checkpoints_es_gn/checkpoints_es_gn-90.npz
+[2023-06-03 23:29:04] Error: Curand error 203 - /marian/src/tensors/rand.cpp:74: curandCreateGenerator(&generator_, CURAND_RNG_PSEUDO_DEFAULT)
+[2023-06-03 23:29:04] Error: Aborted from marian::CurandRandomGenerator::CurandRandomGenerator(size_t, marian::DeviceId) in /marian/src/tensors/rand.cpp:74
+
+[CALL STACK]
+[0x560295972028]    marian::CurandRandomGenerator::  CurandRandomGenerator  (unsigned long,  marian::DeviceId) + 0x738
+[0x56029597268d]    marian::  createRandomGenerator  (unsigned long,  marian::DeviceId) + 0x5d
+[0x56029596cab1]    marian::  BackendByDeviceId  (marian::DeviceId,  unsigned long) + 0x91
+[0x5602956d7f9d]    marian::ExpressionGraph::  setDevice  (marian::DeviceId,  std::shared_ptr<marian::Device>) + 0x7d
+[0x56029557e5d2]    marian::Translate<marian::BeamSearch>::Translate(std::shared_ptr<marian::Options>)::{lambda(marian::DeviceId,unsigned long)#1}::  operator()  (marian::DeviceId,  unsigned long) const + 0x222
+[0x560295580139]    marian::ThreadPool::enqueue<marian::Translate<marian::BeamSearch>::Translate(std::shared_ptr<marian::Options>)::{lambda(marian::DeviceId,unsigned long)#1}&,marian::DeviceId&,unsigned long>(std::result_of&&,(marian::Translate<marian::BeamSearch>::Translate(std::shared_ptr<marian::Options>)::{lambda(marian::DeviceId,unsigned long)#1}&)...)::{lambda()#1}::  operator()  () const + 0x39
+[0x560295580d24]    std::_Function_handler<std::unique_ptr<std::__future_base::_Result_base,std::__future_base::_Result_base::_Deleter> (),std::__future_base::_Task_setter<std::unique_ptr<std::__future_base::_Result<void>,std::__future_base::_Result_base::_Deleter>,std::__future_base::_Task_state<marian::ThreadPool::enqueue<marian::Translate<marian::BeamSearch>::Translate(std::shared_ptr<marian::Options>)::{lambda(marian::DeviceId,unsigned long)#1}&,marian::DeviceId&,unsigned long>(std::result_of&&,(marian::Translate<marian::BeamSearch>::Translate(std::shared_ptr<marian::Options>)::{lambda(marian::DeviceId,unsigned long)#1}&)...)::{lambda()#1},std::allocator<int>,void ()>::_M_run()::{lambda()#1},void>>::  _M_invoke  (std::_Any_data const&) + 0x34
+[0x5602955173ad]    std::__future_base::_State_baseV2::  _M_do_set  (std::function<std::unique_ptr<std::__future_base::_Result_base,std::__future_base::_Result_base::_Deleter> ()>*,  bool*) + 0x2d
+[0x7f16c70d547f]                                                       + 0x1147f
+[0x56029551871c]    std::__future_base::_Task_state<marian::ThreadPool::enqueue<marian::Translate<marian::BeamSearch>::Translate(std::shared_ptr<marian::Options>)::{lambda(marian::DeviceId,unsigned long)#1}&,marian::DeviceId&,unsigned long>(std::result_of&&,(marian::Translate<marian::BeamSearch>::Translate(std::shared_ptr<marian::Options>)::{lambda(marian::DeviceId,unsigned long)#1}&)...)::{lambda()#1},std::allocator<int>,void ()>::  _M_run  () + 0xfc
+[0x560295517d58]    std::thread::_State_impl<std::thread::_Invoker<std::tuple<marian::ThreadPool::reserve(unsigned long)::{lambda()#1}>>>::  _M_run  () + 0x168
+[0x7f16c6fb8de4]                                                       + 0xd6de4
+[0x7f16c70cc609]                                                       + 0x8609
+[0x7f16c6ca5163]    clone                                              + 0x43
+

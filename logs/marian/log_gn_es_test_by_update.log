@@ -1,0 +1,1121 @@
+[2023-07-15 23:11:32] [marian] Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-07-15 23:11:32] [marian] Running on node21.datos.cluster.uy as process 33680 with command line:
+[2023-07-15 23:11:32] [marian] /marian/build/marian --early-stopping 3 --valid-freq 300 --train-sets /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn /docker/home/marianmt/artifacts/data/train/train_es.txt.es --model /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update/gn_es_test_by_update.npz --after-epochs 5 --vocabs /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es --seed 1234 --type transformer --cpu-threads 0 --log /docker/home/marianmt/logs/marian/log_gn_es_test_by_update.log --valid-log /docker/home/marianmt/logs/marian/valid_log_gn_es_test_by_update.log --valid-sets /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es --valid-metrics chrf translation --valid-translation-output /docker/home/marianmt/evaluation/decoded-transformer-gn-es.txt --quiet-translation --overwrite
+[2023-07-15 23:11:32] [config] after: 0e
+[2023-07-15 23:11:32] [config] after-batches: 0
+[2023-07-15 23:11:32] [config] after-epochs: 5
+[2023-07-15 23:11:32] [config] all-caps-every: 0
+[2023-07-15 23:11:32] [config] allow-unk: false
+[2023-07-15 23:11:32] [config] authors: false
+[2023-07-15 23:11:32] [config] beam-size: 12
+[2023-07-15 23:11:32] [config] bert-class-symbol: "[CLS]"
+[2023-07-15 23:11:32] [config] bert-mask-symbol: "[MASK]"
+[2023-07-15 23:11:32] [config] bert-masking-fraction: 0.15
+[2023-07-15 23:11:32] [config] bert-sep-symbol: "[SEP]"
+[2023-07-15 23:11:32] [config] bert-train-type-embeddings: true
+[2023-07-15 23:11:32] [config] bert-type-vocab-size: 2
+[2023-07-15 23:11:32] [config] build-info: ""
+[2023-07-15 23:11:32] [config] check-gradient-nan: false
+[2023-07-15 23:11:32] [config] check-nan: false
+[2023-07-15 23:11:32] [config] cite: false
+[2023-07-15 23:11:32] [config] clip-norm: 1
+[2023-07-15 23:11:32] [config] cost-scaling:
+[2023-07-15 23:11:32] [config]   []
+[2023-07-15 23:11:32] [config] cost-type: ce-sum
+[2023-07-15 23:11:32] [config] cpu-threads: 0
+[2023-07-15 23:11:32] [config] data-threads: 8
+[2023-07-15 23:11:32] [config] data-weighting: ""
+[2023-07-15 23:11:32] [config] data-weighting-type: sentence
+[2023-07-15 23:11:32] [config] dec-cell: gru
+[2023-07-15 23:11:32] [config] dec-cell-base-depth: 2
+[2023-07-15 23:11:32] [config] dec-cell-high-depth: 1
+[2023-07-15 23:11:32] [config] dec-depth: 1
+[2023-07-15 23:11:32] [config] devices:
+[2023-07-15 23:11:32] [config]   - 0
+[2023-07-15 23:11:32] [config] dim-emb: 512
+[2023-07-15 23:11:32] [config] dim-rnn: 1024
+[2023-07-15 23:11:32] [config] dim-vocabs:
+[2023-07-15 23:11:32] [config]   - 0
+[2023-07-15 23:11:32] [config]   - 0
+[2023-07-15 23:11:32] [config] disp-first: 0
+[2023-07-15 23:11:32] [config] disp-freq: 1000u
+[2023-07-15 23:11:32] [config] disp-label-counts: true
+[2023-07-15 23:11:32] [config] dropout-rnn: 0
+[2023-07-15 23:11:32] [config] dropout-src: 0
+[2023-07-15 23:11:32] [config] dropout-trg: 0
+[2023-07-15 23:11:32] [config] dump-config: ""
+[2023-07-15 23:11:32] [config] dynamic-gradient-scaling:
+[2023-07-15 23:11:32] [config]   []
+[2023-07-15 23:11:32] [config] early-stopping: 3
+[2023-07-15 23:11:32] [config] early-stopping-on: first
+[2023-07-15 23:11:32] [config] embedding-fix-src: false
+[2023-07-15 23:11:32] [config] embedding-fix-trg: false
+[2023-07-15 23:11:32] [config] embedding-normalization: false
+[2023-07-15 23:11:32] [config] embedding-vectors:
+[2023-07-15 23:11:32] [config]   []
+[2023-07-15 23:11:32] [config] enc-cell: gru
+[2023-07-15 23:11:32] [config] enc-cell-depth: 1
+[2023-07-15 23:11:32] [config] enc-depth: 1
+[2023-07-15 23:11:32] [config] enc-type: bidirectional
+[2023-07-15 23:11:32] [config] english-title-case-every: 0
+[2023-07-15 23:11:32] [config] exponential-smoothing: 0
+[2023-07-15 23:11:32] [config] factor-weight: 1
+[2023-07-15 23:11:32] [config] factors-combine: sum
+[2023-07-15 23:11:32] [config] factors-dim-emb: 0
+[2023-07-15 23:11:32] [config] gradient-checkpointing: false
+[2023-07-15 23:11:32] [config] gradient-norm-average-window: 100
+[2023-07-15 23:11:32] [config] guided-alignment: none
+[2023-07-15 23:11:32] [config] guided-alignment-cost: mse
+[2023-07-15 23:11:32] [config] guided-alignment-weight: 0.1
+[2023-07-15 23:11:32] [config] ignore-model-config: false
+[2023-07-15 23:11:32] [config] input-types:
+[2023-07-15 23:11:32] [config]   []
+[2023-07-15 23:11:32] [config] interpolate-env-vars: false
+[2023-07-15 23:11:32] [config] keep-best: false
+[2023-07-15 23:11:32] [config] label-smoothing: 0
+[2023-07-15 23:11:32] [config] layer-normalization: false
+[2023-07-15 23:11:32] [config] learn-rate: 0.0001
+[2023-07-15 23:11:32] [config] lemma-dependency: ""
+[2023-07-15 23:11:32] [config] lemma-dim-emb: 0
+[2023-07-15 23:11:32] [config] log: /docker/home/marianmt/logs/marian/log_gn_es_test_by_update.log
+[2023-07-15 23:11:32] [config] log-level: info
+[2023-07-15 23:11:32] [config] log-time-zone: ""
+[2023-07-15 23:11:32] [config] logical-epoch:
+[2023-07-15 23:11:32] [config]   - 1e
+[2023-07-15 23:11:32] [config]   - 0
+[2023-07-15 23:11:32] [config] lr-decay: 0
+[2023-07-15 23:11:32] [config] lr-decay-freq: 50000
+[2023-07-15 23:11:32] [config] lr-decay-inv-sqrt:
+[2023-07-15 23:11:32] [config]   - 0
+[2023-07-15 23:11:32] [config] lr-decay-repeat-warmup: false
+[2023-07-15 23:11:32] [config] lr-decay-reset-optimizer: false
+[2023-07-15 23:11:32] [config] lr-decay-start:
+[2023-07-15 23:11:32] [config]   - 10
+[2023-07-15 23:11:32] [config]   - 1
+[2023-07-15 23:11:32] [config] lr-decay-strategy: epoch+stalled
+[2023-07-15 23:11:32] [config] lr-report: false
+[2023-07-15 23:11:32] [config] lr-warmup: 0
+[2023-07-15 23:11:32] [config] lr-warmup-at-reload: false
+[2023-07-15 23:11:32] [config] lr-warmup-cycle: false
+[2023-07-15 23:11:32] [config] lr-warmup-start-rate: 0
+[2023-07-15 23:11:32] [config] max-length: 50
+[2023-07-15 23:11:32] [config] max-length-crop: false
+[2023-07-15 23:11:32] [config] max-length-factor: 3
+[2023-07-15 23:11:32] [config] maxi-batch: 100
+[2023-07-15 23:11:32] [config] maxi-batch-sort: trg
+[2023-07-15 23:11:32] [config] mini-batch: 64
+[2023-07-15 23:11:32] [config] mini-batch-fit: false
+[2023-07-15 23:11:32] [config] mini-batch-fit-step: 10
+[2023-07-15 23:11:32] [config] mini-batch-round-up: true
+[2023-07-15 23:11:32] [config] mini-batch-track-lr: false
+[2023-07-15 23:11:32] [config] mini-batch-warmup: 0
+[2023-07-15 23:11:32] [config] mini-batch-words: 0
+[2023-07-15 23:11:32] [config] mini-batch-words-ref: 0
+[2023-07-15 23:11:32] [config] model: /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update/gn_es_test_by_update.npz
+[2023-07-15 23:11:32] [config] multi-loss-type: sum
+[2023-07-15 23:11:32] [config] n-best: false
+[2023-07-15 23:11:32] [config] no-nccl: false
+[2023-07-15 23:11:32] [config] no-reload: false
+[2023-07-15 23:11:32] [config] no-restore-corpus: false
+[2023-07-15 23:11:32] [config] normalize: 0
+[2023-07-15 23:11:32] [config] normalize-gradient: false
+[2023-07-15 23:11:32] [config] num-devices: 0
+[2023-07-15 23:11:32] [config] optimizer: adam
+[2023-07-15 23:11:32] [config] optimizer-delay: 1
+[2023-07-15 23:11:32] [config] optimizer-params:
+[2023-07-15 23:11:32] [config]   []
+[2023-07-15 23:11:32] [config] output-omit-bias: false
+[2023-07-15 23:11:32] [config] overwrite: true
+[2023-07-15 23:11:32] [config] precision:
+[2023-07-15 23:11:32] [config]   - float32
+[2023-07-15 23:11:32] [config]   - float32
+[2023-07-15 23:11:32] [config] pretrained-model: ""
+[2023-07-15 23:11:32] [config] quantize-biases: false
+[2023-07-15 23:11:32] [config] quantize-bits: 0
+[2023-07-15 23:11:32] [config] quantize-log-based: false
+[2023-07-15 23:11:32] [config] quantize-optimization-steps: 0
+[2023-07-15 23:11:32] [config] quiet: false
+[2023-07-15 23:11:32] [config] quiet-translation: true
+[2023-07-15 23:11:32] [config] relative-paths: false
+[2023-07-15 23:11:32] [config] right-left: false
+[2023-07-15 23:11:32] [config] save-freq: 10000u
+[2023-07-15 23:11:32] [config] seed: 1234
+[2023-07-15 23:11:32] [config] sentencepiece-alphas:
+[2023-07-15 23:11:32] [config]   []
+[2023-07-15 23:11:32] [config] sentencepiece-max-lines: 2000000
+[2023-07-15 23:11:32] [config] sentencepiece-options: ""
+[2023-07-15 23:11:32] [config] sharding: global
+[2023-07-15 23:11:32] [config] shuffle: data
+[2023-07-15 23:11:32] [config] shuffle-in-ram: false
+[2023-07-15 23:11:32] [config] sigterm: save-and-exit
+[2023-07-15 23:11:32] [config] skip: false
+[2023-07-15 23:11:32] [config] sqlite: ""
+[2023-07-15 23:11:32] [config] sqlite-drop: false
+[2023-07-15 23:11:32] [config] sync-freq: 200u
+[2023-07-15 23:11:32] [config] sync-sgd: false
+[2023-07-15 23:11:32] [config] tempdir: /tmp
+[2023-07-15 23:11:32] [config] tied-embeddings: false
+[2023-07-15 23:11:32] [config] tied-embeddings-all: false
+[2023-07-15 23:11:32] [config] tied-embeddings-src: false
+[2023-07-15 23:11:32] [config] train-embedder-rank:
+[2023-07-15 23:11:32] [config]   []
+[2023-07-15 23:11:32] [config] train-sets:
+[2023-07-15 23:11:32] [config]   - /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn
+[2023-07-15 23:11:32] [config]   - /docker/home/marianmt/artifacts/data/train/train_es.txt.es
+[2023-07-15 23:11:32] [config] transformer-aan-activation: swish
+[2023-07-15 23:11:32] [config] transformer-aan-depth: 2
+[2023-07-15 23:11:32] [config] transformer-aan-nogate: false
+[2023-07-15 23:11:32] [config] transformer-decoder-autoreg: self-attention
+[2023-07-15 23:11:32] [config] transformer-decoder-dim-ffn: 0
+[2023-07-15 23:11:32] [config] transformer-decoder-ffn-depth: 0
+[2023-07-15 23:11:32] [config] transformer-depth-scaling: false
+[2023-07-15 23:11:32] [config] transformer-dim-aan: 2048
+[2023-07-15 23:11:32] [config] transformer-dim-ffn: 2048
+[2023-07-15 23:11:32] [config] transformer-dropout: 0
+[2023-07-15 23:11:32] [config] transformer-dropout-attention: 0
+[2023-07-15 23:11:32] [config] transformer-dropout-ffn: 0
+[2023-07-15 23:11:32] [config] transformer-ffn-activation: swish
+[2023-07-15 23:11:32] [config] transformer-ffn-depth: 2
+[2023-07-15 23:11:32] [config] transformer-guided-alignment-layer: last
+[2023-07-15 23:11:32] [config] transformer-heads: 8
+[2023-07-15 23:11:32] [config] transformer-no-projection: false
+[2023-07-15 23:11:32] [config] transformer-pool: false
+[2023-07-15 23:11:32] [config] transformer-postprocess: dan
+[2023-07-15 23:11:32] [config] transformer-postprocess-emb: d
+[2023-07-15 23:11:32] [config] transformer-postprocess-top: ""
+[2023-07-15 23:11:32] [config] transformer-preprocess: ""
+[2023-07-15 23:11:32] [config] transformer-tied-layers:
+[2023-07-15 23:11:32] [config]   []
+[2023-07-15 23:11:32] [config] transformer-train-position-embeddings: false
+[2023-07-15 23:11:32] [config] tsv: false
+[2023-07-15 23:11:32] [config] tsv-fields: 0
+[2023-07-15 23:11:32] [config] type: transformer
+[2023-07-15 23:11:32] [config] ulr: false
+[2023-07-15 23:11:32] [config] ulr-dim-emb: 0
+[2023-07-15 23:11:32] [config] ulr-dropout: 0
+[2023-07-15 23:11:32] [config] ulr-keys-vectors: ""
+[2023-07-15 23:11:32] [config] ulr-query-vectors: ""
+[2023-07-15 23:11:32] [config] ulr-softmax-temperature: 1
+[2023-07-15 23:11:32] [config] ulr-trainable-transformation: false
+[2023-07-15 23:11:32] [config] unlikelihood-loss: false
+[2023-07-15 23:11:32] [config] valid-freq: 300
+[2023-07-15 23:11:32] [config] valid-log: /docker/home/marianmt/logs/marian/valid_log_gn_es_test_by_update.log
+[2023-07-15 23:11:32] [config] valid-max-length: 1000
+[2023-07-15 23:11:32] [config] valid-metrics:
+[2023-07-15 23:11:32] [config]   - chrf
+[2023-07-15 23:11:32] [config]   - translation
+[2023-07-15 23:11:32] [config] valid-mini-batch: 32
+[2023-07-15 23:11:32] [config] valid-reset-stalled: false
+[2023-07-15 23:11:32] [config] valid-script-args:
+[2023-07-15 23:11:32] [config]   []
+[2023-07-15 23:11:32] [config] valid-script-path: ""
+[2023-07-15 23:11:32] [config] valid-sets:
+[2023-07-15 23:11:32] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn
+[2023-07-15 23:11:32] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-07-15 23:11:32] [config] valid-translation-output: /docker/home/marianmt/evaluation/decoded-transformer-gn-es.txt
+[2023-07-15 23:11:32] [config] vocabs:
+[2023-07-15 23:11:32] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-07-15 23:11:32] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-07-15 23:11:32] [config] word-penalty: 0
+[2023-07-15 23:11:32] [config] word-scores: false
+[2023-07-15 23:11:32] [config] workspace: 2048
+[2023-07-15 23:11:32] [config] Model is being created with Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-07-15 23:11:32] [MPI rank 0 out of 1]: GPU[0]
+[2023-07-15 23:11:32] [training] Using single-device training
+[2023-07-15 23:11:33] Synced seed 1234
+[2023-07-15 23:11:33] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-07-15 23:11:33] [data] Setting vocabulary size for input 0 to 54,042
+[2023-07-15 23:11:33] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-07-15 23:11:33] [data] Setting vocabulary size for input 1 to 36,507
+[2023-07-15 23:11:33] [valid] No post-processing script given for validating translator
+[2023-07-15 23:11:33] [MPI rank 0 out of 1]: GPU[0]
+[2023-07-15 23:11:35] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-07-15 23:11:35] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-07-15 23:11:35] [comm] Using global sharding
+[2023-07-15 23:11:35] [comm] NCCLCommunicators constructed successfully
+[2023-07-15 23:11:35] [training] Using 1 GPUs
+[2023-07-15 23:11:35] Training started
+[2023-07-15 23:11:35] [data] Shuffling data
+[2023-07-15 23:11:36] [data] Done reading 20,192 sentences
+[2023-07-15 23:11:36] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-15 23:11:36] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2023-07-15 23:11:36] [logits] Applying loss function for 1 factor(s)
+[2023-07-15 23:11:36] [memory] Reserving 276 MB, device gpu0
+[2023-07-15 23:11:39] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2023-07-15 23:11:39] [memory] Reserving 276 MB, device gpu0
+[2023-07-15 23:11:40] Parameter type float32, optimization type float32, casting types false
+[2023-07-15 23:11:40] Allocating memory for Adam-specific shards
+[2023-07-15 23:11:40] [memory] Reserving 552 MB, device gpu0
+[2023-07-15 23:11:56] Seen 18,843 samples
+[2023-07-15 23:11:56] Starting data epoch 2 in logical epoch 2
+[2023-07-15 23:11:56] [data] Shuffling data
+[2023-07-15 23:11:56] [data] Done reading 20,192 sentences
+[2023-07-15 23:11:56] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-15 23:12:00] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-07-15 23:12:00] [valid] First sentence's tokens as scored:
+[2023-07-15 23:12:00] [valid] DefaultVocab keeps original segments for scoring
+[2023-07-15 23:12:00] [valid]   Hyp: L a m i n i s t r a d e l a m i n i s t r a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e E d u c a c i ó n y l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e E d u c a c i ó n y l a S e c r e t a r í a d e E d u c a c i ó n y e l p r o y e c t o d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e P o l í t i c a s E d u c a c i ó n y l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e P o l í t i c a s L i n g ũ í s t i c a s e n e l p r o y e c t o d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e
+[2023-07-15 23:12:00] [valid]   Ref: < u n k > i m p o r t a n t e c i t a r q u e l o s d a ñ o s < u n k > a l o s u s u a r i o s p o r e s t a s i t u a c i ó n a f e c t a n s e r i a m e n t e a l a e c o n o m í a e n g e n e r a l , a l á r e a s o c i a l e < u n k > a l a i n t e g r i d a d f í s i c a d e l a s p e r s o n a s q u e t r a n s i t a n p o r d i c h a r u t a < u n k > < u n k > p é r d i d a d e v i d a s y l e s i o n e s < u n k > d a ñ o a l o s v e h í c u l o s d e < u n k > a l o s a n i m a l e s y m e r c a d e r í a s e n g e n e r a l < u n k > s o b r e c o s t o s e n t i e m p o y d i n e r o a l < u n k > < u n k > e x p r e s a l a n o t a < u n k > p o r e l t i t u l a r d e l a < u n k > L u i s < u n k > y e l s e c r e t a r i o d e l < u n k > J o r g e < u n k >
+[2023-07-15 23:14:12] [valid] Ep. 2 : Up. 300 : chrf : 12.8035 : new best
+[2023-07-15 23:17:02] [valid] Ep. 2 : Up. 300 : translation : 0 : new best
+[2023-07-15 23:17:23] Seen 18,843 samples
+[2023-07-15 23:17:23] Starting data epoch 3 in logical epoch 3
+[2023-07-15 23:17:23] [data] Shuffling data
+[2023-07-15 23:17:23] [data] Done reading 20,192 sentences
+[2023-07-15 23:17:23] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-15 23:20:22] [valid] Ep. 3 : Up. 600 : chrf : 16.2376 : new best
+[2023-07-15 23:23:25] [valid] Ep. 3 : Up. 600 : translation : 0 : new best
+[2023-07-15 23:23:48] Seen 18,843 samples
+[2023-07-15 23:23:48] Starting data epoch 4 in logical epoch 4
+[2023-07-15 23:23:48] [data] Shuffling data
+[2023-07-15 23:23:48] [data] Done reading 20,192 sentences
+[2023-07-15 23:23:48] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-15 23:26:52] [valid] Ep. 4 : Up. 900 : chrf : 18.0123 : new best
+[2023-07-15 23:29:57] [valid] Ep. 4 : Up. 900 : translation : 0 : new best
+[2023-07-15 23:30:05] Ep. 4 : Up. 1000 : Sen. 6,932 : Cost 5.39951372 * 1,343,216 @ 768 after 1,343,216 : Time 1112.18s : 1207.73 words/s : gNorm 2.2512
+[2023-07-15 23:30:19] Seen 18,843 samples
+[2023-07-15 23:30:19] Starting data epoch 5 in logical epoch 5
+[2023-07-15 23:30:19] [data] Shuffling data
+[2023-07-15 23:30:19] [data] Done reading 20,192 sentences
+[2023-07-15 23:30:19] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-15 23:33:20] [valid] Ep. 5 : Up. 1200 : chrf : 20.7665 : new best
+[2023-07-15 23:36:21] [valid] Ep. 5 : Up. 1200 : translation : 0 : new best
+[2023-07-15 23:36:44] Seen 18,843 samples
+[2023-07-15 23:36:44] Starting data epoch 6 in logical epoch 6
+[2023-07-15 23:36:44] Training finished
+[2023-07-15 23:39:33] [valid] Ep. 6 : Up. 1485 : chrf : 22.0905 : new best
+[2023-07-15 23:42:23] [valid] Ep. 6 : Up. 1485 : translation : 0 : new best
+[2023-07-15 23:42:23] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update/gn_es_test_by_update.npz
+[2023-07-15 23:42:26] Saving Adam parameters
+[2023-07-15 23:42:27] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update/gn_es_test_by_update.npz and /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update/gn_es_test_by_update.npz.optimizer.npz
+[2023-07-16 08:46:44] [marian] Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-07-16 08:46:44] [marian] Running on node21.datos.cluster.uy as process 29909 with command line:
+[2023-07-16 08:46:44] [marian] /marian/build/marian --valid-script-path 'source /docker/home/marianmt/scripts/validate/valid.sh' --valid-script-args /docker/home/marianmt /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es sacrebleu_corpus_bleu --early-stopping 3 --valid-freq 300 --train-sets /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn /docker/home/marianmt/artifacts/data/train/train_es.txt.es --model /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update/gn_es_test_by_update.npz --after-epochs 5 --vocabs /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es --seed 1234 --type transformer --cpu-threads 0 --log /docker/home/marianmt/logs/marian/log_gn_es_test_by_update.log --valid-log /docker/home/marianmt/logs/marian/valid_log_gn_es_test_by_update.log --valid-sets /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es --valid-metrics chrf translation --valid-translation-output /docker/home/marianmt/evaluation/decoded-transformer-gn-es.txt --quiet-translation --overwrite
+[2023-07-16 08:46:44] [config] after: 0e
+[2023-07-16 08:46:44] [config] after-batches: 0
+[2023-07-16 08:46:44] [config] after-epochs: 5
+[2023-07-16 08:46:44] [config] all-caps-every: 0
+[2023-07-16 08:46:44] [config] allow-unk: false
+[2023-07-16 08:46:44] [config] authors: false
+[2023-07-16 08:46:44] [config] beam-size: 12
+[2023-07-16 08:46:44] [config] bert-class-symbol: "[CLS]"
+[2023-07-16 08:46:44] [config] bert-mask-symbol: "[MASK]"
+[2023-07-16 08:46:44] [config] bert-masking-fraction: 0.15
+[2023-07-16 08:46:44] [config] bert-sep-symbol: "[SEP]"
+[2023-07-16 08:46:44] [config] bert-train-type-embeddings: true
+[2023-07-16 08:46:44] [config] bert-type-vocab-size: 2
+[2023-07-16 08:46:44] [config] build-info: ""
+[2023-07-16 08:46:44] [config] check-gradient-nan: false
+[2023-07-16 08:46:44] [config] check-nan: false
+[2023-07-16 08:46:44] [config] cite: false
+[2023-07-16 08:46:44] [config] clip-norm: 1
+[2023-07-16 08:46:44] [config] cost-scaling:
+[2023-07-16 08:46:44] [config]   []
+[2023-07-16 08:46:44] [config] cost-type: ce-sum
+[2023-07-16 08:46:44] [config] cpu-threads: 0
+[2023-07-16 08:46:44] [config] data-threads: 8
+[2023-07-16 08:46:44] [config] data-weighting: ""
+[2023-07-16 08:46:44] [config] data-weighting-type: sentence
+[2023-07-16 08:46:44] [config] dec-cell: gru
+[2023-07-16 08:46:44] [config] dec-cell-base-depth: 2
+[2023-07-16 08:46:44] [config] dec-cell-high-depth: 1
+[2023-07-16 08:46:44] [config] dec-depth: 1
+[2023-07-16 08:46:44] [config] devices:
+[2023-07-16 08:46:44] [config]   - 0
+[2023-07-16 08:46:44] [config] dim-emb: 512
+[2023-07-16 08:46:44] [config] dim-rnn: 1024
+[2023-07-16 08:46:44] [config] dim-vocabs:
+[2023-07-16 08:46:44] [config]   - 0
+[2023-07-16 08:46:44] [config]   - 0
+[2023-07-16 08:46:44] [config] disp-first: 0
+[2023-07-16 08:46:44] [config] disp-freq: 1000u
+[2023-07-16 08:46:44] [config] disp-label-counts: true
+[2023-07-16 08:46:44] [config] dropout-rnn: 0
+[2023-07-16 08:46:44] [config] dropout-src: 0
+[2023-07-16 08:46:44] [config] dropout-trg: 0
+[2023-07-16 08:46:44] [config] dump-config: ""
+[2023-07-16 08:46:44] [config] dynamic-gradient-scaling:
+[2023-07-16 08:46:44] [config]   []
+[2023-07-16 08:46:44] [config] early-stopping: 3
+[2023-07-16 08:46:44] [config] early-stopping-on: first
+[2023-07-16 08:46:44] [config] embedding-fix-src: false
+[2023-07-16 08:46:44] [config] embedding-fix-trg: false
+[2023-07-16 08:46:44] [config] embedding-normalization: false
+[2023-07-16 08:46:44] [config] embedding-vectors:
+[2023-07-16 08:46:44] [config]   []
+[2023-07-16 08:46:44] [config] enc-cell: gru
+[2023-07-16 08:46:44] [config] enc-cell-depth: 1
+[2023-07-16 08:46:44] [config] enc-depth: 1
+[2023-07-16 08:46:44] [config] enc-type: bidirectional
+[2023-07-16 08:46:44] [config] english-title-case-every: 0
+[2023-07-16 08:46:44] [config] exponential-smoothing: 0
+[2023-07-16 08:46:44] [config] factor-weight: 1
+[2023-07-16 08:46:44] [config] factors-combine: sum
+[2023-07-16 08:46:44] [config] factors-dim-emb: 0
+[2023-07-16 08:46:44] [config] gradient-checkpointing: false
+[2023-07-16 08:46:44] [config] gradient-norm-average-window: 100
+[2023-07-16 08:46:44] [config] guided-alignment: none
+[2023-07-16 08:46:44] [config] guided-alignment-cost: mse
+[2023-07-16 08:46:44] [config] guided-alignment-weight: 0.1
+[2023-07-16 08:46:44] [config] ignore-model-config: false
+[2023-07-16 08:46:44] [config] input-types:
+[2023-07-16 08:46:44] [config]   []
+[2023-07-16 08:46:44] [config] interpolate-env-vars: false
+[2023-07-16 08:46:44] [config] keep-best: false
+[2023-07-16 08:46:44] [config] label-smoothing: 0
+[2023-07-16 08:46:44] [config] layer-normalization: false
+[2023-07-16 08:46:44] [config] learn-rate: 0.0001
+[2023-07-16 08:46:44] [config] lemma-dependency: ""
+[2023-07-16 08:46:44] [config] lemma-dim-emb: 0
+[2023-07-16 08:46:44] [config] log: /docker/home/marianmt/logs/marian/log_gn_es_test_by_update.log
+[2023-07-16 08:46:44] [config] log-level: info
+[2023-07-16 08:46:44] [config] log-time-zone: ""
+[2023-07-16 08:46:44] [config] logical-epoch:
+[2023-07-16 08:46:44] [config]   - 1e
+[2023-07-16 08:46:44] [config]   - 0
+[2023-07-16 08:46:44] [config] lr-decay: 0
+[2023-07-16 08:46:44] [config] lr-decay-freq: 50000
+[2023-07-16 08:46:44] [config] lr-decay-inv-sqrt:
+[2023-07-16 08:46:44] [config]   - 0
+[2023-07-16 08:46:44] [config] lr-decay-repeat-warmup: false
+[2023-07-16 08:46:44] [config] lr-decay-reset-optimizer: false
+[2023-07-16 08:46:44] [config] lr-decay-start:
+[2023-07-16 08:46:44] [config]   - 10
+[2023-07-16 08:46:44] [config]   - 1
+[2023-07-16 08:46:44] [config] lr-decay-strategy: epoch+stalled
+[2023-07-16 08:46:44] [config] lr-report: false
+[2023-07-16 08:46:44] [config] lr-warmup: 0
+[2023-07-16 08:46:44] [config] lr-warmup-at-reload: false
+[2023-07-16 08:46:44] [config] lr-warmup-cycle: false
+[2023-07-16 08:46:44] [config] lr-warmup-start-rate: 0
+[2023-07-16 08:46:44] [config] max-length: 50
+[2023-07-16 08:46:44] [config] max-length-crop: false
+[2023-07-16 08:46:44] [config] max-length-factor: 3
+[2023-07-16 08:46:44] [config] maxi-batch: 100
+[2023-07-16 08:46:44] [config] maxi-batch-sort: trg
+[2023-07-16 08:46:44] [config] mini-batch: 64
+[2023-07-16 08:46:44] [config] mini-batch-fit: false
+[2023-07-16 08:46:44] [config] mini-batch-fit-step: 10
+[2023-07-16 08:46:44] [config] mini-batch-round-up: true
+[2023-07-16 08:46:44] [config] mini-batch-track-lr: false
+[2023-07-16 08:46:44] [config] mini-batch-warmup: 0
+[2023-07-16 08:46:44] [config] mini-batch-words: 0
+[2023-07-16 08:46:44] [config] mini-batch-words-ref: 0
+[2023-07-16 08:46:44] [config] model: /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update/gn_es_test_by_update.npz
+[2023-07-16 08:46:44] [config] multi-loss-type: sum
+[2023-07-16 08:46:44] [config] n-best: false
+[2023-07-16 08:46:44] [config] no-nccl: false
+[2023-07-16 08:46:44] [config] no-reload: false
+[2023-07-16 08:46:44] [config] no-restore-corpus: false
+[2023-07-16 08:46:44] [config] normalize: 0
+[2023-07-16 08:46:44] [config] normalize-gradient: false
+[2023-07-16 08:46:44] [config] num-devices: 0
+[2023-07-16 08:46:44] [config] optimizer: adam
+[2023-07-16 08:46:44] [config] optimizer-delay: 1
+[2023-07-16 08:46:44] [config] optimizer-params:
+[2023-07-16 08:46:44] [config]   []
+[2023-07-16 08:46:44] [config] output-omit-bias: false
+[2023-07-16 08:46:44] [config] overwrite: true
+[2023-07-16 08:46:44] [config] precision:
+[2023-07-16 08:46:44] [config]   - float32
+[2023-07-16 08:46:44] [config]   - float32
+[2023-07-16 08:46:44] [config] pretrained-model: ""
+[2023-07-16 08:46:44] [config] quantize-biases: false
+[2023-07-16 08:46:44] [config] quantize-bits: 0
+[2023-07-16 08:46:44] [config] quantize-log-based: false
+[2023-07-16 08:46:44] [config] quantize-optimization-steps: 0
+[2023-07-16 08:46:44] [config] quiet: false
+[2023-07-16 08:46:44] [config] quiet-translation: true
+[2023-07-16 08:46:44] [config] relative-paths: false
+[2023-07-16 08:46:44] [config] right-left: false
+[2023-07-16 08:46:44] [config] save-freq: 10000u
+[2023-07-16 08:46:44] [config] seed: 1234
+[2023-07-16 08:46:44] [config] sentencepiece-alphas:
+[2023-07-16 08:46:44] [config]   []
+[2023-07-16 08:46:44] [config] sentencepiece-max-lines: 2000000
+[2023-07-16 08:46:44] [config] sentencepiece-options: ""
+[2023-07-16 08:46:44] [config] sharding: global
+[2023-07-16 08:46:44] [config] shuffle: data
+[2023-07-16 08:46:44] [config] shuffle-in-ram: false
+[2023-07-16 08:46:44] [config] sigterm: save-and-exit
+[2023-07-16 08:46:44] [config] skip: false
+[2023-07-16 08:46:44] [config] sqlite: ""
+[2023-07-16 08:46:44] [config] sqlite-drop: false
+[2023-07-16 08:46:44] [config] sync-freq: 200u
+[2023-07-16 08:46:44] [config] sync-sgd: false
+[2023-07-16 08:46:44] [config] tempdir: /tmp
+[2023-07-16 08:46:44] [config] tied-embeddings: false
+[2023-07-16 08:46:44] [config] tied-embeddings-all: false
+[2023-07-16 08:46:44] [config] tied-embeddings-src: false
+[2023-07-16 08:46:44] [config] train-embedder-rank:
+[2023-07-16 08:46:44] [config]   []
+[2023-07-16 08:46:44] [config] train-sets:
+[2023-07-16 08:46:44] [config]   - /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn
+[2023-07-16 08:46:44] [config]   - /docker/home/marianmt/artifacts/data/train/train_es.txt.es
+[2023-07-16 08:46:44] [config] transformer-aan-activation: swish
+[2023-07-16 08:46:44] [config] transformer-aan-depth: 2
+[2023-07-16 08:46:44] [config] transformer-aan-nogate: false
+[2023-07-16 08:46:44] [config] transformer-decoder-autoreg: self-attention
+[2023-07-16 08:46:44] [config] transformer-decoder-dim-ffn: 0
+[2023-07-16 08:46:44] [config] transformer-decoder-ffn-depth: 0
+[2023-07-16 08:46:44] [config] transformer-depth-scaling: false
+[2023-07-16 08:46:44] [config] transformer-dim-aan: 2048
+[2023-07-16 08:46:44] [config] transformer-dim-ffn: 2048
+[2023-07-16 08:46:44] [config] transformer-dropout: 0
+[2023-07-16 08:46:44] [config] transformer-dropout-attention: 0
+[2023-07-16 08:46:44] [config] transformer-dropout-ffn: 0
+[2023-07-16 08:46:44] [config] transformer-ffn-activation: swish
+[2023-07-16 08:46:44] [config] transformer-ffn-depth: 2
+[2023-07-16 08:46:44] [config] transformer-guided-alignment-layer: last
+[2023-07-16 08:46:44] [config] transformer-heads: 8
+[2023-07-16 08:46:44] [config] transformer-no-projection: false
+[2023-07-16 08:46:44] [config] transformer-pool: false
+[2023-07-16 08:46:44] [config] transformer-postprocess: dan
+[2023-07-16 08:46:44] [config] transformer-postprocess-emb: d
+[2023-07-16 08:46:44] [config] transformer-postprocess-top: ""
+[2023-07-16 08:46:44] [config] transformer-preprocess: ""
+[2023-07-16 08:46:44] [config] transformer-tied-layers:
+[2023-07-16 08:46:44] [config]   []
+[2023-07-16 08:46:44] [config] transformer-train-position-embeddings: false
+[2023-07-16 08:46:44] [config] tsv: false
+[2023-07-16 08:46:44] [config] tsv-fields: 0
+[2023-07-16 08:46:44] [config] type: transformer
+[2023-07-16 08:46:44] [config] ulr: false
+[2023-07-16 08:46:44] [config] ulr-dim-emb: 0
+[2023-07-16 08:46:44] [config] ulr-dropout: 0
+[2023-07-16 08:46:44] [config] ulr-keys-vectors: ""
+[2023-07-16 08:46:44] [config] ulr-query-vectors: ""
+[2023-07-16 08:46:44] [config] ulr-softmax-temperature: 1
+[2023-07-16 08:46:44] [config] ulr-trainable-transformation: false
+[2023-07-16 08:46:44] [config] unlikelihood-loss: false
+[2023-07-16 08:46:44] [config] valid-freq: 300
+[2023-07-16 08:46:44] [config] valid-log: /docker/home/marianmt/logs/marian/valid_log_gn_es_test_by_update.log
+[2023-07-16 08:46:44] [config] valid-max-length: 1000
+[2023-07-16 08:46:44] [config] valid-metrics:
+[2023-07-16 08:46:44] [config]   - chrf
+[2023-07-16 08:46:44] [config]   - translation
+[2023-07-16 08:46:44] [config] valid-mini-batch: 32
+[2023-07-16 08:46:44] [config] valid-reset-stalled: false
+[2023-07-16 08:46:44] [config] valid-script-args:
+[2023-07-16 08:46:44] [config]   - /docker/home/marianmt
+[2023-07-16 08:46:44] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-07-16 08:46:44] [config]   - sacrebleu_corpus_bleu
+[2023-07-16 08:46:44] [config] valid-script-path: source /docker/home/marianmt/scripts/validate/valid.sh
+[2023-07-16 08:46:44] [config] valid-sets:
+[2023-07-16 08:46:44] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn
+[2023-07-16 08:46:44] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-07-16 08:46:44] [config] valid-translation-output: /docker/home/marianmt/evaluation/decoded-transformer-gn-es.txt
+[2023-07-16 08:46:44] [config] vocabs:
+[2023-07-16 08:46:44] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-07-16 08:46:44] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-07-16 08:46:44] [config] word-penalty: 0
+[2023-07-16 08:46:44] [config] word-scores: false
+[2023-07-16 08:46:44] [config] workspace: 2048
+[2023-07-16 08:46:44] [config] Model is being created with Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-07-16 08:46:44] [MPI rank 0 out of 1]: GPU[0]
+[2023-07-16 08:46:44] [training] Using single-device training
+[2023-07-16 08:46:47] Synced seed 1234
+[2023-07-16 08:46:47] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-07-16 08:46:47] [data] Setting vocabulary size for input 0 to 54,042
+[2023-07-16 08:46:47] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-07-16 08:46:47] [data] Setting vocabulary size for input 1 to 36,507
+[2023-07-16 08:46:47] [MPI rank 0 out of 1]: GPU[0]
+[2023-07-16 08:46:49] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-07-16 08:46:50] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-07-16 08:46:50] [comm] Using global sharding
+[2023-07-16 08:46:50] [comm] NCCLCommunicators constructed successfully
+[2023-07-16 08:46:50] [training] Using 1 GPUs
+[2023-07-16 08:46:50] Training started
+[2023-07-16 08:46:50] [data] Shuffling data
+[2023-07-16 08:46:50] [data] Done reading 20,192 sentences
+[2023-07-16 08:46:50] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 08:46:50] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2023-07-16 08:46:50] [logits] Applying loss function for 1 factor(s)
+[2023-07-16 08:46:50] [memory] Reserving 276 MB, device gpu0
+[2023-07-16 08:46:55] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2023-07-16 08:46:55] [memory] Reserving 276 MB, device gpu0
+[2023-07-16 08:46:55] Parameter type float32, optimization type float32, casting types false
+[2023-07-16 08:46:55] Allocating memory for Adam-specific shards
+[2023-07-16 08:46:55] [memory] Reserving 552 MB, device gpu0
+[2023-07-16 08:47:12] Seen 18,843 samples
+[2023-07-16 08:47:12] Starting data epoch 2 in logical epoch 2
+[2023-07-16 08:47:12] [data] Shuffling data
+[2023-07-16 08:47:12] [data] Done reading 20,192 sentences
+[2023-07-16 08:47:12] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 08:47:15] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-07-16 08:47:15] [valid] First sentence's tokens as scored:
+[2023-07-16 08:47:15] [valid] DefaultVocab keeps original segments for scoring
+[2023-07-16 08:47:15] [valid]   Hyp: L a m i n i s t r a d e l a m i n i s t r a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e E d u c a c i ó n y l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e E d u c a c i ó n y l a S e c r e t a r í a d e E d u c a c i ó n y e l p r o y e c t o d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e P o l í t i c a s E d u c a c i ó n y l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e P o l í t i c a s L i n g ũ í s t i c a s e n e l p r o y e c t o d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e
+[2023-07-16 08:47:15] [valid]   Ref: < u n k > i m p o r t a n t e c i t a r q u e l o s d a ñ o s < u n k > a l o s u s u a r i o s p o r e s t a s i t u a c i ó n a f e c t a n s e r i a m e n t e a l a e c o n o m í a e n g e n e r a l , a l á r e a s o c i a l e < u n k > a l a i n t e g r i d a d f í s i c a d e l a s p e r s o n a s q u e t r a n s i t a n p o r d i c h a r u t a < u n k > < u n k > p é r d i d a d e v i d a s y l e s i o n e s < u n k > d a ñ o a l o s v e h í c u l o s d e < u n k > a l o s a n i m a l e s y m e r c a d e r í a s e n g e n e r a l < u n k > s o b r e c o s t o s e n t i e m p o y d i n e r o a l < u n k > < u n k > e x p r e s a l a n o t a < u n k > p o r e l t i t u l a r d e l a < u n k > L u i s < u n k > y e l s e c r e t a r i o d e l < u n k > J o r g e < u n k >
+[2023-07-16 08:49:28] [valid] Ep. 2 : Up. 300 : chrf : 12.8035 : new best
+[2023-07-16 08:52:16] [valid] Ep. 2 : Up. 300 : translation : 0 : new best
+[2023-07-16 08:52:38] Seen 18,843 samples
+[2023-07-16 08:52:38] Starting data epoch 3 in logical epoch 3
+[2023-07-16 08:52:38] [data] Shuffling data
+[2023-07-16 08:52:38] [data] Done reading 20,192 sentences
+[2023-07-16 08:52:38] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 08:55:38] [marian] Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-07-16 08:55:38] [marian] Running on node21.datos.cluster.uy as process 30642 with command line:
+[2023-07-16 08:55:38] [marian] /marian/build/marian --valid-script-path /docker/home/marianmt/scripts/validate/valid.sh --valid-script-args /docker/home/marianmt /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es sacrebleu_corpus_bleu --early-stopping 3 --valid-freq 300 --train-sets /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn /docker/home/marianmt/artifacts/data/train/train_es.txt.es --model /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update/gn_es_test_by_update.npz --after-epochs 5 --vocabs /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es --seed 1234 --type transformer --cpu-threads 0 --log /docker/home/marianmt/logs/marian/log_gn_es_test_by_update.log --valid-log /docker/home/marianmt/logs/marian/valid_log_gn_es_test_by_update.log --valid-sets /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es --valid-metrics chrf translation --valid-translation-output /docker/home/marianmt/evaluation/decoded-transformer-gn-es.txt --quiet-translation --overwrite
+[2023-07-16 08:55:38] [config] after: 0e
+[2023-07-16 08:55:38] [config] after-batches: 0
+[2023-07-16 08:55:38] [config] after-epochs: 5
+[2023-07-16 08:55:38] [config] all-caps-every: 0
+[2023-07-16 08:55:38] [config] allow-unk: false
+[2023-07-16 08:55:38] [config] authors: false
+[2023-07-16 08:55:38] [config] beam-size: 12
+[2023-07-16 08:55:38] [config] bert-class-symbol: "[CLS]"
+[2023-07-16 08:55:38] [config] bert-mask-symbol: "[MASK]"
+[2023-07-16 08:55:38] [config] bert-masking-fraction: 0.15
+[2023-07-16 08:55:38] [config] bert-sep-symbol: "[SEP]"
+[2023-07-16 08:55:38] [config] bert-train-type-embeddings: true
+[2023-07-16 08:55:38] [config] bert-type-vocab-size: 2
+[2023-07-16 08:55:38] [config] build-info: ""
+[2023-07-16 08:55:38] [config] check-gradient-nan: false
+[2023-07-16 08:55:38] [config] check-nan: false
+[2023-07-16 08:55:38] [config] cite: false
+[2023-07-16 08:55:38] [config] clip-norm: 1
+[2023-07-16 08:55:38] [config] cost-scaling:
+[2023-07-16 08:55:38] [config]   []
+[2023-07-16 08:55:38] [config] cost-type: ce-sum
+[2023-07-16 08:55:38] [config] cpu-threads: 0
+[2023-07-16 08:55:38] [config] data-threads: 8
+[2023-07-16 08:55:38] [config] data-weighting: ""
+[2023-07-16 08:55:38] [config] data-weighting-type: sentence
+[2023-07-16 08:55:38] [config] dec-cell: gru
+[2023-07-16 08:55:38] [config] dec-cell-base-depth: 2
+[2023-07-16 08:55:38] [config] dec-cell-high-depth: 1
+[2023-07-16 08:55:38] [config] dec-depth: 1
+[2023-07-16 08:55:38] [config] devices:
+[2023-07-16 08:55:38] [config]   - 0
+[2023-07-16 08:55:38] [config] dim-emb: 512
+[2023-07-16 08:55:38] [config] dim-rnn: 1024
+[2023-07-16 08:55:38] [config] dim-vocabs:
+[2023-07-16 08:55:38] [config]   - 0
+[2023-07-16 08:55:38] [config]   - 0
+[2023-07-16 08:55:38] [config] disp-first: 0
+[2023-07-16 08:55:38] [config] disp-freq: 1000u
+[2023-07-16 08:55:38] [config] disp-label-counts: true
+[2023-07-16 08:55:38] [config] dropout-rnn: 0
+[2023-07-16 08:55:38] [config] dropout-src: 0
+[2023-07-16 08:55:38] [config] dropout-trg: 0
+[2023-07-16 08:55:38] [config] dump-config: ""
+[2023-07-16 08:55:38] [config] dynamic-gradient-scaling:
+[2023-07-16 08:55:38] [config]   []
+[2023-07-16 08:55:38] [config] early-stopping: 3
+[2023-07-16 08:55:38] [config] early-stopping-on: first
+[2023-07-16 08:55:38] [config] embedding-fix-src: false
+[2023-07-16 08:55:38] [config] embedding-fix-trg: false
+[2023-07-16 08:55:38] [config] embedding-normalization: false
+[2023-07-16 08:55:38] [config] embedding-vectors:
+[2023-07-16 08:55:38] [config]   []
+[2023-07-16 08:55:38] [config] enc-cell: gru
+[2023-07-16 08:55:38] [config] enc-cell-depth: 1
+[2023-07-16 08:55:38] [config] enc-depth: 1
+[2023-07-16 08:55:38] [config] enc-type: bidirectional
+[2023-07-16 08:55:38] [config] english-title-case-every: 0
+[2023-07-16 08:55:38] [config] exponential-smoothing: 0
+[2023-07-16 08:55:38] [config] factor-weight: 1
+[2023-07-16 08:55:38] [config] factors-combine: sum
+[2023-07-16 08:55:38] [config] factors-dim-emb: 0
+[2023-07-16 08:55:38] [config] gradient-checkpointing: false
+[2023-07-16 08:55:38] [config] gradient-norm-average-window: 100
+[2023-07-16 08:55:38] [config] guided-alignment: none
+[2023-07-16 08:55:38] [config] guided-alignment-cost: mse
+[2023-07-16 08:55:38] [config] guided-alignment-weight: 0.1
+[2023-07-16 08:55:38] [config] ignore-model-config: false
+[2023-07-16 08:55:38] [config] input-types:
+[2023-07-16 08:55:38] [config]   []
+[2023-07-16 08:55:38] [config] interpolate-env-vars: false
+[2023-07-16 08:55:38] [config] keep-best: false
+[2023-07-16 08:55:38] [config] label-smoothing: 0
+[2023-07-16 08:55:38] [config] layer-normalization: false
+[2023-07-16 08:55:38] [config] learn-rate: 0.0001
+[2023-07-16 08:55:38] [config] lemma-dependency: ""
+[2023-07-16 08:55:38] [config] lemma-dim-emb: 0
+[2023-07-16 08:55:38] [config] log: /docker/home/marianmt/logs/marian/log_gn_es_test_by_update.log
+[2023-07-16 08:55:38] [config] log-level: info
+[2023-07-16 08:55:38] [config] log-time-zone: ""
+[2023-07-16 08:55:38] [config] logical-epoch:
+[2023-07-16 08:55:38] [config]   - 1e
+[2023-07-16 08:55:38] [config]   - 0
+[2023-07-16 08:55:38] [config] lr-decay: 0
+[2023-07-16 08:55:38] [config] lr-decay-freq: 50000
+[2023-07-16 08:55:38] [config] lr-decay-inv-sqrt:
+[2023-07-16 08:55:38] [config]   - 0
+[2023-07-16 08:55:38] [config] lr-decay-repeat-warmup: false
+[2023-07-16 08:55:38] [config] lr-decay-reset-optimizer: false
+[2023-07-16 08:55:38] [config] lr-decay-start:
+[2023-07-16 08:55:38] [config]   - 10
+[2023-07-16 08:55:38] [config]   - 1
+[2023-07-16 08:55:38] [config] lr-decay-strategy: epoch+stalled
+[2023-07-16 08:55:38] [config] lr-report: false
+[2023-07-16 08:55:38] [config] lr-warmup: 0
+[2023-07-16 08:55:38] [config] lr-warmup-at-reload: false
+[2023-07-16 08:55:38] [config] lr-warmup-cycle: false
+[2023-07-16 08:55:38] [config] lr-warmup-start-rate: 0
+[2023-07-16 08:55:38] [config] max-length: 50
+[2023-07-16 08:55:38] [config] max-length-crop: false
+[2023-07-16 08:55:38] [config] max-length-factor: 3
+[2023-07-16 08:55:38] [config] maxi-batch: 100
+[2023-07-16 08:55:38] [config] maxi-batch-sort: trg
+[2023-07-16 08:55:38] [config] mini-batch: 64
+[2023-07-16 08:55:38] [config] mini-batch-fit: false
+[2023-07-16 08:55:38] [config] mini-batch-fit-step: 10
+[2023-07-16 08:55:38] [config] mini-batch-round-up: true
+[2023-07-16 08:55:38] [config] mini-batch-track-lr: false
+[2023-07-16 08:55:38] [config] mini-batch-warmup: 0
+[2023-07-16 08:55:38] [config] mini-batch-words: 0
+[2023-07-16 08:55:38] [config] mini-batch-words-ref: 0
+[2023-07-16 08:55:38] [config] model: /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update/gn_es_test_by_update.npz
+[2023-07-16 08:55:38] [config] multi-loss-type: sum
+[2023-07-16 08:55:38] [config] n-best: false
+[2023-07-16 08:55:38] [config] no-nccl: false
+[2023-07-16 08:55:38] [config] no-reload: false
+[2023-07-16 08:55:38] [config] no-restore-corpus: false
+[2023-07-16 08:55:38] [config] normalize: 0
+[2023-07-16 08:55:38] [config] normalize-gradient: false
+[2023-07-16 08:55:38] [config] num-devices: 0
+[2023-07-16 08:55:38] [config] optimizer: adam
+[2023-07-16 08:55:38] [config] optimizer-delay: 1
+[2023-07-16 08:55:38] [config] optimizer-params:
+[2023-07-16 08:55:38] [config]   []
+[2023-07-16 08:55:38] [config] output-omit-bias: false
+[2023-07-16 08:55:38] [config] overwrite: true
+[2023-07-16 08:55:38] [config] precision:
+[2023-07-16 08:55:38] [config]   - float32
+[2023-07-16 08:55:38] [config]   - float32
+[2023-07-16 08:55:38] [config] pretrained-model: ""
+[2023-07-16 08:55:38] [config] quantize-biases: false
+[2023-07-16 08:55:38] [config] quantize-bits: 0
+[2023-07-16 08:55:38] [config] quantize-log-based: false
+[2023-07-16 08:55:38] [config] quantize-optimization-steps: 0
+[2023-07-16 08:55:38] [config] quiet: false
+[2023-07-16 08:55:38] [config] quiet-translation: true
+[2023-07-16 08:55:38] [config] relative-paths: false
+[2023-07-16 08:55:38] [config] right-left: false
+[2023-07-16 08:55:38] [config] save-freq: 10000u
+[2023-07-16 08:55:38] [config] seed: 1234
+[2023-07-16 08:55:38] [config] sentencepiece-alphas:
+[2023-07-16 08:55:38] [config]   []
+[2023-07-16 08:55:38] [config] sentencepiece-max-lines: 2000000
+[2023-07-16 08:55:38] [config] sentencepiece-options: ""
+[2023-07-16 08:55:38] [config] sharding: global
+[2023-07-16 08:55:38] [config] shuffle: data
+[2023-07-16 08:55:38] [config] shuffle-in-ram: false
+[2023-07-16 08:55:38] [config] sigterm: save-and-exit
+[2023-07-16 08:55:38] [config] skip: false
+[2023-07-16 08:55:38] [config] sqlite: ""
+[2023-07-16 08:55:38] [config] sqlite-drop: false
+[2023-07-16 08:55:38] [config] sync-freq: 200u
+[2023-07-16 08:55:38] [config] sync-sgd: false
+[2023-07-16 08:55:38] [config] tempdir: /tmp
+[2023-07-16 08:55:38] [config] tied-embeddings: false
+[2023-07-16 08:55:38] [config] tied-embeddings-all: false
+[2023-07-16 08:55:38] [config] tied-embeddings-src: false
+[2023-07-16 08:55:38] [config] train-embedder-rank:
+[2023-07-16 08:55:38] [config]   []
+[2023-07-16 08:55:38] [config] train-sets:
+[2023-07-16 08:55:38] [config]   - /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn
+[2023-07-16 08:55:38] [config]   - /docker/home/marianmt/artifacts/data/train/train_es.txt.es
+[2023-07-16 08:55:38] [config] transformer-aan-activation: swish
+[2023-07-16 08:55:38] [config] transformer-aan-depth: 2
+[2023-07-16 08:55:38] [config] transformer-aan-nogate: false
+[2023-07-16 08:55:38] [config] transformer-decoder-autoreg: self-attention
+[2023-07-16 08:55:38] [config] transformer-decoder-dim-ffn: 0
+[2023-07-16 08:55:38] [config] transformer-decoder-ffn-depth: 0
+[2023-07-16 08:55:38] [config] transformer-depth-scaling: false
+[2023-07-16 08:55:38] [config] transformer-dim-aan: 2048
+[2023-07-16 08:55:38] [config] transformer-dim-ffn: 2048
+[2023-07-16 08:55:38] [config] transformer-dropout: 0
+[2023-07-16 08:55:38] [config] transformer-dropout-attention: 0
+[2023-07-16 08:55:38] [config] transformer-dropout-ffn: 0
+[2023-07-16 08:55:38] [config] transformer-ffn-activation: swish
+[2023-07-16 08:55:38] [config] transformer-ffn-depth: 2
+[2023-07-16 08:55:38] [config] transformer-guided-alignment-layer: last
+[2023-07-16 08:55:38] [config] transformer-heads: 8
+[2023-07-16 08:55:38] [config] transformer-no-projection: false
+[2023-07-16 08:55:38] [config] transformer-pool: false
+[2023-07-16 08:55:38] [config] transformer-postprocess: dan
+[2023-07-16 08:55:38] [config] transformer-postprocess-emb: d
+[2023-07-16 08:55:38] [config] transformer-postprocess-top: ""
+[2023-07-16 08:55:38] [config] transformer-preprocess: ""
+[2023-07-16 08:55:38] [config] transformer-tied-layers:
+[2023-07-16 08:55:38] [config]   []
+[2023-07-16 08:55:38] [config] transformer-train-position-embeddings: false
+[2023-07-16 08:55:38] [config] tsv: false
+[2023-07-16 08:55:38] [config] tsv-fields: 0
+[2023-07-16 08:55:38] [config] type: transformer
+[2023-07-16 08:55:38] [config] ulr: false
+[2023-07-16 08:55:38] [config] ulr-dim-emb: 0
+[2023-07-16 08:55:38] [config] ulr-dropout: 0
+[2023-07-16 08:55:38] [config] ulr-keys-vectors: ""
+[2023-07-16 08:55:38] [config] ulr-query-vectors: ""
+[2023-07-16 08:55:38] [config] ulr-softmax-temperature: 1
+[2023-07-16 08:55:38] [config] ulr-trainable-transformation: false
+[2023-07-16 08:55:38] [config] unlikelihood-loss: false
+[2023-07-16 08:55:38] [config] valid-freq: 300
+[2023-07-16 08:55:38] [config] valid-log: /docker/home/marianmt/logs/marian/valid_log_gn_es_test_by_update.log
+[2023-07-16 08:55:38] [config] valid-max-length: 1000
+[2023-07-16 08:55:38] [config] valid-metrics:
+[2023-07-16 08:55:38] [config]   - chrf
+[2023-07-16 08:55:38] [config]   - translation
+[2023-07-16 08:55:38] [config] valid-mini-batch: 32
+[2023-07-16 08:55:38] [config] valid-reset-stalled: false
+[2023-07-16 08:55:38] [config] valid-script-args:
+[2023-07-16 08:55:38] [config]   - /docker/home/marianmt
+[2023-07-16 08:55:38] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-07-16 08:55:38] [config]   - sacrebleu_corpus_bleu
+[2023-07-16 08:55:38] [config] valid-script-path: /docker/home/marianmt/scripts/validate/valid.sh
+[2023-07-16 08:55:38] [config] valid-sets:
+[2023-07-16 08:55:38] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn
+[2023-07-16 08:55:38] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-07-16 08:55:38] [config] valid-translation-output: /docker/home/marianmt/evaluation/decoded-transformer-gn-es.txt
+[2023-07-16 08:55:38] [config] vocabs:
+[2023-07-16 08:55:38] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-07-16 08:55:38] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-07-16 08:55:38] [config] word-penalty: 0
+[2023-07-16 08:55:38] [config] word-scores: false
+[2023-07-16 08:55:38] [config] workspace: 2048
+[2023-07-16 08:55:38] [config] Model is being created with Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-07-16 08:55:38] [MPI rank 0 out of 1]: GPU[0]
+[2023-07-16 08:55:38] [training] Using single-device training
+[2023-07-16 08:55:38] Synced seed 1234
+[2023-07-16 08:55:38] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-07-16 08:55:38] [data] Setting vocabulary size for input 0 to 54,042
+[2023-07-16 08:55:38] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-07-16 08:55:38] [data] Setting vocabulary size for input 1 to 36,507
+[2023-07-16 08:55:38] [MPI rank 0 out of 1]: GPU[0]
+[2023-07-16 08:55:39] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-07-16 08:55:40] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-07-16 08:55:40] [comm] Using global sharding
+[2023-07-16 08:55:40] [comm] NCCLCommunicators constructed successfully
+[2023-07-16 08:55:40] [training] Using 1 GPUs
+[2023-07-16 08:55:40] Training started
+[2023-07-16 08:55:40] [data] Shuffling data
+[2023-07-16 08:55:40] [data] Done reading 20,192 sentences
+[2023-07-16 08:55:40] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 08:55:40] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2023-07-16 08:55:40] [logits] Applying loss function for 1 factor(s)
+[2023-07-16 08:55:40] [memory] Reserving 276 MB, device gpu0
+[2023-07-16 08:55:42] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2023-07-16 08:55:42] [memory] Reserving 276 MB, device gpu0
+[2023-07-16 08:55:42] Parameter type float32, optimization type float32, casting types false
+[2023-07-16 08:55:42] Allocating memory for Adam-specific shards
+[2023-07-16 08:55:42] [memory] Reserving 552 MB, device gpu0
+[2023-07-16 08:55:59] Seen 18,843 samples
+[2023-07-16 08:55:59] Starting data epoch 2 in logical epoch 2
+[2023-07-16 08:55:59] [data] Shuffling data
+[2023-07-16 08:55:59] [data] Done reading 20,192 sentences
+[2023-07-16 08:55:59] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 08:56:02] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-07-16 08:56:02] [valid] First sentence's tokens as scored:
+[2023-07-16 08:56:02] [valid] DefaultVocab keeps original segments for scoring
+[2023-07-16 08:56:02] [valid]   Hyp: L a m i n i s t r a d e l a m i n i s t r a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e E d u c a c i ó n y l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e E d u c a c i ó n y l a S e c r e t a r í a d e E d u c a c i ó n y e l p r o y e c t o d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e P o l í t i c a s E d u c a c i ó n y l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e P o l í t i c a s L i n g ũ í s t i c a s e n e l p r o y e c t o d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e
+[2023-07-16 08:56:02] [valid]   Ref: < u n k > i m p o r t a n t e c i t a r q u e l o s d a ñ o s < u n k > a l o s u s u a r i o s p o r e s t a s i t u a c i ó n a f e c t a n s e r i a m e n t e a l a e c o n o m í a e n g e n e r a l , a l á r e a s o c i a l e < u n k > a l a i n t e g r i d a d f í s i c a d e l a s p e r s o n a s q u e t r a n s i t a n p o r d i c h a r u t a < u n k > < u n k > p é r d i d a d e v i d a s y l e s i o n e s < u n k > d a ñ o a l o s v e h í c u l o s d e < u n k > a l o s a n i m a l e s y m e r c a d e r í a s e n g e n e r a l < u n k > s o b r e c o s t o s e n t i e m p o y d i n e r o a l < u n k > < u n k > e x p r e s a l a n o t a < u n k > p o r e l t i t u l a r d e l a < u n k > L u i s < u n k > y e l s e c r e t a r i o d e l < u n k > J o r g e < u n k >
+[2023-07-16 08:58:33] [valid] Ep. 2 : Up. 300 : chrf : 12.8035 : new best
+[2023-07-16 09:01:34] [valid] Ep. 2 : Up. 300 : translation : 0 : new best
+[2023-07-16 09:01:57] Seen 18,843 samples
+[2023-07-16 09:01:57] Starting data epoch 3 in logical epoch 3
+[2023-07-16 09:01:57] [data] Shuffling data
+[2023-07-16 09:01:57] [data] Done reading 20,192 sentences
+[2023-07-16 09:01:58] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 09:04:59] [valid] Ep. 3 : Up. 600 : chrf : 16.2372 : new best
+[2023-07-16 09:08:03] [valid] Ep. 3 : Up. 600 : translation : 0 : stalled 1 times (last best: 0)
+[2023-07-16 09:08:26] Seen 18,843 samples
+[2023-07-16 09:08:26] Starting data epoch 4 in logical epoch 4
+[2023-07-16 09:08:26] [data] Shuffling data
+[2023-07-16 09:08:26] [data] Done reading 20,192 sentences
+[2023-07-16 09:08:26] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 09:11:32] [valid] Ep. 4 : Up. 900 : chrf : 18.013 : new best
+[2023-07-16 09:11:58] [marian] Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-07-16 09:11:58] [marian] Running on node21.datos.cluster.uy as process 31892 with command line:
+[2023-07-16 09:11:58] [marian] /marian/build/marian --valid-script-path /docker/home/marianmt/scripts/validate/valid.sh --valid-script-args /docker/home/marianmt /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es sacrebleu_corpus_bleu --early-stopping 3 --valid-freq 300 --train-sets /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn /docker/home/marianmt/artifacts/data/train/train_es.txt.es --model /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update/gn_es_test_by_update.npz --after-epochs 5 --vocabs /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es --seed 1234 --type transformer --cpu-threads 0 --log /docker/home/marianmt/logs/marian/log_gn_es_test_by_update.log --valid-log /docker/home/marianmt/logs/marian/valid_log_gn_es_test_by_update.log --valid-sets /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es --valid-metrics chrf translation --valid-translation-output /docker/home/marianmt/evaluation/decoded-transformer-gn-es.txt --quiet-translation --overwrite
+[2023-07-16 09:11:58] [config] after: 0e
+[2023-07-16 09:11:58] [config] after-batches: 0
+[2023-07-16 09:11:58] [config] after-epochs: 5
+[2023-07-16 09:11:58] [config] all-caps-every: 0
+[2023-07-16 09:11:58] [config] allow-unk: false
+[2023-07-16 09:11:58] [config] authors: false
+[2023-07-16 09:11:58] [config] beam-size: 12
+[2023-07-16 09:11:58] [config] bert-class-symbol: "[CLS]"
+[2023-07-16 09:11:58] [config] bert-mask-symbol: "[MASK]"
+[2023-07-16 09:11:58] [config] bert-masking-fraction: 0.15
+[2023-07-16 09:11:58] [config] bert-sep-symbol: "[SEP]"
+[2023-07-16 09:11:58] [config] bert-train-type-embeddings: true
+[2023-07-16 09:11:58] [config] bert-type-vocab-size: 2
+[2023-07-16 09:11:58] [config] build-info: ""
+[2023-07-16 09:11:58] [config] check-gradient-nan: false
+[2023-07-16 09:11:58] [config] check-nan: false
+[2023-07-16 09:11:58] [config] cite: false
+[2023-07-16 09:11:58] [config] clip-norm: 1
+[2023-07-16 09:11:58] [config] cost-scaling:
+[2023-07-16 09:11:58] [config]   []
+[2023-07-16 09:11:58] [config] cost-type: ce-sum
+[2023-07-16 09:11:58] [config] cpu-threads: 0
+[2023-07-16 09:11:58] [config] data-threads: 8
+[2023-07-16 09:11:58] [config] data-weighting: ""
+[2023-07-16 09:11:58] [config] data-weighting-type: sentence
+[2023-07-16 09:11:58] [config] dec-cell: gru
+[2023-07-16 09:11:58] [config] dec-cell-base-depth: 2
+[2023-07-16 09:11:58] [config] dec-cell-high-depth: 1
+[2023-07-16 09:11:58] [config] dec-depth: 1
+[2023-07-16 09:11:58] [config] devices:
+[2023-07-16 09:11:58] [config]   - 0
+[2023-07-16 09:11:58] [config] dim-emb: 512
+[2023-07-16 09:11:58] [config] dim-rnn: 1024
+[2023-07-16 09:11:58] [config] dim-vocabs:
+[2023-07-16 09:11:58] [config]   - 0
+[2023-07-16 09:11:58] [config]   - 0
+[2023-07-16 09:11:58] [config] disp-first: 0
+[2023-07-16 09:11:58] [config] disp-freq: 1000u
+[2023-07-16 09:11:58] [config] disp-label-counts: true
+[2023-07-16 09:11:58] [config] dropout-rnn: 0
+[2023-07-16 09:11:58] [config] dropout-src: 0
+[2023-07-16 09:11:58] [config] dropout-trg: 0
+[2023-07-16 09:11:58] [config] dump-config: ""
+[2023-07-16 09:11:58] [config] dynamic-gradient-scaling:
+[2023-07-16 09:11:58] [config]   []
+[2023-07-16 09:11:58] [config] early-stopping: 3
+[2023-07-16 09:11:58] [config] early-stopping-on: first
+[2023-07-16 09:11:58] [config] embedding-fix-src: false
+[2023-07-16 09:11:58] [config] embedding-fix-trg: false
+[2023-07-16 09:11:58] [config] embedding-normalization: false
+[2023-07-16 09:11:58] [config] embedding-vectors:
+[2023-07-16 09:11:58] [config]   []
+[2023-07-16 09:11:58] [config] enc-cell: gru
+[2023-07-16 09:11:58] [config] enc-cell-depth: 1
+[2023-07-16 09:11:58] [config] enc-depth: 1
+[2023-07-16 09:11:58] [config] enc-type: bidirectional
+[2023-07-16 09:11:58] [config] english-title-case-every: 0
+[2023-07-16 09:11:58] [config] exponential-smoothing: 0
+[2023-07-16 09:11:58] [config] factor-weight: 1
+[2023-07-16 09:11:58] [config] factors-combine: sum
+[2023-07-16 09:11:58] [config] factors-dim-emb: 0
+[2023-07-16 09:11:58] [config] gradient-checkpointing: false
+[2023-07-16 09:11:58] [config] gradient-norm-average-window: 100
+[2023-07-16 09:11:58] [config] guided-alignment: none
+[2023-07-16 09:11:58] [config] guided-alignment-cost: mse
+[2023-07-16 09:11:58] [config] guided-alignment-weight: 0.1
+[2023-07-16 09:11:58] [config] ignore-model-config: false
+[2023-07-16 09:11:58] [config] input-types:
+[2023-07-16 09:11:58] [config]   []
+[2023-07-16 09:11:58] [config] interpolate-env-vars: false
+[2023-07-16 09:11:58] [config] keep-best: false
+[2023-07-16 09:11:58] [config] label-smoothing: 0
+[2023-07-16 09:11:58] [config] layer-normalization: false
+[2023-07-16 09:11:58] [config] learn-rate: 0.0001
+[2023-07-16 09:11:58] [config] lemma-dependency: ""
+[2023-07-16 09:11:58] [config] lemma-dim-emb: 0
+[2023-07-16 09:11:58] [config] log: /docker/home/marianmt/logs/marian/log_gn_es_test_by_update.log
+[2023-07-16 09:11:58] [config] log-level: info
+[2023-07-16 09:11:58] [config] log-time-zone: ""
+[2023-07-16 09:11:58] [config] logical-epoch:
+[2023-07-16 09:11:58] [config]   - 1e
+[2023-07-16 09:11:58] [config]   - 0
+[2023-07-16 09:11:58] [config] lr-decay: 0
+[2023-07-16 09:11:58] [config] lr-decay-freq: 50000
+[2023-07-16 09:11:58] [config] lr-decay-inv-sqrt:
+[2023-07-16 09:11:58] [config]   - 0
+[2023-07-16 09:11:58] [config] lr-decay-repeat-warmup: false
+[2023-07-16 09:11:58] [config] lr-decay-reset-optimizer: false
+[2023-07-16 09:11:58] [config] lr-decay-start:
+[2023-07-16 09:11:58] [config]   - 10
+[2023-07-16 09:11:58] [config]   - 1
+[2023-07-16 09:11:58] [config] lr-decay-strategy: epoch+stalled
+[2023-07-16 09:11:58] [config] lr-report: false
+[2023-07-16 09:11:58] [config] lr-warmup: 0
+[2023-07-16 09:11:58] [config] lr-warmup-at-reload: false
+[2023-07-16 09:11:58] [config] lr-warmup-cycle: false
+[2023-07-16 09:11:58] [config] lr-warmup-start-rate: 0
+[2023-07-16 09:11:58] [config] max-length: 50
+[2023-07-16 09:11:58] [config] max-length-crop: false
+[2023-07-16 09:11:58] [config] max-length-factor: 3
+[2023-07-16 09:11:58] [config] maxi-batch: 100
+[2023-07-16 09:11:58] [config] maxi-batch-sort: trg
+[2023-07-16 09:11:58] [config] mini-batch: 64
+[2023-07-16 09:11:58] [config] mini-batch-fit: false
+[2023-07-16 09:11:58] [config] mini-batch-fit-step: 10
+[2023-07-16 09:11:58] [config] mini-batch-round-up: true
+[2023-07-16 09:11:58] [config] mini-batch-track-lr: false
+[2023-07-16 09:11:58] [config] mini-batch-warmup: 0
+[2023-07-16 09:11:58] [config] mini-batch-words: 0
+[2023-07-16 09:11:58] [config] mini-batch-words-ref: 0
+[2023-07-16 09:11:58] [config] model: /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update/gn_es_test_by_update.npz
+[2023-07-16 09:11:58] [config] multi-loss-type: sum
+[2023-07-16 09:11:58] [config] n-best: false
+[2023-07-16 09:11:58] [config] no-nccl: false
+[2023-07-16 09:11:58] [config] no-reload: false
+[2023-07-16 09:11:58] [config] no-restore-corpus: false
+[2023-07-16 09:11:58] [config] normalize: 0
+[2023-07-16 09:11:58] [config] normalize-gradient: false
+[2023-07-16 09:11:58] [config] num-devices: 0
+[2023-07-16 09:11:58] [config] optimizer: adam
+[2023-07-16 09:11:58] [config] optimizer-delay: 1
+[2023-07-16 09:11:58] [config] optimizer-params:
+[2023-07-16 09:11:58] [config]   []
+[2023-07-16 09:11:58] [config] output-omit-bias: false
+[2023-07-16 09:11:58] [config] overwrite: true
+[2023-07-16 09:11:58] [config] precision:
+[2023-07-16 09:11:58] [config]   - float32
+[2023-07-16 09:11:58] [config]   - float32
+[2023-07-16 09:11:58] [config] pretrained-model: ""
+[2023-07-16 09:11:58] [config] quantize-biases: false
+[2023-07-16 09:11:58] [config] quantize-bits: 0
+[2023-07-16 09:11:58] [config] quantize-log-based: false
+[2023-07-16 09:11:58] [config] quantize-optimization-steps: 0
+[2023-07-16 09:11:58] [config] quiet: false
+[2023-07-16 09:11:58] [config] quiet-translation: true
+[2023-07-16 09:11:58] [config] relative-paths: false
+[2023-07-16 09:11:58] [config] right-left: false
+[2023-07-16 09:11:58] [config] save-freq: 10000u
+[2023-07-16 09:11:58] [config] seed: 1234
+[2023-07-16 09:11:58] [config] sentencepiece-alphas:
+[2023-07-16 09:11:58] [config]   []
+[2023-07-16 09:11:58] [config] sentencepiece-max-lines: 2000000
+[2023-07-16 09:11:58] [config] sentencepiece-options: ""
+[2023-07-16 09:11:58] [config] sharding: global
+[2023-07-16 09:11:58] [config] shuffle: data
+[2023-07-16 09:11:58] [config] shuffle-in-ram: false
+[2023-07-16 09:11:58] [config] sigterm: save-and-exit
+[2023-07-16 09:11:58] [config] skip: false
+[2023-07-16 09:11:58] [config] sqlite: ""
+[2023-07-16 09:11:58] [config] sqlite-drop: false
+[2023-07-16 09:11:58] [config] sync-freq: 200u
+[2023-07-16 09:11:58] [config] sync-sgd: false
+[2023-07-16 09:11:58] [config] tempdir: /tmp
+[2023-07-16 09:11:58] [config] tied-embeddings: false
+[2023-07-16 09:11:58] [config] tied-embeddings-all: false
+[2023-07-16 09:11:58] [config] tied-embeddings-src: false
+[2023-07-16 09:11:58] [config] train-embedder-rank:
+[2023-07-16 09:11:58] [config]   []
+[2023-07-16 09:11:58] [config] train-sets:
+[2023-07-16 09:11:58] [config]   - /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn
+[2023-07-16 09:11:58] [config]   - /docker/home/marianmt/artifacts/data/train/train_es.txt.es
+[2023-07-16 09:11:58] [config] transformer-aan-activation: swish
+[2023-07-16 09:11:58] [config] transformer-aan-depth: 2
+[2023-07-16 09:11:58] [config] transformer-aan-nogate: false
+[2023-07-16 09:11:58] [config] transformer-decoder-autoreg: self-attention
+[2023-07-16 09:11:58] [config] transformer-decoder-dim-ffn: 0
+[2023-07-16 09:11:58] [config] transformer-decoder-ffn-depth: 0
+[2023-07-16 09:11:58] [config] transformer-depth-scaling: false
+[2023-07-16 09:11:58] [config] transformer-dim-aan: 2048
+[2023-07-16 09:11:58] [config] transformer-dim-ffn: 2048
+[2023-07-16 09:11:58] [config] transformer-dropout: 0
+[2023-07-16 09:11:58] [config] transformer-dropout-attention: 0
+[2023-07-16 09:11:58] [config] transformer-dropout-ffn: 0
+[2023-07-16 09:11:58] [config] transformer-ffn-activation: swish
+[2023-07-16 09:11:58] [config] transformer-ffn-depth: 2
+[2023-07-16 09:11:58] [config] transformer-guided-alignment-layer: last
+[2023-07-16 09:11:58] [config] transformer-heads: 8
+[2023-07-16 09:11:58] [config] transformer-no-projection: false
+[2023-07-16 09:11:58] [config] transformer-pool: false
+[2023-07-16 09:11:58] [config] transformer-postprocess: dan
+[2023-07-16 09:11:58] [config] transformer-postprocess-emb: d
+[2023-07-16 09:11:58] [config] transformer-postprocess-top: ""
+[2023-07-16 09:11:58] [config] transformer-preprocess: ""
+[2023-07-16 09:11:58] [config] transformer-tied-layers:
+[2023-07-16 09:11:58] [config]   []
+[2023-07-16 09:11:58] [config] transformer-train-position-embeddings: false
+[2023-07-16 09:11:58] [config] tsv: false
+[2023-07-16 09:11:58] [config] tsv-fields: 0
+[2023-07-16 09:11:58] [config] type: transformer
+[2023-07-16 09:11:58] [config] ulr: false
+[2023-07-16 09:11:58] [config] ulr-dim-emb: 0
+[2023-07-16 09:11:58] [config] ulr-dropout: 0
+[2023-07-16 09:11:58] [config] ulr-keys-vectors: ""
+[2023-07-16 09:11:58] [config] ulr-query-vectors: ""
+[2023-07-16 09:11:58] [config] ulr-softmax-temperature: 1
+[2023-07-16 09:11:58] [config] ulr-trainable-transformation: false
+[2023-07-16 09:11:58] [config] unlikelihood-loss: false
+[2023-07-16 09:11:58] [config] valid-freq: 300
+[2023-07-16 09:11:58] [config] valid-log: /docker/home/marianmt/logs/marian/valid_log_gn_es_test_by_update.log
+[2023-07-16 09:11:58] [config] valid-max-length: 1000
+[2023-07-16 09:11:58] [config] valid-metrics:
+[2023-07-16 09:11:58] [config]   - chrf
+[2023-07-16 09:11:58] [config]   - translation
+[2023-07-16 09:11:58] [config] valid-mini-batch: 32
+[2023-07-16 09:11:58] [config] valid-reset-stalled: false
+[2023-07-16 09:11:58] [config] valid-script-args:
+[2023-07-16 09:11:58] [config]   - /docker/home/marianmt
+[2023-07-16 09:11:58] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-07-16 09:11:58] [config]   - sacrebleu_corpus_bleu
+[2023-07-16 09:11:58] [config] valid-script-path: /docker/home/marianmt/scripts/validate/valid.sh
+[2023-07-16 09:11:58] [config] valid-sets:
+[2023-07-16 09:11:58] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn
+[2023-07-16 09:11:58] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-07-16 09:11:58] [config] valid-translation-output: /docker/home/marianmt/evaluation/decoded-transformer-gn-es.txt
+[2023-07-16 09:11:58] [config] vocabs:
+[2023-07-16 09:11:58] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-07-16 09:11:58] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-07-16 09:11:58] [config] word-penalty: 0
+[2023-07-16 09:11:58] [config] word-scores: false
+[2023-07-16 09:11:58] [config] workspace: 2048
+[2023-07-16 09:11:58] [config] Model is being created with Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-07-16 09:11:58] [MPI rank 0 out of 1]: GPU[0]
+[2023-07-16 09:11:58] [training] Using single-device training
+[2023-07-16 09:11:59] Synced seed 1234
+[2023-07-16 09:11:59] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-07-16 09:11:59] [data] Setting vocabulary size for input 0 to 54,042
+[2023-07-16 09:11:59] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-07-16 09:11:59] [data] Setting vocabulary size for input 1 to 36,507
+[2023-07-16 09:11:59] [MPI rank 0 out of 1]: GPU[0]
+[2023-07-16 09:12:00] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-07-16 09:12:01] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-07-16 09:12:01] [comm] Using global sharding
+[2023-07-16 09:12:01] [comm] NCCLCommunicators constructed successfully
+[2023-07-16 09:12:01] [training] Using 1 GPUs
+[2023-07-16 09:12:01] Training started
+[2023-07-16 09:12:01] [data] Shuffling data
+[2023-07-16 09:12:01] [data] Done reading 20,192 sentences
+[2023-07-16 09:12:01] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 09:12:02] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2023-07-16 09:12:02] [logits] Applying loss function for 1 factor(s)
+[2023-07-16 09:12:02] [memory] Reserving 276 MB, device gpu0
+[2023-07-16 09:12:04] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2023-07-16 09:12:04] [memory] Reserving 276 MB, device gpu0
+[2023-07-16 09:12:04] Parameter type float32, optimization type float32, casting types false
+[2023-07-16 09:12:04] Allocating memory for Adam-specific shards
+[2023-07-16 09:12:04] [memory] Reserving 552 MB, device gpu0
+[2023-07-16 09:12:22] Seen 18,843 samples
+[2023-07-16 09:12:22] Starting data epoch 2 in logical epoch 2
+[2023-07-16 09:12:22] [data] Shuffling data
+[2023-07-16 09:12:22] [data] Done reading 20,192 sentences
+[2023-07-16 09:12:22] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 09:12:26] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-07-16 09:12:26] [valid] First sentence's tokens as scored:
+[2023-07-16 09:12:26] [valid] DefaultVocab keeps original segments for scoring
+[2023-07-16 09:12:26] [valid]   Hyp: L a m i n i s t r a d e l a m i n i s t r a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e E d u c a c i ó n y l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e E d u c a c i ó n y l a S e c r e t a r í a d e E d u c a c i ó n y e l p r o y e c t o d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e P o l í t i c a s E d u c a c i ó n y l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e P o l í t i c a s L i n g ũ í s t i c a s e n e l p r o y e c t o d e l a S e c r e t a r í a d e l a S e c r e t a r í a d e
+[2023-07-16 09:12:26] [valid]   Ref: < u n k > i m p o r t a n t e c i t a r q u e l o s d a ñ o s < u n k > a l o s u s u a r i o s p o r e s t a s i t u a c i ó n a f e c t a n s e r i a m e n t e a l a e c o n o m í a e n g e n e r a l , a l á r e a s o c i a l e < u n k > a l a i n t e g r i d a d f í s i c a d e l a s p e r s o n a s q u e t r a n s i t a n p o r d i c h a r u t a < u n k > < u n k > p é r d i d a d e v i d a s y l e s i o n e s < u n k > d a ñ o a l o s v e h í c u l o s d e < u n k > a l o s a n i m a l e s y m e r c a d e r í a s e n g e n e r a l < u n k > s o b r e c o s t o s e n t i e m p o y d i n e r o a l < u n k > < u n k > e x p r e s a l a n o t a < u n k > p o r e l t i t u l a r d e l a < u n k > L u i s < u n k > y e l s e c r e t a r i o d e l < u n k > J o r g e < u n k >
+[2023-07-16 09:15:25] [valid] Ep. 2 : Up. 300 : chrf : 12.8041 : new best
+[2023-07-16 09:18:31] [valid] Ep. 2 : Up. 300 : translation : 0.897086 : new best
+[2023-07-16 09:18:53] Seen 18,843 samples
+[2023-07-16 09:18:53] Starting data epoch 3 in logical epoch 3
+[2023-07-16 09:18:53] [data] Shuffling data
+[2023-07-16 09:18:53] [data] Done reading 20,192 sentences
+[2023-07-16 09:18:53] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 09:21:56] [valid] Ep. 3 : Up. 600 : chrf : 16.2375 : new best
+[2023-07-16 09:25:01] [valid] Ep. 3 : Up. 600 : translation : 1.42455 : new best
+[2023-07-16 09:25:22] Seen 18,843 samples
+[2023-07-16 09:25:22] Starting data epoch 4 in logical epoch 4
+[2023-07-16 09:25:22] [data] Shuffling data
+[2023-07-16 09:25:22] [data] Done reading 20,192 sentences
+[2023-07-16 09:25:22] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 09:28:28] [valid] Ep. 4 : Up. 900 : chrf : 18.0125 : new best
+[2023-07-16 09:31:36] [valid] Ep. 4 : Up. 900 : translation : 1.88731 : new best
+[2023-07-16 09:31:43] Ep. 4 : Up. 1000 : Sen. 6,932 : Cost 5.39951372 * 1,343,216 @ 768 after 1,343,216 : Time 1184.39s : 1134.10 words/s : gNorm 2.2512
+[2023-07-16 09:31:56] Seen 18,843 samples
+[2023-07-16 09:31:56] Starting data epoch 5 in logical epoch 5
+[2023-07-16 09:31:56] [data] Shuffling data
+[2023-07-16 09:31:56] [data] Done reading 20,192 sentences
+[2023-07-16 09:31:56] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 09:35:00] [valid] Ep. 5 : Up. 1200 : chrf : 20.7664 : new best
+[2023-07-16 09:38:03] [valid] Ep. 5 : Up. 1200 : translation : 2.7296 : new best
+[2023-07-16 09:38:23] Seen 18,843 samples
+[2023-07-16 09:38:23] Starting data epoch 6 in logical epoch 6
+[2023-07-16 09:38:23] Training finished
+[2023-07-16 09:41:14] [valid] Ep. 6 : Up. 1485 : chrf : 22.0906 : new best
+[2023-07-16 09:44:05] [valid] Ep. 6 : Up. 1485 : translation : 3.94739 : new best
+[2023-07-16 09:44:05] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update/gn_es_test_by_update.npz
+[2023-07-16 09:44:09] Saving Adam parameters
+[2023-07-16 09:44:10] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update/gn_es_test_by_update.npz and /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update/gn_es_test_by_update.npz.optimizer.npz

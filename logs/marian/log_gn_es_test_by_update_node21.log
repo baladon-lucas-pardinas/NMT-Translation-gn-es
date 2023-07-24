@@ -1,0 +1,591 @@
+[2023-07-16 10:03:59] [marian] Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-07-16 10:03:59] [marian] Running on node21.datos.cluster.uy as process 35446 with command line:
+[2023-07-16 10:03:59] [marian] /marian/build/marian --valid-script-path /docker/home/marianmt/scripts/validate/valid.sh --valid-script-args /docker/home/marianmt /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es sacrebleu_corpus_bleu --early-stopping 3 --valid-freq 3000 --train-sets /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn /docker/home/marianmt/artifacts/data/train/train_es.txt.es --model /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update_node21/gn_es_test_by_update_node21.npz --after-epochs 200 --vocabs /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es --seed 1234 --type transformer --cpu-threads 0 --log /docker/home/marianmt/logs/marian/log_gn_es_test_by_update_node21.log --valid-log /docker/home/marianmt/logs/marian/valid_log_gn_es_test_by_update_node21.log --valid-sets /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es --valid-metrics chrf translation --valid-translation-output /docker/home/marianmt/evaluation/decoded-transformer-gn-es.txt --quiet-translation --overwrite
+[2023-07-16 10:03:59] [config] after: 0e
+[2023-07-16 10:03:59] [config] after-batches: 0
+[2023-07-16 10:03:59] [config] after-epochs: 200
+[2023-07-16 10:03:59] [config] all-caps-every: 0
+[2023-07-16 10:03:59] [config] allow-unk: false
+[2023-07-16 10:03:59] [config] authors: false
+[2023-07-16 10:03:59] [config] beam-size: 12
+[2023-07-16 10:03:59] [config] bert-class-symbol: "[CLS]"
+[2023-07-16 10:03:59] [config] bert-mask-symbol: "[MASK]"
+[2023-07-16 10:03:59] [config] bert-masking-fraction: 0.15
+[2023-07-16 10:03:59] [config] bert-sep-symbol: "[SEP]"
+[2023-07-16 10:03:59] [config] bert-train-type-embeddings: true
+[2023-07-16 10:03:59] [config] bert-type-vocab-size: 2
+[2023-07-16 10:03:59] [config] build-info: ""
+[2023-07-16 10:03:59] [config] check-gradient-nan: false
+[2023-07-16 10:03:59] [config] check-nan: false
+[2023-07-16 10:03:59] [config] cite: false
+[2023-07-16 10:03:59] [config] clip-norm: 1
+[2023-07-16 10:03:59] [config] cost-scaling:
+[2023-07-16 10:03:59] [config]   []
+[2023-07-16 10:03:59] [config] cost-type: ce-sum
+[2023-07-16 10:03:59] [config] cpu-threads: 0
+[2023-07-16 10:03:59] [config] data-threads: 8
+[2023-07-16 10:03:59] [config] data-weighting: ""
+[2023-07-16 10:03:59] [config] data-weighting-type: sentence
+[2023-07-16 10:03:59] [config] dec-cell: gru
+[2023-07-16 10:03:59] [config] dec-cell-base-depth: 2
+[2023-07-16 10:03:59] [config] dec-cell-high-depth: 1
+[2023-07-16 10:03:59] [config] dec-depth: 1
+[2023-07-16 10:03:59] [config] devices:
+[2023-07-16 10:03:59] [config]   - 0
+[2023-07-16 10:03:59] [config] dim-emb: 512
+[2023-07-16 10:03:59] [config] dim-rnn: 1024
+[2023-07-16 10:03:59] [config] dim-vocabs:
+[2023-07-16 10:03:59] [config]   - 0
+[2023-07-16 10:03:59] [config]   - 0
+[2023-07-16 10:03:59] [config] disp-first: 0
+[2023-07-16 10:03:59] [config] disp-freq: 1000u
+[2023-07-16 10:03:59] [config] disp-label-counts: true
+[2023-07-16 10:03:59] [config] dropout-rnn: 0
+[2023-07-16 10:03:59] [config] dropout-src: 0
+[2023-07-16 10:03:59] [config] dropout-trg: 0
+[2023-07-16 10:03:59] [config] dump-config: ""
+[2023-07-16 10:03:59] [config] dynamic-gradient-scaling:
+[2023-07-16 10:03:59] [config]   []
+[2023-07-16 10:03:59] [config] early-stopping: 3
+[2023-07-16 10:03:59] [config] early-stopping-on: first
+[2023-07-16 10:03:59] [config] embedding-fix-src: false
+[2023-07-16 10:03:59] [config] embedding-fix-trg: false
+[2023-07-16 10:03:59] [config] embedding-normalization: false
+[2023-07-16 10:03:59] [config] embedding-vectors:
+[2023-07-16 10:03:59] [config]   []
+[2023-07-16 10:03:59] [config] enc-cell: gru
+[2023-07-16 10:03:59] [config] enc-cell-depth: 1
+[2023-07-16 10:03:59] [config] enc-depth: 1
+[2023-07-16 10:03:59] [config] enc-type: bidirectional
+[2023-07-16 10:03:59] [config] english-title-case-every: 0
+[2023-07-16 10:03:59] [config] exponential-smoothing: 0
+[2023-07-16 10:03:59] [config] factor-weight: 1
+[2023-07-16 10:03:59] [config] factors-combine: sum
+[2023-07-16 10:03:59] [config] factors-dim-emb: 0
+[2023-07-16 10:03:59] [config] gradient-checkpointing: false
+[2023-07-16 10:03:59] [config] gradient-norm-average-window: 100
+[2023-07-16 10:03:59] [config] guided-alignment: none
+[2023-07-16 10:03:59] [config] guided-alignment-cost: mse
+[2023-07-16 10:03:59] [config] guided-alignment-weight: 0.1
+[2023-07-16 10:03:59] [config] ignore-model-config: false
+[2023-07-16 10:03:59] [config] input-types:
+[2023-07-16 10:03:59] [config]   []
+[2023-07-16 10:03:59] [config] interpolate-env-vars: false
+[2023-07-16 10:03:59] [config] keep-best: false
+[2023-07-16 10:03:59] [config] label-smoothing: 0
+[2023-07-16 10:03:59] [config] layer-normalization: false
+[2023-07-16 10:03:59] [config] learn-rate: 0.0001
+[2023-07-16 10:03:59] [config] lemma-dependency: ""
+[2023-07-16 10:03:59] [config] lemma-dim-emb: 0
+[2023-07-16 10:03:59] [config] log: /docker/home/marianmt/logs/marian/log_gn_es_test_by_update_node21.log
+[2023-07-16 10:03:59] [config] log-level: info
+[2023-07-16 10:03:59] [config] log-time-zone: ""
+[2023-07-16 10:03:59] [config] logical-epoch:
+[2023-07-16 10:03:59] [config]   - 1e
+[2023-07-16 10:03:59] [config]   - 0
+[2023-07-16 10:03:59] [config] lr-decay: 0
+[2023-07-16 10:03:59] [config] lr-decay-freq: 50000
+[2023-07-16 10:03:59] [config] lr-decay-inv-sqrt:
+[2023-07-16 10:03:59] [config]   - 0
+[2023-07-16 10:03:59] [config] lr-decay-repeat-warmup: false
+[2023-07-16 10:03:59] [config] lr-decay-reset-optimizer: false
+[2023-07-16 10:03:59] [config] lr-decay-start:
+[2023-07-16 10:03:59] [config]   - 10
+[2023-07-16 10:03:59] [config]   - 1
+[2023-07-16 10:03:59] [config] lr-decay-strategy: epoch+stalled
+[2023-07-16 10:03:59] [config] lr-report: false
+[2023-07-16 10:03:59] [config] lr-warmup: 0
+[2023-07-16 10:03:59] [config] lr-warmup-at-reload: false
+[2023-07-16 10:03:59] [config] lr-warmup-cycle: false
+[2023-07-16 10:03:59] [config] lr-warmup-start-rate: 0
+[2023-07-16 10:03:59] [config] max-length: 50
+[2023-07-16 10:03:59] [config] max-length-crop: false
+[2023-07-16 10:03:59] [config] max-length-factor: 3
+[2023-07-16 10:03:59] [config] maxi-batch: 100
+[2023-07-16 10:03:59] [config] maxi-batch-sort: trg
+[2023-07-16 10:03:59] [config] mini-batch: 64
+[2023-07-16 10:03:59] [config] mini-batch-fit: false
+[2023-07-16 10:03:59] [config] mini-batch-fit-step: 10
+[2023-07-16 10:03:59] [config] mini-batch-round-up: true
+[2023-07-16 10:03:59] [config] mini-batch-track-lr: false
+[2023-07-16 10:03:59] [config] mini-batch-warmup: 0
+[2023-07-16 10:03:59] [config] mini-batch-words: 0
+[2023-07-16 10:03:59] [config] mini-batch-words-ref: 0
+[2023-07-16 10:03:59] [config] model: /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update_node21/gn_es_test_by_update_node21.npz
+[2023-07-16 10:03:59] [config] multi-loss-type: sum
+[2023-07-16 10:03:59] [config] n-best: false
+[2023-07-16 10:03:59] [config] no-nccl: false
+[2023-07-16 10:03:59] [config] no-reload: false
+[2023-07-16 10:03:59] [config] no-restore-corpus: false
+[2023-07-16 10:03:59] [config] normalize: 0
+[2023-07-16 10:03:59] [config] normalize-gradient: false
+[2023-07-16 10:03:59] [config] num-devices: 0
+[2023-07-16 10:03:59] [config] optimizer: adam
+[2023-07-16 10:03:59] [config] optimizer-delay: 1
+[2023-07-16 10:03:59] [config] optimizer-params:
+[2023-07-16 10:03:59] [config]   []
+[2023-07-16 10:03:59] [config] output-omit-bias: false
+[2023-07-16 10:03:59] [config] overwrite: true
+[2023-07-16 10:03:59] [config] precision:
+[2023-07-16 10:03:59] [config]   - float32
+[2023-07-16 10:03:59] [config]   - float32
+[2023-07-16 10:03:59] [config] pretrained-model: ""
+[2023-07-16 10:03:59] [config] quantize-biases: false
+[2023-07-16 10:03:59] [config] quantize-bits: 0
+[2023-07-16 10:03:59] [config] quantize-log-based: false
+[2023-07-16 10:03:59] [config] quantize-optimization-steps: 0
+[2023-07-16 10:03:59] [config] quiet: false
+[2023-07-16 10:03:59] [config] quiet-translation: true
+[2023-07-16 10:03:59] [config] relative-paths: false
+[2023-07-16 10:03:59] [config] right-left: false
+[2023-07-16 10:03:59] [config] save-freq: 10000u
+[2023-07-16 10:03:59] [config] seed: 1234
+[2023-07-16 10:03:59] [config] sentencepiece-alphas:
+[2023-07-16 10:03:59] [config]   []
+[2023-07-16 10:03:59] [config] sentencepiece-max-lines: 2000000
+[2023-07-16 10:03:59] [config] sentencepiece-options: ""
+[2023-07-16 10:03:59] [config] sharding: global
+[2023-07-16 10:03:59] [config] shuffle: data
+[2023-07-16 10:03:59] [config] shuffle-in-ram: false
+[2023-07-16 10:03:59] [config] sigterm: save-and-exit
+[2023-07-16 10:03:59] [config] skip: false
+[2023-07-16 10:03:59] [config] sqlite: ""
+[2023-07-16 10:03:59] [config] sqlite-drop: false
+[2023-07-16 10:03:59] [config] sync-freq: 200u
+[2023-07-16 10:03:59] [config] sync-sgd: false
+[2023-07-16 10:03:59] [config] tempdir: /tmp
+[2023-07-16 10:03:59] [config] tied-embeddings: false
+[2023-07-16 10:03:59] [config] tied-embeddings-all: false
+[2023-07-16 10:03:59] [config] tied-embeddings-src: false
+[2023-07-16 10:03:59] [config] train-embedder-rank:
+[2023-07-16 10:03:59] [config]   []
+[2023-07-16 10:03:59] [config] train-sets:
+[2023-07-16 10:03:59] [config]   - /docker/home/marianmt/artifacts/data/train/train_gn.txt.gn
+[2023-07-16 10:03:59] [config]   - /docker/home/marianmt/artifacts/data/train/train_es.txt.es
+[2023-07-16 10:03:59] [config] transformer-aan-activation: swish
+[2023-07-16 10:03:59] [config] transformer-aan-depth: 2
+[2023-07-16 10:03:59] [config] transformer-aan-nogate: false
+[2023-07-16 10:03:59] [config] transformer-decoder-autoreg: self-attention
+[2023-07-16 10:03:59] [config] transformer-decoder-dim-ffn: 0
+[2023-07-16 10:03:59] [config] transformer-decoder-ffn-depth: 0
+[2023-07-16 10:03:59] [config] transformer-depth-scaling: false
+[2023-07-16 10:03:59] [config] transformer-dim-aan: 2048
+[2023-07-16 10:03:59] [config] transformer-dim-ffn: 2048
+[2023-07-16 10:03:59] [config] transformer-dropout: 0
+[2023-07-16 10:03:59] [config] transformer-dropout-attention: 0
+[2023-07-16 10:03:59] [config] transformer-dropout-ffn: 0
+[2023-07-16 10:03:59] [config] transformer-ffn-activation: swish
+[2023-07-16 10:03:59] [config] transformer-ffn-depth: 2
+[2023-07-16 10:03:59] [config] transformer-guided-alignment-layer: last
+[2023-07-16 10:03:59] [config] transformer-heads: 8
+[2023-07-16 10:03:59] [config] transformer-no-projection: false
+[2023-07-16 10:03:59] [config] transformer-pool: false
+[2023-07-16 10:03:59] [config] transformer-postprocess: dan
+[2023-07-16 10:03:59] [config] transformer-postprocess-emb: d
+[2023-07-16 10:03:59] [config] transformer-postprocess-top: ""
+[2023-07-16 10:03:59] [config] transformer-preprocess: ""
+[2023-07-16 10:03:59] [config] transformer-tied-layers:
+[2023-07-16 10:03:59] [config]   []
+[2023-07-16 10:03:59] [config] transformer-train-position-embeddings: false
+[2023-07-16 10:03:59] [config] tsv: false
+[2023-07-16 10:03:59] [config] tsv-fields: 0
+[2023-07-16 10:03:59] [config] type: transformer
+[2023-07-16 10:03:59] [config] ulr: false
+[2023-07-16 10:03:59] [config] ulr-dim-emb: 0
+[2023-07-16 10:03:59] [config] ulr-dropout: 0
+[2023-07-16 10:03:59] [config] ulr-keys-vectors: ""
+[2023-07-16 10:03:59] [config] ulr-query-vectors: ""
+[2023-07-16 10:03:59] [config] ulr-softmax-temperature: 1
+[2023-07-16 10:03:59] [config] ulr-trainable-transformation: false
+[2023-07-16 10:03:59] [config] unlikelihood-loss: false
+[2023-07-16 10:03:59] [config] valid-freq: 3000
+[2023-07-16 10:03:59] [config] valid-log: /docker/home/marianmt/logs/marian/valid_log_gn_es_test_by_update_node21.log
+[2023-07-16 10:03:59] [config] valid-max-length: 1000
+[2023-07-16 10:03:59] [config] valid-metrics:
+[2023-07-16 10:03:59] [config]   - chrf
+[2023-07-16 10:03:59] [config]   - translation
+[2023-07-16 10:03:59] [config] valid-mini-batch: 32
+[2023-07-16 10:03:59] [config] valid-reset-stalled: false
+[2023-07-16 10:03:59] [config] valid-script-args:
+[2023-07-16 10:03:59] [config]   - /docker/home/marianmt
+[2023-07-16 10:03:59] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-07-16 10:03:59] [config]   - sacrebleu_corpus_bleu
+[2023-07-16 10:03:59] [config] valid-script-path: /docker/home/marianmt/scripts/validate/valid.sh
+[2023-07-16 10:03:59] [config] valid-sets:
+[2023-07-16 10:03:59] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_gn.txt.gn
+[2023-07-16 10:03:59] [config]   - /docker/home/marianmt/artifacts/data/validation/valid_es.txt.es
+[2023-07-16 10:03:59] [config] valid-translation-output: /docker/home/marianmt/evaluation/decoded-transformer-gn-es.txt
+[2023-07-16 10:03:59] [config] vocabs:
+[2023-07-16 10:03:59] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-07-16 10:03:59] [config]   - /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-07-16 10:03:59] [config] word-penalty: 0
+[2023-07-16 10:03:59] [config] word-scores: false
+[2023-07-16 10:03:59] [config] workspace: 2048
+[2023-07-16 10:03:59] [config] Model is being created with Marian v1.11.0 f00d062 2022-02-08 08:39:24 -0800
+[2023-07-16 10:03:59] [MPI rank 0 out of 1]: GPU[0]
+[2023-07-16 10:03:59] [training] Using single-device training
+[2023-07-16 10:04:00] Synced seed 1234
+[2023-07-16 10:04:00] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/gn_unique_tokens.txt.gn
+[2023-07-16 10:04:00] [data] Setting vocabulary size for input 0 to 54,042
+[2023-07-16 10:04:00] [data] Loading vocabulary from text file /docker/home/marianmt/artifacts/data/vocabulary/es_unique_tokens.txt.es
+[2023-07-16 10:04:01] [data] Setting vocabulary size for input 1 to 36,507
+[2023-07-16 10:04:01] [MPI rank 0 out of 1]: GPU[0]
+[2023-07-16 10:04:02] [memory] Extending reserved space to 2048 MB (device gpu0)
+[2023-07-16 10:04:03] [comm] Using NCCL 2.8.3 for GPU communication
+[2023-07-16 10:04:03] [comm] Using global sharding
+[2023-07-16 10:04:03] [comm] NCCLCommunicators constructed successfully
+[2023-07-16 10:04:03] [training] Using 1 GPUs
+[2023-07-16 10:04:03] Training started
+[2023-07-16 10:04:03] [data] Shuffling data
+[2023-07-16 10:04:03] [data] Done reading 20,192 sentences
+[2023-07-16 10:04:03] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:04:03] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2023-07-16 10:04:03] [logits] Applying loss function for 1 factor(s)
+[2023-07-16 10:04:03] [memory] Reserving 276 MB, device gpu0
+[2023-07-16 10:04:09] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2023-07-16 10:04:09] [memory] Reserving 276 MB, device gpu0
+[2023-07-16 10:04:09] Parameter type float32, optimization type float32, casting types false
+[2023-07-16 10:04:09] Allocating memory for Adam-specific shards
+[2023-07-16 10:04:09] [memory] Reserving 552 MB, device gpu0
+[2023-07-16 10:04:25] Seen 18,843 samples
+[2023-07-16 10:04:25] Starting data epoch 2 in logical epoch 2
+[2023-07-16 10:04:25] [data] Shuffling data
+[2023-07-16 10:04:25] [data] Done reading 20,192 sentences
+[2023-07-16 10:04:25] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:04:42] Seen 18,843 samples
+[2023-07-16 10:04:42] Starting data epoch 3 in logical epoch 3
+[2023-07-16 10:04:42] [data] Shuffling data
+[2023-07-16 10:04:42] [data] Done reading 20,192 sentences
+[2023-07-16 10:04:42] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:04:59] Seen 18,843 samples
+[2023-07-16 10:04:59] Starting data epoch 4 in logical epoch 4
+[2023-07-16 10:04:59] [data] Shuffling data
+[2023-07-16 10:04:59] [data] Done reading 20,192 sentences
+[2023-07-16 10:04:59] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:05:05] Ep. 4 : Up. 1000 : Sen. 6,932 : Cost 5.39951372 * 1,343,216 @ 768 after 1,343,216 : Time 64.48s : 20832.43 words/s : gNorm 2.2512
+[2023-07-16 10:05:15] Seen 18,843 samples
+[2023-07-16 10:05:15] Starting data epoch 5 in logical epoch 5
+[2023-07-16 10:05:15] [data] Shuffling data
+[2023-07-16 10:05:16] [data] Done reading 20,192 sentences
+[2023-07-16 10:05:16] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:05:32] Seen 18,843 samples
+[2023-07-16 10:05:32] Starting data epoch 6 in logical epoch 6
+[2023-07-16 10:05:32] [data] Shuffling data
+[2023-07-16 10:05:32] [data] Done reading 20,192 sentences
+[2023-07-16 10:05:32] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:05:49] Seen 18,843 samples
+[2023-07-16 10:05:49] Starting data epoch 7 in logical epoch 7
+[2023-07-16 10:05:49] [data] Shuffling data
+[2023-07-16 10:05:49] [data] Done reading 20,192 sentences
+[2023-07-16 10:05:49] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:06:01] Ep. 7 : Up. 2000 : Sen. 13,882 : Cost 3.33698606 * 1,334,929 @ 2,976 after 2,678,145 : Time 56.18s : 23759.70 words/s : gNorm 2.7515
+[2023-07-16 10:06:06] Seen 18,843 samples
+[2023-07-16 10:06:06] Starting data epoch 8 in logical epoch 8
+[2023-07-16 10:06:06] [data] Shuffling data
+[2023-07-16 10:06:06] [data] Done reading 20,192 sentences
+[2023-07-16 10:06:06] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:06:24] Seen 18,843 samples
+[2023-07-16 10:06:24] Starting data epoch 9 in logical epoch 9
+[2023-07-16 10:06:24] [data] Shuffling data
+[2023-07-16 10:06:24] [data] Done reading 20,192 sentences
+[2023-07-16 10:06:24] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:06:43] Seen 18,843 samples
+[2023-07-16 10:06:43] Starting data epoch 10 in logical epoch 10
+[2023-07-16 10:06:43] [data] Shuffling data
+[2023-07-16 10:06:43] [data] Done reading 20,192 sentences
+[2023-07-16 10:06:44] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:07:03] Seen 18,843 samples
+[2023-07-16 10:07:03] Starting data epoch 11 in logical epoch 11
+[2023-07-16 10:07:03] [data] Shuffling data
+[2023-07-16 10:07:03] [data] Done reading 20,192 sentences
+[2023-07-16 10:07:03] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:07:06] Ep. 11 : Up. 3000 : Sen. 2,048 : Cost 1.78810835 * 1,343,919 @ 1,536 after 4,022,064 : Time 64.29s : 20903.56 words/s : gNorm 2.0332
+[2023-07-16 10:07:10] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-07-16 10:07:10] [valid] First sentence's tokens as scored:
+[2023-07-16 10:07:10] [valid] DefaultVocab keeps original segments for scoring
+[2023-07-16 10:07:10] [valid]   Hyp: P o r o t r a p a r t e , h a c e q u e e s e l t i t u l a r d e l a s a c t i v i d a d e s e n l a s c a l l e s l o c a l e s d e l a e c o n o m í a d e l q u e e s d e c i r , t o d a l a e c o n o m í a d e l p a í s , a s í c o m o a s í c o m o a s í c o m o a s í c o m o a s í c o m o a s í c o m o a s í c o m o a s í c o m o t a m b i é n l a g e n t e e n e l á r e a d e l o s n i ñ o s e n e l á r e a c e n t r a l d e l o s c u a l e s e l á r e a c e n t r a l d e l m i s m o t i e m p o d e l o s d i f e r e n t e s l a s p e r s o n a s q u e t o d o s l o s 6 d e l a e c o n o m í a d e l m i s m o t i e m p o d e l a d o c u m e n t a c i ó n d e l a d o c u m e n t a c i ó n d e l a e c o n o m í a d e l a e c o n o m í a d e l E s t a d o e n e l á r e a d e a u t o r i d a d e s l o c a l e s d e s u s h o g a r e s d e l a e d u c a c i ó n .
+[2023-07-16 10:07:10] [valid]   Ref: < u n k > i m p o r t a n t e c i t a r q u e l o s d a ñ o s < u n k > a l o s u s u a r i o s p o r e s t a s i t u a c i ó n a f e c t a n s e r i a m e n t e a l a e c o n o m í a e n g e n e r a l , a l á r e a s o c i a l e < u n k > a l a i n t e g r i d a d f í s i c a d e l a s p e r s o n a s q u e t r a n s i t a n p o r d i c h a r u t a < u n k > < u n k > p é r d i d a d e v i d a s y l e s i o n e s < u n k > d a ñ o a l o s v e h í c u l o s d e < u n k > a l o s a n i m a l e s y m e r c a d e r í a s e n g e n e r a l < u n k > s o b r e c o s t o s e n t i e m p o y d i n e r o a l < u n k > < u n k > e x p r e s a l a n o t a < u n k > p o r e l t i t u l a r d e l a < u n k > L u i s < u n k > y e l s e c r e t a r i o d e l < u n k > J o r g e < u n k >
+[2023-07-16 10:09:37] [valid] Ep. 11 : Up. 3000 : chrf : 24.4164 : new best
+[2023-07-16 10:12:18] [valid] Ep. 11 : Up. 3000 : translation : 5.20096 : new best
+[2023-07-16 10:12:37] Seen 18,843 samples
+[2023-07-16 10:12:37] Starting data epoch 12 in logical epoch 12
+[2023-07-16 10:12:37] [data] Shuffling data
+[2023-07-16 10:12:37] [data] Done reading 20,192 sentences
+[2023-07-16 10:12:37] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:13:00] Seen 18,843 samples
+[2023-07-16 10:13:00] Starting data epoch 13 in logical epoch 13
+[2023-07-16 10:13:00] [data] Shuffling data
+[2023-07-16 10:13:00] [data] Done reading 20,192 sentences
+[2023-07-16 10:13:00] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:13:23] Seen 18,843 samples
+[2023-07-16 10:13:23] Starting data epoch 14 in logical epoch 14
+[2023-07-16 10:13:23] [data] Shuffling data
+[2023-07-16 10:13:23] [data] Done reading 20,192 sentences
+[2023-07-16 10:13:23] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:13:34] Ep. 14 : Up. 4000 : Sen. 9,128 : Cost 0.76778752 * 1,354,393 @ 2,176 after 5,376,457 : Time 388.87s : 3482.93 words/s : gNorm 1.5286
+[2023-07-16 10:13:45] Seen 18,843 samples
+[2023-07-16 10:13:45] Starting data epoch 15 in logical epoch 15
+[2023-07-16 10:13:45] [data] Shuffling data
+[2023-07-16 10:13:45] [data] Done reading 20,192 sentences
+[2023-07-16 10:13:45] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:14:08] Seen 18,843 samples
+[2023-07-16 10:14:08] Starting data epoch 16 in logical epoch 16
+[2023-07-16 10:14:08] [data] Shuffling data
+[2023-07-16 10:14:08] [data] Done reading 20,192 sentences
+[2023-07-16 10:14:08] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:14:31] Seen 18,843 samples
+[2023-07-16 10:14:31] Starting data epoch 17 in logical epoch 17
+[2023-07-16 10:14:31] [data] Shuffling data
+[2023-07-16 10:14:31] [data] Done reading 20,192 sentences
+[2023-07-16 10:14:31] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:14:51] Ep. 17 : Up. 5000 : Sen. 16,135 : Cost 0.26951322 * 1,331,522 @ 1,216 after 6,707,979 : Time 76.58s : 17388.19 words/s : gNorm 1.2742
+[2023-07-16 10:14:54] Seen 18,843 samples
+[2023-07-16 10:14:54] Starting data epoch 18 in logical epoch 18
+[2023-07-16 10:14:54] [data] Shuffling data
+[2023-07-16 10:14:54] [data] Done reading 20,192 sentences
+[2023-07-16 10:14:54] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:15:17] Seen 18,843 samples
+[2023-07-16 10:15:17] Starting data epoch 19 in logical epoch 19
+[2023-07-16 10:15:17] [data] Shuffling data
+[2023-07-16 10:15:17] [data] Done reading 20,192 sentences
+[2023-07-16 10:15:17] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:15:39] Seen 18,843 samples
+[2023-07-16 10:15:39] Starting data epoch 20 in logical epoch 20
+[2023-07-16 10:15:39] [data] Shuffling data
+[2023-07-16 10:15:39] [data] Done reading 20,192 sentences
+[2023-07-16 10:15:39] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:16:02] Seen 18,843 samples
+[2023-07-16 10:16:02] Starting data epoch 21 in logical epoch 21
+[2023-07-16 10:16:02] [data] Shuffling data
+[2023-07-16 10:16:02] [data] Done reading 20,192 sentences
+[2023-07-16 10:16:02] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:16:08] Ep. 21 : Up. 6000 : Sen. 4,288 : Cost 0.10426767 * 1,344,567 @ 1,231 after 8,052,546 : Time 77.10s : 17438.94 words/s : gNorm 0.9599
+[2023-07-16 10:18:24] [valid] Ep. 21 : Up. 6000 : chrf : 24.7709 : new best
+[2023-07-16 10:20:39] [valid] Ep. 21 : Up. 6000 : translation : 5.63263 : new best
+[2023-07-16 10:20:57] Seen 18,843 samples
+[2023-07-16 10:20:57] Starting data epoch 22 in logical epoch 22
+[2023-07-16 10:20:57] [data] Shuffling data
+[2023-07-16 10:20:57] [data] Done reading 20,192 sentences
+[2023-07-16 10:20:57] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:21:19] Seen 18,843 samples
+[2023-07-16 10:21:19] Starting data epoch 23 in logical epoch 23
+[2023-07-16 10:21:19] [data] Shuffling data
+[2023-07-16 10:21:19] [data] Done reading 20,192 sentences
+[2023-07-16 10:21:19] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:21:41] Seen 18,843 samples
+[2023-07-16 10:21:41] Starting data epoch 24 in logical epoch 24
+[2023-07-16 10:21:41] [data] Shuffling data
+[2023-07-16 10:21:41] [data] Done reading 20,192 sentences
+[2023-07-16 10:21:42] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:21:56] Ep. 24 : Up. 7000 : Sen. 11,277 : Cost 0.05602919 * 1,339,673 @ 704 after 9,392,219 : Time 347.58s : 3854.27 words/s : gNorm 0.8956
+[2023-07-16 10:22:05] Seen 18,843 samples
+[2023-07-16 10:22:05] Starting data epoch 25 in logical epoch 25
+[2023-07-16 10:22:05] [data] Shuffling data
+[2023-07-16 10:22:05] [data] Done reading 20,192 sentences
+[2023-07-16 10:22:05] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:22:27] Seen 18,843 samples
+[2023-07-16 10:22:27] Starting data epoch 26 in logical epoch 26
+[2023-07-16 10:22:27] [data] Shuffling data
+[2023-07-16 10:22:27] [data] Done reading 20,192 sentences
+[2023-07-16 10:22:27] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:22:50] Seen 18,843 samples
+[2023-07-16 10:22:50] Starting data epoch 27 in logical epoch 27
+[2023-07-16 10:22:50] [data] Shuffling data
+[2023-07-16 10:22:50] [data] Done reading 20,192 sentences
+[2023-07-16 10:22:50] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:23:12] Ep. 27 : Up. 8000 : Sen. 18,247 : Cost 0.03849963 * 1,339,074 @ 1,034 after 10,731,293 : Time 76.38s : 17531.44 words/s : gNorm 0.7945
+[2023-07-16 10:23:13] Seen 18,843 samples
+[2023-07-16 10:23:13] Starting data epoch 28 in logical epoch 28
+[2023-07-16 10:23:13] [data] Shuffling data
+[2023-07-16 10:23:13] [data] Done reading 20,192 sentences
+[2023-07-16 10:23:13] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:23:36] Seen 18,843 samples
+[2023-07-16 10:23:36] Starting data epoch 29 in logical epoch 29
+[2023-07-16 10:23:36] [data] Shuffling data
+[2023-07-16 10:23:36] [data] Done reading 20,192 sentences
+[2023-07-16 10:23:37] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:23:59] Seen 18,843 samples
+[2023-07-16 10:23:59] Starting data epoch 30 in logical epoch 30
+[2023-07-16 10:23:59] [data] Shuffling data
+[2023-07-16 10:24:00] [data] Done reading 20,192 sentences
+[2023-07-16 10:24:00] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:24:22] Seen 18,843 samples
+[2023-07-16 10:24:22] Starting data epoch 31 in logical epoch 31
+[2023-07-16 10:24:22] [data] Shuffling data
+[2023-07-16 10:24:23] [data] Done reading 20,192 sentences
+[2023-07-16 10:24:23] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:24:30] Ep. 31 : Up. 9000 : Sen. 6,474 : Cost 0.02901388 * 1,341,072 @ 320 after 12,072,365 : Time 78.30s : 17127.62 words/s : gNorm 0.7198
+[2023-07-16 10:27:13] [valid] Ep. 31 : Up. 9000 : chrf : 24.9693 : new best
+[2023-07-16 10:29:56] [valid] Ep. 31 : Up. 9000 : translation : 5.26933 : stalled 1 times (last best: 5.63263)
+[2023-07-16 10:30:11] Seen 18,843 samples
+[2023-07-16 10:30:11] Starting data epoch 32 in logical epoch 32
+[2023-07-16 10:30:11] [data] Shuffling data
+[2023-07-16 10:30:11] [data] Done reading 20,192 sentences
+[2023-07-16 10:30:11] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:30:34] Seen 18,843 samples
+[2023-07-16 10:30:34] Starting data epoch 33 in logical epoch 33
+[2023-07-16 10:30:34] [data] Shuffling data
+[2023-07-16 10:30:34] [data] Done reading 20,192 sentences
+[2023-07-16 10:30:34] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:30:57] Seen 18,843 samples
+[2023-07-16 10:30:57] Starting data epoch 34 in logical epoch 34
+[2023-07-16 10:30:57] [data] Shuffling data
+[2023-07-16 10:30:57] [data] Done reading 20,192 sentences
+[2023-07-16 10:30:57] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:31:13] Ep. 34 : Up. 10000 : Sen. 13,515 : Cost 0.02334882 * 1,347,521 @ 882 after 13,419,886 : Time 402.56s : 3347.35 words/s : gNorm 0.6535
+[2023-07-16 10:31:13] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update_node21/gn_es_test_by_update_node21.npz
+[2023-07-16 10:31:17] Saving Adam parameters
+[2023-07-16 10:31:18] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update_node21/gn_es_test_by_update_node21.npz and /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update_node21/gn_es_test_by_update_node21.npz.optimizer.npz
+[2023-07-16 10:31:31] Seen 18,843 samples
+[2023-07-16 10:31:31] Starting data epoch 35 in logical epoch 35
+[2023-07-16 10:31:31] [data] Shuffling data
+[2023-07-16 10:31:31] [data] Done reading 20,192 sentences
+[2023-07-16 10:31:31] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:31:50] Seen 18,843 samples
+[2023-07-16 10:31:50] Starting data epoch 36 in logical epoch 36
+[2023-07-16 10:31:50] [data] Shuffling data
+[2023-07-16 10:31:50] [data] Done reading 20,192 sentences
+[2023-07-16 10:31:50] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:32:11] Seen 18,843 samples
+[2023-07-16 10:32:11] Starting data epoch 37 in logical epoch 37
+[2023-07-16 10:32:11] [data] Shuffling data
+[2023-07-16 10:32:11] [data] Done reading 20,192 sentences
+[2023-07-16 10:32:11] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:32:34] Seen 18,843 samples
+[2023-07-16 10:32:34] Starting data epoch 38 in logical epoch 38
+[2023-07-16 10:32:34] [data] Shuffling data
+[2023-07-16 10:32:34] [data] Done reading 20,192 sentences
+[2023-07-16 10:32:34] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:32:36] Ep. 38 : Up. 11000 : Sen. 1,728 : Cost 0.02018648 * 1,344,952 @ 1,403 after 14,764,838 : Time 83.53s : 16100.80 words/s : gNorm 0.6618
+[2023-07-16 10:32:57] Seen 18,843 samples
+[2023-07-16 10:32:57] Starting data epoch 39 in logical epoch 39
+[2023-07-16 10:32:57] [data] Shuffling data
+[2023-07-16 10:32:57] [data] Done reading 20,192 sentences
+[2023-07-16 10:32:57] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:33:19] Seen 18,843 samples
+[2023-07-16 10:33:19] Starting data epoch 40 in logical epoch 40
+[2023-07-16 10:33:19] [data] Shuffling data
+[2023-07-16 10:33:19] [data] Done reading 20,192 sentences
+[2023-07-16 10:33:19] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:33:42] Seen 18,843 samples
+[2023-07-16 10:33:42] Starting data epoch 41 in logical epoch 41
+[2023-07-16 10:33:42] [data] Shuffling data
+[2023-07-16 10:33:42] [data] Done reading 20,192 sentences
+[2023-07-16 10:33:42] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:33:53] Ep. 41 : Up. 12000 : Sen. 8,670 : Cost 0.01746936 * 1,335,380 @ 968 after 16,100,218 : Time 76.36s : 17488.48 words/s : gNorm 0.5908
+[2023-07-16 10:36:18] [valid] Ep. 41 : Up. 12000 : chrf : 24.3047 : stalled 1 times (last best: 24.9693)
+[2023-07-16 10:38:44] [valid] Ep. 41 : Up. 12000 : translation : 5.22511 : stalled 2 times (last best: 5.63263)
+[2023-07-16 10:38:56] Seen 18,843 samples
+[2023-07-16 10:38:56] Starting data epoch 42 in logical epoch 42
+[2023-07-16 10:38:56] [data] Shuffling data
+[2023-07-16 10:38:56] [data] Done reading 20,192 sentences
+[2023-07-16 10:38:56] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:39:18] Seen 18,843 samples
+[2023-07-16 10:39:18] Starting data epoch 43 in logical epoch 43
+[2023-07-16 10:39:18] [data] Shuffling data
+[2023-07-16 10:39:18] [data] Done reading 20,192 sentences
+[2023-07-16 10:39:18] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:39:40] Seen 18,843 samples
+[2023-07-16 10:39:40] Starting data epoch 44 in logical epoch 44
+[2023-07-16 10:39:40] [data] Shuffling data
+[2023-07-16 10:39:40] [data] Done reading 20,192 sentences
+[2023-07-16 10:39:40] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:39:59] Ep. 44 : Up. 13000 : Sen. 15,674 : Cost 0.01593435 * 1,337,866 @ 718 after 17,438,084 : Time 366.27s : 3652.64 words/s : gNorm 0.6027
+[2023-07-16 10:40:03] Seen 18,843 samples
+[2023-07-16 10:40:03] Starting data epoch 45 in logical epoch 45
+[2023-07-16 10:40:03] [data] Shuffling data
+[2023-07-16 10:40:03] [data] Done reading 20,192 sentences
+[2023-07-16 10:40:03] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:40:26] Seen 18,843 samples
+[2023-07-16 10:40:26] Starting data epoch 46 in logical epoch 46
+[2023-07-16 10:40:26] [data] Shuffling data
+[2023-07-16 10:40:26] [data] Done reading 20,192 sentences
+[2023-07-16 10:40:26] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:40:49] Seen 18,843 samples
+[2023-07-16 10:40:49] Starting data epoch 47 in logical epoch 47
+[2023-07-16 10:40:49] [data] Shuffling data
+[2023-07-16 10:40:49] [data] Done reading 20,192 sentences
+[2023-07-16 10:40:49] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:41:12] Seen 18,843 samples
+[2023-07-16 10:41:12] Starting data epoch 48 in logical epoch 48
+[2023-07-16 10:41:12] [data] Shuffling data
+[2023-07-16 10:41:12] [data] Done reading 20,192 sentences
+[2023-07-16 10:41:12] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:41:17] Ep. 48 : Up. 14000 : Sen. 3,840 : Cost 0.01433582 * 1,348,446 @ 1,408 after 18,786,530 : Time 77.60s : 17377.25 words/s : gNorm 0.5611
+[2023-07-16 10:41:34] Seen 18,843 samples
+[2023-07-16 10:41:34] Starting data epoch 49 in logical epoch 49
+[2023-07-16 10:41:34] [data] Shuffling data
+[2023-07-16 10:41:34] [data] Done reading 20,192 sentences
+[2023-07-16 10:41:34] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:41:58] Seen 18,843 samples
+[2023-07-16 10:41:58] Starting data epoch 50 in logical epoch 50
+[2023-07-16 10:41:58] [data] Shuffling data
+[2023-07-16 10:41:58] [data] Done reading 20,192 sentences
+[2023-07-16 10:41:58] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:42:21] Seen 18,843 samples
+[2023-07-16 10:42:21] Starting data epoch 51 in logical epoch 51
+[2023-07-16 10:42:21] [data] Shuffling data
+[2023-07-16 10:42:21] [data] Done reading 20,192 sentences
+[2023-07-16 10:42:21] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:42:33] Ep. 51 : Up. 15000 : Sen. 10,850 : Cost 0.01310226 * 1,333,303 @ 559 after 20,119,833 : Time 76.31s : 17473.14 words/s : gNorm 0.5730
+[2023-07-16 10:44:57] [valid] Ep. 51 : Up. 15000 : chrf : 23.6572 : stalled 2 times (last best: 24.9693)
+[2023-07-16 10:47:20] [valid] Ep. 51 : Up. 15000 : translation : 4.74517 : stalled 3 times (last best: 5.63263)
+[2023-07-16 10:47:29] Seen 18,843 samples
+[2023-07-16 10:47:29] Starting data epoch 52 in logical epoch 52
+[2023-07-16 10:47:29] [data] Shuffling data
+[2023-07-16 10:47:29] [data] Done reading 20,192 sentences
+[2023-07-16 10:47:29] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:47:51] Seen 18,843 samples
+[2023-07-16 10:47:51] Starting data epoch 53 in logical epoch 53
+[2023-07-16 10:47:51] [data] Shuffling data
+[2023-07-16 10:47:51] [data] Done reading 20,192 sentences
+[2023-07-16 10:47:51] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:48:15] Seen 18,843 samples
+[2023-07-16 10:48:15] Starting data epoch 54 in logical epoch 54
+[2023-07-16 10:48:15] [data] Shuffling data
+[2023-07-16 10:48:15] [data] Done reading 20,192 sentences
+[2023-07-16 10:48:15] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:48:36] Ep. 54 : Up. 16000 : Sen. 17,857 : Cost 0.01205549 * 1,343,441 @ 128 after 21,463,274 : Time 362.89s : 3702.08 words/s : gNorm 0.5791
+[2023-07-16 10:48:37] Seen 18,843 samples
+[2023-07-16 10:48:37] Starting data epoch 55 in logical epoch 55
+[2023-07-16 10:48:37] [data] Shuffling data
+[2023-07-16 10:48:37] [data] Done reading 20,192 sentences
+[2023-07-16 10:48:37] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:48:59] Seen 18,843 samples
+[2023-07-16 10:48:59] Starting data epoch 56 in logical epoch 56
+[2023-07-16 10:48:59] [data] Shuffling data
+[2023-07-16 10:48:59] [data] Done reading 20,192 sentences
+[2023-07-16 10:48:59] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:49:22] Seen 18,843 samples
+[2023-07-16 10:49:22] Starting data epoch 57 in logical epoch 57
+[2023-07-16 10:49:22] [data] Shuffling data
+[2023-07-16 10:49:22] [data] Done reading 20,192 sentences
+[2023-07-16 10:49:22] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:49:46] Seen 18,843 samples
+[2023-07-16 10:49:46] Starting data epoch 58 in logical epoch 58
+[2023-07-16 10:49:46] [data] Shuffling data
+[2023-07-16 10:49:46] [data] Done reading 20,192 sentences
+[2023-07-16 10:49:46] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:49:53] Ep. 58 : Up. 17000 : Sen. 6,061 : Cost 0.01108933 * 1,347,361 @ 2,048 after 22,810,635 : Time 77.34s : 17420.59 words/s : gNorm 0.4353
+[2023-07-16 10:50:09] Seen 18,843 samples
+[2023-07-16 10:50:09] Starting data epoch 59 in logical epoch 59
+[2023-07-16 10:50:09] [data] Shuffling data
+[2023-07-16 10:50:09] [data] Done reading 20,192 sentences
+[2023-07-16 10:50:09] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:50:31] Seen 18,843 samples
+[2023-07-16 10:50:31] Starting data epoch 60 in logical epoch 60
+[2023-07-16 10:50:31] [data] Shuffling data
+[2023-07-16 10:50:31] [data] Done reading 20,192 sentences
+[2023-07-16 10:50:31] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:50:54] Seen 18,843 samples
+[2023-07-16 10:50:54] Starting data epoch 61 in logical epoch 61
+[2023-07-16 10:50:54] [data] Shuffling data
+[2023-07-16 10:50:54] [data] Done reading 20,192 sentences
+[2023-07-16 10:50:54] [data] Done shuffling 20,192 sentences to temp files
+[2023-07-16 10:51:10] Ep. 61 : Up. 18000 : Sen. 13,037 : Cost 0.01047903 * 1,335,891 @ 1,435 after 24,146,526 : Time 76.59s : 17441.99 words/s : gNorm 0.4831
+[2023-07-16 10:53:50] [valid] Ep. 61 : Up. 18000 : chrf : 24.329 : stalled 3 times (last best: 24.9693)
+[2023-07-16 10:56:32] [valid] Ep. 61 : Up. 18000 : translation : 4.96839 : stalled 4 times (last best: 5.63263)
+[2023-07-16 10:56:32] Training finished
+[2023-07-16 10:56:32] Saving model weights and runtime parameters to /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update_node21/gn_es_test_by_update_node21.npz
+[2023-07-16 10:56:37] Saving Adam parameters
+[2023-07-16 10:56:37] [training] Saving training checkpoint to /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update_node21/gn_es_test_by_update_node21.npz and /docker/home/marianmt/artifacts/models/model_gn_es_test_by_update_node21/gn_es_test_by_update_node21.npz.optimizer.npz

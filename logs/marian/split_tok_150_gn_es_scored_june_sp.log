@@ -1,0 +1,31 @@
+[2023-06-25 21:52:59] [valid] No post-processing script given for validating translator
+[2023-06-25 22:09:18] [valid] No post-processing script given for validating translator
+[2023-06-25 22:16:17] [valid] Ep. 11 : Up. 885 : cross-entropy : 155.139 : new best
+[2023-06-25 22:17:11] [valid] Ep. 11 : Up. 885 : translation : 0 : new best
+[2023-06-25 22:21:12] [valid] No post-processing script given for validating translator
+[2023-06-25 22:28:44] [valid] Ep. 21 : Up. 1767 : cross-entropy : 138.907 : new best
+[2023-06-25 22:29:24] [valid] Ep. 21 : Up. 1767 : translation : 0 : new best
+[2023-06-25 22:32:45] [valid] No post-processing script given for validating translator
+[2023-06-25 22:40:22] [valid] Ep. 31 : Up. 2649 : cross-entropy : 130.3 : new best
+[2023-06-25 22:41:04] [valid] Ep. 31 : Up. 2649 : translation : 0 : new best
+[2023-06-25 22:44:32] [valid] No post-processing script given for validating translator
+[2023-06-25 22:52:06] [valid] Ep. 41 : Up. 3530 : cross-entropy : 122.015 : new best
+[2023-06-25 22:52:48] [valid] Ep. 41 : Up. 3530 : translation : 0 : new best
+[2023-06-25 22:56:22] [valid] No post-processing script given for validating translator
+[2023-06-25 23:03:58] [valid] Ep. 51 : Up. 4413 : cross-entropy : 118.465 : new best
+[2023-06-25 23:04:39] [valid] Ep. 51 : Up. 4413 : translation : 0 : new best
+[2023-06-25 23:08:17] [valid] No post-processing script given for validating translator
+[2023-06-25 23:15:54] [valid] Ep. 61 : Up. 5297 : cross-entropy : 118.084 : new best
+[2023-06-25 23:16:30] [valid] Ep. 61 : Up. 5297 : translation : 0 : new best
+[2023-06-25 23:19:55] [valid] No post-processing script given for validating translator
+[2023-06-25 23:27:30] [valid] Ep. 71 : Up. 6178 : cross-entropy : 117.719 : new best
+[2023-06-25 23:28:08] [valid] Ep. 71 : Up. 6178 : translation : 0 : new best
+[2023-06-25 23:31:38] [valid] No post-processing script given for validating translator
+[2023-06-25 23:39:14] [valid] Ep. 81 : Up. 7054 : cross-entropy : 116.801 : new best
+[2023-06-25 23:39:49] [valid] Ep. 81 : Up. 7054 : translation : 0 : new best
+[2023-06-25 23:43:12] [valid] No post-processing script given for validating translator
+[2023-06-25 23:50:50] [valid] Ep. 91 : Up. 7934 : cross-entropy : 116.968 : stalled 1 times (last best: 116.801)
+[2023-06-25 23:51:27] [valid] Ep. 91 : Up. 7934 : translation : 0 : new best
+[2023-06-25 23:54:54] [valid] No post-processing script given for validating translator
+[2023-06-26 00:02:30] [valid] Ep. 101 : Up. 8814 : cross-entropy : 119.471 : stalled 2 times (last best: 116.801)
+[2023-06-26 00:03:05] [valid] Ep. 101 : Up. 8814 : translation : 0 : new best

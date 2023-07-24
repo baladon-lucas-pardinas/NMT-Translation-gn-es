@@ -1,0 +1,100 @@
+[2023-05-28 16:41:51] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-28 16:41:51] [valid] First sentence's tokens as scored:
+[2023-05-28 16:41:51] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-28 16:41:51] [valid]   Hyp: De acuerdo a los familiares que se dedican al Ministerio de Agricultura y Ganadería (MAG) así como un grupo de ley para el Ministerio Público para el Ministerio de Agricultura y Ciencias (MEC).
+[2023-05-28 16:41:51] [valid]   Ref: “Es importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en general, al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones humanas, daño a los vehículos de transporte, a los animales y mercaderías en general <unk> <unk> en tiempo y dinero al transporte, <unk> expresa la nota <unk> por el titular de la ARP, Luis Villasanti, y el secretario del gremio, Jorge <unk>
+[2023-05-28 16:42:59] [valid] Ep. 31 : Up. 8898 : bleu : 2.51381 : stalled 2 times (last best: 2.60779)
+[2023-05-28 16:44:09] [valid] Ep. 31 : Up. 8898 : chrf : 18.4442 : new best
+[2023-05-28 16:44:16] [valid] Ep. 31 : Up. 8898 : cross-entropy : 140.618 : stalled 2 times (last best: 128.513)
+[2023-05-28 16:44:24] [valid] Ep. 31 : Up. 8898 : perplexity : 702.815 : stalled 2 times (last best: 399.743)
+[2023-05-28 16:44:31] [valid] Ep. 31 : Up. 8898 : valid-script : 0 : stalled 2 times (last best: 0)
+[2023-05-28 16:45:36] [valid] Ep. 31 : Up. 8898 : translation : 0 : stalled 2 times (last best: 0)
+[2023-05-28 16:49:35] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-28 16:49:35] [valid] First sentence's tokens as scored:
+[2023-05-28 16:49:35] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-28 16:49:35] [valid]   Hyp: De acuerdo a las calles del Ministerio de Obras Públicas y Comunicaciones (MOPC) anunciaron que las autoridades del Ministerio de Obras Públicas y Comunicaciones (MOPC), Arnoldo Wiens, para el Ministerio de Agricultura y Ganadería (MAG).
+[2023-05-28 16:49:35] [valid]   Ref: “Es importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en general, al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones humanas, daño a los vehículos de transporte, a los animales y mercaderías en general <unk> <unk> en tiempo y dinero al transporte, <unk> expresa la nota <unk> por el titular de la ARP, Luis Villasanti, y el secretario del gremio, Jorge <unk>
+[2023-05-28 16:50:43] [valid] Ep. 34 : Up. 10000 : bleu : 2.58973 : stalled 3 times (last best: 2.60779)
+[2023-05-28 16:51:53] [valid] Ep. 34 : Up. 10000 : chrf : 18.4938 : new best
+[2023-05-28 16:52:00] [valid] Ep. 34 : Up. 10000 : cross-entropy : 144.56 : stalled 3 times (last best: 128.513)
+[2023-05-28 16:52:08] [valid] Ep. 34 : Up. 10000 : perplexity : 844.587 : stalled 3 times (last best: 399.743)
+[2023-05-28 16:52:14] [valid] Ep. 34 : Up. 10000 : valid-script : 0 : stalled 3 times (last best: 0)
+[2023-05-28 16:53:30] [valid] Ep. 34 : Up. 10000 : translation : 0 : stalled 3 times (last best: 0)
+[2023-05-28 17:00:39] [valid] Ep. 41 : Up. 11864 : bleu : 2.70708 : new best
+[2023-05-28 17:01:50] [valid] Ep. 41 : Up. 11864 : chrf : 18.9898 : new best
+[2023-05-28 17:01:57] [valid] Ep. 41 : Up. 11864 : cross-entropy : 150.123 : stalled 4 times (last best: 128.513)
+[2023-05-28 17:02:05] [valid] Ep. 41 : Up. 11864 : perplexity : 1094.63 : stalled 4 times (last best: 399.743)
+[2023-05-28 17:02:11] [valid] Ep. 41 : Up. 11864 : valid-script : 0 : stalled 4 times (last best: 0)
+[2023-05-28 17:03:19] [valid] Ep. 41 : Up. 11864 : translation : 0 : stalled 4 times (last best: 0)
+[2023-05-28 17:13:19] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-28 17:13:20] [valid] First sentence's tokens as scored:
+[2023-05-28 17:13:20] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-28 17:13:20] [valid]   Hyp: De acuerdo a los nativos previstos en las redes sociales comenzaron hoy para este jueves y hasta hoy ya está aislada para las licitaciones.
+[2023-05-28 17:13:20] [valid]   Ref: “Es importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en general, al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones humanas, daño a los vehículos de transporte, a los animales y mercaderías en general <unk> <unk> en tiempo y dinero al transporte, <unk> expresa la nota <unk> por el titular de la ARP, Luis Villasanti, y el secretario del gremio, Jorge <unk>
+[2023-05-28 17:14:26] [valid] Ep. 51 : Up. 14829 : bleu : 2.75556 : new best
+[2023-05-28 17:15:37] [valid] Ep. 51 : Up. 14829 : chrf : 19.1822 : new best
+[2023-05-28 17:15:44] [valid] Ep. 51 : Up. 14829 : cross-entropy : 160.512 : stalled 5 times (last best: 128.513)
+[2023-05-28 17:15:52] [valid] Ep. 51 : Up. 14829 : perplexity : 1776.69 : stalled 5 times (last best: 399.743)
+[2023-05-28 17:15:59] [valid] Ep. 51 : Up. 14829 : valid-script : 0 : stalled 5 times (last best: 0)
+[2023-05-28 17:17:03] [valid] Ep. 51 : Up. 14829 : translation : 0 : stalled 5 times (last best: 0)
+[2023-05-28 17:27:05] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-28 17:27:05] [valid] First sentence's tokens as scored:
+[2023-05-28 17:27:05] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-28 17:27:05] [valid]   Hyp: De acuerdo a los niños previstos en las redes sociales comenzaron hoy para este lunes y hasta hoy ya está aislada para las licitaciones.
+[2023-05-28 17:27:05] [valid]   Ref: “Es importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en general, al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones humanas, daño a los vehículos de transporte, a los animales y mercaderías en general <unk> <unk> en tiempo y dinero al transporte, <unk> expresa la nota <unk> por el titular de la ARP, Luis Villasanti, y el secretario del gremio, Jorge <unk>
+[2023-05-28 17:28:14] [valid] Ep. 61 : Up. 17795 : bleu : 2.78789 : new best
+[2023-05-28 17:29:24] [valid] Ep. 61 : Up. 17795 : chrf : 19.555 : new best
+[2023-05-28 17:29:32] [valid] Ep. 61 : Up. 17795 : cross-entropy : 171.954 : stalled 6 times (last best: 128.513)
+[2023-05-28 17:29:39] [valid] Ep. 61 : Up. 17795 : perplexity : 3028.69 : stalled 6 times (last best: 399.743)
+[2023-05-28 17:29:47] [valid] Ep. 61 : Up. 17795 : valid-script : 0 : stalled 6 times (last best: 0)
+[2023-05-28 17:30:53] [valid] Ep. 61 : Up. 17795 : translation : 0 : stalled 6 times (last best: 0)
+[2023-05-28 17:38:31] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-28 17:38:31] [valid] First sentence's tokens as scored:
+[2023-05-28 17:38:31] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-28 17:38:31] [valid]   Hyp: De acuerdo a los nativos previstos en los alrededores de las paredes y el Ministerio Público fueron donados por los presidentes de Ciudad del Este, brasileño, con el autodenominado Ejército del Pueblo Paraguayo (EPP) a bordo de dicha Fuerza de Tarea Conjunta (FTC).
+[2023-05-28 17:38:31] [valid]   Ref: “Es importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en general, al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones humanas, daño a los vehículos de transporte, a los animales y mercaderías en general <unk> <unk> en tiempo y dinero al transporte, <unk> expresa la nota <unk> por el titular de la ARP, Luis Villasanti, y el secretario del gremio, Jorge <unk>
+[2023-05-28 17:39:38] [valid] Ep. 68 : Up. 20000 : bleu : 2.62739 : stalled 1 times (last best: 2.78789)
+[2023-05-28 17:40:48] [valid] Ep. 68 : Up. 20000 : chrf : 19.2555 : stalled 1 times (last best: 19.555)
+[2023-05-28 17:40:56] [valid] Ep. 68 : Up. 20000 : cross-entropy : 181.063 : stalled 7 times (last best: 128.513)
+[2023-05-28 17:41:03] [valid] Ep. 68 : Up. 20000 : perplexity : 4630.88 : stalled 7 times (last best: 399.743)
+[2023-05-28 17:41:10] [valid] Ep. 68 : Up. 20000 : valid-script : 0 : stalled 7 times (last best: 0)
+[2023-05-28 17:42:15] [valid] Ep. 68 : Up. 20000 : translation : 0 : stalled 7 times (last best: 0)
+[2023-05-28 17:45:54] [valid] Ep. 71 : Up. 20760 : bleu : 2.80895 : new best
+[2023-05-28 17:47:06] [valid] Ep. 71 : Up. 20760 : chrf : 19.7318 : new best
+[2023-05-28 17:47:13] [valid] Ep. 71 : Up. 20760 : cross-entropy : 182.182 : stalled 8 times (last best: 128.513)
+[2023-05-28 17:47:21] [valid] Ep. 71 : Up. 20760 : perplexity : 4878.96 : stalled 8 times (last best: 399.743)
+[2023-05-28 17:47:28] [valid] Ep. 71 : Up. 20760 : valid-script : 0 : stalled 8 times (last best: 0)
+[2023-05-28 17:48:36] [valid] Ep. 71 : Up. 20760 : translation : 0 : stalled 8 times (last best: 0)
+[2023-05-28 17:58:43] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-28 17:58:43] [valid] First sentence's tokens as scored:
+[2023-05-28 17:58:43] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-28 17:58:43] [valid]   Hyp: Los Artículos 207 y 217 del interior del país fueron donados por los kits afectados por las inundaciones no fueron adjudicadas para ver en cuenta que en el marco de sus dos empresas pertenecientes a varios campesinos del Ministerio de Agricultura y Ganadería (MAG).
+[2023-05-28 17:58:43] [valid]   Ref: “Es importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en general, al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones humanas, daño a los vehículos de transporte, a los animales y mercaderías en general <unk> <unk> en tiempo y dinero al transporte, <unk> expresa la nota <unk> por el titular de la ARP, Luis Villasanti, y el secretario del gremio, Jorge <unk>
+[2023-05-28 17:59:54] [valid] Ep. 81 : Up. 23727 : bleu : 2.91088 : new best
+[2023-05-28 18:01:09] [valid] Ep. 81 : Up. 23727 : chrf : 20.2988 : new best
+[2023-05-28 18:01:16] [valid] Ep. 81 : Up. 23727 : cross-entropy : 192.916 : stalled 9 times (last best: 128.513)
+[2023-05-28 18:01:24] [valid] Ep. 81 : Up. 23727 : perplexity : 8046.85 : stalled 9 times (last best: 399.743)
+[2023-05-28 18:01:31] [valid] Ep. 81 : Up. 23727 : valid-script : 0 : stalled 9 times (last best: 0)
+[2023-05-28 18:02:40] [valid] Ep. 81 : Up. 23727 : translation : 0 : stalled 9 times (last best: 0)
+[2023-05-28 18:12:44] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-28 18:12:44] [valid] First sentence's tokens as scored:
+[2023-05-28 18:12:44] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-28 18:12:44] [valid]   Hyp: Los Artículos 207 y 217 del interior del país fueron apostados frente al Jardín Defensores del norte y así como para verificar el rostro integrado al país integrado por al Ministerio de Agricultura y Ganadería (MAG).
+[2023-05-28 18:12:44] [valid]   Ref: “Es importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en general, al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones humanas, daño a los vehículos de transporte, a los animales y mercaderías en general <unk> <unk> en tiempo y dinero al transporte, <unk> expresa la nota <unk> por el titular de la ARP, Luis Villasanti, y el secretario del gremio, Jorge <unk>
+[2023-05-28 18:13:55] [valid] Ep. 91 : Up. 26693 : bleu : 2.87137 : stalled 1 times (last best: 2.91088)
+[2023-05-28 18:15:10] [valid] Ep. 91 : Up. 26693 : chrf : 19.9504 : stalled 1 times (last best: 20.2988)
+[2023-05-28 18:15:18] [valid] Ep. 91 : Up. 26693 : cross-entropy : 202.599 : stalled 10 times (last best: 128.513)
+[2023-05-28 18:15:25] [valid] Ep. 91 : Up. 26693 : perplexity : 12637.3 : stalled 10 times (last best: 399.743)
+[2023-05-28 18:15:34] [valid] Ep. 91 : Up. 26693 : valid-script : 0 : stalled 10 times (last best: 0)
+[2023-05-28 18:16:44] [valid] Ep. 91 : Up. 26693 : translation : 0 : stalled 10 times (last best: 0)
+[2023-05-28 18:26:52] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-28 18:26:53] [valid] First sentence's tokens as scored:
+[2023-05-28 18:26:53] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-28 18:26:53] [valid]   Hyp: Los Artículos 207 y 217 del Código Electoral disponen con el pago de vehículos y otras ciudades que fueron apostados frente al monumento del Ministerio de Obras Públicas y Comunicaciones (MOPC) anunciaron que fueron donados por las autoridades del orden.
+[2023-05-28 18:26:53] [valid]   Ref: “Es importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en general, al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones humanas, daño a los vehículos de transporte, a los animales y mercaderías en general <unk> <unk> en tiempo y dinero al transporte, <unk> expresa la nota <unk> por el titular de la ARP, Luis Villasanti, y el secretario del gremio, Jorge <unk>
+[2023-05-28 18:28:06] [valid] Ep. 101 : Up. 29659 : bleu : 3.06825 : new best
+[2023-05-28 18:29:24] [valid] Ep. 101 : Up. 29659 : chrf : 20.3324 : new best
+[2023-05-28 18:29:31] [valid] Ep. 101 : Up. 29659 : cross-entropy : 211.782 : stalled 11 times (last best: 128.513)
+[2023-05-28 18:29:38] [valid] Ep. 101 : Up. 29659 : perplexity : 19390 : stalled 11 times (last best: 399.743)
+[2023-05-28 18:29:46] [valid] Ep. 101 : Up. 29659 : valid-script : 0 : stalled 11 times (last best: 0)
+[2023-05-28 18:30:57] [valid] Ep. 101 : Up. 29659 : translation : 0 : stalled 11 times (last best: 0)

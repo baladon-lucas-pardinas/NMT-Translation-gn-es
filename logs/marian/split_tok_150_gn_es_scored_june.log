@@ -1,0 +1,35 @@
+[2023-06-20 14:32:14] [valid] Ep. 6 : Up. 1485 : cross-entropy : 112.787 : new best
+[2023-06-20 14:58:38] [valid] Ep. 3 : Up. 594 : cross-entropy : 122.182 : new best
+[2023-06-20 15:15:27] [valid] Ep. 3 : Up. 594 : cross-entropy : 122.183 : new best
+[2023-06-20 15:18:45] [valid] Ep. 2 : Up. 297 : cross-entropy : 128.187 : new best
+[2023-06-20 15:24:11] [valid] Ep. 2 : Up. 297 : cross-entropy : 128.188 : new best
+[2023-06-20 15:26:40] [valid] Ep. 2 : Up. 297 : cross-entropy : 128.186 : new best
+[2023-06-20 16:31:42] [valid] Ep. 3 : Up. 594 : cross-entropy : 122.173 : new best
+[2023-06-20 16:46:58] [valid] Ep. 11 : Up. 2968 : cross-entropy : 108.422 : new best
+[2023-06-20 16:59:45] [valid] Ep. 21 : Up. 5933 : cross-entropy : 110.201 : stalled 1 times (last best: 108.422)
+[2023-06-20 17:12:22] [valid] Ep. 31 : Up. 8898 : cross-entropy : 119.77 : stalled 2 times (last best: 108.422)
+[2023-06-20 17:25:07] [valid] Ep. 41 : Up. 11864 : cross-entropy : 130.5 : stalled 3 times (last best: 108.422)
+[2023-06-20 17:37:42] [valid] Ep. 51 : Up. 14829 : cross-entropy : 142.91 : stalled 4 times (last best: 108.422)
+[2023-06-20 17:50:11] [valid] Ep. 61 : Up. 17795 : cross-entropy : 154.915 : stalled 5 times (last best: 108.422)
+[2023-06-20 18:02:57] [valid] Ep. 71 : Up. 20760 : cross-entropy : 165.964 : stalled 6 times (last best: 108.422)
+[2023-06-20 18:15:21] [valid] Ep. 81 : Up. 23727 : cross-entropy : 177.629 : stalled 7 times (last best: 108.422)
+[2023-06-20 18:27:56] [valid] Ep. 91 : Up. 26693 : cross-entropy : 185.084 : stalled 8 times (last best: 108.422)
+[2023-06-20 18:40:24] [valid] Ep. 101 : Up. 29659 : cross-entropy : 194.321 : stalled 9 times (last best: 108.422)
+[2023-06-20 18:53:06] [valid] Ep. 111 : Up. 32628 : cross-entropy : 202.487 : stalled 10 times (last best: 108.422)
+[2023-06-20 22:01:50] [valid] Ep. 11 : Up. 1197 : cross-entropy : 99.6796 : new best
+[2023-06-20 22:15:18] [valid] Ep. 21 : Up. 2399 : cross-entropy : 91.8148 : new best
+[2023-06-20 22:28:28] [valid] Ep. 31 : Up. 3598 : cross-entropy : 90.9633 : new best
+[2023-06-20 22:41:39] [valid] Ep. 41 : Up. 4799 : cross-entropy : 91.5854 : stalled 1 times (last best: 90.9633)
+[2023-06-20 22:54:26] [valid] Ep. 51 : Up. 5998 : cross-entropy : 94.3237 : stalled 2 times (last best: 90.9633)
+[2023-06-20 23:07:05] [valid] Ep. 61 : Up. 7198 : cross-entropy : 96.9741 : stalled 3 times (last best: 90.9633)
+[2023-06-20 23:19:48] [valid] Ep. 71 : Up. 8395 : cross-entropy : 99.8775 : stalled 4 times (last best: 90.9633)
+[2023-06-20 23:32:46] [valid] Ep. 81 : Up. 9592 : cross-entropy : 102.371 : stalled 5 times (last best: 90.9633)
+[2023-06-23 08:48:48] [valid] No post-processing script given for validating translator
+[2023-06-23 08:56:12] [valid] No post-processing script given for validating translator
+[2023-06-23 09:06:42] [valid] No post-processing script given for validating translator
+[2023-06-23 09:24:30] [valid] No post-processing script given for validating translator
+[2023-06-23 09:25:16] [valid] Ep. 2 : Up. 119 : cross-entropy : 124.321 : new best
+[2023-06-23 09:27:18] [valid] Ep. 2 : Up. 119 : translation : 0 : new best
+[2023-06-23 11:11:23] [valid] No post-processing script given for validating translator
+[2023-06-23 11:12:24] [valid] Ep. 3 : Up. 239 : cross-entropy : 117.844 : new best
+[2023-06-23 11:14:22] [valid] Ep. 3 : Up. 239 : translation : 0 : new best

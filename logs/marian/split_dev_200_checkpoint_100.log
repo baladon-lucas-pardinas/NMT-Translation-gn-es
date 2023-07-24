@@ -1,0 +1,122 @@
+[2023-05-30 16:21:50] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-30 16:21:50] [valid] First sentence's tokens as scored:
+[2023-05-30 16:21:50] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-30 16:21:50] [valid]   Hyp: en el marco de los datos de la lengua guaraní en el marco de la lengua guaraní en el marco de la lengua guaraní en el marco de la lengua guaraní en el marco de la zona de la zona de la zona de la zona de la zona de la ministra de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la ciudad de la
+[2023-05-30 16:21:50] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> <unk> <unk> y el secretario del <unk> <unk> <unk>
+[2023-05-30 16:27:45] [valid] Ep. 11 : Up. 2968 : bleu : 0.590431 : new best
+[2023-05-30 16:33:52] [valid] Ep. 11 : Up. 2968 : chrf : 13.7836 : new best
+[2023-05-30 16:34:07] [valid] Ep. 11 : Up. 2968 : cross-entropy : 85.9934 : new best
+[2023-05-30 16:34:21] [valid] Ep. 11 : Up. 2968 : perplexity : 55.0753 : new best
+[2023-05-30 16:34:28] [valid] Ep. 11 : Up. 2968 : valid-script : 0 : new best
+[2023-05-30 16:40:20] [valid] Ep. 11 : Up. 2968 : translation : 0 : new best
+[2023-05-30 17:00:02] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-30 17:00:02] [valid] First sentence's tokens as scored:
+[2023-05-30 17:00:02] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-30 17:00:02] [valid]   Hyp: y la reunión de este momento es que los datos de la lengua guaraní en el marco de la situación de los miembros de la zona que se encuentra en el marco de los funcionarios y la presentación de un monto de transporte del gobierno en el marco de la presencia del transporte público en el marco de la zona del titular de la sede de la sede de la sede de la sede de la sede de la sede del titular de la sede de la sede de la sede de la sede de la sede del titular de la sede de la sede de la sede de la sede del titular de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede del presidente de la
+[2023-05-30 17:00:02] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> <unk> <unk> y el secretario del <unk> <unk> <unk>
+[2023-05-30 17:05:43] [valid] Ep. 21 : Up. 5933 : bleu : 0.949373 : new best
+[2023-05-30 17:11:38] [valid] Ep. 21 : Up. 5933 : chrf : 18.0867 : new best
+[2023-05-30 17:11:53] [valid] Ep. 21 : Up. 5933 : cross-entropy : 86.9708 : stalled 1 times (last best: 85.9934)
+[2023-05-30 17:12:07] [valid] Ep. 21 : Up. 5933 : perplexity : 57.6428 : stalled 1 times (last best: 55.0753)
+[2023-05-30 17:12:12] [valid] Ep. 21 : Up. 5933 : valid-script : 0 : stalled 1 times (last best: 0)
+[2023-05-30 17:17:57] [valid] Ep. 21 : Up. 5933 : translation : 0 : stalled 1 times (last best: 0)
+[2023-05-30 17:37:54] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-30 17:37:54] [valid] First sentence's tokens as scored:
+[2023-05-30 17:37:54] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-30 17:37:54] [valid]   Hyp: administrados por estos puntos que están trabajando en el marco de la investigación en el marco de los miembros de las instituciones educativas y participaron parte de los miembros de este lunes a través de acuerdo y policías que forman parte de transporte frente a la presencia de una de las clases generales y policías que forman parte de la sede de la directora de la titular de la titular de la titular de la titular de la titular de la ciudad se realizó en la sede del próximo titular de la ministra de la ministra de la ciudad realizada por parte de la tarde de esta tarde con el secretario de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede de la sede del titular del
+[2023-05-30 17:37:54] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> <unk> <unk> y el secretario del <unk> <unk> <unk>
+[2023-05-30 17:43:49] [valid] Ep. 31 : Up. 8898 : bleu : 1.20119 : new best
+[2023-05-30 17:49:46] [valid] Ep. 31 : Up. 8898 : chrf : 20.0228 : new best
+[2023-05-30 17:49:59] [valid] Ep. 31 : Up. 8898 : cross-entropy : 94.9486 : stalled 2 times (last best: 85.9934)
+[2023-05-30 17:50:12] [valid] Ep. 31 : Up. 8898 : perplexity : 83.6099 : stalled 2 times (last best: 55.0753)
+[2023-05-30 17:50:16] [valid] Ep. 31 : Up. 8898 : valid-script : 0 : stalled 2 times (last best: 0)
+[2023-05-30 17:56:08] [valid] Ep. 31 : Up. 8898 : translation : 0 : stalled 2 times (last best: 0)
+[2023-05-30 18:03:41] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-30 18:03:41] [valid] First sentence's tokens as scored:
+[2023-05-30 18:03:41] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-30 18:03:41] [valid]   Hyp: administrados por estos puntos que ha escuchado en la calidad de nuestro país en el área social y la importancia de las necesidades de los miembros de transporte y plata que forman parte de transporte al gobierno de la ciudad que se dio a cabo en la sede de la sede de la sede de la sede de la sede de la sede de la tarde de esta tarde con el titular del local de la sede de la sede de la visita de esta tarde con el secretario de la sede de la visita de esta tarde con el cargo de la sede de la sede de la ministra
+[2023-05-30 18:03:41] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> <unk> <unk> y el secretario del <unk> <unk> <unk>
+[2023-05-30 18:09:24] [valid] Ep. 34 : Up. 10000 : bleu : 1.36874 : new best
+[2023-05-30 18:15:12] [valid] Ep. 34 : Up. 10000 : chrf : 20.7644 : new best
+[2023-05-30 18:15:26] [valid] Ep. 34 : Up. 10000 : cross-entropy : 99.1519 : stalled 3 times (last best: 85.9934)
+[2023-05-30 18:15:41] [valid] Ep. 34 : Up. 10000 : perplexity : 101.708 : stalled 3 times (last best: 55.0753)
+[2023-05-30 18:15:44] [valid] Ep. 34 : Up. 10000 : valid-script : 0 : stalled 3 times (last best: 0)
+[2023-05-30 18:21:37] [valid] Ep. 34 : Up. 10000 : translation : 0 : stalled 3 times (last best: 0)
+[2023-05-30 18:39:47] [valid] Ep. 41 : Up. 11864 : bleu : 1.35112 : stalled 1 times (last best: 1.36874)
+[2023-05-30 18:45:41] [valid] Ep. 41 : Up. 11864 : chrf : 21.4339 : new best
+[2023-05-30 18:45:54] [valid] Ep. 41 : Up. 11864 : cross-entropy : 106.955 : stalled 4 times (last best: 85.9934)
+[2023-05-30 18:46:07] [valid] Ep. 41 : Up. 11864 : perplexity : 146.328 : stalled 4 times (last best: 55.0753)
+[2023-05-30 18:46:13] [valid] Ep. 41 : Up. 11864 : valid-script : 0 : stalled 4 times (last best: 0)
+[2023-05-30 18:52:06] [valid] Ep. 41 : Up. 11864 : translation : 0 : stalled 4 times (last best: 0)
+[2023-05-30 19:12:16] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-30 19:12:16] [valid] First sentence's tokens as scored:
+[2023-05-30 19:12:16] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-30 19:12:16] [valid]   Hyp: administrados por estos datos que ha escuchado en horas de la región en el área social y la instalación de los paraguayos serán por parte de las cuales se dedican a bordo de transporte y alumnos que forman parte de transporte frente a la asunción del transporte de origen de la tarde de esta tarde la directora del despacho de la visita de esta tarde la directora del despacho de la visita de esta tarde la directora del despacho de la visita de esta tarde el secretario de la asunción de esta tarde por parte del gobierno electo en la sede del departamento de la tarde de esta tarde con el secretario del propio titular del departamento que dio esta tarde con el despacho del nuevo director del local de la visita de esta tarde con la visita del frente de la tarde de este viernes en la asunción del próximo despacho de la visita del próximo despacho de la tarde de este viernes en la asunción del próximo despacho de la visita del próximo despacho de la tarde de este viernes en la asunción del próximo titular del
+[2023-05-30 19:12:16] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> <unk> <unk> y el secretario del <unk> <unk> <unk>
+[2023-05-30 19:18:00] [valid] Ep. 51 : Up. 14829 : bleu : 1.31633 : stalled 2 times (last best: 1.36874)
+[2023-05-30 19:24:03] [valid] Ep. 51 : Up. 14829 : chrf : 21.8649 : new best
+[2023-05-30 19:24:16] [valid] Ep. 51 : Up. 14829 : cross-entropy : 119.383 : stalled 5 times (last best: 85.9934)
+[2023-05-30 19:24:31] [valid] Ep. 51 : Up. 14829 : perplexity : 261.176 : stalled 5 times (last best: 55.0753)
+[2023-05-30 19:24:35] [valid] Ep. 51 : Up. 14829 : valid-script : 0 : stalled 5 times (last best: 0)
+[2023-05-30 19:30:32] [valid] Ep. 51 : Up. 14829 : translation : 0 : stalled 5 times (last best: 0)
+[2023-05-30 19:51:16] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-30 19:51:16] [valid] First sentence's tokens as scored:
+[2023-05-30 19:51:16] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-30 19:51:16] [valid]   Hyp: administrados en que el objetivo ha dado hace más detalles en el área en la zona social y de manera gratuita que se dedican en horas en la zona educativa y llegada de transporte a partir de los miembros de las localidades del transporte a raíz de la visita de estudios ofrecido por parte de la asunción de transporte a través de la casa de una visita realizada por parte de la tarde de su esposa con la asunción de la casa de asunción del cargo de esta tarde con la visita del nuevo despacho de la tarde de este entonces la directora del despacho de la tarde de este próximo el titular del local informó la visita de la visita de este miércoles en la sede del cargo de la tarde de este miércoles como la titular del propio local durante la visita del nuevo despacho por el encargado de la asunción de esta tarde la visita de la visita de esta tarde con la visita del nuevo despacho de la tarde de este miércoles como la directora del propio despacho la rectora de la visita de este
+[2023-05-30 19:51:16] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> <unk> <unk> y el secretario del <unk> <unk> <unk>
+[2023-05-30 19:57:12] [valid] Ep. 61 : Up. 17795 : bleu : 1.27915 : stalled 3 times (last best: 1.36874)
+[2023-05-30 20:03:12] [valid] Ep. 61 : Up. 17795 : chrf : 21.9441 : new best
+[2023-05-30 20:03:25] [valid] Ep. 61 : Up. 17795 : cross-entropy : 131.394 : stalled 6 times (last best: 85.9934)
+[2023-05-30 20:03:40] [valid] Ep. 61 : Up. 17795 : perplexity : 457.195 : stalled 6 times (last best: 55.0753)
+[2023-05-30 20:03:43] [valid] Ep. 61 : Up. 17795 : valid-script : 0 : stalled 6 times (last best: 0)
+[2023-05-30 20:09:23] [valid] Ep. 61 : Up. 17795 : translation : 0 : stalled 6 times (last best: 0)
+[2023-05-30 20:24:41] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-30 20:24:41] [valid] First sentence's tokens as scored:
+[2023-05-30 20:24:41] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-30 20:24:41] [valid]   Hyp: administrados esta parte el hecho tiene que ver este martes en las áreas sociales y de los países de nuestro país nos dedican a conocer los paraguayos y las mismas en total de transporte a partir del tramo que está atravesando frente a las localidades de los puntos tratados en la zona ordinaria durante la presencia del despacho de la tarde de nuevo informó la tarde de una visita a través de la casa de hoy informó la visita de la visita de esta tarde la casa de la asunción de esta tarde como director del presidente electo durante la visita del frente al próximo despacho del director electo por parte de la visita de anoche y la comuna en despacho de la visita del nuevo director electo la casa de una visita de esta tarde con respecto a las últimas funciones con el secretario que dio una elección de una visita por el secretario de la visita de esta tarde la visita de la visita de hoy durante la visita del frente al secretario de la visita de esta tarde la visita de la visita del titular del
+[2023-05-30 20:24:41] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> <unk> <unk> y el secretario del <unk> <unk> <unk>
+[2023-05-30 20:30:35] [valid] Ep. 68 : Up. 20000 : bleu : 1.27137 : stalled 4 times (last best: 1.36874)
+[2023-05-30 20:36:36] [valid] Ep. 68 : Up. 20000 : chrf : 22.2305 : new best
+[2023-05-30 20:36:50] [valid] Ep. 68 : Up. 20000 : cross-entropy : 139.015 : stalled 7 times (last best: 85.9934)
+[2023-05-30 20:37:01] [valid] Ep. 68 : Up. 20000 : perplexity : 652.224 : stalled 7 times (last best: 55.0753)
+[2023-05-30 20:37:05] [valid] Ep. 68 : Up. 20000 : valid-script : 0 : stalled 7 times (last best: 0)
+[2023-05-30 20:43:12] [valid] Ep. 68 : Up. 20000 : translation : 0 : stalled 7 times (last best: 0)
+[2023-05-30 20:54:22] [valid] Ep. 71 : Up. 20760 : bleu : 1.29463 : stalled 5 times (last best: 1.36874)
+[2023-05-30 21:00:25] [valid] Ep. 71 : Up. 20760 : chrf : 22.1333 : stalled 1 times (last best: 22.2305)
+[2023-05-30 21:00:40] [valid] Ep. 71 : Up. 20760 : cross-entropy : 142.008 : stalled 8 times (last best: 85.9934)
+[2023-05-30 21:00:52] [valid] Ep. 71 : Up. 20760 : perplexity : 749.87 : stalled 8 times (last best: 55.0753)
+[2023-05-30 21:00:55] [valid] Ep. 71 : Up. 20760 : valid-script : 0 : stalled 8 times (last best: 0)
+[2023-05-30 21:07:06] [valid] Ep. 71 : Up. 20760 : translation : 0 : stalled 8 times (last best: 0)
+[2023-05-30 21:27:08] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-30 21:27:08] [valid] First sentence's tokens as scored:
+[2023-05-30 21:27:08] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-30 21:27:08] [valid]   Hyp: administrados por estos tiempos que tienen este martes en las áreas de los miembros de la región nacional se menciona y hacer todos los estudiantes que forman parte de las localidades del transporte a pesar de las dos transportes e forman parte desde las llamas de la marca a partir de la visita de esta ciudad dijo que la esposa del titular es la visita realizada en horas de la tarde la tarde de julio de la visita de la visita de esta comentó el secretario de la indicó la casa de una de las elecciones generales y la visita que emitió el titular del local informó la visita de la visita de hoy durante la visita del nuevo entonces dicha visita a través de la visita del nuevo entonces la visita del nuevo director comentó tras la visita del frente de la visita de esta cartera por la visita del nuevo director de la indicó que tuvo como candidato y la presidencia del nuevo titular de la visita de esta cartera
+[2023-05-30 21:27:08] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> <unk> <unk> y el secretario del <unk> <unk> <unk>
+[2023-05-30 21:32:56] [valid] Ep. 81 : Up. 23727 : bleu : 1.18567 : stalled 6 times (last best: 1.36874)
+[2023-05-30 21:38:41] [valid] Ep. 81 : Up. 23727 : chrf : 21.9047 : stalled 2 times (last best: 22.2305)
+[2023-05-30 21:38:53] [valid] Ep. 81 : Up. 23727 : cross-entropy : 150.995 : stalled 9 times (last best: 85.9934)
+[2023-05-30 21:39:08] [valid] Ep. 81 : Up. 23727 : perplexity : 1140.08 : stalled 9 times (last best: 55.0753)
+[2023-05-30 21:39:12] [valid] Ep. 81 : Up. 23727 : valid-script : 0 : stalled 9 times (last best: 0)
+[2023-05-30 21:45:04] [valid] Ep. 81 : Up. 23727 : translation : 0 : stalled 9 times (last best: 0)
+[2023-05-30 22:05:05] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-30 22:05:05] [valid] First sentence's tokens as scored:
+[2023-05-30 22:05:05] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-30 22:05:05] [valid]   Hyp: administrados por distintos sectores que tienen este martes en el área social y la coordinación de los chicos serán por parte de parte de transporte y plata que forman parte de las evaluaciones fueron dados a cabo en un día transporte por parte de la visita a través de la asunción de la visita a través de la asunción de esta visita a través de la visita de esta visita por la visita del secretario de la visita de hoy durante la visita del nuevo director electo con la visita del nuevo director particular la visita que anunció la visita de esta visita desde la visita del mandatario en la visita de la visita realizada por el entonces que anunció la visita del nuevo despacho la visita que logró la presencia del secretario titular de la administrados por ciudades y aseguró la visita de la visita de este miércoles por parte del secretario general del propietario correspondiente durante la visita del nuevo director de la visita de hoy durante la última liderada por la visita del organismo de la visita de hoy durante la visita del nuevo titular del
+[2023-05-30 22:05:05] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> <unk> <unk> y el secretario del <unk> <unk> <unk>
+[2023-05-30 22:10:46] [valid] Ep. 91 : Up. 26693 : bleu : 1.20441 : stalled 7 times (last best: 1.36874)
+[2023-05-30 22:16:39] [valid] Ep. 91 : Up. 26693 : chrf : 22.04 : stalled 3 times (last best: 22.2305)
+[2023-05-30 22:16:54] [valid] Ep. 91 : Up. 26693 : cross-entropy : 157.053 : stalled 10 times (last best: 85.9934)
+[2023-05-30 22:17:07] [valid] Ep. 91 : Up. 26693 : perplexity : 1512.07 : stalled 10 times (last best: 55.0753)
+[2023-05-30 22:17:10] [valid] Ep. 91 : Up. 26693 : valid-script : 0 : stalled 10 times (last best: 0)
+[2023-05-30 22:23:02] [valid] Ep. 91 : Up. 26693 : translation : 0 : stalled 10 times (last best: 0)
+[2023-05-30 22:43:23] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-05-30 22:43:23] [valid] First sentence's tokens as scored:
+[2023-05-30 22:43:23] [valid] DefaultVocab keeps original segments for scoring
+[2023-05-30 22:43:23] [valid]   Hyp: administrados por parte de varios sectores que tienen este martes en las áreas de las áreas sociales y de modo puntos por parte de los funcionarios que forman parte de este procedimiento han querido el transporte a través de la visita de estudios ofrecido por parte de estudiantes mencionan la renuncia y mayores primeros por presencia de consejeros policiales por la titular de la visita de esta visita dentro de la visita a través de la visita de esta visita desde la visita de la visita a través del entonces visita y mayores por parte del secretario de la visita de esta tarde actualmente por el entonces la visita organizada por el entonces emitido la visita de la visita de ambos informó la visita de la visita realizada por el nuevo del entonces haber sido detenido con el secretario que refiere la visita de la visita de esta contó con la presidencia por el secretario de la visita de una visita por parte del entonces despacho de la visita de la visita de la visita la visita de la visita de hoy durante la visita del nuevo director del
+[2023-05-30 22:43:23] [valid]   Ref: <unk> importante citar que los daños <unk> a los usuarios por esta situación afectan seriamente a la economía en <unk> al área social e <unk> a la integridad física de las personas que transitan por dicha ruta <unk> <unk> pérdida de vidas y lesiones <unk> daño a los vehículos de <unk> a los animales y mercaderías en general <unk> sobrecostos en tiempo y dinero al <unk> <unk> expresa la nota <unk> por el titular de la <unk> <unk> <unk> y el secretario del <unk> <unk> <unk>
+[2023-05-30 22:49:21] [valid] Ep. 101 : Up. 29659 : bleu : 1.22488 : stalled 8 times (last best: 1.36874)
+[2023-05-30 22:55:23] [valid] Ep. 101 : Up. 29659 : chrf : 22.2247 : stalled 4 times (last best: 22.2305)
+[2023-05-30 22:55:36] [valid] Ep. 101 : Up. 29659 : cross-entropy : 162.422 : stalled 11 times (last best: 85.9934)
+[2023-05-30 22:55:52] [valid] Ep. 101 : Up. 29659 : perplexity : 1942.13 : stalled 11 times (last best: 55.0753)
+[2023-05-30 22:55:56] [valid] Ep. 101 : Up. 29659 : valid-script : 0 : stalled 11 times (last best: 0)
+[2023-05-30 23:01:52] [valid] Ep. 101 : Up. 29659 : translation : 0 : stalled 11 times (last best: 0)
