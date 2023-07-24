@@ -80,7 +80,8 @@ if __name__ == '__main__':
             validate_each_epochs=validate_each_epochs, 
             validation_metrics=validation_metrics, 
             save_checkpoints=save_checkpoints, 
-            not_delete_model_after=not_delete_model_after
+            not_delete_model_after=not_delete_model_after,
+            run_id=run_id,
         )
         logging.info('Training model with config {}'.format(command_config))
 

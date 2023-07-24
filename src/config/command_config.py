@@ -19,8 +19,9 @@ class CommandConfig:
         results_dir=None, 
         base_dir_evaluation=None,
         not_delete_model_after=False,
+        run_id=None,
     ):
-        # type: (str, str, dict, str, int, list[str], bool, str, str, bool) -> None
+        # type: (str, str, dict, str, int, list[str], bool, str, str, bool, str) -> None
         self.command_name = command_name
         self.command_path = command_path
         self.flags = flags
@@ -31,6 +32,7 @@ class CommandConfig:
         self.results_dir = results_dir
         self.base_dir_evaluation = base_dir_evaluation
         self.not_delete_model_after = not_delete_model_after
+        self.run_id = run_id
 
     def copy(self, deep=False):
         # type: (bool) -> CommandConfig
@@ -45,11 +47,12 @@ class CommandConfig:
             results_dir=self.results_dir,
             base_dir_evaluation=self.base_dir_evaluation,
             not_delete_model_after=self.not_delete_model_after,
+            run_id=self.run_id,
         )
     
     def __str__(self):
         # type: () -> str
-        return "CommandConfig(command_name={}, command_path={}, flags={}, flag_separator={}, validate_each_epochs={}, validation_metrics={}, save_checkpoints={}, results_dir={}, base_dir_evaluation={}, not_delete_model_after={})".format(
+        return "CommandConfig(command_name={}, command_path={}, flags={}, flag_separator={}, validate_each_epochs={}, validation_metrics={}, save_checkpoints={}, results_dir={}, base_dir_evaluation={}, not_delete_model_after={}, run_id={})".format(
             self.command_name,
             self.command_path,
             self.flags,
@@ -60,6 +63,7 @@ class CommandConfig:
             self.results_dir,
             self.base_dir_evaluation,
             self.not_delete_model_after,
+            self.run_id,
         )
     
     def __repr__(self):
@@ -74,8 +78,9 @@ def get_command_config(
     save_checkpoints=False, 
     results_dir=None, 
     not_delete_model_after=False,
+    run_id=None,
 ):
-    # type: (str, dict, int, list[str], bool, str, bool) -> CommandConfig
+    # type: (str, dict, int, list[str], bool, str, bool, str) -> CommandConfig
     config_variables = load_config_variables()
     return CommandConfig(
         command_name=config_variables[COMMAND_NAME],
@@ -88,4 +93,5 @@ def get_command_config(
         results_dir=results_dir,
         base_dir_evaluation=config_variables[BASE_DIR_EVALUATION],
         not_delete_model_after=not_delete_model_after,
+        run_id=run_id,
     )
