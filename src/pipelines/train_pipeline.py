@@ -45,7 +45,7 @@ def train(
     default_flags = command_config.flags
     trained_flags = [default_flags]
     run_id =  command_config.run_id
-    to_flag = None
+    from_flag, to_flag = 2*[None]
 
     if hyperparameter_tuning_config is not None:
         hyperparamter_grids, hyperparameter_configs, hyperparameter_method, from_flag, to_flag = \
