@@ -28,8 +28,6 @@ def plot_metrics_by_epoch(dataframe, metrics, save_path=None):
     plt.tight_layout()
     plt.savefig(save_path) if save_path is not None else plt.show()
 
-
-
 def plot_metric_by_x_foreach_model(df, metric, x, save_path=None):
     df = df[df[SCORE_TYPE_COL] == metric]
     sns.set(style='darkgrid')
