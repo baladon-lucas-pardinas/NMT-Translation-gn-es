@@ -4,6 +4,7 @@ from ..utils import process_manager
 from ..utils import parsing
 from ..utils import file_manager
 from src.components.evaluation import metrics
+from ..config import command_config
 
 # https://marian-nmt.github.io/docs/cmd/marian/
 # --valid-translation-output TEXT       
@@ -91,7 +92,7 @@ def simple_training(
     command_name, 
     validation_log, 
 ):
-    # type: (parsing.CommandConfig, bool, dict[str, list[str]], str, str, str, str) -> None
+    # type: (command_config.CommandConfig, bool, dict[str, list[str]], str, str, str, str) -> None
     command = parsing.create_command(marian_config)
     process_manager.run_command(command)
 
@@ -120,7 +121,7 @@ def training_with_artificial_epochs(
     validate_each_epochs,
     early_stopping,
 ):
-    # type: (parsing.CommandConfig, bool, dict[str, list[str]], str, str, str, str, str, str, list[str], str, bool, int, int) -> None
+    # type: (command_config.CommandConfig, bool, dict[str, list[str]], str, str, str, str, str, str, list[str], str, bool, int, int) -> None
     after_epochs, validate_each_epochs = int(after_epochs), int(validate_each_epochs)
     artificial_epochs = after_epochs//validate_each_epochs
 
@@ -128,6 +129,7 @@ def training_with_artificial_epochs(
     logged_flags = flags
 
     if early_stopping is not None:
+        early_stopping = int(early_stopping)
         marian_config = marian_config.copy(deep=True)
         del marian_config.flags['early-stopping']
         early_stopping_metric_criteria = validation_metrics[0] if validation_metrics is not None else None # Take first metric as early-stopping criteria
@@ -166,7 +168,7 @@ def training_with_artificial_epochs(
         if early_stopping is not None and early_stopping_metric_criteria is not None:
             current_most_important_scores = most_importance_scores[early_stopping_metric_criteria]
             
-            if len(current_most_important_scores) <= int(early_stopping):
+            if len(current_most_important_scores) <= early_stopping:
                 continue
 
             last_n_scores = current_most_important_scores[-early_stopping - 1:]
@@ -174,7 +176,7 @@ def training_with_artificial_epochs(
                 return
 
 def train(command_config):
-    # type: (parsing.CommandConfig) -> None
+    # type: (command_config.CommandConfig) -> None
     marian_config                 = command_config.copy(deep=True)
     flags                         = marian_config.flags
     model_metrics                 = flags.get('valid-metrics', [])
