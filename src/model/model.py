@@ -172,7 +172,8 @@ def training_with_artificial_epochs(
                 continue
 
             last_n_scores = current_most_important_scores[-early_stopping - 1:]
-            if all([current_most_important_scores[i] > current_most_important_scores[i+1] for i in range(len(last_n_scores)-1)]):
+            if all([current_most_important_scores[i] >= current_most_important_scores[i+1] for i in range(len(last_n_scores)-1)]):
+                print('Early stopping after {} epochs'.format(current_after_epochs))
                 return
 
 def train(command_config):
