@@ -131,7 +131,7 @@ def training_with_artificial_epochs(
     if early_stopping is not None:
         early_stopping = int(early_stopping)
         marian_config = marian_config.copy(deep=True)
-        del marian_config.flags['early-stopping']
+        marian_config.flags['early-stopping'] = after_epochs # The default Marian early-stopping is 5. after_epochs is high enough to avoid it.
         early_stopping_metric_criteria = validation_metrics[0] if validation_metrics is not None else None # Take first metric as early-stopping criteria
         most_importance_scores = {early_stopping_metric_criteria: []}
     
