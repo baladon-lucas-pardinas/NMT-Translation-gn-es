@@ -67,11 +67,11 @@ def validate(
 def validation_enabled(validation_metrics, artificial_epoch_training, validation_log, model_metrics, validation_translation_output):
     # type: (list[str], bool, str, list[str], str) -> bool    
     if artificial_epoch_training and \
-        'translation' in model_metrics and \
-        validation_metrics is not None and \
-        len(validation_metrics) > 0 and \
-        validation_translation_output is not None and \
-        True:
+       'translation' in model_metrics and \
+       validation_metrics is not None and \
+       len(validation_metrics) > 0 and \
+       validation_translation_output is not None and \
+       True:
         return True
     
     if not artificial_epoch_training and validation_log is not None:

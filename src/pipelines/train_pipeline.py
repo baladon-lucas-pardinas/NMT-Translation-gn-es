@@ -35,6 +35,20 @@ def delete_checkpoint(temp_file):
 def create_checkpoint_temp_dir_name(id):
     return 'temp_{}.txt'.format(id)
 
+# from_flag and to_flag can be integers in {0, 1, .., |flag_combinations|} or floats in [0, 1]
+def get_to_and_from_flags_indices(from_flag, to_flag, flag_combinations):
+    # type: (int, int, list[dict]) -> tuple[int, int]
+    flag_combinations_n = len(flag_combinations) 
+    from_flag = from_flag if from_flag is not None else 0
+    to_flag = to_flag if to_flag is not None else flag_combinations_n
+
+    if type(from_flag) is float and (0 <= from_flag <= 1):
+        from_flag = int(from_flag*flag_combinations_n)
+    if type(to_flag) is float and (0 <= to_flag <= 1):
+        to_flag = int(to_flag*flag_combinations_n)
+
+    return from_flag, to_flag     
+
 def train(
     data_ingestion_config,
     data_transformation_config,
@@ -58,14 +72,14 @@ def train(
     logging.info('Starting training with {} flag combinations'.format(len(trained_flags)))
 
     temp_dir = create_checkpoint_temp_dir_name(run_id)
-    to_flag = to_flag if to_flag is not None else len(trained_flags)
 
     if from_flag is not None:
         logging.info('Starting training from flag combination {}'.format(from_flag))
     else:
         from_flag = load_checkpoint(temp_dir)
         logging.info('Loaded training checkpoint: {}'.format(from_flag))
-        
+
+    from_flag, to_flag = get_to_and_from_flags_indices(from_flag, to_flag, trained_flags)
     idx = from_flag # Enumerate shouldn't be used in loop as idx would start in 0 after the checkpoint is loaded
     for current_flags in trained_flags[from_flag:to_flag]:
         save_checkpoint(temp_dir, str(idx))
