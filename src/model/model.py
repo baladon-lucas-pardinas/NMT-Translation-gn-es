@@ -79,10 +79,6 @@ def validation_enabled(validation_metrics, artificial_epoch_training, validation
     
     return False
 
-def delete_model_files(model_dir):
-    # type: (str) -> None
-    file_manager.delete_files(model_dir)
-
 def simple_training(
     marian_config, 
     is_validation_enabled, 
@@ -171,8 +167,9 @@ def training_with_artificial_epochs(
             if len(current_most_important_scores) <= early_stopping:
                 continue
 
-            last_n_scores = current_most_important_scores[-early_stopping - 1:]
-            if all([current_most_important_scores[i] >= current_most_important_scores[i+1] for i in range(len(last_n_scores)-1)]):
+            last_n_scores = current_most_important_scores[-early_stopping:]
+            max_score = max(last_n_scores)
+            if all([score < max_score for score in last_n_scores]):
                 print('Early stopping after {} epochs'.format(current_after_epochs))
                 return
 
@@ -229,4 +226,4 @@ def train(command_config):
         )
 
     if not not_delete_model_after:
-        delete_model_files(model_base_dir)
+        file_manager.delete_files(model_base_dir)
