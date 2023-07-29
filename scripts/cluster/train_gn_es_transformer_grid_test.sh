@@ -1,6 +1,6 @@
 #!/bin/bash
-SRC="es"
-TRG="gn"
+SRC="gn"
+TRG="es"
 MODEL_NAME=${SRC}_${TRG}_test_grid_july
 PROJECT_PATH=/docker/home/marianmt
 EPOCHS=200

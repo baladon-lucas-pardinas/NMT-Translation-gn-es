@@ -6,15 +6,15 @@
 #SBATCH --cpus-per-task=9
 #SBATCH --mem=60G
 #SBATCH --time=5-0
-#SBATCH --partition=normal
+#SBATCH --partition=besteffort
+#SBATCH --qos=besteffort
 # --mail-type=ALL
 # --mail-user=alexis.baladon@fing.edu.uy
-#SBATCH --output=run_16-18.out
+#SBATCH --output=run_besteffort10-12.out
 
 # --gres=gpu:1      # se solicita una gpu cualquiera( va a tomar la primera que quede disponible indistintamente si es una p100 o una a100)
-#SBATCH --gres=gpu:p100:3 # se solicita una nvidia p100
-# --gres=gpu:a100:1 # se solicita una nvidia a100, tenga en cuenta que solamente hay 2 a100 disponibles en toda la ifraestructura y están ubicadas en servidores diferentes (node15 y node16)
-#SBATCH --qos=gpu
+#SBATCH --gres=gpu:p100:1 # se solicita una nvidia a100, tenga en cuenta que solamente hay 2 a100 disponibles en toda la ifraestructura y están ubicadas en servidores diferentes (node15 y node16)
+# --qos=gpu
 cd ..
 SCRIPT_NAME=$1
 HOME=/docker/home
