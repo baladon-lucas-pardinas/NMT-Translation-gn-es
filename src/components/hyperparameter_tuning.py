@@ -16,6 +16,18 @@ def handle_boolean_flags(flags):
             del temp_flags[flag_name]
     return temp_flags
 
+# If the model uses sentencepiece, each vocabulary configuration must be in a different file.
+def handle_sentencepiece_flags(flags):
+    # type: (dict[str, list]) -> dict[str, list]
+    src_vocab, trg_vocab = flags['valid-vocabs']
+    if src_vocab.endswith('.spm'):
+        assert src_vocab.endswith('.spm') and trg_vocab.endswith('.spm'), 'Both vocabularies must use sentencepiece if one of them does.'
+        dim_vocab = flags.get('dim-vocabs', [None])[0]
+        src_new_name = src_vocab.replace('.spm', 'V{dim_vocab}.spm'.format(dim_vocab=dim_vocab))
+        trg_new_name = trg_vocab.replace('.spm', 'V{dim_vocab}.spm'.format(dim_vocab=dim_vocab))
+        flags['valid-vocabs'] = [src_new_name, trg_new_name]
+    return flags
+
 def rename_model_file(model_name, flags):
     # type: (str, dict[str, list]) -> str
     model_name_without_extension = '.'.join(model_name.split('.')[:-1])
@@ -43,6 +55,7 @@ def get_grid_flags(default_flags, grid_file):
         current_default_flags['model'] = [rename_model_file(default_model_name, product_and_param_names)]
         current_default_flags = {**current_default_flags, **product_and_param_names}
         current_default_flags = handle_boolean_flags(current_default_flags)
+        current_default_flags = handle_sentencepiece_flags(current_default_flags)
         grid_flags.append(current_default_flags)
 
     return grid_flags
@@ -61,5 +74,6 @@ def get_custom_config_flags(default_flags, grid_file):
     default_flags['model'] = [rename_model_file(default_model_name, grid)]
     custom_config_flags = {**default_flags, **grid}
     custom_config_flags = handle_boolean_flags(custom_config_flags)
+    custom_config_flags = handle_sentencepiece_flags(custom_config_flags)
 
     return custom_config_flags
