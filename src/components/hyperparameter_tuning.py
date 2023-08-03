@@ -19,13 +19,13 @@ def handle_boolean_flags(flags):
 # If the model uses sentencepiece, each vocabulary configuration must be in a different file.
 def handle_sentencepiece_flags(flags):
     # type: (dict[str, list]) -> dict[str, list]
-    src_vocab, trg_vocab = flags['valid-vocabs']
+    src_vocab, trg_vocab = flags['vocabs']
     if src_vocab.endswith('.spm'):
         assert src_vocab.endswith('.spm') and trg_vocab.endswith('.spm'), 'Both vocabularies must use sentencepiece if one of them does.'
         dim_vocab = flags.get('dim-vocabs', [None])[0]
         src_new_name = src_vocab.replace('.spm', 'V{dim_vocab}.spm'.format(dim_vocab=dim_vocab))
         trg_new_name = trg_vocab.replace('.spm', 'V{dim_vocab}.spm'.format(dim_vocab=dim_vocab))
-        flags['valid-vocabs'] = [src_new_name, trg_new_name]
+        flags['vocabs'] = [src_new_name, trg_new_name]
     return flags
 
 def rename_model_file(model_name, flags):
