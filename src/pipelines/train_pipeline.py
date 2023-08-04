@@ -9,13 +9,13 @@ from src.config.data_transformation_config import DataTransformationConfig
 from src.config.hyperparameter_tuning_config import HyperparameterTuningConfig
 from src.components import hyperparameter_tuning
 
-def get_hyperparameter_flags(default_flags, hyperparameter_grids, hyperparameter_configs, search_method):
-    # type: (list[str], list[list[dict]], list[dict], str) -> list[dict]
-    hyperparameter_grids_flags = []
-    for hyperparameter_grid in hyperparameter_grids:
-        hyperparameter_grids_flags.extend(hyperparameter_tuning.get_grid_flags(default_flags, hyperparameter_grid))
+def get_hyperparameter_flags(default_flags, hyperparameter_space, hyperparameter_configs, search_method, seed=None, max_iters=None):
+    # type: (list[str], list[list[dict]], list[dict], str, int, int) -> list[dict]
+    hyperparameter_flags = []
+    for hyperparameters in hyperparameter_space:
+        hyperparameter_flags.extend(hyperparameter_tuning.get_hyperparameters_flags(default_flags, hyperparameters, search_method, seed=seed, max_iters=max_iters))
     hyperparameter_configs_flags = [hyperparameter_tuning.get_custom_config_flags(default_flags, hyperparamter_config) for hyperparamter_config in hyperparameter_configs]
-    trained_flags = [*hyperparameter_configs_flags, *hyperparameter_grids_flags]
+    trained_flags = [*hyperparameter_configs_flags, *hyperparameter_flags]
     return trained_flags
 
 def save_checkpoint(temp_file, checkpoint):
@@ -42,9 +42,9 @@ def get_to_and_from_flags_indices(from_flag, to_flag, flag_combinations):
     from_flag = from_flag if from_flag is not None else 0
     to_flag = to_flag if to_flag is not None else flag_combinations_n
 
-    if type(from_flag) is float and (0 <= from_flag <= 1):
+    if '.' in str(from_flag) and (0 <= float(from_flag) <= 1):
         from_flag = int(from_flag*flag_combinations_n)
-    if type(to_flag) is float and (0 <= to_flag <= 1):
+    if '.' in str(to_flag) and (0 <= float(to_flag) <= 1):
         to_flag = int(to_flag*flag_combinations_n)
 
     return from_flag, to_flag     
@@ -62,13 +62,14 @@ def train(
     from_flag, to_flag = 2*[None]
 
     if hyperparameter_tuning_config is not None:
-        hyperparamter_grids, hyperparameter_configs, hyperparameter_method, from_flag, to_flag = \
-            hyperparameter_tuning_config.tuning_grid_files, \
-            hyperparameter_tuning_config.tuning_params_files, \
-            hyperparameter_tuning_config.search_method, \
-            hyperparameter_tuning_config.from_flags, \
-            hyperparameter_tuning_config.to_flags
-        trained_flags = get_hyperparameter_flags(default_flags, hyperparamter_grids, hyperparameter_configs, hyperparameter_method)
+        hyperparamter_grids = hyperparameter_tuning_config.tuning_grid_files
+        hyperparameter_configs = hyperparameter_tuning_config.tuning_params_files
+        tuning_strategy = hyperparameter_tuning_config.tuning_strategy
+        from_flag = hyperparameter_tuning_config.from_flags
+        to_flag = hyperparameter_tuning_config.to_flags
+        seed = hyperparameter_tuning_config.seed
+        max_iters = hyperparameter_tuning_config.max_iters
+        trained_flags = get_hyperparameter_flags(default_flags, hyperparamter_grids, hyperparameter_configs, tuning_strategy, seed, max_iters)
     logging.info('Starting training with {} flag combinations'.format(len(trained_flags)))
 
     temp_dir = create_checkpoint_temp_dir_name(run_id)
@@ -89,6 +90,7 @@ def train(
             data_ingestion.ingest_data(data_ingestion_config)
 
         if data_transformation_config:
+            # Data transformation not implemented
             pass
 
         if command_config:

@@ -68,7 +68,7 @@ class TestTrain(unittest.TestCase):
         self.expected_output = parsing.create_command(self.command_config)
         self.expected_output = self.expected_output[command_length:-injected_length].strip()
 
-        ############# Hyperparameter tuning Test #############
+        ############# Hyperparameter tuning Test (Grid Search) #############
         self.log_metric_count = 10
         self.valid_log_dir = os.path.join(self.test_data_dir, 'test_log.log')
         self.hyperparameter_validation_output_dir = os.path.join(self.test_data_dir, 'hyperparameter_validation_output.txt')
@@ -84,7 +84,7 @@ class TestTrain(unittest.TestCase):
             run_id='test',
             tuning_grid_files=[self.grid1_filename, self.grid2_filename],
             tuning_params_files=[self.params1_filename, self.params2_filename],
-            search_method='grid',
+            tuning_strategy='gridsearch',
         )
         self.tuning_flags = parsing.deep_copy_flags(self.flags)
         self.tuning_flags['valid-translation-output'] = [self.hyperparameter_validation_output_dir]
@@ -100,9 +100,28 @@ class TestTrain(unittest.TestCase):
         )
         pass
 
+        ############# Hyperparameter tuning Test (Random Search) #############
+        self.random_search_config = self.tuning_config.copy(deep=True)
+        self.random_search_max_iters = 10
+        self.random_search_seed = 42
+        self.random_search_config.__setattr__('tuning_strategy', 'randomsearch')
+        self.random_search_config.__setattr__('seed', self.random_search_seed)
+        self.random_search_config.__setattr__('max_iters', self.random_search_max_iters)
+        self.random_config_file = os.path.join(self.test_data_dir, 'random_config.json')
+        self.random_search_config.__setattr__('tuning_grid_files', [self.random_config_file])
+        self.random_search_config.__setattr__('tuning_params_files', [])
+        self.random_search_command_config = self.tuning_command_config.copy(deep=True)
+        self.random_search_command_config.__setattr__('validate_each_epochs', self.validate_each_epochs)
+
         ############# Early stopping Test #############
         self.early_stopping_config = self.command_config.copy(deep=True)
         self.early_stopping_config.flags['early-stopping'] = ['2']
+
+    def clean_files(self, files):
+        # type: (list[str]) -> None
+        for file in files:
+            if os.path.exists(file):
+                os.remove(file)
 
     def test_train_marian(self):
         # Create mock translation output
@@ -110,6 +129,9 @@ class TestTrain(unittest.TestCase):
         second_output_filename = model.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 2)
         file_manager.save_copy(self.test_valid_data_dir_tgt, first_output_filename)
         file_manager.save_copy(self.test_valid_data_dir_tgt, second_output_filename)
+        first_checkpoint_filename = model.rename_checkpoint(self.model_dir, self.validate_each_epochs)
+        second_checkpoint_filename = model.rename_checkpoint(self.model_dir, int(self.validate_each_epochs) * 2)
+        files_to_clean = [self.csv_file_name, self.valid_translation_output, first_output_filename, second_output_filename, first_checkpoint_filename, second_checkpoint_filename]
 
         # Create mock checkpoint
         with open(self.model_dir, 'w') as f:
@@ -139,24 +161,17 @@ class TestTrain(unittest.TestCase):
                 self.assertTrue(has_model)
 
             # Should exist checkpoint
-            first_checkpoint_filename = model.rename_checkpoint(self.model_dir, self.validate_each_epochs)
-            second_checkpoint_filename = model.rename_checkpoint(self.model_dir, int(self.validate_each_epochs) * 2)
             self.assertTrue(os.path.exists(first_checkpoint_filename))
             self.assertTrue(os.path.exists(second_checkpoint_filename))
 
+            self.clean_files(files_to_clean)
         except AssertionError as e:
+            self.clean_files(files_to_clean)
             self.fail("Failed with assertion {}".format(e.with_traceback()))
-        finally:
-            ""
-            os.remove(self.model_dir)
-            os.remove(self.command_output_dir)
-            os.remove(self.csv_file_name)
-            os.remove(first_output_filename)
-            os.remove(second_output_filename)
-            os.remove(first_checkpoint_filename)
-            os.remove(second_checkpoint_filename)
 
-    def test_hyperparameter_tuning(self):
+    def test_grid_search(self):
+        files_to_clean = [self.csv_file_name, self.grid1_filename, self.grid2_filename, self.params1_filename, self.params2_filename, self.hyperparameter_validation_output_dir]
+
         try:
             # Add hyperparameter tuning values
             command_config = self.tuning_command_config
@@ -190,15 +205,57 @@ class TestTrain(unittest.TestCase):
                 reader = csv.DictReader(f)
                 self.assertEqual(len(list(reader)), n_combinations)
 
+            self.clean_files(files_to_clean)
         except AssertionError as e:
+            self.clean_files(files_to_clean)
             self.fail("Failed with assertion {}".format(e.with_traceback()))
-        finally:
-            ""
-            os.remove(self.grid1_filename)
-            os.remove(self.grid2_filename)
-            os.remove(self.params1_filename)
-            os.remove(self.params2_filename)
-            os.remove(self.hyperparameter_validation_output_dir)
+
+    def test_random_search(self):
+        try:
+            command_config = self.random_search_command_config
+            hyperparameter_tuning_config = self.random_search_config
+            files_to_clean = [self.csv_file_name]# [self.hyperparameter_validation_output_dir, self.csv_file_name]
+
+            # Create translation output mock file
+            file_manager.save_copy(self.test_valid_data_dir_tgt, self.hyperparameter_validation_output_dir)
+
+            experiments_n = 2
+            hyperparameter_configs = [hyperparameter_tuning_config.copy(deep=True) for _ in range(experiments_n)]
+            command_configs = [command_config.copy(deep=True) for _ in range(experiments_n)]
+            for i in range(experiments_n):                    
+                hyperparameter_tuning_config = hyperparameter_configs[i]
+                command_config = command_configs[i]
+                train_pipeline.train(
+                    data_ingestion_config=None,
+                    data_transformation_config=None,
+                    hyperparameter_tuning_config=hyperparameter_tuning_config,
+                    command_config=command_config,
+                )
+
+                # Metric csv should have number_of_rows = max_iters * metrics_n * epochs_n * iterations_i+1
+                n = self.random_search_max_iters * len(self.validation_metrics) * (int(self.after_epochs) / int(self.validate_each_epochs)) * (i+1)
+                with open(self.csv_file_name, 'r') as f:
+                    reader = csv.DictReader(f)
+                    reader_list = list(reader)
+                    metric_results = [row['parameters'] for row in reader_list]
+                    self.assertEqual(len(reader_list), n)
+
+            #Check reproductibility of both results
+            metric_results_middle = len(str(metric_results)) // 2
+            metrics1_str = str(metric_results)[:metric_results_middle]
+            metrics2_str = str(metric_results)[metric_results_middle:]
+
+            # Remove list brackets
+            metrics1_str = metrics1_str[1:-1]
+            metrics2_str = metrics2_str[1:-1]
+
+            # Test that both result are equal (reproductibility)
+            self.assertEqual(metrics1_str, metrics2_str)
+
+            self.clean_files(files_to_clean)
+        except AssertionError as e:
+            self.clean_files(files_to_clean)
+            self.fail("Failed with assertion {}".format(e.with_traceback()))
 
     def test_early_stopping(self):
         try:
@@ -212,6 +269,7 @@ class TestTrain(unittest.TestCase):
             file_manager.save_copy(self.test_valid_data_dir_tgt, first_output_filename)
             file_manager.save_copy(self.test_valid_data_dir_tgt, second_output_filename)
             file_manager.save_copy(self.test_valid_data_dir_tgt, third_output_filename)
+            files_to_clean = [self.csv_file_name, self.valid_translation_output, first_output_filename, second_output_filename, third_output_filename]
 
             # Create mock checkpoint
             with open(self.model_dir, 'w') as f:
@@ -230,15 +288,10 @@ class TestTrain(unittest.TestCase):
                 early_stopping = int(self.early_stopping_config.flags['early-stopping'][0])
                 self.assertEqual(n_rows, n_metrics * early_stopping)
 
+            self.clean_files(files_to_clean)
         except AssertionError as e:
+            self.clean_files(files_to_clean)
             self.fail("Failed with assertion {}".format(e.with_traceback()))
-        finally:
-            ""
-            os.remove(self.model_dir)
-            os.remove(self.csv_file_name)
-            os.remove(first_output_filename)
-            os.remove(second_output_filename)
-            os.remove(third_output_filename)
 
 def main():
     unittest.main()

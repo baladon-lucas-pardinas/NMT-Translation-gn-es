@@ -11,6 +11,7 @@ def parse_args():
 
     # General
     parser.add_argument('--flags', type=str, required=True)
+    parser.add_argument('--seed', type=int, required=False, default=1234, help='Seed to make results reproducible')
 
     # Training
     parser.add_argument('--train-sets', type=str, required=False, default=None, help='Whitespace separated list of training sets')
@@ -32,12 +33,15 @@ def parse_args():
     parser.add_argument('--tuning-params-files', type=str, required=False, default=None, help='Whitespace separated list of files with only one configuration')
     parser.add_argument('--from-flags', type=int, required=False, default=None, help='Loads from flag combination number N from all configs from the provided configs/grids')
     parser.add_argument('--to-flags', type=int, required=False, default=None, help='Stops after flag combination number N from all configs from the provided configs/grids')
+    parser.add_argument('--tuning-strategy', type=str, required=False, default='gridsearch', help="Tuning strategy to use. Can be 'gridsearch' or 'randomsearch'")
+    
 
     return vars(parser.parse_args())
 
 if __name__ == '__main__':
     args = parse_args()
     flags                  = args.get('flags')
+    seed                   = args.get('seed')
     command_path           = args.get('command_path')
     validate_each_epochs   = args.get('validate_each_epochs')
     validation_metrics     = args.get('validation_metrics')
@@ -52,6 +56,7 @@ if __name__ == '__main__':
     tuning_params_files    = args.get('tuning_params_files')
     from_flags             = args.get('from_flags')
     to_flags               = args.get('to_flags')
+    tuning_strategy        = args.get('tuning_strategy')
     
     config_variables = load_config_variables()
     flag_separator   = config_variables.get(FLAG_SEPARATOR, ' ')
@@ -92,6 +97,8 @@ if __name__ == '__main__':
                 tuning_params_files=tuning_params_files,
                 from_flags=from_flags, 
                 to_flags=to_flags,
+                tuning_strategy=tuning_strategy,
+                seed=seed,
             )
             logging.info('Hyperparameter tuning with config {}'.format(tuning_config))
     try:

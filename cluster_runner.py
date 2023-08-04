@@ -2,6 +2,7 @@ import re
 import os
 import subprocess
 from typing import Union
+import argparse
 
 # https://www.cluster.uy/ayuda/como_ejecutar/#trabajo-besteffort
 # NOMBRE	    # NÚCLEOS DISPONIBLES	MAX. TIEMPO	   MAX. TRABAJOS
@@ -180,8 +181,6 @@ def awake_jobs(jobs_n: int, outputs_scripts_folder: str, bash_template_file: str
         run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, debug=debug)
 
     return slept_jobs
-
-import argparse
 
 def get_args():
     parser = argparse.ArgumentParser()

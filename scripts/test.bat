@@ -1,3 +1,4 @@
+@echo off
 set TEST_ONLY=%1
 
 if "%TEST_ONLY%"=="" (

@@ -1,5 +1,8 @@
 import json
 import itertools
+import random
+
+import scipy.stats as stats
 
 from src.utils.parsing import deep_copy_flags
 
@@ -19,8 +22,8 @@ def handle_boolean_flags(flags):
 # If the model uses sentencepiece, each vocabulary configuration must be in a different file.
 def handle_sentencepiece_flags(flags):
     # type: (dict[str, list]) -> dict[str, list]
-    src_vocab, trg_vocab = flags['vocabs']
-    if src_vocab.endswith('.spm'):
+    src_vocab, trg_vocab = flags.get('vocabs', ['', ''])
+    if src_vocab.endswith('.spm') or trg_vocab.endswith('.spm'):
         assert src_vocab.endswith('.spm') and trg_vocab.endswith('.spm'), 'Both vocabularies must use sentencepiece if one of them does.'
         dim_vocab = flags.get('dim-vocabs', [None])[0]
         src_new_name = src_vocab.replace('.spm', 'V{dim_vocab}.spm'.format(dim_vocab=dim_vocab))
@@ -37,6 +40,51 @@ def rename_model_file(model_name, flags):
     param_names_and_values = [param_name + '_' + param_value for param_name, param_value in zip(param_names, param_values)]
     model_name = model_name_without_extension + '_' + '_'.join(param_names_and_values) + '.' + model_name_extension
     return model_name
+
+def get_hyperparameters_flags(default_flags, hyperparameters_file, search_method, max_iters=None, seed=None):
+    # type: (dict[str, list], str, str, int, int) -> list[dict[str, list[str]]]
+    methods = {'gridsearch': get_grid_flags, 'randomsearch': get_random_flags}
+    extra_parameters = {'seed': seed, 'max_iters': max_iters} if search_method == 'randomsearch' else {}
+    return methods[search_method](default_flags, hyperparameters_file, **extra_parameters)
+
+def get_random_flags(default_flags, hyperparameters_file, max_iters, seed=None):
+    # type: (dict[str, list], str, int, int) -> list[dict[str, list[str]]]
+    random_instance = random.Random(); random_instance.seed(seed) # random.seed is not enough for random.choices
+    distribution_functions = {"randint": stats.randint.rvs, "loguniform": stats.loguniform.rvs, "randomchoice": random_instance.choices}
+    random_flags = []
+
+    with open(hyperparameters_file, 'r') as f:
+        hyperparameters = json.load(f)
+
+    hyperparameters_values = {}
+    for hyperparameter_name, hyperparameter_info in hyperparameters.items():
+        hyperparameter_distribution = hyperparameter_info.get('distribution')
+        hyperparameter_distribution_params = hyperparameter_info.get('parameters')
+        shares_value_with = hyperparameter_info.get('shares_value_with', None)
+
+        distribution_function = distribution_functions[hyperparameter_distribution]
+        distribution_extra_params = {'size': max_iters, 'random_state': seed} if hyperparameter_distribution != 'randomchoice' else {'k': max_iters}
+        random_values = distribution_function(*hyperparameter_distribution_params, **distribution_extra_params)
+        random_values = list(map(lambda p: [str(p)], random_values)) # Convert all values to lists of strings
+
+        if shares_value_with is not None:
+            hyperparameters_values[shares_value_with] = random_values
+        hyperparameters_values[hyperparameter_name] = random_values
+
+    for i in range(max_iters):
+        current_flags = {}
+        for hyperparameter_name, hyperparameter_values in hyperparameters_values.items():
+            current_flags[hyperparameter_name] = hyperparameter_values[i]
+        current_flags = deep_copy_flags(current_flags)
+        default_model_name = default_flags.get('model')[0]
+        current_flags['model'] = [rename_model_file(default_model_name, current_flags)]
+        current_flags = {**default_flags, **current_flags}
+        current_flags = handle_boolean_flags(current_flags)
+        current_flags = handle_sentencepiece_flags(current_flags)
+
+        random_flags.append(current_flags)
+
+    return random_flags
 
 def get_grid_flags(default_flags, grid_file):
     # type: (dict[str, list], str) -> list[dict[str, list[str]]]

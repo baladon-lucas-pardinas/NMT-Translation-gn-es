@@ -1,0 +1,20 @@
+{
+    "learning-rate": {"distribution": "loguniform", "parameters": {"a": 1, "b": 10}},
+    "mini-batch-size": {"distribution": "loguniform", "parameters": {"a": 1, "b": 10}},
+    "max-length": {"distribution": "loguniform", "parameters": {"a": 1, "b": 10}},
+    "enc-depth": {"distribution": "loguniform", "parameters": {"a": 1, "b": 10}},
+    "dec-depth": {"distribution": "loguniform", "parameters": {"a": 1, "b": 10}},
+    "dim-vocabs": {"distribution": "loguniform", "parameters": {"a": 1, "b": 10}},
+    
+    "dropout-rnn": {"distribution": "loguniform", "parameters": {"a": 1, "b": 10}},
+    "dropout-src": {"distribution": "loguniform", "parameters": {"a": 1, "b": 10}},
+    "dropout-trg": {"distribution": "loguniform", "parameters": {"a": 1, "b": 10}},
+    "skip": {"distribution": "static", "value": {"a": 1, "b": 10}},
+    "layer-normalization": {"distribution": "static", "parameters": {"a": 1, "b": 10}},
+    "max-length-crop": {"distribution": "static", "parameters": {"a": 1, "b": 10}},
+    "optimizer": {"distribution": "static", "parameters": {"a": 1, "b": 10}},
+    "optimizer-parameters": {"distribution": "static", "parameters": {"a": 1, "b": 10}},
+    "sentencepiece": {"distribution": "static", "parameters": {"a": 1, "b": 10}},
+    "early-stopping": {"distribution": "static", "parameters": {"a": 1, "b": 10}}
+}
+
