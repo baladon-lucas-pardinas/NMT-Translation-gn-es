@@ -87,8 +87,16 @@ def get_bash_file_name(from_flag: Union[int, float], to_flag: Union[int, float],
     filename += ".sh"
     return filename
 
-def get_grid_partitions(jobs_n: int):
-    return [(i/jobs_n, (i+1)/jobs_n) for i in range(jobs_n)]
+def get_grid_partitions(total_jobs_n: int, jobs_n: int, from_flag, to_flag):
+    flag_range = (to_flag - from_flag)
+    flags_per_job = flag_range // jobs_n
+    partitions = []
+    for i in range(jobs_n):
+        start = from_flag + i * flags_per_job
+        end = start + flags_per_job
+        partitions.append((start, end))
+    partitions[-1] = (partitions[-1][0], to_flag)
+    return partitions
 
 def create_slurm_file_content(output_filename: str, job_name: str, partition: str, qos: str, gpus_n: int, ntasks=4, cpus_per_task=9, mem='60G', file_template=SLURM_TEMPLATE):
     params_to_replace = {'job_name': job_name, 'partition': partition, 'qos': qos, 'gpus_n': gpus_n, 'ntasks': ntasks, 'cpus_per_task': cpus_per_task, 'mem': mem, 'output_filename': output_filename}
@@ -144,9 +152,7 @@ def run_script(bash_input_template_dir: str, outputs_scripts_folder: str, flags_
 
 GPU_LOG_REGEX = re.compile(r'^.+Using ([1-9]) GPUs$')
 
-def awake_jobs(jobs_n: int, outputs_scripts_folder: str, bash_template_file: str, time_limit_message=TIME_LIMIT_MESSAGE, gpu_regex=GPU_LOG_REGEX, debug=False):
-    grid_partitions = get_grid_partitions(jobs_n)
-
+def awake_jobs(grid_partitions: list[tuple], outputs_scripts_folder: str, bash_template_file: str, time_limit_message=TIME_LIMIT_MESSAGE, gpu_regex=GPU_LOG_REGEX, debug=False):
     slept_jobs = []
     for grid_partition in grid_partitions:
         output_file_normal = get_out_file_name(*grid_partition, besteffort=False)
@@ -185,8 +191,11 @@ def awake_jobs(jobs_n: int, outputs_scripts_folder: str, bash_template_file: str
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--mode', type=str, default='run', required=False, choices=['run', 'awake'])
+    parser.add_argument('--total_jobs_n', type=int, default=0, required=True)
     parser.add_argument('--jobs_n', type=int, default=0, required=True)
-    parser.add_argument('--besteffort_n', type=int, default=0, required=False)
+    parser.add_argument('--besteffort_rate', type=float, default=0.0, required=False)
+    parser.add_argument('--from_flag', type=int, default=None, required=False)
+    parser.add_argument('--to_flag', type=int, default=None, required=False)
     parser.add_argument('--normal_gpus', type=int, default=1, required=False)
     parser.add_argument('--besteffort_gpus', type=int, default=1, required=False)
     parser.add_argument('--outputs_scripts_folder', type=str, default='.', required=False)
@@ -195,34 +204,49 @@ def get_args():
     args = parser.parse_args()
     return vars(args)
 
-def check_preconditions(mode: str, jobs_n: int, besteffort_n: int):
+def check_preconditions(mode: str, total_jobs_n: int, jobs_n: int, besteffort_n: int, from_flag: int, to_flag: int=None):
     if mode not in ['run', 'awake']:
         raise ValueError(f'Invalid mode: {mode}')
     if jobs_n == 0:
         raise Exception("The total number of jobs must be greater than zero")
     if jobs_n < besteffort_n:
         raise Exception("The total number of jobs must not be of the same size as the number of besteffort jobs")
+    if total_jobs_n == 0:
+        raise Exception("The total number of jobs must be greater than zero")
+    if total_jobs_n < jobs_n:
+        raise Exception("The total number of jobs must be greater than or equal to the number of jobs")
+    if to_flag is not None and from_flag >= to_flag:
+        raise Exception("The from flag must be less than the to flag")
+    if to_flag is not None and to_flag - from_flag < jobs_n:
+        raise Exception("The difference between the from flag and the to flag must be greater than or equal to the number of jobs")
+    if to_flag is None and from_flag + jobs_n > total_jobs_n:
+        raise Exception("The from flag plus the number of jobs must be less than or equal to the total number of jobs")
 
-# python cluster_runner.py --debug --jobs_n 12 --besteffort_n 5 --normal_gpus 3 --bash_template_file .\\scripts\\cluster\\train_gn_es_level2_s2s_grid.sh --outputs_scripts_folder ./tests/data
-# python cluster_runner.py --debug --jobs_n 12 --mode awake --bash_template_file .\\scripts\\cluster\\train_gn_es_level2_s2s_grid.sh --outputs_scripts_folder ./tests/data
+
+# python cluster_runner.py --debug --from_flag 0 --to_flag 20 --total_jobs_n 20 --jobs_n 10 --besteffort_rate 0.8 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file .\\scripts\\cluster\\train_gn_es_level2_s2s_grid.sh --outputs_scripts_folder ./tests/data/scripts
+# python cluster_runner.py --mode awake --debug --jobs_n 12 --bash_template_file .\\scripts\\cluster\\train_gn_es_level2_s2s_grid.sh --outputs_scripts_folder ./tests/data/scripts
 if __name__ == '__main__':
     args = get_args()
     mode = args['mode']
+    total_jobs_n = args['total_jobs_n']
     jobs_n = args['jobs_n']
-    besteffort_n = args['besteffort_n']
+    besteffort_n = round(args['besteffort_rate'] * jobs_n)
+    from_flag = args['from_flag']
+    to_flag = args['to_flag']
     normal_gpus = args['normal_gpus']
     besteffort_gpus = args['besteffort_gpus']
     outputs_scripts_folder = args['outputs_scripts_folder']
     bash_template_file = args['bash_template_file']
     debug = args['debug']
+    partitions = get_grid_partitions(total_jobs_n, jobs_n, from_flag, to_flag)
 
-    check_preconditions(mode, jobs_n, besteffort_n)
+    print('Generated partitions: ', partitions)
+    check_preconditions(mode, total_jobs_n, jobs_n, besteffort_n, from_flag, to_flag)
     
     if mode == 'run':
         normal_n = jobs_n - besteffort_n
-        partitions = get_grid_partitions(jobs_n)
-        normal_partitions = partitions[:normal_n-1]
-        besteffort_partitions = partitions[normal_n-1:]
+        normal_partitions = partitions[:normal_n]
+        besteffort_partitions = partitions[normal_n:]
 
         for grid_partition in normal_partitions:
             job_name = get_job_name(*grid_partition)
@@ -238,4 +262,4 @@ if __name__ == '__main__':
             gpus_n = besteffort_gpus
             run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, debug=debug)
     elif mode == 'awake':
-        awake_jobs(jobs_n, outputs_scripts_folder, bash_template_file, debug=debug)
+        awake_jobs(partitions, outputs_scripts_folder, bash_template_file, debug=debug)
