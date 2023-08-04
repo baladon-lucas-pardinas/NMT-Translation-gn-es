@@ -1,3 +1,6 @@
 pandas
 seaborn
 matplotlib
+scipy
+sacrebleu
+nltk
