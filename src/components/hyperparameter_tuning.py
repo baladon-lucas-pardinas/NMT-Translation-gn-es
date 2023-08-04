@@ -49,9 +49,13 @@ def get_hyperparameters_flags(default_flags, hyperparameters_file, search_method
 
 def get_random_flags(default_flags, hyperparameters_file, max_iters, seed=None):
     # type: (dict[str, list], str, int, int) -> list[dict[str, list[str]]]
-    random_instance = random.Random(); random_instance.seed(seed) # random.seed is not enough for random.choices
-    distribution_functions = {"randint": stats.randint.rvs, "loguniform": stats.loguniform.rvs, "randomchoice": random_instance.choices}
     random_flags = []
+    random_instance = random.Random(); random_instance.seed(seed) # random.seed is not enough to ensure reproducibility
+    distribution_functions = {
+        "int_truncnorm": lambda *args, **kwargs: stats.truncnorm.rvs(*args, **kwargs).round().astype(int), 
+        "loguniform": stats.loguniform.rvs, 
+        "randomchoice": random_instance.choices
+    }
 
     with open(hyperparameters_file, 'r') as f:
         hyperparameters = json.load(f)
@@ -59,12 +63,14 @@ def get_random_flags(default_flags, hyperparameters_file, max_iters, seed=None):
     hyperparameters_values = {}
     for hyperparameter_name, hyperparameter_info in hyperparameters.items():
         hyperparameter_distribution = hyperparameter_info.get('distribution')
-        hyperparameter_distribution_params = hyperparameter_info.get('parameters')
+        hyperparameter_distribution_args = hyperparameter_info.get('args')
+        hyperparameter_distribution_kwargs = hyperparameter_info.get('kwargs', {})
         shares_value_with = hyperparameter_info.get('shares_value_with', None)
 
         distribution_function = distribution_functions[hyperparameter_distribution]
         distribution_extra_params = {'size': max_iters, 'random_state': seed} if hyperparameter_distribution != 'randomchoice' else {'k': max_iters}
-        random_values = distribution_function(*hyperparameter_distribution_params, **distribution_extra_params)
+        distribution_extra_params = {**distribution_extra_params, **hyperparameter_distribution_kwargs}
+        random_values = distribution_function(*hyperparameter_distribution_args, **distribution_extra_params)
         random_values = list(map(lambda p: [str(p)], random_values)) # Convert all values to lists of strings
 
         if shares_value_with is not None:

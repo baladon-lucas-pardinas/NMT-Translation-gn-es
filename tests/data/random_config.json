@@ -1,6 +1,6 @@
 {
-    "learning-rate": {"distribution": "loguniform", "parameters": [0.0001, 1.0]},
-    "max-length": {"distribution": "randint", "parameters": [150, 250]},
-    "enc-depth": {"distribution": "randint", "parameters": [6, 10], "shares_value_with": "dec-depth"},
-    "dim-vocabs": {"distribution": "randomchoice", "parameters": [["512 512", "1024 1024", "2048 2048", "4096 4096", "8192 8192", "16384 16384"]]}
+    "learning-rate": {"distribution": "loguniform", "args": [0.0001, 1.0]},
+    "max-length": {"distribution": "int_truncnorm", "args": [-3, 3], "kwargs": {"loc": 200, "scale": 25}},
+    "enc-depth": {"distribution": "int_truncnorm", "args": [-3, 3], "kwargs": {"loc": 7, "scale": 1.5}, "shares_value_with": "dec-depth"},
+    "dim-vocabs": {"distribution": "randomchoice", "args": [["2000 2000", "4000 4000", "6000 6000", "8000 8000", "10000 10000", "12000 12000"], [0.05, 0.1, 0.3, 0.3, 0.1, 0.05]]}
 }

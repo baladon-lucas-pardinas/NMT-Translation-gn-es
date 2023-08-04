@@ -3,8 +3,6 @@ import os
 import itertools
 import csv
 import json
-import pprint
-import re
 
 from src.config.config import load_config_variables, \
     FLAG_SEPARATOR
@@ -131,7 +129,9 @@ class TestTrain(unittest.TestCase):
         file_manager.save_copy(self.test_valid_data_dir_tgt, second_output_filename)
         first_checkpoint_filename = model.rename_checkpoint(self.model_dir, self.validate_each_epochs)
         second_checkpoint_filename = model.rename_checkpoint(self.model_dir, int(self.validate_each_epochs) * 2)
-        files_to_clean = [self.csv_file_name, self.valid_translation_output, first_output_filename, second_output_filename, first_checkpoint_filename, second_checkpoint_filename]
+        files_to_clean = [self.csv_file_name, self.valid_translation_output, first_output_filename, 
+                          second_output_filename, first_checkpoint_filename, second_checkpoint_filename, 
+                          self.command_output_dir, self.model_dir]
 
         # Create mock checkpoint
         with open(self.model_dir, 'w') as f:
@@ -214,7 +214,7 @@ class TestTrain(unittest.TestCase):
         try:
             command_config = self.random_search_command_config
             hyperparameter_tuning_config = self.random_search_config
-            files_to_clean = [self.csv_file_name]# [self.hyperparameter_validation_output_dir, self.csv_file_name]
+            files_to_clean = [self.hyperparameter_validation_output_dir, self.csv_file_name]
 
             # Create translation output mock file
             file_manager.save_copy(self.test_valid_data_dir_tgt, self.hyperparameter_validation_output_dir)
