@@ -1,6 +1,5 @@
 import re
 import os
-import subprocess
 import argparse
 
 # # https://www.cluster.uy/ayuda/como_ejecutar/#trabajo-besteffort
@@ -128,6 +127,9 @@ def persist_file(filedir: str, content: str):
     with open(filedir, 'w') as f:
         f.write(content)
 
+def get_read_permissions_command(filedir: str):
+    return 'chmod +x ' + filedir
+
 def run_script(bash_input_template_dir: str, outputs_scripts_folder: str, flags_partition: tuple, job_name: str, partition: str, qos: str, gpus_n: int, ntasks=4, cpus_per_task=9, mem='60G', debug=False):
     gpu_devices = get_gpu_devices(gpus_n)
     slurm_filename = get_slurm_file_name(*flags_partition, besteffort=qos==BESTEFFORT)
@@ -141,12 +143,15 @@ def run_script(bash_input_template_dir: str, outputs_scripts_folder: str, flags_
     persist_file(slurm_output_filename, slurm_script) 
     persist_file(bash_output_filename, bash_script)
     script = ['sbatch', slurm_output_filename, bash_output_filename]
+    script = ' '.join(script)
 
     if debug:
-        print(' '.join(script))
+        print(script)
         return script
 
-    os.system(' '.join(script))
+    read_permissions_command = get_read_permissions_command(slurm_output_filename)
+    os.system(read_permissions_command)
+    os.system(script)
     return script
 
 GPU_LOG_REGEX = re.compile('^.+Using ([1-9]) GPUs$')
