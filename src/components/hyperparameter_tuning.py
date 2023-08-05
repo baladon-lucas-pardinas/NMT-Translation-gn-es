@@ -26,6 +26,7 @@ def handle_sentencepiece_flags(flags):
     if src_vocab.endswith('.spm') or trg_vocab.endswith('.spm'):
         assert src_vocab.endswith('.spm') and trg_vocab.endswith('.spm'), 'Both vocabularies must use sentencepiece if one of them does.'
         dim_vocab = flags.get('dim-vocabs', [None])[0]
+        dim_vocab = dim_vocab.replace(' ', '_') # In case dim-vocabs is passed as a string instead of a list of ints
         src_new_name = src_vocab.replace('.spm', 'V{dim_vocab}.spm'.format(dim_vocab=dim_vocab))
         trg_new_name = trg_vocab.replace('.spm', 'V{dim_vocab}.spm'.format(dim_vocab=dim_vocab))
         flags['vocabs'] = [src_new_name, trg_new_name]
