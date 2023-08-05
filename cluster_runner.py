@@ -69,7 +69,7 @@ def get_out_file_name(from_flag, to_flag, besteffort=False):
     filename = "run"
     if besteffort:
         filename += "_besteffort"
-    filename += '{from_flag}-{to_flag}'.format(from_flag=round(from_flag, 2), to_flag=round(to_flag, 2))
+    filename += '{from_flag}-{to_flag}'.format(from_flag=from_flag, to_flag=to_flag)
     filename += ".out"
     return filename
 
@@ -77,7 +77,7 @@ def get_slurm_file_name(from_flag, to_flag, besteffort=False):
     filename = "run"
     if besteffort:
         filename += "_besteffort"
-    filename += '{from_flag}-{to_flag}'.format(from_flag=round(from_flag, 2), to_flag=round(to_flag, 2))
+    filename += '{from_flag}-{to_flag}'.format(from_flag=from_flag, to_flag=to_flag)
     filename += ".slurm"
     return filename
 
@@ -85,7 +85,7 @@ def get_bash_file_name(from_flag, to_flag, besteffort=False):
     filename = "run"
     if besteffort:
         filename += "_besteffort"
-    filename += '{from_flag}-{to_flag}'.format(from_flag=round(from_flag, 2), to_flag=round(to_flag, 2))
+    filename += '{from_flag}-{to_flag}'.format(from_flag=from_flag, to_flag=to_flag)
     filename += ".sh"
     return filename
 
@@ -108,7 +108,7 @@ def create_slurm_file_content(output_filename, job_name, partition, qos, gpus_n,
 
 def create_bash_file_content(bash_template_dir, devices, from_flag, to_flag):
     bash_lines = []
-    params_to_replace = [('^GPUS="([0-9] )*[0-9]"', 'GPUS="'+devices+'"'), ('^FROM=([0-9]+(\.[0-9]+)?)', 'FROM='+str(round(from_flag, 2))), ('^TO=([0-9]+(\.[0-9]+)?)', 'TO='+str(round(to_flag, 2)))]
+    params_to_replace = [('^GPUS="([0-9] )*[0-9]"', 'GPUS="'+devices+'"'), ('^FROM=([0-9]+(\.[0-9]+)?)', 'FROM='+str(from_flag)), ('^TO=([0-9]+(\.[0-9]+)?)', 'TO='+str(to_flag))]
     params_to_replace = [(re.compile(regex), value) for regex, value in params_to_replace]
 
     with open(bash_template_dir, 'r') as f:
@@ -122,7 +122,7 @@ def create_bash_file_content(bash_template_dir, devices, from_flag, to_flag):
     return bash_lines
 
 def get_job_name(from_flag, to_flag):
-    return 'M-{from_flag}-{to_flag}'.format(from_flag=round(from_flag, 2), to_flag=round(to_flag, 2))
+    return 'M-{from_flag}-{to_flag}'.format(from_flag=from_flag, to_flag=to_flag)
 
 def get_gpu_devices(gpus_n=1):
     return ' '.join(map(str, range(gpus_n)))
@@ -244,7 +244,7 @@ if __name__ == '__main__':
     mode = args['mode']
     total_jobs_n = args['total_jobs_n']
     jobs_n = args['jobs_n']
-    besteffort_n = round(args['besteffort_rate'] * jobs_n)
+    besteffort_n = args['besteffort_rate'] * jobs_
     from_flag = args['from_flag']
     to_flag = args['to_flag']
     normal_gpus = args['normal_gpus']
