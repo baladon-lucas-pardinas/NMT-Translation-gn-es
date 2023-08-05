@@ -1,6 +1,6 @@
 {
     "dropout-rnn": [0.0, 0.2, 0.3, 0.5],
-    "learning-rate": [1e-3, 5e-3, 1e-4],
+    "learning": [1e-3, 5e-3, 1e-4],
     "enc-cell": ["gru", "lstm", "tanh"],
     "optimizer": ["adam", "sgd", "adagrad"]
 }
