@@ -63,7 +63,7 @@ singularity exec -H ${HOME}/marianmt --nv --no-home --contain --bind $(pwd):$HOM
 TIME_LIMIT_MESSAGE = "TIME LIMIT"
 NORMAL_QOS = 'gpu'
 
-def get_out_file_name(from_flag: Union[int, float], to_flag: Union[int, float], besteffort=False):
+def get_out_file_name(from_flag: int, to_flag: int, besteffort=False):
     filename = "run"
     if besteffort:
         filename += "_besteffort"
@@ -71,7 +71,7 @@ def get_out_file_name(from_flag: Union[int, float], to_flag: Union[int, float], 
     filename += ".out"
     return filename
 
-def get_slurm_file_name(from_flag: Union[int, float], to_flag: Union[int, float], besteffort=False):
+def get_slurm_file_name(from_flag: int, to_flag: int, besteffort=False):
     filename = "run"
     if besteffort:
         filename += "_besteffort"
@@ -79,7 +79,7 @@ def get_slurm_file_name(from_flag: Union[int, float], to_flag: Union[int, float]
     filename += ".slurm"
     return filename
 
-def get_bash_file_name(from_flag: Union[int, float], to_flag: Union[int, float], besteffort=False):
+def get_bash_file_name(from_flag: int, to_flag: int, besteffort=False):
     filename = "run"
     if besteffort:
         filename += "_besteffort"
@@ -104,7 +104,7 @@ def create_slurm_file_content(output_filename: str, job_name: str, partition: st
         file_template = file_template.replace('{' + param + '}', str(value))
     return file_template
 
-def create_bash_file_content(bash_template_dir: str, devices: str, from_flag: Union[int, float], to_flag: Union[int, float]):
+def create_bash_file_content(bash_template_dir: str, devices: str, from_flag: int, to_flag: int):
     bash_lines = []
     params_to_replace = [(r'^GPUS="([0-9] )*[0-9]"', 'GPUS="'+devices+'"'), (r'^FROM=([0-9]+(\.[0-9]+)?)', 'FROM='+str(round(from_flag, 2))), (r'^TO=([0-9]+(\.[0-9]+)?)', 'TO='+str(round(to_flag, 2)))]
     params_to_replace = [(re.compile(regex), value) for regex, value in params_to_replace]
@@ -119,7 +119,7 @@ def create_bash_file_content(bash_template_dir: str, devices: str, from_flag: Un
     bash_lines = ''.join(bash_lines)
     return bash_lines
 
-def get_job_name(from_flag: Union[int, float], to_flag: Union[int, float]):
+def get_job_name(from_flag: int, to_flag: int):
     return f'M-{round(from_flag, 2)}-{round(to_flag, 2)}'
 
 def get_gpu_devices(gpus_n=1):
@@ -223,8 +223,13 @@ def check_preconditions(mode: str, total_jobs_n: int, jobs_n: int, besteffort_n:
         raise Exception("The from flag plus the number of jobs must be less than or equal to the total number of jobs")
 
 
+# Test examples local
 # python cluster_runner.py --debug --from_flag 0 --to_flag 20 --total_jobs_n 20 --jobs_n 10 --besteffort_rate 0.8 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file .\\scripts\\cluster\\train_gn_es_level2_s2s_grid.sh --outputs_scripts_folder ./tests/data/scripts
 # python cluster_runner.py --mode awake --debug --jobs_n 12 --bash_template_file .\\scripts\\cluster\\train_gn_es_level2_s2s_grid.sh --outputs_scripts_folder ./tests/data/scripts
+
+# Test examples cluster
+# python3 marianmt/cluster_runner.py --debug --from_flag 0 --to_flag 20 --total_jobs_n 20 --jobs_n 20 --besteffort_rate 0.9 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file scripts/train_gn_es_level3_s2s_grid.sh --outputs_scripts_folder scripts/lvl3/s2s
+
 if __name__ == '__main__':
     args = get_args()
     mode = args['mode']
