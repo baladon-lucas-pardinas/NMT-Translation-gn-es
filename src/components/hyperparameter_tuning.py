@@ -39,6 +39,7 @@ def rename_model_file(model_name, flags):
     param_values = list(map(lambda v: str(v[0]), flags.values()))
     param_names_and_values = [param_name + '_' + param_value for param_name, param_value in zip(param_names, param_values)]
     model_name = model_name_without_extension + '_' + '_'.join(param_names_and_values) + '.' + model_name_extension
+    model_name = model_name.replace(' ', '')
     return model_name
 
 def get_hyperparameters_flags(default_flags, hyperparameters_file, search_method, max_iters=None, seed=None):
