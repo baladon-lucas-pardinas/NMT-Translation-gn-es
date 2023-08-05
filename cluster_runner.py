@@ -1,3 +1,4 @@
+# coding=utf-8
 import re
 import os
 import argparse
@@ -47,21 +48,24 @@ SLURM_TEMPLATE = """\
 #SBATCH --output={output_filename}
 #SBATCH --gres=gpu:p100:{gpus_n}
 
-cd ..
+pwd
+ls
+
 SCRIPT_NAME=$1
 HOME=/docker/home
-SCRIPT_PATH=${HOME}/scripts/${SCRIPT_NAME}
+CLUSTER_BIND_DIR=/clusteruy/home/${USER}/marian/marian_container
+SCRIPT_PATH=${HOME}/marianmt/${SCRIPT_NAME}
 export SINGULARITY_TMPDIR=${HOME}/cache
 export TMPDIR=$SINGULARITY_TMPDIR
-chmod +x scripts/${SCRIPT_NAME}
-export PYTHONPATH=${HOME}/libs
-singularity exec -H ${HOME}/marianmt --nv --no-home --contain --bind $(pwd):$HOME marian-nmt_1.11.0_sentencepiece_cuda-11.3.0.sif $SCRIPT_PATH\
+chmod +x ${CLUSTER_BIND_DIR}/marianmt/${SCRIPT_NAME}
+export PYTHONPATH=${HOME}/marianmt/libs
+singularity exec -H ${HOME} --nv --no-home --contain --bind ${CLUSTER_BIND_DIR}:$HOME ${CLUSTER_BIND_DIR}/marian-nmt_1.11.0_sentencepiece_cuda-11.3.0.sif $SCRIPT_PATH
 """
 
 TIME_LIMIT_MESSAGE = "TIME LIMIT"
 NORMAL_QOS = 'gpu'
 
-def get_out_file_name(from_flag: int, to_flag: int, besteffort=False):
+def get_out_file_name(from_flag, to_flag, besteffort=False):
     filename = "run"
     if besteffort:
         filename += "_besteffort"
@@ -69,7 +73,7 @@ def get_out_file_name(from_flag: int, to_flag: int, besteffort=False):
     filename += ".out"
     return filename
 
-def get_slurm_file_name(from_flag: int, to_flag: int, besteffort=False):
+def get_slurm_file_name(from_flag, to_flag, besteffort=False):
     filename = "run"
     if besteffort:
         filename += "_besteffort"
@@ -77,7 +81,7 @@ def get_slurm_file_name(from_flag: int, to_flag: int, besteffort=False):
     filename += ".slurm"
     return filename
 
-def get_bash_file_name(from_flag: int, to_flag: int, besteffort=False):
+def get_bash_file_name(from_flag, to_flag, besteffort=False):
     filename = "run"
     if besteffort:
         filename += "_besteffort"
@@ -85,7 +89,7 @@ def get_bash_file_name(from_flag: int, to_flag: int, besteffort=False):
     filename += ".sh"
     return filename
 
-def get_grid_partitions(total_jobs_n: int, jobs_n: int, from_flag, to_flag):
+def get_grid_partitions(total_jobs_n, jobs_n, from_flag, to_flag):
     flag_range = (to_flag - from_flag)
     flags_per_job = flag_range // jobs_n
     partitions = []
@@ -96,13 +100,13 @@ def get_grid_partitions(total_jobs_n: int, jobs_n: int, from_flag, to_flag):
     partitions[-1] = (partitions[-1][0], to_flag)
     return partitions
 
-def create_slurm_file_content(output_filename: str, job_name: str, partition: str, qos: str, gpus_n: int, ntasks=4, cpus_per_task=9, mem='60G', file_template=SLURM_TEMPLATE):
+def create_slurm_file_content(output_filename, job_name, partition, qos, gpus_n, ntasks=4, cpus_per_task=9, mem='60G', file_template=SLURM_TEMPLATE):
     params_to_replace = {'job_name': job_name, 'partition': partition, 'qos': qos, 'gpus_n': gpus_n, 'ntasks': ntasks, 'cpus_per_task': cpus_per_task, 'mem': mem, 'output_filename': output_filename}
     for param, value in params_to_replace.items():
         file_template = file_template.replace('{' + param + '}', str(value))
     return file_template
 
-def create_bash_file_content(bash_template_dir: str, devices: str, from_flag: int, to_flag: int):
+def create_bash_file_content(bash_template_dir, devices, from_flag, to_flag):
     bash_lines = []
     params_to_replace = [('^GPUS="([0-9] )*[0-9]"', 'GPUS="'+devices+'"'), ('^FROM=([0-9]+(\.[0-9]+)?)', 'FROM='+str(round(from_flag, 2))), ('^TO=([0-9]+(\.[0-9]+)?)', 'TO='+str(round(to_flag, 2)))]
     params_to_replace = [(re.compile(regex), value) for regex, value in params_to_replace]
@@ -117,28 +121,28 @@ def create_bash_file_content(bash_template_dir: str, devices: str, from_flag: in
     bash_lines = ''.join(bash_lines)
     return bash_lines
 
-def get_job_name(from_flag: int, to_flag: int):
+def get_job_name(from_flag, to_flag):
     return 'M-{from_flag}-{to_flag}'.format(from_flag=round(from_flag, 2), to_flag=round(to_flag, 2))
 
 def get_gpu_devices(gpus_n=1):
     return ' '.join(map(str, range(gpus_n)))
 
-def persist_file(filedir: str, content: str):
+def persist_file(filedir, content):
     with open(filedir, 'w') as f:
         f.write(content)
 
-def get_read_permissions_command(filedir: str):
+def get_read_permissions_command(filedir):
     return 'chmod +x ' + filedir
 
-def run_script(bash_input_template_dir: str, outputs_scripts_folder: str, flags_partition: tuple, job_name: str, partition: str, qos: str, gpus_n: int, ntasks=4, cpus_per_task=9, mem='60G', debug=False):
+def run_script(bash_input_template_dir, outputs_scripts_folder, flags_partition, job_name, partition, qos, gpus_n, ntasks=4, cpus_per_task=9, mem='60G', debug=False):
     gpu_devices = get_gpu_devices(gpus_n)
-    slurm_filename = get_slurm_file_name(*flags_partition, besteffort=qos==BESTEFFORT)
-    bash_filename = get_bash_file_name(*flags_partition, besteffort=qos==BESTEFFORT)
-    output_filename = get_out_file_name(*flags_partition, besteffort=qos==BESTEFFORT)
+    slurm_filename = get_slurm_file_name(flags_partition[0], flags_partition[1], besteffort=qos==BESTEFFORT)
+    bash_filename = get_bash_file_name(flags_partition[0], flags_partition[1], besteffort=qos==BESTEFFORT)
+    output_filename = get_out_file_name(flags_partition[0], flags_partition[1], besteffort=qos==BESTEFFORT)
     slurm_output_filename = os.path.join(outputs_scripts_folder, slurm_filename)
     bash_output_filename = os.path.join(outputs_scripts_folder, bash_filename)
     output_filename = os.path.join(outputs_scripts_folder, output_filename)
-    bash_script = create_bash_file_content(bash_input_template_dir, gpu_devices, *flags_partition)
+    bash_script = create_bash_file_content(bash_input_template_dir, gpu_devices, flags_partition[0], flags_partition[1])
     slurm_script = create_slurm_file_content(output_filename, job_name, partition, qos, gpus_n, ntasks, cpus_per_task, mem)
     persist_file(slurm_output_filename, slurm_script) 
     persist_file(bash_output_filename, bash_script)
@@ -149,18 +153,18 @@ def run_script(bash_input_template_dir: str, outputs_scripts_folder: str, flags_
         print(script)
         return script
 
-    read_permissions_command = get_read_permissions_command(slurm_output_filename)
+    read_permissions_command = get_read_permissions_command(bash_output_filename)
     os.system(read_permissions_command)
     os.system(script)
     return script
 
 GPU_LOG_REGEX = re.compile('^.+Using ([1-9]) GPUs$')
 
-def awake_jobs(grid_partitions: list, outputs_scripts_folder: str, bash_template_file: str, time_limit_message=TIME_LIMIT_MESSAGE, gpu_regex=GPU_LOG_REGEX, debug=False):
+def awake_jobs(grid_partitions, outputs_scripts_folder, bash_template_file, time_limit_message=TIME_LIMIT_MESSAGE, gpu_regex=GPU_LOG_REGEX, debug=False):
     slept_jobs = []
     for grid_partition in grid_partitions:
-        output_file_normal = get_out_file_name(*grid_partition, besteffort=False)
-        output_file_besteffort = get_out_file_name(*grid_partition, besteffort=True)
+        output_file_normal = get_out_file_name(grid_partition[0], grid_partition[1], besteffort=False)
+        output_file_besteffort = get_out_file_name(grid_partition[0], grid_partition[1], besteffort=True)
         output_file_normal = os.path.join(outputs_scripts_folder, output_file_normal)
         output_file_besteffort = os.path.join(outputs_scripts_folder, output_file_besteffort)
 
@@ -208,7 +212,7 @@ def get_args():
     args = parser.parse_args()
     return vars(args)
 
-def check_preconditions(mode: str, total_jobs_n: int, jobs_n: int, besteffort_n: int, from_flag: int, to_flag: int=None):
+def check_preconditions(mode, total_jobs_n, jobs_n, besteffort_n, from_flag, to_flag=None):
     if mode not in ['run', 'awake']:
         raise ValueError('Invalid mode:', mode)
     if jobs_n == 0:
@@ -232,7 +236,7 @@ def check_preconditions(mode: str, total_jobs_n: int, jobs_n: int, besteffort_n:
 # python cluster_runner.py --mode awake --debug --jobs_n 12 --bash_template_file .\\scripts\\cluster\\train_gn_es_level2_s2s_grid.sh --outputs_scripts_folder ./tests/data/scripts
 
 # Test examples cluster
-# python3 marianmt/cluster_runner.py --debug --from_flag 0 --to_flag 2 --total_jobs_n 2 --jobs_n 2 --besteffort_rate 0.9 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file scripts/train_gn_es_level3_s2s_grid.sh --outputs_scripts_folder scripts/lvl3/s2s
+# python3 cluster_runner.py --from_flag 0 --to_flag 2 --total_jobs_n 2 --jobs_n 2 --besteffort_rate 0.9 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file /clusteruy/home/${USER}/marian/marian_container/scripts/train_gn_es_level3_s2s_grid.sh --outputs_scripts_folder /clusteruy/home/${USER}/marian/marian_container/scripts/lvl3/s2s
 # python3 marianmt/cluster_runner.py --debug --from_flag 0 --to_flag 20 --total_jobs_n 20 --jobs_n 20 --besteffort_rate 0.9 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file scripts/train_gn_es_level3_s2s_grid.sh --outputs_scripts_folder scripts/lvl3/s2s
 
 if __name__ == '__main__':
