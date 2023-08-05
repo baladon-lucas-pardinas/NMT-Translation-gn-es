@@ -34,7 +34,7 @@ def parse_args():
     parser.add_argument('--from-flags', type=int, required=False, default=None, help='Loads from flag combination number N from all configs from the provided configs/grids')
     parser.add_argument('--to-flags', type=int, required=False, default=None, help='Stops after flag combination number N from all configs from the provided configs/grids')
     parser.add_argument('--tuning-strategy', type=str, required=False, default='gridsearch', help="Tuning strategy to use. Can be 'gridsearch' or 'randomsearch'")
-    
+    parser.add_argument('--max-iters', type=int, required=False, default=None, help='Maximum number of iterations to run hyperparameter tuning')
 
     return vars(parser.parse_args())
 
@@ -57,6 +57,7 @@ if __name__ == '__main__':
     from_flags             = args.get('from_flags')
     to_flags               = args.get('to_flags')
     tuning_strategy        = args.get('tuning_strategy')
+    max_iters              = args.get('max_iters')
     
     config_variables = load_config_variables()
     flag_separator   = config_variables.get(FLAG_SEPARATOR, ' ')
@@ -99,6 +100,7 @@ if __name__ == '__main__':
                 to_flags=to_flags,
                 tuning_strategy=tuning_strategy,
                 seed=seed,
+                max_iters=max_iters,
             )
             logging.info('Hyperparameter tuning with config {}'.format(tuning_config))
     try:
