@@ -13,9 +13,10 @@ def handle_boolean_flags(flags):
     # type: (dict[str, list]) -> dict[str, list]
     temp_flags = deep_copy_flags(flags) # Dicts shouldn't be changed during iteration
     for flag_name, flag_value in flags.items():
-        if flag_value == [True]:
+        flag_value_id = str(flag_value)
+        if flag_value_id == "[True]":
             temp_flags[flag_name] = []
-        elif flag_value == [False]:
+        elif flag_value_id == "[False]":
             del temp_flags[flag_name]
     return temp_flags
 
