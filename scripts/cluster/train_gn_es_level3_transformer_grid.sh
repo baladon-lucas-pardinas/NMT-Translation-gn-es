@@ -17,7 +17,7 @@ VOCABS="${PROJECT_PATH}/artifacts/data/vocabulary/${SRC}_unique_tokens_lvl3.txt.
 TRANSLATION_OUTPUT=${PROJECT_PATH}/evaluation/decoded_${RUN_ID}.txt
 HYPERPARAMETER_SEARCH_SPACE_FILE="${PROJECT_PATH}/artifacts/parameters/level3/${TYPE}/random_config.json"
 SPEED_FLAGS="--quiet-translation --overwrite --early-stopping ${EARLY_STOPPING} --fp16 --tied-embeddings-all --workspace 6500 --mini-batch-fit --maxi-batch 1000"
-DEFAULT_FLAGS="--type ${TYPE} --max-length-crop --transformer-dropout 0.1 --layer-normalization --exponential-smoothing --label-smoothing 0.1 --skip"
+DEFAULT_FLAGS="--type ${TYPE} --max-length-crop --transformer-dropout 0.1 --layer-normalization --exponential-smoothing --label-smoothing 0.1"
 
 mkdir -p ${PROJECT_PATH}/artifacts/models/model_${MODEL_NAME}
 
