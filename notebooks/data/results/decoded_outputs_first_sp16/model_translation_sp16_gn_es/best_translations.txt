@@ -93,7 +93,7 @@ Reference source: Paraguái Ñeꞌẽnguéra Sãmbyhyha
 Reference destination: Secretaría de Políticas Lingüísticas
 Decoded output: Secretaría de Políticas Lingüísticas
 
-Reference destination tokens: {'Políticas', 'de', 'Lingüísticas', 'Secretaría'}
-Decoded output tokens: {'Políticas', 'de', 'Lingüísticas', 'Secretaría'}
-Overlapping words: {'Políticas', 'de', 'Lingüísticas', 'Secretaría'}
+Reference destination tokens: {'de', 'Lingüísticas', 'Secretaría', 'Políticas'}
+Decoded output tokens: {'de', 'Lingüísticas', 'Secretaría', 'Políticas'}
+Overlapping words: {'Lingüísticas', 'de', 'Secretaría', 'Políticas'}
 ------------------

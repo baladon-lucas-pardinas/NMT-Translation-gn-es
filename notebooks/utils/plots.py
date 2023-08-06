@@ -52,7 +52,7 @@ def create_df_from_results_csv(results_csv_path):
     df = pd.read_csv(results_csv_path)
     return df
 
-def plot_max_score_by_model(df: pd.DataFrame, metrics=None, metric=None, figsize=(20, 6), save_path=None):
+def plot_max_score_by_model(df: pd.DataFrame, metrics=None, metric=None, figsize=(20, 6), save_path=None, x_col=MODEL_ID, sort_by=SCORE_COL, ascending=False):
     if metrics is None:
         metrics = [metric]
     
@@ -61,10 +61,11 @@ def plot_max_score_by_model(df: pd.DataFrame, metrics=None, metric=None, figsize
     for idx, metric in enumerate(metrics):
         ax_i = ax[idx] if len(metrics) > 1 else ax
         metric_df = df[df[SCORE_TYPE_COL] == metric]
-        metric_df = metric_df.groupby(MODEL_ID)[SCORE_COL].max().reset_index()
-        metric_df = metric_df.sort_values(by=SCORE_COL, ascending=False)
+        group_cols = [SCORE_COL] + ([sort_by] if sort_by != SCORE_COL else [])
+        metric_df = metric_df.groupby(MODEL_ID)[group_cols].max().reset_index()
+        metric_df = metric_df.sort_values(by=sort_by, ascending=ascending)
         sns.set(style='darkgrid')
-        sns.barplot(x=MODEL_ID, y=SCORE_COL, data=metric_df, ax=ax_i)
+        sns.barplot(x=x_col, y=SCORE_COL, data=metric_df, ax=ax_i)
         ax_i.set_title(metric)
         ax_i.set_xticklabels(ax_i.get_xticklabels(), rotation=45)
 

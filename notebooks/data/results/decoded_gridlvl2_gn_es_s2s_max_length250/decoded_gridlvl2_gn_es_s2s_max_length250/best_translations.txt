@@ -1,0 +1,99 @@
+Index: 3774
+Reference source: Mitâ he'i:
+Reference destination: El niño dijo:
+Decoded output: El niño dijo:
+
+Reference destination tokens: {'El', 'niño', 'dijo:'}
+Decoded output tokens: {'El', 'niño', 'dijo:'}
+Overlapping words: {'El', 'niño', 'dijo:'}
+------------------
+
+Index: 3925
+Reference source: Embotyꞌo
+Reference destination: Abrir
+Decoded output: Abrir
+
+Reference destination tokens: {'Abrir'}
+Decoded output tokens: {'Abrir'}
+Overlapping words: {'Abrir'}
+------------------
+
+Index: 3943
+Reference source: Arandukaporupyre
+Reference destination: Bibliografía
+Decoded output: Bibliografía
+
+Reference destination tokens: {'Bibliografía'}
+Decoded output tokens: {'Bibliografía'}
+Overlapping words: {'Bibliografía'}
+------------------
+
+Index: 3960
+Reference source: Ekopia taꞌãnga
+Reference destination: Copiar imagen
+Decoded output: Copiar imagen
+
+Reference destination tokens: {'imagen', 'Copiar'}
+Decoded output tokens: {'imagen', 'Copiar'}
+Overlapping words: {'Copiar', 'imagen'}
+------------------
+
+Index: 4008
+Reference source: Kuatiajopyha
+Reference destination: Impresora
+Decoded output: Impresora
+
+Reference destination tokens: {'Impresora'}
+Decoded output tokens: {'Impresora'}
+Overlapping words: {'Impresora'}
+------------------
+
+Index: 4190
+Reference source: tembipuru
+Reference destination: Aplicación
+Decoded output: Aplicación
+
+Reference destination tokens: {'Aplicación'}
+Decoded output tokens: {'Aplicación'}
+Overlapping words: {'Aplicación'}
+------------------
+
+Index: 4965
+Reference source: he'i Sãmbyhyhára.
+Reference destination: dijo la Ministra.
+Decoded output: dijo la Ministra.
+
+Reference destination tokens: {'Ministra.', 'dijo', 'la'}
+Decoded output tokens: {'Ministra.', 'dijo', 'la'}
+Overlapping words: {'Ministra.', 'la', 'dijo'}
+------------------
+
+Index: 5291
+Reference source: Techapyrãramo oĩ:
+Reference destination: Así por ejemplo,
+Decoded output: Así por ejemplo,
+
+Reference destination tokens: {'por', 'ejemplo,', 'Así'}
+Decoded output tokens: {'por', 'ejemplo,', 'Así'}
+Overlapping words: {'por', 'ejemplo,', 'Así'}
+------------------
+
+Index: 5067
+Reference source: Avei oñepepirũ maymavaitépe toiporumi guarani ñe'ẽ mamo oĩha guive ha opa mba'erã.
+Reference destination: además de extender la invitación a toda la población paraguaya para que desde el lugar donde esté apoye la iniciativa de utilizar el idioma guaraní en cualquier ámbito de interacción.
+Decoded output: Además de extender la invitación a toda la población paraguaya para que desde el lugar donde esté apoye la iniciativa de utilizar el idioma guaraní en cualquier ámbito de interacción.
+
+Reference destination tokens: {'desde', 'interacción.', 'de', 'la', 'para', 'esté', 'apoye', 'invitación', 'que', 'cualquier', 'en', 'el', 'toda', 'idioma', 'ámbito', 'paraguaya', 'iniciativa', 'guaraní', 'extender', 'lugar', 'utilizar', 'además', 'a', 'población', 'donde'}
+Decoded output tokens: {'desde', 'interacción.', 'de', 'la', 'para', 'esté', 'apoye', 'invitación', 'que', 'cualquier', 'en', 'el', 'toda', 'idioma', 'ámbito', 'paraguaya', 'iniciativa', 'guaraní', 'extender', 'lugar', 'utilizar', 'a', 'población', 'Además', 'donde'}
+Overlapping words: {'desde', 'interacción.', 'de', 'la', 'para', 'esté', 'apoye', 'invitación', 'que', 'cualquier', 'en', 'el', 'toda', 'idioma', 'ámbito', 'paraguaya', 'iniciativa', 'guaraní', 'extender', 'lugar', 'utilizar', 'a', 'población', 'donde'}
+------------------
+
+Index: 5031
+Reference source: Ko aty ombosako'ihína Paraguái Ñe'ẽnguéra Sãmbyhyha, Municipalidad de San Lázaro ha Guaná aty, hérava Río Apa.
+Reference destination: La actividad es organizada por la Secretaría de Políticas Lingũísticas, la Municipalidad de San Lázaro y la comunidad indígena del pueblo guaná, Río Apa.
+Decoded output: La actividad fue organizada por la Secretaría de Políticas Lingũísticas, la Municipalidad de San Lázaro y la comunidad indígena del pueblo guaná, Río Apa.
+
+Reference destination tokens: {'es', 'de', 'la', 'y', 'Lázaro', 'San', 'La', 'Municipalidad', 'comunidad', 'actividad', 'organizada', 'Río', 'guaná,', 'Lingũísticas,', 'Secretaría', 'pueblo', 'Políticas', 'indígena', 'por', 'Apa.', 'del'}
+Decoded output tokens: {'de', 'la', 'y', 'Lázaro', 'San', 'La', 'Municipalidad', 'comunidad', 'actividad', 'organizada', 'Río', 'guaná,', 'Lingũísticas,', 'Secretaría', 'pueblo', 'Políticas', 'indígena', 'fue', 'por', 'Apa.', 'del'}
+Overlapping words: {'de', 'la', 'y', 'Lázaro', 'San', 'La', 'Municipalidad', 'comunidad', 'actividad', 'organizada', 'Río', 'guaná,', 'Lingũísticas,', 'Secretaría', 'pueblo', 'Políticas', 'indígena', 'por', 'Apa.', 'del'}
+------------------
