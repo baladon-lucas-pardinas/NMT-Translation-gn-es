@@ -143,10 +143,13 @@ def save_results(
     elif validation_log is not None:
         scores = get_results_from_logs(model_name, source, target, validation_log, parameters)
         
+    if first_time_saving:
+        with open(file_name, 'w') as f:
+            writer = csv.writer(f)
+            writer.writerow(columns)
+
     with open(file_name, 'a') as f:
         writer = csv.writer(f)
-        if first_time_saving:
-            writer.writerow(columns)
         for score_row in scores:
             writer.writerow(score_row)
 
