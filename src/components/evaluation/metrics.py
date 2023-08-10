@@ -133,6 +133,7 @@ def save_results(
     file_name         = get_results_filename(file_name)
     first_time_saving = not os.path.isfile(file_name)
     parameters        = parsing.deep_copy_flags(parameters)
+    base_dir          = os.path.dirname(model_dir)
     model_name        = os.path.basename(model_dir)
     source, target    = parameters.get('valid-sets', ['', ''])
     source, target    = [os.path.basename(path) for path in [source, target]]
@@ -143,6 +144,9 @@ def save_results(
     elif validation_log is not None:
         scores = get_results_from_logs(model_name, source, target, validation_log, parameters)
         
+    if not os.path.isdir(base_dir):
+        os.makedirs(base_dir)
+
     if first_time_saving:
         with open(file_name, 'w') as f:
             writer = csv.writer(f)
