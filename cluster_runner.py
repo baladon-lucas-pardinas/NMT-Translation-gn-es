@@ -238,8 +238,17 @@ def check_preconditions(mode, total_jobs_n, jobs_n, besteffort_n, from_flag, to_
 # Test examples cluster
 # python3 cluster_runner.py --from_flag 0 --to_flag 2 --total_jobs_n 2 --jobs_n 2 --besteffort_rate 0.9 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file /clusteruy/home/${USER}/marian/marian_container/scripts/train_gn_es_level3_s2s_grid.sh --outputs_scripts_folder /clusteruy/home/${USER}/marian/marian_container/scripts/lvl3/s2s
 
-# TEST LVL 3 S2S GN->ES -w 9000
+# TEST LVL 3 S2S GN->ES
 # python cluster_runner.py --from_flag 0 --to_flag 20 --total_jobs_n 40 --jobs_n 10 --besteffort_rate 0.9 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file ../scripts/train_gn_es_level3_s2s_grid.sh --outputs_scripts_folder ../scripts/lvl3/s2s
+# python cluster_runner.py --mode awake --from_flag 0 --to_flag 20 --total_jobs_n 40 --jobs_n 10 --bash_template_file ../scripts/train_gn_es_level3_s2s_grid.sh --outputs_scripts_folder ../scripts/lvl3/s2s
+
+# TEST LVL3 S2S ES->GN
+# python cluster_runner.py --from_flag 0 --to_flag 20 --total_jobs_n 40 --jobs_n 10 --besteffort_rate 0.7 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file ../scripts/train_es_gn_level3_s2s_grid.sh --outputs_scripts_folder ../scripts/lvl3/s2s/es_gn
+
+# TEST LVL 3 transformer GN->ES
+# python cluster_runner.py --from_flag 0 --to_flag 20 --total_jobs_n 40 --jobs_n 10 --besteffort_rate 0.8 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file ../scripts/train_gn_es_level3_transformer_grid.sh --outputs_scripts_folder ../scripts/lvl3/transformer
+# python cluster_runner.py --mode awake --from_flag 0 --to_flag 20 --total_jobs_n 40 --jobs_n 10 --bash_template_file ../scripts/train_gn_es_level3_transformer_grid.sh --outputs_scripts_folder ../scripts/lvl3/transformer
+
 
 if __name__ == '__main__':
     args = get_args()

@@ -1,5 +1,3 @@
-import copy
-
 from src.config.config import load_config_variables, \
     COMMAND_NAME, \
     FLAG_SEPARATOR, \
