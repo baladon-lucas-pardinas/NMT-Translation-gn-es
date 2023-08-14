@@ -1,6 +1,6 @@
 {
     "learn-rate": {"distribution": "loguniform", "args": [0.0001, 1.0]},
     "max-length": {"distribution": "int_truncnorm", "args": [-3, 3], "kwargs": {"loc": 200, "scale": 33}},
-    "enc-depth": {"distribution": "randomchoice", "args": [[2, 3, 4, 5, 6], [0.032, 0.11, 0.2, 0.29, 0.368]], "shares_value_with": "dec-depth"},
+    "enc-depth": {"distribution": "randomchoice", "args": [[1, 2, 3], [0.085, 0.29, 0.625]], "shares_value_with": "dec-depth"},
     "dim-vocabs": {"distribution": "randomchoice", "args": [["2000 2000", "4000 4000", "6000 6000", "8000 8000", "10000 10000", "12000 12000"], [0.1, 0.15, 0.25, 0.25, 0.15, 0.1]]}
 }
