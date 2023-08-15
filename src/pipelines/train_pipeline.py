@@ -56,9 +56,8 @@ def train(
     hyperparameter_tuning_config,
 ):
     # type: (DataIngestionConfig, DataTransformationConfig, CommandConfig, HyperparameterTuningConfig) -> None
-    default_flags = command_config.flags
+    default_flags, run_id = (command_config.flags, command_config.run_id) if command_config else ({}, None)
     trained_flags = [default_flags]
-    run_id =  command_config.run_id
     from_flag, to_flag = 2*[None]
 
     if hyperparameter_tuning_config is not None:

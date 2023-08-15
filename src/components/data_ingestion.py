@@ -52,7 +52,7 @@ def split_dataset(
             text = row[column_to_clean_index]
             splits[split]['data'].append(text)
 
-            if len(splits[split]['data']) >= persist_each:
+            if len(splits[split]['data']) % persist_each == 0:
                 __persist_split_data(splits, split)
 
         for split in splits:
@@ -108,22 +108,60 @@ def create_vocabularies(
                     
         logging.info("Train vocabulary count: {}".format(splits[train_column]['count']))
     logging.info("Vocabulary creation complete.")
-     
+
+def split_augmented_data(
+    raw_augmented_data_file_path,
+    augmented_data_output_path,
+    language_extensions,
+    persist_each,
+    separated_by=','
+):
+    # type: (str, str, list, int, str) -> None
+    logging.info("Creating augmented vocabulary from {}...".format(raw_augmented_data_file_path))
+    raw_augmented_data_file_paths = [augmented_data_output_path + '.' + extension for extension in language_extensions[::-1]]
+    logging.info("Writing train vocabulary to {}...".format(raw_augmented_data_file_paths))
+
+    with open(raw_augmented_data_file_path, 'r', encoding='utf-8') as raw_f, \
+         open(raw_augmented_data_file_paths[0], 'w', encoding='utf-8') as augmented_data1_f, \
+         open(raw_augmented_data_file_paths[1], 'w', encoding='utf-8') as augmented_data2_f:
+        
+        splits = {
+            extension: {'data': [], 'file': file, 'count': 0} \
+                for extension, file in zip(language_extensions, [augmented_data1_f, augmented_data2_f])
+        }
+
+        for line in raw_f:
+            splitted_line = line.split(separated_by)
+            for ext, data in zip(language_extensions, splitted_line):
+                splits[ext]['count'] += 1
+                splits[ext]['data'].append(data.replace('\n', ''))
+            
+                if splits[ext]['count'] % persist_each == 0:
+                    __persist_split_data(splits, ext)
+                    logging.info("Vocabulary count for {}: {}".format(ext, splits[ext]['count']))
+    logging.info("Vocabulary creation complete.")
+    
+    return None
+
 # TODO: Check that length of src and target are equal.
 def ingest_data(data_ingestion_config):
         # type: (DataIngestionConfig,) -> None
-        train_split_outputs      = [data_ingestion_config.train_data_src_dir, 
-                                    data_ingestion_config.train_data_tgt_dir]
-        validation_split_outputs = [data_ingestion_config.validation_data_src_dir, 
-                                    data_ingestion_config.validation_data_tgt_dir]
-        test_split_outputs       = [data_ingestion_config.test_data_src_dir, 
-                                    data_ingestion_config.test_data_tgt_dir]
-        vocab_outputs            = [data_ingestion_config.vocab_src_dir, 
-                                    data_ingestion_config.vocab_tgt_dir]
-        raw_data_columns         = [data_ingestion_config.raw_data_train_column, 
-                                    data_ingestion_config.raw_data_validation_column, 
-                                    data_ingestion_config.raw_data_test_column]
-        columns_to_ingest        = data_ingestion_config.raw_data_columns_to_clean
+        train_split_outputs           = [data_ingestion_config.train_data_src_dir, 
+                                         data_ingestion_config.train_data_tgt_dir]
+        validation_split_outputs      = [data_ingestion_config.validation_data_src_dir, 
+                                         data_ingestion_config.validation_data_tgt_dir]
+        test_split_outputs            = [data_ingestion_config.test_data_src_dir, 
+                                         data_ingestion_config.test_data_tgt_dir]
+        vocab_outputs                 = [data_ingestion_config.vocab_src_dir, 
+                                         data_ingestion_config.vocab_tgt_dir]
+        raw_data_columns              = [data_ingestion_config.raw_data_train_column, 
+                                         data_ingestion_config.raw_data_validation_column, 
+                                         data_ingestion_config.raw_data_test_column]
+        columns_to_ingest             = data_ingestion_config.raw_data_columns_to_clean
+        ingest_augmented_data         = data_ingestion_config.ingest_augmented_data
+        raw_augmented_data_file_path  = data_ingestion_config.raw_augmented_data_file_path
+        augmented_data_output_path    = data_ingestion_config.augmented_data_output_path
+        persist_each                  = data_ingestion_config.persist_each
 
         for train_dir, validation_dir, test_dir, column_to_ingest in \
               zip(train_split_outputs, validation_split_outputs, test_split_outputs, columns_to_ingest):
@@ -135,7 +173,7 @@ def ingest_data(data_ingestion_config):
                 train_dir,
                 validation_dir,
                 test_dir,
-                persist_each=data_ingestion_config.persist_each
+                persist_each=persist_each
             )
 
         for column_to_ingest, vocab_output in zip(columns_to_ingest, vocab_outputs):
@@ -147,3 +185,6 @@ def ingest_data(data_ingestion_config):
                 vocab_output,
                 default_vocabulary=data_ingestion_config.default_vocabulary
             )
+
+        if ingest_augmented_data:
+            split_augmented_data(raw_augmented_data_file_path, augmented_data_output_path, columns_to_ingest, persist_each=persist_each)

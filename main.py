@@ -13,6 +13,14 @@ def parse_args():
     parser.add_argument('--flags', type=str, required=True)
     parser.add_argument('--seed', type=int, required=False, default=1234, help='Seed to make results reproducible')
 
+    # Pipeline
+    parser.add_argument('--ingest', action='store_true', required=False, default=False)
+    parser.add_argument('--train', action='store_true', required=False, default=False)
+    parser.add_argument('--transform', action='store_true', required=False, default=False)
+
+    # Ingestion
+    parser.add_argument('--ingest-augmented-data', action='store_true', required=False, default=False)
+
     # Training
     parser.add_argument('--train-sets', type=str, required=False, default=None, help='Whitespace separated list of training sets')
     parser.add_argument('--command-path', type=str, required=True, help='Path to the model executable')
@@ -20,11 +28,6 @@ def parse_args():
     parser.add_argument('--validation-metrics', type=str, required=False, default=None, help='Whitespace separated list of metrics to use for validation')
     parser.add_argument('--save-checkpoints', action='store_true', required=False, default=False, help='Save a copy of the model after each validation')
     parser.add_argument('--not-delete-model-after', action='store_true', required=False, default=False, help='Do not delete the model after training')
-
-    # Pipeline
-    parser.add_argument('--ingest', action='store_true', required=False, default=False)
-    parser.add_argument('--train', action='store_true', required=False, default=False)
-    parser.add_argument('--transform', action='store_true', required=False, default=False)
 
     # Tuning
     parser.add_argument('--run-id', type=str, required=False, default='default', help='Run id to distinguish within different runs checkpoints')
@@ -50,6 +53,7 @@ if __name__ == '__main__':
     ingest                 = args.get('ingest')
     transform              = args.get('transform')
     train                  = args.get('train')
+    ingest_augmented_data  = args.get('ingest_augmented_data')
     run_id                 = args.get('run_id')
     hyperparameter_tuning  = args.get('hyperparameter_tuning')
     tuning_grid_files      = args.get('tuning_grid_files')
@@ -70,7 +74,7 @@ if __name__ == '__main__':
 
     if ingest:
         vocab_dirs = flags.get('vocabs', [])
-        ingestion_config = ingestion.get_data_ingestion_config(config_variables, train_dirs, val_dirs, vocab_dirs, persist_each=1000)
+        ingestion_config = ingestion.get_data_ingestion_config(config_variables, train_dirs, val_dirs, vocab_dirs, ingest_augmented_data, persist_each=1000)
         logging.info('Ingesting data with config {}'.format(ingestion_config))
 
     if transform:
