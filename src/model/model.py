@@ -161,17 +161,26 @@ def training_with_artificial_epochs(
                 current_most_important_scores = current_scores[early_stopping_metric_criteria]
                 most_importance_scores[early_stopping_metric_criteria].extend(current_most_important_scores)
 
+        
         if early_stopping is not None and early_stopping_metric_criteria is not None:
             current_most_important_scores = most_importance_scores[early_stopping_metric_criteria]
+
+            if len(current_most_important_scores) < 2:
+                continue
+
+            if current_most_important_scores[-2] == current_most_important_scores[-1]:
+                print('Constant metric evaluations detected ({} -> {}). Stopping after {} epochs'.format(current_most_important_scores[-2], current_most_important_scores[-1], current_after_epochs))
+                return
             
             if len(current_most_important_scores) <= early_stopping:
                 continue
 
             max_score = max(current_most_important_scores)
             last_n_scores = current_most_important_scores[-early_stopping:]
-            if all([score <= max_score for score in last_n_scores]):
+            if all([score < max_score for score in last_n_scores]):
                 print('Early stopping after {} epochs'.format(current_after_epochs))
                 return
+            
 
 def train(command_config):
     # type: (command_config.CommandConfig) -> None
