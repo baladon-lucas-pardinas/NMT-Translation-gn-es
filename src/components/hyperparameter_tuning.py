@@ -57,7 +57,9 @@ def get_random_flags(default_flags, hyperparameters_file, max_iters, seed=None):
     distribution_functions = {
         "int_truncnorm": lambda *args, **kwargs: stats.truncnorm.rvs(*args, **kwargs).round().astype(int), 
         "loguniform": stats.loguniform.rvs, 
-        "randomchoice": random_instance.choices
+        "multinoulli": random_instance.choices,
+        "int_uniform": stats.randint.rvs,
+        "uniform": stats.uniform.rvs,
     }
 
     with open(hyperparameters_file, 'r') as f:
@@ -71,7 +73,7 @@ def get_random_flags(default_flags, hyperparameters_file, max_iters, seed=None):
         shares_value_with = hyperparameter_info.get('shares_value_with', None)
 
         distribution_function = distribution_functions[hyperparameter_distribution]
-        distribution_extra_params = {'size': max_iters, 'random_state': seed} if hyperparameter_distribution != 'randomchoice' else {'k': max_iters}
+        distribution_extra_params = {'size': max_iters, 'random_state': seed} if hyperparameter_distribution != 'multinoulli' else {'k': max_iters}
         distribution_extra_params = {**distribution_extra_params, **hyperparameter_distribution_kwargs}
         random_values = distribution_function(*hyperparameter_distribution_args, **distribution_extra_params)
         random_values = list(map(lambda p: [str(p)], random_values)) # Convert all values to lists of strings
