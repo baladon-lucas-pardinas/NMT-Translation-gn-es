@@ -7,7 +7,8 @@ from src.config.ingestion_config import DataIngestionConfig
 from src.config.command_config import CommandConfig
 from src.config.data_transformation_config import DataTransformationConfig
 from src.config.hyperparameter_tuning_config import HyperparameterTuningConfig
-from src.components import hyperparameter_tuning
+from src.config.finetuning_config import FinetuningConfig
+from src.components import hyperparameter_tuning, finetuning
 
 def get_hyperparameter_flags(default_flags, hyperparameter_space, hyperparameter_configs, search_method, seed=None, max_iters=None):
     # type: (list[str], list[list[dict]], list[dict], str, int, int) -> list[dict]
@@ -49,13 +50,39 @@ def get_to_and_from_flags_indices(from_flag, to_flag, flag_combinations):
 
     return from_flag, to_flag     
 
+def has_sentencepiece_vocabulary(command_config):
+    # type: (CommandConfig) -> bool
+    return '.spm' in command_config.flags.get('vocabs', '')
+
+
+def handle_finetuning(command_config, finetuning_config):
+    # type: (CommandConfig, FinetuningConfig) -> CommandConfig
+    finetuning_epochs = finetuning_config.epochs
+    full_sets = finetuning_config.full_sets
+    augmented_sets = finetuning_config.augmented_sets
+
+    # Sentencepiece vocabulary
+    if has_sentencepiece_vocabulary(command_config):
+        finetuning_vocabulary_command_config = finetuning.create_finetuning_vocabulary_train_config(command_config, full_sets)
+        logging.info("Creating finetuning vocabulary...")
+        model.train(finetuning_vocabulary_command_config)
+
+    # Finetuning
+    finetuning_command_config = finetuning.create_finetuning_train_config(command_config, augmented_sets, finetuning_epochs)
+    logging.info("Creating finetuning train config...")
+    model.train(finetuning_command_config)
+    
+    command_config = finetuning.adapt_train_config(command_config, finetuning_epochs)
+    return command_config
+
 def train(
     data_ingestion_config,
     data_transformation_config,
     command_config,
     hyperparameter_tuning_config,
+    finetuning_config,
 ):
-    # type: (DataIngestionConfig, DataTransformationConfig, CommandConfig, HyperparameterTuningConfig) -> None
+    # type: (DataIngestionConfig, DataTransformationConfig, CommandConfig, HyperparameterTuningConfig, FinetuningConfig) -> None
     default_flags, run_id = (command_config.flags, command_config.run_id) if command_config else ({}, None)
     trained_flags = [default_flags]
     from_flag, to_flag = 2*[None]
@@ -88,12 +115,15 @@ def train(
         if data_ingestion_config:
             data_ingestion.ingest_data(data_ingestion_config)
 
-        if data_transformation_config:
-            # Data transformation not implemented
+        if data_transformation_config: # Data transformation not implemented
             pass
 
         if command_config:
             command_config.flags = current_flags
+
+            if finetuning_config:
+                command_config = handle_finetuning(command_config, finetuning_config)
+
             model.train(command_config)
 
         idx += 1

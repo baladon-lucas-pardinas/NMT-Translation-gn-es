@@ -193,6 +193,7 @@ class TestTrain(unittest.TestCase):
                 data_ingestion_config=None,
                 data_transformation_config=None,
                 hyperparameter_tuning_config=hyperparameter_tuning_config,
+                finetuning_config=None,
             )
 
             # Metric csv should have n rows
@@ -230,6 +231,7 @@ class TestTrain(unittest.TestCase):
                     data_transformation_config=None,
                     hyperparameter_tuning_config=hyperparameter_tuning_config,
                     command_config=command_config,
+                    finetuning_config=None
                 )
 
                 # Metric csv should have number_of_rows = max_iters * metrics_n * epochs_n * iterations_i+1

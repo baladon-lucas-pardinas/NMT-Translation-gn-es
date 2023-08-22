@@ -119,8 +119,8 @@ def get_data_ingestion_config(
         vocab_src_output_filename    =vocab_src_output_filename,
         vocab_tgt_output_filename    =vocab_tgt_output_filename,
         raw_data_filename            =config_variables[RAW_DATA_FILENAME],
-        raw_augmented_data_filename  =config_variables[RAW_AUGMENTED_DATA_FILENAME], # NEW
-        ingest_augmented_data        =ingest_augmented_data, # NEW
+        raw_augmented_data_filename  =config_variables[RAW_AUGMENTED_DATA_FILENAME],
+        ingest_augmented_data        =ingest_augmented_data,
         columns_to_clean             =config_variables[RAW_DATA_COLUMNS_TO_CLEAN],
         split_column                 =config_variables[RAW_DATA_SPLIT_COLUMN],
         train_column                 =config_variables[RAW_DATA_TRAIN_COLUMN],
