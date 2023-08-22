@@ -87,7 +87,7 @@ if __name__ == '__main__':
     
     config_variables = load_config_variables()
     flag_separator   = config_variables.get(FLAG_SEPARATOR, ' ')
-    command_config, ingestion_config, transformation_config, tuning_config = 4*[None]
+    command_config, ingestion_config, transformation_config, tuning_config, finetune_config = 5*[None]
 
     flags = parsing.parse_flags(flags, flag_separator=flag_separator)
     train_dirs = flags.get('train-sets', [])
