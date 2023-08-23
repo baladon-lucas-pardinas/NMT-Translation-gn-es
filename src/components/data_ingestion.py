@@ -1,4 +1,5 @@
 import csv
+import os
 
 from src.config.ingestion_config import DataIngestionConfig
 from src.logger import logging
@@ -7,6 +8,10 @@ from src.components.processing import tokenization
 def __persist_split_data(splits, split):
         splits[split]['file'].write('\n'.join(splits[split]['data']))
         splits[split]['data'] = []
+
+def rename_file(filename, language):
+    # type: (str, str) -> str
+    return filename + '.' + language
 
 def split_dataset(
     raw_data_file_path, 
@@ -63,52 +68,6 @@ def split_dataset(
         logging.info("Test data count: {}".format(splits[test_column]['count']))
     logging.info("Ingestion complete.")
 
-def create_vocabularies(
-    raw_data_file_path,
-    raw_data_train_column,
-    raw_data_split_column,
-    column_to_ingest, 
-    train_vocab_output, 
-    default_vocabulary=[]
-):
-    # type: (str, str, str, str, str, list) -> None
-    logging.info("Creating vocabulary from {}...".format(raw_data_file_path))
-    train_vocab_output_path = train_vocab_output + '.' + column_to_ingest
-    logging.info("Writing train vocabulary to {}...".format(train_vocab_output_path))
-
-    tokenizer = tokenization.get_tokenizer()
-
-    with open(raw_data_file_path, 'r', encoding='utf-8') as raw_f, \
-            open(train_vocab_output_path, 'w', encoding='utf-8') as train_vocab_f:
-        
-        train_column = raw_data_train_column
-        splits = {
-            train_column: {'data': set(), 'file': train_vocab_f, 'count': 0},
-        }
-
-        reader = csv.reader(raw_f)
-        columns = next(reader)
-        column_to_clean_index = columns.index(column_to_ingest)
-        split_column_index = columns.index(raw_data_split_column)
-
-        # Default vocabulary should be written first.
-        for word in default_vocabulary:
-            splits[train_column]['file'].write(word + '\n')
-
-        for row in reader:
-            split = row[split_column_index]
-            if split == train_column:
-                text = row[column_to_clean_index]
-                tokenized_text = tokenizer.tokenize(text)
-                splits[split]['count'] += len(tokenized_text)
-                splits[split]['data'].update(tokenized_text)
-
-        for split in splits:
-            __persist_split_data(splits, split)
-                    
-        logging.info("Train vocabulary count: {}".format(splits[train_column]['count']))
-    logging.info("Vocabulary creation complete.")
-
 def split_augmented_data(
     raw_augmented_data_file_path,
     augmented_data_output_path,
@@ -141,6 +100,23 @@ def split_augmented_data(
                     logging.info("Vocabulary count for {}: {}".format(ext, splits[ext]['count']))
 
     logging.info("Vocabulary creation complete.")
+
+def create_vocabulary(input_path, output_path, tokenizer_type='spacy', default_vocabulary=[]):
+    # type: (str, str, str, list) -> None
+    sentences = list()
+
+    with open(input_path, 'r', encoding='utf-8') as f:
+        sentences = f.readlines()
+
+    tokenizer = tokenization.get_tokenizer(tokenizer=tokenizer_type)
+    tokens = [token for sentence in sentences for token in tokenizer.tokenize(sentence)]
+    tokens = list(set(tokens))
+
+    with open(output_path, 'w', encoding='utf-8') as f:
+        if len(default_vocabulary) > 0:
+            f.write('\n'.join(default_vocabulary))
+            f.write('\n')
+        f.write('\n'.join(tokens))
     
 def append_augmented_data(
     augmented_filename,
@@ -175,7 +151,7 @@ def append_augmented_data(
         
                     if splits[ext]['count'] % persist_each == 0:
                         __persist_split_data(splits, ext)
-                        logging.info("Vocabulary count for {}: {}".format(ext, splits[ext]['count']))
+            logging.info("Vocabulary count for {}: {}".format(ext, splits[ext]['count']))
 
     return
 
@@ -213,16 +189,18 @@ def ingest_data(data_ingestion_config):
                 persist_each=persist_each
             )
 
-        for column_to_ingest, vocab_output in zip(columns_to_ingest, vocab_outputs):
-            create_vocabularies(
-                data_ingestion_config.raw_data_file_path,
-                data_ingestion_config.raw_data_train_column,
-                data_ingestion_config.raw_data_split_column,
-                column_to_ingest,
-                vocab_output,
-                default_vocabulary=data_ingestion_config.default_vocabulary
-            )
+        for train_dir, vocab_output, language in zip(train_split_outputs, vocab_outputs, columns_to_ingest):
+            train_file = rename_file(train_dir, language)
+            vocab_file = rename_file(vocab_output, language)
+            create_vocabulary(train_file, vocab_file, default_vocabulary=data_ingestion_config.default_vocabulary)
 
         if ingest_augmented_data:
             split_augmented_data(raw_augmented_data_file_path, augmented_data_output_path, columns_to_ingest, persist_each=persist_each)
             append_augmented_data(augmented_data_output_path, train_split_outputs, columns_to_ingest, full_augmented_data_output_path, persist_each=persist_each)
+
+            for vocab_path, language in zip(vocab_outputs, columns_to_ingest):
+                vocabulary_dir = os.path.dirname(vocab_path)
+                full_augmented_vocab_path = os.path.join(vocabulary_dir, 'full_augmented_vocab')
+                input_corpus_path = rename_file(full_augmented_data_output_path, language)
+                vocab_output_path = rename_file(full_augmented_vocab_path, language)
+                create_vocabulary(input_corpus_path, vocab_output_path, default_vocabulary=data_ingestion_config.default_vocabulary)

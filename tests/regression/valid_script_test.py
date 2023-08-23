@@ -14,9 +14,9 @@ class TestValidationScript(unittest.TestCase):
     def setUp(self) -> None:
         self.example_translation = ['This is an example translation sentence.', 'My name is Marian, but people call me MarianMT', '', "Ko'ágã ojehecha hikuái karu guasu 14:00 a la Samaniego oúvape pe dato 42 pasajero elecciones de transporte oúva temimbo’e rupi ha upéi oñemotenonde 1 de abril oúvape pero oiko jave 1 de prensa oikóva oúva ha upéicha ojapóvo ha oñemotenonde upe 1 de prensa"]
         self.example_reference = ['This is an example reference sentence.', '', 'Hello', "Ojehechava'erã orrenunisava'erã umi concejal Junta Municipal-pe, oñemoherakuãgui ganador elecciones ágã 30 de mayo, ikatu haguã oñepyrû hikuái 1 de julio."]
-        
         # self.example_translation = ['The dog bit the man.', "It wasn't surprising.", 'The man had just bitten him.'] #45.0675,
         # self.example_reference = ['The dog bit the man.', 'It was not unexpected.', 'The man bit him first.'] #50.0431,
+        
 
         # Expected scores calculated using https://huggingface.co/spaces/evaluate-metric/sacrebleu
         self.expected_scores = {

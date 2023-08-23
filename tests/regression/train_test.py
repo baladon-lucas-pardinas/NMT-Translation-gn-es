@@ -96,7 +96,6 @@ class TestTrain(unittest.TestCase):
             base_dir_evaluation=self.test_data_dir,
             not_delete_model_after=True,
         )
-        pass
 
         ############# Hyperparameter tuning Test (Random Search) #############
         self.random_search_config = self.tuning_config.copy(deep=True)
