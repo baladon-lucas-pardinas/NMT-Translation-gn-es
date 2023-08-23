@@ -17,7 +17,7 @@ def parse_args():
     parser.add_argument('--ingest', action='store_true', required=False, default=False)
     parser.add_argument('--train', action='store_true', required=False, default=False)
     parser.add_argument('--transform', action='store_true', required=False, default=False)
-    parser.add_argument('--finetune', type=str, required=False, default=None, help='Whitespace separated list of training sets')
+    parser.add_argument('--finetuning', action='store_true', required=False, default=None)
 
     # Ingestion
     parser.add_argument('--ingest-augmented-data', action='store_true', required=False, default=False)
