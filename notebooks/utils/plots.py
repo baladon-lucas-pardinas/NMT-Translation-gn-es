@@ -28,7 +28,7 @@ def plot_metrics_by_epoch(dataframe, metrics, save_path=None):
     plt.tight_layout()
     plt.savefig(save_path) if save_path is not None else plt.show()
 
-def plot_metric_by_x_foreach_model(df, x, metric=None, metrics=None, figsize=(12, 8), save_path=None):
+def plot_metric_by_x_foreach_model(df, x, metric=None, metrics=None, figsize=(12, 8), legend=True, save_path=None):
     sns.set(style='darkgrid')
     if metrics is None:
         metrics = [metric]
@@ -37,13 +37,13 @@ def plot_metric_by_x_foreach_model(df, x, metric=None, metrics=None, figsize=(12
     for idx, metric in enumerate(metrics):
         ax_i = ax[idx] if len(metrics) > 1 else ax
         metric_df = df[df[SCORE_TYPE_COL] == metric]
-        sns.lineplot(x=x, y=SCORE_COL, hue=MODEL_ID, data=metric_df, errorbar=None, ax=ax_i)
+        sns.lineplot(x=x, y=SCORE_COL, hue=MODEL_ID, data=metric_df, errorbar=None, legend=legend, ax=ax_i)
         ax_i.set_title(metric)
         plt.tight_layout()
     plt.savefig(save_path) if save_path is not None else plt.show()
 
-def plot_metric_by_epoch_foreach_model(df, metric=None, metrics=None, figsize=(12, 8), save_path=None):
-    plot_metric_by_x_foreach_model(df, EPOCH_COL, metric=metric, metrics=metrics, figsize=figsize, save_path=save_path)
+def plot_metric_by_epoch_foreach_model(df, metric=None, metrics=None, figsize=(12, 8), legend=True, save_path=None):
+    plot_metric_by_x_foreach_model(df, EPOCH_COL, metric=metric, metrics=metrics, figsize=figsize, legend=legend, save_path=save_path)
 
 def plot_metric_by_time_foreach_model(df, metric=None, metrics=None, figsize=(12, 8), save_path=None):
     plot_metric_by_x_foreach_model(df, DATE_COL, metric=metric, metrics=metrics, figsize=figsize, save_path=save_path)

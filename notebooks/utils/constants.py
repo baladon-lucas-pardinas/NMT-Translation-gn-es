@@ -1,6 +1,7 @@
 import os
 
-DATA_FOLDER = 'data'
+ROOT_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
+DATA_FOLDER = os.path.join(ROOT_DIR, 'data')
 INSPECTED_DATA_FOLDER = os.path.join(DATA_FOLDER, 'inspected')
 RESULTS_DATA_FOLDER = os.path.join(DATA_FOLDER, 'results')
 CORPORA_FOLDER = os.path.join(INSPECTED_DATA_FOLDER, 'corpora')
