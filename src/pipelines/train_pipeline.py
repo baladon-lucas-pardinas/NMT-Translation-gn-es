@@ -1,4 +1,5 @@
 import os
+import shutil
 
 from src.logger import logging
 from src.model import model
@@ -9,6 +10,7 @@ from src.config.data_transformation_config import DataTransformationConfig
 from src.config.hyperparameter_tuning_config import HyperparameterTuningConfig
 from src.config.finetuning_config import FinetuningConfig
 from src.components import hyperparameter_tuning, finetuning
+from src.utils import file_manager
 
 def get_hyperparameter_flags(default_flags, hyperparameter_space, hyperparameter_configs, search_method, seed=None, max_iters=None):
     # type: (list[str], list[list[dict]], list[dict], str, int, int) -> list[dict]
@@ -52,27 +54,40 @@ def get_to_and_from_flags_indices(from_flag, to_flag, flag_combinations):
 
 def has_sentencepiece_vocabulary(command_config):
     # type: (CommandConfig) -> bool
-    return '.spm' in command_config.flags.get('vocabs', '')
-
+    first_vocab_file = command_config.flags.get('vocabs', [''])[0]
+    return first_vocab_file.endswith('.spm')
 
 def handle_finetuning(command_config, finetuning_config):
     # type: (CommandConfig, FinetuningConfig) -> CommandConfig
     finetuning_epochs = finetuning_config.epochs
     full_sets = finetuning_config.full_sets
     augmented_sets = finetuning_config.augmented_sets
+    cache_dir_template = finetuning_config.cache_dir_template # TERMINAR TERMINAR
+    new_model_path = None
 
-    # Sentencepiece vocabulary
-    if has_sentencepiece_vocabulary(command_config):
-        finetuning_vocabulary_command_config = finetuning.create_finetuning_vocabulary_train_config(command_config, full_sets)
-        logging.info("Creating finetuning vocabulary...")
-        model.train(finetuning_vocabulary_command_config)
+    if cache_dir_template is None:
+        # Sentencepiece vocabulary
+        if has_sentencepiece_vocabulary(command_config):
+            finetuning_vocabulary_command_config = finetuning.create_finetuning_vocabulary_train_config(command_config, full_sets)
+            logging.info("Creating finetuning vocabulary...")
+            model.train(finetuning_vocabulary_command_config)
 
-    # Finetuning
-    finetuning_command_config = finetuning.create_finetuning_train_config(command_config, augmented_sets, finetuning_epochs)
-    logging.info("Creating finetuning train config...")
-    model.train(finetuning_command_config)
-    
-    command_config = finetuning.adapt_train_config(command_config, finetuning_epochs)
+        # Pretraining
+        finetuning_command_config = finetuning.create_finetuning_train_config(command_config, augmented_sets, finetuning_epochs)
+        logging.info("Creating finetuning train config...")
+        model.train(finetuning_command_config)
+    else:
+        pretrained_cache_dir = cache_dir_template.format(str(finetuning_epochs))
+        logging.info("Using cached model from {}".format(pretrained_cache_dir))
+        changed_model_dir = changed_model_dir + '_' + str(finetuning_epochs)
+        file_manager.save_copy(pretrained_cache_dir, changed_model_dir)
+        logging.info("New directory created for model: {}".format(changed_model_dir))
+        new_model_path = [
+            os.path.join(changed_model_dir, path) for path in os.listdir(changed_model_dir) 
+                if path.endswith('.npz') and not path.endswith('optimizer.npz')
+        ][0]
+
+    command_config = finetuning.adapt_train_config(command_config, finetuning_epochs, pretrained_model_path=new_model_path)
     return command_config
 
 def train(

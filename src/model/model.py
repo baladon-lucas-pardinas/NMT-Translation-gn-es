@@ -169,7 +169,8 @@ def training_with_artificial_epochs(
                 continue
 
             if current_most_important_scores[-2] == current_most_important_scores[-1]:
-                print('Constant metric evaluations detected ({} -> {}). Stopping after {} epochs'.format(current_most_important_scores[-2], current_most_important_scores[-1], current_after_epochs))
+                print('Constant metric evaluations detected ({} -> {}). Stopping after {} epochs'.format(
+                    current_most_important_scores[-2], current_most_important_scores[-1], current_after_epochs))
                 return
             
             if len(current_most_important_scores) <= early_stopping:
@@ -215,8 +216,6 @@ def train(command_config):
             validation_log=validation_log,
         )
     else:
-        if after_epochs is None:
-            raise KeyError('after-epochs flag not found in config but validate_each_epochs is not None')
         training_with_artificial_epochs(
             marian_config=marian_config,
             is_validation_enabled=is_validation_enabled,

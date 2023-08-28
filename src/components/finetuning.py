@@ -27,10 +27,12 @@ def create_finetuning_train_config(command_config, augmented_sets, finetuning_ep
     finetuning_command_config = handle_validation_flags(finetuning_command_config)
     return finetuning_command_config
 
-def adapt_train_config(command_config, finetuning_epochs):
-    # type: (CommandConfig, int) -> CommandConfig
-    current_epochs = command_config.flags['after-epochs'][0]
+def adapt_train_config(command_config, finetuning_epochs, new_model_path=None):
+    # type: (CommandConfig, int, str) -> CommandConfig
+    if new_model_path is not None:
+        command_config.flags['model'] = [new_model_path]
 
+    current_epochs = command_config.flags['after-epochs'][0]
     command_config.flags['after-epochs'] = [str(int(current_epochs) + int(finetuning_epochs))]
     command_config.flags['no-restore-corpus'] = []
     return command_config

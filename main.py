@@ -26,6 +26,7 @@ def parse_args():
     parser.add_argument('--finetuning-epochs', type=str, required=False, default=None, help='Whitespace separated list of training sets')
     parser.add_argument('--finetuning-full-sets', type=str, required=False, default=None, help='Whitespace separated list of train + augmented sets')
     parser.add_argument('--finetuning-augmented-sets', type=str, required=False, default=None, help='Whitespace separated list of augmented sets')
+    parser.add_argument('--finetuning-cache-template-dir', type=str, required=False, default=None, help='Cache template dir for models')
 
     # Training
     parser.add_argument('--train-sets', type=str, required=False, default=None, help='Whitespace separated list of training sets')
@@ -51,39 +52,40 @@ if __name__ == '__main__':
     args = parse_args()
 
     # Global
-    flags                     = args.get('flags')
-    seed                      = args.get('seed')
+    flags                         = args.get('flags')
+    seed                          = args.get('seed')
 
     # Training
-    command_path              = args.get('command_path')
-    validate_each_epochs      = args.get('validate_each_epochs')
-    validation_metrics        = args.get('validation_metrics')
-    save_checkpoints          = args.get('save_checkpoints')
-    not_delete_model_after    = args.get('not_delete_model_after')
+    command_path                  = args.get('command_path')
+    validate_each_epochs          = args.get('validate_each_epochs')
+    validation_metrics            = args.get('validation_metrics')
+    save_checkpoints              = args.get('save_checkpoints')
+    not_delete_model_after        = args.get('not_delete_model_after')
 
     # Steps
-    ingest                    = args.get('ingest')
-    transform                 = args.get('transform')
-    finetune                  = args.get('finetuning')
-    train                     = args.get('train')
+    ingest                        = args.get('ingest')
+    transform                     = args.get('transform')
+    finetune                      = args.get('finetuning')
+    train                         = args.get('train')
 
     # Ingestion
-    ingest_augmented_data     = args.get('ingest_augmented_data')
+    ingest_augmented_data         = args.get('ingest_augmented_data')
 
     # Finetuning
-    finetuning_epochs         = args.get('finetuning_epochs')
-    finetuning_full_sets       = args.get('finetuning_full_sets')
-    finetuning_augmented_sets  = args.get('finetuning_augmented_sets')
+    finetuning_epochs             = args.get('finetuning_epochs')
+    finetuning_full_sets          = args.get('finetuning_full_sets')
+    finetuning_augmented_sets     = args.get('finetuning_augmented_sets')
+    finetuning_cache_template_dir = args.get('finetuning_cache_template_dir')
 
     # Hyperparameter tuning
-    run_id                    = args.get('run_id')
-    hyperparameter_tuning     = args.get('hyperparameter_tuning')
-    tuning_grid_files         = args.get('tuning_grid_files')
-    tuning_params_files       = args.get('tuning_params_files')
-    from_flags                = args.get('from_flags')
-    to_flags                  = args.get('to_flags')
-    tuning_strategy           = args.get('tuning_strategy')
-    max_iters                 = args.get('max_iters')
+    run_id                        = args.get('run_id')
+    hyperparameter_tuning         = args.get('hyperparameter_tuning')
+    tuning_grid_files             = args.get('tuning_grid_files')
+    tuning_params_files           = args.get('tuning_params_files')
+    from_flags                    = args.get('from_flags')
+    to_flags                      = args.get('to_flags')
+    tuning_strategy               = args.get('tuning_strategy')
+    max_iters                     = args.get('max_iters')
     
     config_variables = load_config_variables()
     flag_separator   = config_variables.get(FLAG_SEPARATOR, ' ')
@@ -104,8 +106,8 @@ if __name__ == '__main__':
         logging.info('Transforming data with config {}'.format(transformation_config))
 
     if train:
-        validation_metrics  = validation_metrics.split(' ')  if validation_metrics  else None
-        tuning_grid_files   = tuning_grid_files.split(' ')   if tuning_grid_files   else []
+        validation_metrics = validation_metrics.split(' ') if validation_metrics  else None
+        tuning_grid_files = tuning_grid_files.split(' ') if tuning_grid_files else []
         tuning_params_files = tuning_params_files.split(' ') if tuning_params_files else []
         command_config = command.get_command_config(command_path, flags, 
                                                     validate_each_epochs=validate_each_epochs, 
@@ -116,9 +118,12 @@ if __name__ == '__main__':
         logging.info('Training model with config {}'.format(command_config))
 
         if finetune:
-            finetuning_full_sets      = finetuning_full_sets.split(' ')       if finetuning_full_sets        else None
-            finetuning_augmented_sets = finetuning_augmented_sets.split(' ')  if finetuning_augmented_sets   else []
-            finetune_config = finetuning_config.get_finetuning_config(finetuning_epochs, finetuning_augmented_sets, finetuning_full_sets)
+            finetuning_full_sets = finetuning_full_sets.split(' ') if finetuning_full_sets else None
+            finetuning_augmented_sets = finetuning_augmented_sets.split(' ') if finetuning_augmented_sets else []
+            finetune_config = finetuning_config.get_finetuning_config(finetuning_epochs, 
+                                                                      finetuning_augmented_sets, 
+                                                                      finetuning_full_sets,
+                                                                      finetuning_cache_template_dir=finetuning_cache_template_dir)
 
         if hyperparameter_tuning:
             tuning_config = hyperparameter_tuning_config.get_hyperparameter_tuning_config(run_id=run_id,
