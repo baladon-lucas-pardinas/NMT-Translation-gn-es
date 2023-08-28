@@ -87,7 +87,7 @@ def handle_finetuning(command_config, finetuning_config):
                 if path.endswith('.npz') and not path.endswith('optimizer.npz')
         ][0]
 
-    command_config = finetuning.adapt_train_config(command_config, finetuning_epochs, pretrained_model_path=new_model_path)
+    command_config = finetuning.adapt_train_config(command_config, finetuning_epochs, new_model_path=new_model_path)
     return command_config
 
 def train(
