@@ -123,7 +123,7 @@ if __name__ == '__main__':
             finetune_config = finetuning_config.get_finetuning_config(finetuning_epochs, 
                                                                       finetuning_augmented_sets, 
                                                                       finetuning_full_sets,
-                                                                      finetuning_cache_template_dir=finetuning_cache_template_dir)
+                                                                      cache_dir_template=finetuning_cache_template_dir)
 
         if hyperparameter_tuning:
             tuning_config = hyperparameter_tuning_config.get_hyperparameter_tuning_config(run_id=run_id,
