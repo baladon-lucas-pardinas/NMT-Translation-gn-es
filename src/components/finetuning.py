@@ -33,6 +33,7 @@ def adapt_train_config(command_config, finetuning_epochs, new_model_path=None):
         command_config.flags['model'] = [new_model_path]
 
     current_epochs = command_config.flags['after-epochs'][0]
+    command_config.train_from_epoch = current_epochs
     command_config.flags['after-epochs'] = [str(int(current_epochs) + int(finetuning_epochs))]
     command_config.flags['no-restore-corpus'] = []
     return command_config

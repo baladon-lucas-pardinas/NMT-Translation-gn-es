@@ -11,6 +11,7 @@ class CommandConfig:
         command_path, 
         flags, 
         flag_separator, 
+        train_from_epoch=0,
         validate_each_epochs=None, 
         validation_metrics=None, 
         save_checkpoints=False, 
@@ -19,11 +20,12 @@ class CommandConfig:
         not_delete_model_after=False,
         run_id=None,
     ):
-        # type: (str, str, dict, str, int, list[str], bool, str, str, bool, str) -> None
+        # type: (str, str, dict, str, str, int, list[str], bool, str, str, bool, str) -> None
         self.command_name = command_name
         self.command_path = command_path
         self.flags = flags
         self.flag_separator = flag_separator
+        self.train_from_epoch = 0
         self.validate_each_epochs = validate_each_epochs
         self.validation_metrics = validation_metrics
         self.save_checkpoints = save_checkpoints
@@ -39,6 +41,7 @@ class CommandConfig:
             command_path=self.command_path,
             flags=deep_copy_flags(self.flags) if deep else self.flags,
             flag_separator=self.flag_separator,
+            train_from_epoch=self.train_from_epoch,
             validate_each_epochs=self.validate_each_epochs,
             validation_metrics=deep_copy_flags(self.validation_metrics) if deep else self.validation_metrics,
             save_checkpoints=self.save_checkpoints,
@@ -50,11 +53,12 @@ class CommandConfig:
     
     def __str__(self):
         # type: () -> str
-        return "CommandConfig(command_name={}, command_path={}, flags={}, flag_separator={}, validate_each_epochs={}, validation_metrics={}, save_checkpoints={}, results_dir={}, base_dir_evaluation={}, not_delete_model_after={}, run_id={})".format(
+        return "CommandConfig(command_name={}, command_path={}, flags={}, flag_separator={}, train_from_epoch={} validate_each_epochs={}, validation_metrics={}, save_checkpoints={}, results_dir={}, base_dir_evaluation={}, not_delete_model_after={}, run_id={})".format(
             self.command_name,
             self.command_path,
             self.flags,
             self.flag_separator,
+            self.train_from_epoch,
             self.validate_each_epochs,
             self.validation_metrics,
             self.save_checkpoints,

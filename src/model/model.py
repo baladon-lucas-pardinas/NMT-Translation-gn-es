@@ -107,6 +107,7 @@ def training_with_artificial_epochs(
     flags,
     base_dir_evaluation,
     validation_translation_output,
+    train_from_epoch,
     after_epochs,
     batch_size,
     valid_tgt,
@@ -117,9 +118,10 @@ def training_with_artificial_epochs(
     validate_each_epochs,
     early_stopping,
 ):
-    # type: (command_config.CommandConfig, bool, dict[str, list[str]], str, str, str, str, str, str, list[str], str, bool, int, int) -> None
+    # type: (command_config.CommandConfig, bool, dict[str, list[str]], str, str, int, str, str, str, str, list[str], str, bool, int, int) -> None
     after_epochs, validate_each_epochs = int(after_epochs), int(validate_each_epochs)
     artificial_epochs = after_epochs//validate_each_epochs
+    first_epoch_idx = train_from_epoch // int(validate_each_epochs)
 
     # Model should not receive early-stopping, but validation logs should
     logged_flags = flags
@@ -131,7 +133,7 @@ def training_with_artificial_epochs(
         early_stopping_metric_criteria = validation_metrics[0] if validation_metrics is not None else None # Take first metric as early-stopping criteria
         most_importance_scores = {early_stopping_metric_criteria: []}
     
-    for i in range(artificial_epochs):
+    for i in range(first_epoch_idx, artificial_epochs):
         current_after_epochs = validate_each_epochs * (i+1)
 
         marian_config.flags['after-epochs'] = [str(current_after_epochs)]
@@ -195,6 +197,7 @@ def train(command_config):
     model_dir                     = flags.get('model', [None])[0]
     after_epochs                  = flags.get('after-epochs', [None])[0]
     batch_size                    = flags.get('after-batches', [None])[0]
+    train_from_epoch              = marian_config.train_from_epoch
     validate_each_epochs          = marian_config.validate_each_epochs
     validation_metrics            = marian_config.validation_metrics
     base_dir_evaluation           = marian_config.base_dir_evaluation
@@ -222,6 +225,7 @@ def train(command_config):
             flags=flags,
             base_dir_evaluation=base_dir_evaluation,
             validation_translation_output=validation_translation_output,
+            train_from_epoch=train_from_epoch,
             after_epochs=after_epochs,
             batch_size=batch_size,
             valid_tgt=valid_tgt,
