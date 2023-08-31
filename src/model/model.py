@@ -119,7 +119,7 @@ def training_with_artificial_epochs(
     early_stopping,
 ):
     # type: (command_config.CommandConfig, bool, dict[str, list[str]], str, str, int, str, str, str, str, list[str], str, bool, int, int) -> None
-    after_epochs, validate_each_epochs = int(after_epochs), int(validate_each_epochs)
+    train_from_epoch, after_epochs, validate_each_epochs = map(int, (train_from_epoch, after_epochs, validate_each_epochs))
     artificial_epochs = after_epochs//validate_each_epochs
     first_epoch_idx = train_from_epoch//validate_each_epochs
 
