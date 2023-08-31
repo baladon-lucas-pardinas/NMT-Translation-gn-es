@@ -25,7 +25,7 @@ class CommandConfig:
         self.command_path = command_path
         self.flags = flags
         self.flag_separator = flag_separator
-        self.train_from_epoch = 0
+        self.train_from_epoch = train_from_epoch
         self.validate_each_epochs = validate_each_epochs
         self.validation_metrics = validation_metrics
         self.save_checkpoints = save_checkpoints
