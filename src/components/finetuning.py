@@ -4,6 +4,8 @@ VALIDATION_FLAGS = ['valid-sets', 'valid-translation-output', 'valid-metrics']
 
 def handle_validation_flags(finetuning_command_config, validation_flags=VALIDATION_FLAGS):
     # type: (CommandConfig, list) -> CommandConfig
+    finetuning_command_config.validate_each_epochs = None
+    
     for validation_flag in validation_flags:
         if validation_flag in finetuning_command_config.flags:
             del finetuning_command_config.flags[validation_flag]
