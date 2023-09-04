@@ -16,8 +16,18 @@ def get_hyperparameter_flags(default_flags, hyperparameter_space, hyperparameter
     # type: (list[str], list[list[dict]], list[dict], str, int, int) -> list[dict]
     hyperparameter_flags = []
     for hyperparameters in hyperparameter_space:
-        hyperparameter_flags.extend(hyperparameter_tuning.get_hyperparameters_flags(default_flags, hyperparameters, search_method, seed=seed, max_iters=max_iters))
-    hyperparameter_configs_flags = [hyperparameter_tuning.get_custom_config_flags(default_flags, hyperparamter_config) for hyperparamter_config in hyperparameter_configs]
+        hyperparameter_file_flags = hyperparameter_tuning.get_hyperparameters_flags(
+                                                                default_flags, 
+                                                                hyperparameters, 
+                                                                search_method, 
+                                                                seed=seed, 
+                                                                max_iters=max_iters)
+        hyperparameter_flags.extend(hyperparameter_file_flags)
+    hyperparameter_configs_flags = [
+        hyperparameter_tuning.get_custom_config_flags(default_flags, hyperparamter_config) \
+            for hyperparamter_config in hyperparameter_configs
+    ]
+
     trained_flags = [*hyperparameter_configs_flags, *hyperparameter_flags]
     return trained_flags
 
@@ -57,37 +67,59 @@ def has_sentencepiece_vocabulary(command_config):
     first_vocab_file = command_config.flags.get('vocabs', [''])[0]
     return first_vocab_file.endswith('.spm')
 
+def already_exists_vocabulary(command_config):
+    first_vocab_file = command_config.flags.get('vocabs', [''])[0]
+    return os.path.isfile(first_vocab_file)
+
 def handle_finetuning(command_config, finetuning_config):
     # type: (CommandConfig, FinetuningConfig) -> CommandConfig
-    finetuning_epochs = finetuning_config.epochs
+    cached_model_path = None
+    new_model_path = None
+    finetuning_epochs = int(finetuning_config.epochs)
     full_sets = finetuning_config.full_sets
     augmented_sets = finetuning_config.augmented_sets
-    cache_dir_template = finetuning_config.cache_dir_template # TERMINAR TERMINAR
-    new_model_path = None
+    cache_dir_template = finetuning_config.cache_dir_template
+    old_model_path = command_config.flags.get('model')[0]
 
-    if cache_dir_template is None:
-        # Sentencepiece vocabulary
-        if has_sentencepiece_vocabulary(command_config):
-            finetuning_vocabulary_command_config = finetuning.create_finetuning_vocabulary_train_config(command_config, full_sets)
-            logging.info("Creating finetuning vocabulary...")
-            model.train(finetuning_vocabulary_command_config)
+    if finetuning_epochs == 0:
+        return command_config
 
-        # Pretraining
-        finetuning_command_config = finetuning.create_finetuning_train_config(command_config, augmented_sets, finetuning_epochs)
+    finetuning_config, command_config.flags = \
+        hyperparameter_tuning.handle_finetuning_flags(finetuning_config, 
+                                                      command_config.flags)
+
+    if has_sentencepiece_vocabulary(command_config) \
+        and not already_exists_vocabulary(command_config):
+        finetuning_vocabulary_command_config = \
+            finetuning.create_finetuning_vocabulary_train_config(
+                                                command_config, 
+                                                full_sets)
+        logging.info("Creating finetuning vocabulary...")
+        model.train(finetuning_vocabulary_command_config)
+
+    if cache_dir_template is not None:
+        cached_model_path, epoch = hyperparameter_tuning.get_cached_model_path(
+                                                        cache_dir_template,
+                                                        old_model_path,
+                                                        finetuning_epochs)
+
+    if cached_model_path is not None:
+        new_model_path = cached_model_path
+
+    if cached_model_path is None or str(epoch) != str(finetuning_epochs):
+        finetuning_command_config = \
+            finetuning.create_finetuning_train_config(command_config, 
+                                                      augmented_sets, 
+                                                      finetuning_epochs,
+                                                      cached_model_path)
         logging.info("Creating finetuning train config...")
         model.train(finetuning_command_config)
-    else:
-        pretrained_cache_dir = cache_dir_template.format(str(finetuning_epochs))
-        logging.info("Using cached model from {}".format(pretrained_cache_dir))
-        changed_model_dir = changed_model_dir + '_' + str(finetuning_epochs)
-        file_manager.save_copy(pretrained_cache_dir, changed_model_dir)
-        logging.info("New directory created for model: {}".format(changed_model_dir))
-        new_model_path = [
-            os.path.join(changed_model_dir, path) for path in os.listdir(changed_model_dir) 
-                if path.endswith('.npz') and not path.endswith('optimizer.npz')
-        ][0]
+        file_manager.save_copy(new_model_path, cache_dir_template.format(finetuning_epochs)) # VER SI NOMBRES COINCIDEN
 
-    command_config = finetuning.adapt_train_config(command_config, finetuning_epochs, new_model_path=new_model_path)
+    command_config = finetuning.adapt_train_config(
+                                command_config, 
+                                finetuning_epochs, 
+                                new_model_path)
     return command_config
 
 def train(
@@ -98,7 +130,8 @@ def train(
     finetuning_config,
 ):
     # type: (DataIngestionConfig, DataTransformationConfig, CommandConfig, HyperparameterTuningConfig, FinetuningConfig) -> None
-    default_flags, run_id = (command_config.flags, command_config.run_id) if command_config else ({}, None)
+    default_flags, run_id = (command_config.flags, command_config.run_id) \
+                                        if command_config else ({}, None)
     trained_flags = [default_flags]
     from_flag, to_flag = 2*[None]
 
@@ -110,11 +143,15 @@ def train(
         to_flag = hyperparameter_tuning_config.to_flags
         seed = hyperparameter_tuning_config.seed
         max_iters = hyperparameter_tuning_config.max_iters
-        trained_flags = get_hyperparameter_flags(default_flags, hyperparamter_grids, hyperparameter_configs, tuning_strategy, seed, max_iters)
+        trained_flags = get_hyperparameter_flags(default_flags, 
+                                                 hyperparamter_grids, 
+                                                 hyperparameter_configs, 
+                                                 tuning_strategy, 
+                                                 seed, 
+                                                 max_iters)
     logging.info('Starting training with {} flag combinations'.format(len(trained_flags)))
 
     temp_dir = create_checkpoint_temp_dir_name(run_id)
-
     if from_flag is not None:
         logging.info('Starting training from flag combination {}'.format(from_flag))
     else:

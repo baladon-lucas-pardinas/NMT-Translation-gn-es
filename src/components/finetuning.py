@@ -20,12 +20,16 @@ def create_finetuning_vocabulary_train_config(command_config, full_sets):
     finetuning_vocabulary_command_config = handle_validation_flags(finetuning_vocabulary_command_config)
     return finetuning_vocabulary_command_config
 
-def create_finetuning_train_config(command_config, augmented_sets, finetuning_epochs):
-    # type: (CommandConfig, list, int) -> CommandConfig
+def create_finetuning_train_config(command_config, augmented_sets, finetuning_epochs, cached_model_path=None):
+    # type: (CommandConfig, list, int, str) -> CommandConfig
     finetuning_command_config = command_config.copy(deep=True)
     finetuning_command_config.flags['after-epochs'] = [str(finetuning_epochs)]  
     finetuning_command_config.flags['early-stopping'] = ['1000']
     finetuning_command_config.flags['train-sets'] = augmented_sets.copy()
+
+    if cached_model_path is not None:
+        finetuning_command_config.flags['model'] = [cached_model_path]
+
     finetuning_command_config = handle_validation_flags(finetuning_command_config)
     return finetuning_command_config
 
