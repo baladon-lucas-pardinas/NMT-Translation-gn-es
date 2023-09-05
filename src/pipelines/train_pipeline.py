@@ -68,6 +68,7 @@ def has_sentencepiece_vocabulary(command_config):
     return first_vocab_file.endswith('.spm')
 
 def already_exists_vocabulary(command_config):
+    # type: (CommandConfig) -> bool
     first_vocab_file = command_config.flags.get('vocabs', [''])[0]
     return os.path.isfile(first_vocab_file)
 
@@ -102,9 +103,8 @@ def handle_finetuning(command_config, finetuning_config):
                                                         cache_dir_template,
                                                         old_model_path,
                                                         finetuning_epochs)
-
-    if cached_model_path is not None:
-        new_model_path = cached_model_path
+        if cached_model_path is not None:
+            new_model_path = cached_model_path
 
     if cached_model_path is None or str(epoch) != str(finetuning_epochs):
         finetuning_command_config = \
@@ -114,7 +114,11 @@ def handle_finetuning(command_config, finetuning_config):
                                                       cached_model_path)
         logging.info("Creating finetuning train config...")
         model.train(finetuning_command_config)
-        file_manager.save_copy(new_model_path, cache_dir_template.format(finetuning_epochs)) # VER SI NOMBRES COINCIDEN
+
+        if cache_dir_template is not None:
+            pretrained_model_path = finetuning_command_config.flags.get('model')[0]
+            new_cache_dir = cache_dir_template.format(finetuning_epochs)
+            file_manager.save_copy(pretrained_model_path, new_cache_dir)
 
     command_config = finetuning.adapt_train_config(
                                 command_config, 
