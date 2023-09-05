@@ -9,13 +9,17 @@ IP_REGEX     = r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
 
 # Normalize raw text
 # Normalize "pusó" symbols (https://es.wikipedia.org/wiki/Alfabeto_guaran%C3%AD) 
-def normalize_text(text):
-    # type: (str) -> str
+def normalize_text(text, lowercase=False):
+    # type: (str, bool) -> str
     cleaned_text = text
+
+    if lowercase:
+        cleaned_text = cleaned_text.lower()
+
     cleaned_text = re.sub("’`^", "'", cleaned_text)
     cleaned_text = re.sub("´`|´´", "'", cleaned_text)
     cleaned_text = re.sub("’|`|ʼ", "'", cleaned_text)
-    cleaned_text = cleaned_text.lower()
+
     return cleaned_text
 
 def reduce_vocabulary(text):
@@ -28,18 +32,27 @@ def reduce_vocabulary(text):
     cleaned_text = re.sub(IP_REGEX,     '', cleaned_text)
     return cleaned_text
 
-def clean_text(text):
-    # type: (str) -> str
+def clean_text(text, reduce_vocab=True, normalize=False):
+    # type: (str, bool, bool) -> str
     cleaned_text = text
-    cleaned_text = cleaned_text.lower() #cleaned_text = normalize_text(cleaned_text)
-    cleaned_text = reduce_vocabulary(cleaned_text)
+
+    if normalize:
+        cleaned_text = normalize_text(cleaned_text)
+    
+    if reduce_vocab:
+        cleaned_text = reduce_vocabulary(cleaned_text)
+        
     return cleaned_text
 
 # Convert non-characters to blank spaces
-def clean_token(token):
-    # type: (str) -> str
-    token = token.strip()
-    token = token.lower()
-    token = re.sub(' ','',token)
-    token = re.sub('\n|\t|\.|,|%|-','',token)
+def clean_token(token, lowercase=False, clean_punctuation=True, clean_spaces=True):
+    # type: (str, bool, bool, bool) -> str
+    if lowercase:
+        token = token.lower()
+
+    if clean_punctuation:
+        token = re.sub('\.|,|%|-|\{|\}|\(|\)','', token) # strings.punctuation could be used too
+
+    if clean_spaces:
+        token = re.sub('\n|\t|[ ]','', token)
     return token

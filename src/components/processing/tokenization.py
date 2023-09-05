@@ -1,4 +1,3 @@
-import re
 import pickle
 import os
 from abc import ABC, abstractmethod
@@ -31,14 +30,11 @@ class SpacyTokenizer(Tokenizer):
 
     def tokenize(self, text):
         # type: (str) -> list
-        tokens = []
-        #text = clean_text(text)
-
-        doc = self.tokenizer(text)
-        for token in doc:
-            cleaned_token = clean_token(token.text)
-            if cleaned_token != '':
-                tokens.append(cleaned_token)
+        text = clean_text(text)
+        tokens = self.tokenizer(text)
+        tokens = map(str, tokens)
+        tokens = map(clean_token, tokens)
+        tokens = [token for token in tokens if token != '']
 
         return tokens
 
