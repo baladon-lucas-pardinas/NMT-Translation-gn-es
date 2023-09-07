@@ -1,14 +1,12 @@
 import os
 
 from src.logger import logging
-from src.components import model_trainer
-from src.components import data_ingestion
+from src.components import model_trainer, data_ingestion, hyperparameter_tuning, finetuning
 from src.config.ingestion_config import DataIngestionConfig
 from src.config.command_config import CommandConfig
 from src.config.hyperparameter_tuning_config import HyperparameterTuningConfig
 from src.config.finetuning_config import FinetuningConfig
-from src.components import hyperparameter_tuning, finetuning
-from src.utils import file_manager
+from src.utils import file_manager, parsing
 
 def get_hyperparameter_flags(default_flags, hyperparameter_space, hyperparameter_configs, search_method, seed=None, max_iters=None):
     # type: (list[str], list[list[dict]], list[dict], str, int, int) -> list[dict]
@@ -84,8 +82,7 @@ def handle_finetuning(command_config, finetuning_config):
         return command_config
 
     finetuning_config, command_config.flags = \
-        hyperparameter_tuning.handle_finetuning_flags(finetuning_config, 
-                                                      command_config.flags)
+        parsing.handle_finetuning_flags(finetuning_config, command_config.flags)
 
     if has_sentencepiece_vocabulary(command_config) \
         and not already_exists_vocabulary(command_config):
@@ -150,7 +147,7 @@ def train(
                                                  hyperparamter_grids, 
                                                  hyperparameter_configs, 
                                                  tuning_strategy, 
-                                                 seed, 
+                                                 seed,
                                                  max_iters)
         
     logging.info('Starting training with {} flag combinations'.format(len(trained_flags)))

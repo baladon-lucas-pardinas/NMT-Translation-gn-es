@@ -155,8 +155,8 @@ class TestTrain(unittest.TestCase):
 
     def test_train_marian(self):
         # Create mock translation output
-        first_output_filename = model_trainer.parse_output_filename(self.valid_translation_output, epoch=self.validate_each_epochs)
-        second_output_filename = model_trainer.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 2)
+        first_output_filename = parsing.parse_output_filename(self.valid_translation_output, epoch=self.validate_each_epochs)
+        second_output_filename = parsing.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 2)
         file_manager.save_copy(self.test_valid_data_dir_tgt, first_output_filename)
         file_manager.save_copy(self.test_valid_data_dir_tgt, second_output_filename)
         first_checkpoint_filename = model_trainer.rename_checkpoint(self.model_dir, self.validate_each_epochs)
@@ -295,9 +295,9 @@ class TestTrain(unittest.TestCase):
             command_config = self.early_stopping_config
 
             # Create mock translation output
-            first_output_filename = model_trainer.parse_output_filename(self.valid_translation_output, epoch=self.validate_each_epochs)
-            second_output_filename = model_trainer.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 2)
-            third_output_filename = model_trainer.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 3)
+            first_output_filename = parsing.parse_output_filename(self.valid_translation_output, epoch=self.validate_each_epochs)
+            second_output_filename = parsing.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 2)
+            third_output_filename = parsing.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 3)
             file_manager.save_copy(self.test_valid_data_dir_tgt, first_output_filename)
             file_manager.save_copy(self.test_valid_data_dir_tgt, second_output_filename)
             file_manager.save_copy(self.test_valid_data_dir_tgt, third_output_filename)
@@ -340,7 +340,7 @@ class TestTrain(unittest.TestCase):
                 os.makedirs(model_dir)
             
             # Create mock validation output for final model
-            valid_output_filename = model_trainer.parse_output_filename(
+            valid_output_filename = parsing.parse_output_filename(
                 self.valid_translation_output, 
                 epoch=str(int(finetuning_config.epochs) + int(command_config.flags['after-epochs'][0])))
             

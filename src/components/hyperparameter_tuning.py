@@ -4,55 +4,10 @@ import random
 
 import scipy.stats as stats
 
-from src.config.finetuning_config import FinetuningConfig
-from src.utils.parsing import deep_copy_flags
-
-PRETRAINING_EPOCHS = 'finetuning-epochs'
-
-def handle_finetuning_flags(finetuning_config, flags):
-    # type: (FinetuningConfig, dict) -> (FinetuningConfig, dict)
-    pretraining_epochs = flags.pop(PRETRAINING_EPOCHS, [None])[0]
-    if pretraining_epochs is not None:
-        finetuning_config.epochs = pretraining_epochs
-    return finetuning_config, flags
-
-# If the flag value is bool: 
-#     If its value is True, the flag value should be an empty list (e.g. '--overwrite' has no value, unlike '--model model.npz')
-#     If its value is False, the flag should be deleted (because False is the default value)
-def handle_boolean_flags(flags):
-    # type: (dict[str, list]) -> dict[str, list]
-    temp_flags = deep_copy_flags(flags) # Dicts shouldn't be changed during iteration
-    for flag_name, flag_value in flags.items():
-        flag_value_id = str(flag_value)
-        if flag_value_id == "[True]":
-            temp_flags[flag_name] = []
-        elif flag_value_id == "[False]":
-            del temp_flags[flag_name]
-    return temp_flags
-
-# If the model uses sentencepiece, each vocabulary configuration must be in a different file.
-def handle_sentencepiece_flags(flags):
-    # type: (dict[str, list]) -> dict[str, list]
-    src_vocab, trg_vocab = flags.get('vocabs', ['', ''])
-    if src_vocab.endswith('.spm') or trg_vocab.endswith('.spm'):
-        assert src_vocab.endswith('.spm') and trg_vocab.endswith('.spm'), 'Both vocabularies must use sentencepiece if one of them does.'
-        dim_vocab = flags.get('dim-vocabs', [None])[0]
-        dim_vocab = dim_vocab.replace(' ', '_') # In case dim-vocabs is passed as a string instead of a list of ints
-        src_new_name = src_vocab.replace('.spm', 'V{dim_vocab}.spm'.format(dim_vocab=dim_vocab))
-        trg_new_name = trg_vocab.replace('.spm', 'V{dim_vocab}.spm'.format(dim_vocab=dim_vocab))
-        flags['vocabs'] = [src_new_name, trg_new_name]
-    return flags
-
-def rename_model_file(model_name, flags):
-    # type: (str, dict[str, list]) -> str
-    model_name_without_extension = '.'.join(model_name.split('.')[:-1])
-    model_name_extension = model_name.split('.')[-1]
-    param_names = list(flags.keys())
-    param_values = list(map(lambda v: str(v[0]), flags.values()))
-    param_names_and_values = [param_name + '_' + param_value for param_name, param_value in zip(param_names, param_values)]
-    model_name = model_name_without_extension + '_' + '_'.join(param_names_and_values) + '.' + model_name_extension
-    model_name = model_name.replace(' ', '')
-    return model_name
+from src.utils.parsing import deep_copy_flags, \
+    handle_boolean_flags, \
+    handle_sentencepiece_flags, \
+    rename_model_file
 
 def get_hyperparameters_flags(default_flags, hyperparameters_file, search_method, max_iters=None, seed=None):
     # type: (dict[str, list], str, str, int, int) -> list[dict[str, list[str]]]

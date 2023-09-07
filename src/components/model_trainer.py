@@ -6,22 +6,6 @@ from ..utils import file_manager
 from src.domain.evaluation import metrics
 from ..config import command_config
 
-# https://marian-nmt.github.io/docs/cmd/marian/
-# --valid-translation-output TEXT       
-# (Template for) path to store the translation. E.g., 
-# validation-output-after-{U}-updates-{T}-tokens.txt. 
-# Template parameters: {E} for epoch; {B} for No. of batches 
-# within epoch; {U} for total No. of updates; {T} for total 
-# No. of tokens seen.
-def parse_output_filename(output_filename, epoch=None, batch=None, updates=None, tokens=None):
-    # type: (str, int, int, int, int) -> str
-    to_substitute = {'{E}': epoch, '{B}': batch, '{U}': updates, '{T}': tokens}
-    for key, value in to_substitute.items():
-        if value is None:
-            continue
-        output_filename = output_filename.replace(key, str(value))
-    return output_filename
-
 # Renames the checkpoint with the format model-<after_epochs>.<extension>
 def rename_checkpoint(model_dir, added_str):
     # type: (str, str) -> str
@@ -48,7 +32,7 @@ def validate(
     evaluation_file = os.path.join(base_dir_evaluation, command_name)
     validation_translation_output_path = None
     if validation_translation_output is not None:
-        validation_translation_output_path = parse_output_filename(
+        validation_translation_output_path = parsing.parse_output_filename(
             validation_translation_output, 
             epoch=after_epochs,
             batch=batch_size,
@@ -64,7 +48,12 @@ def validate(
     )
     return results
 
-def validation_enabled(validation_metrics, artificial_epoch_training, validation_log, model_metrics, validation_translation_output):
+def validation_enabled(
+    validation_metrics, 
+    artificial_epoch_training, 
+    validation_log, model_metrics, 
+    validation_translation_output
+):
     # type: (list[str], bool, str, list[str], str) -> bool    
     if artificial_epoch_training and \
        'translation' in model_metrics and \
@@ -83,7 +72,6 @@ def handle_non_first_config(marian_config, to_delete_flags=['no-restore-corpus']
     # type: (command_config.CommandConfig, list[str]) -> command_config.CommandConfig
     for to_delete_flag in to_delete_flags:
         if to_delete_flag in marian_config.flags:
-            print("🧐")
             del marian_config.flags[to_delete_flag]
         return marian_config
 
