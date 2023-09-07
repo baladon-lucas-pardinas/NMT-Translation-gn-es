@@ -29,7 +29,7 @@ def create_finetuning_vocabulary_train_config(command_config, full_sets):
     # type: (CommandConfig, list) -> CommandConfig
     finetuning_vocabulary_command_config = command_config.copy(deep=True)
     finetuning_vocabulary_command_config.flags['train-sets'] = full_sets.copy()
-    finetuning_vocabulary_command_config['after-epochs'] = ['1']
+    finetuning_vocabulary_command_config.flags['after-epochs'] = ['1']
     finetuning_vocabulary_command_config.not_delete_model_after = False
     finetuning_vocabulary_command_config = handle_validation_flags(finetuning_vocabulary_command_config)
     return finetuning_vocabulary_command_config
