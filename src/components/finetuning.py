@@ -40,6 +40,7 @@ def create_finetuning_train_config(command_config, augmented_sets, finetuning_ep
     finetuning_command_config.flags['after-epochs'] = [str(finetuning_epochs)]  
     finetuning_command_config.flags['early-stopping'] = ['1000']
     finetuning_command_config.flags['train-sets'] = augmented_sets.copy()
+    finetuning_command_config.not_delete_model_after = True
 
     finetuning_command_config = handle_validation_flags(finetuning_command_config)
     return finetuning_command_config
