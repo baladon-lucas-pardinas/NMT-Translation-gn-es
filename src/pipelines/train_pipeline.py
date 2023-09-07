@@ -99,7 +99,7 @@ def handle_finetuning(command_config, finetuning_config):
         model_trainer.train(finetuning_vocabulary_command_config)
 
     if cache_dir_template is not None:
-        cached_model_dir, epoch = hyperparameter_tuning.get_cached_model_dir(
+        cached_model_dir, epoch = finetuning.get_cached_pretrained_model_dir(
                                                         cache_dir_template,
                                                         finetuning_epochs)
         if cached_model_dir is not None:

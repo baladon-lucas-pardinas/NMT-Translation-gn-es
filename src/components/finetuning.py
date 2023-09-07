@@ -1,6 +1,20 @@
+import os
+
 from ..config.command_config import CommandConfig
 
 VALIDATION_FLAGS = ['valid-sets', 'valid-translation-output', 'valid-metrics']
+
+def get_cached_pretrained_model_dir(cache_dir_template, pretraining_epochs):
+    # type: (str, str) -> (str, int)
+    pretraining_epochs = int(pretraining_epochs)
+
+    for i in reversed(range(pretraining_epochs)): # The more trained the model is, the better
+        cached_model_path_i = cache_dir_template.format(str(i))
+
+        if os.path.isdir(cached_model_path_i):
+            return cached_model_path_i, i
+
+    return None, None
 
 def handle_validation_flags(finetuning_command_config, validation_flags=VALIDATION_FLAGS):
     # type: (CommandConfig, list) -> CommandConfig
