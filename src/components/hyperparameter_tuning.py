@@ -6,7 +6,6 @@ import scipy.stats as stats
 
 from src.utils.parsing import deep_copy_flags, \
     handle_boolean_flags, \
-    handle_sentencepiece_flags, \
     rename_model_file
 
 def get_hyperparameters_flags(default_flags, hyperparameters_file, search_method, max_iters=None, seed=None):
@@ -56,7 +55,6 @@ def get_random_flags(default_flags, hyperparameters_file, max_iters, seed=None):
         current_flags['model'] = [rename_model_file(default_model_name, current_flags)]
         current_flags = {**default_flags, **current_flags}
         current_flags = handle_boolean_flags(current_flags)
-        current_flags = handle_sentencepiece_flags(current_flags)
 
         random_flags.append(current_flags)
 
@@ -79,7 +77,7 @@ def get_grid_flags(default_flags, grid_file):
         current_default_flags['model'] = [rename_model_file(default_model_name, product_and_param_names)]
         current_default_flags = {**current_default_flags, **product_and_param_names}
         current_default_flags = handle_boolean_flags(current_default_flags)
-        current_default_flags = handle_sentencepiece_flags(current_default_flags)
+
         grid_flags.append(current_default_flags)
 
     return grid_flags
@@ -98,6 +96,5 @@ def get_custom_config_flags(default_flags, grid_file):
     default_flags['model'] = [rename_model_file(default_model_name, grid)]
     custom_config_flags = {**default_flags, **grid}
     custom_config_flags = handle_boolean_flags(custom_config_flags)
-    custom_config_flags = handle_sentencepiece_flags(custom_config_flags)
 
     return custom_config_flags

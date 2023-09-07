@@ -68,7 +68,8 @@ def already_exists_vocabulary(command_config):
     return os.path.isfile(first_vocab_file)
 
 def handle_finetuning(command_config, finetuning_config):
-    # type: (CommandConfig, FinetuningConfig) -> CommandConfig
+    # type: (CommandConfig, FinetuningConfig) -> (CommandConfig, bool)
+    is_pretrained = True
     cached_model_dir = None
     new_model_path = None
     finetuning_epochs = int(finetuning_config.epochs)
@@ -79,7 +80,8 @@ def handle_finetuning(command_config, finetuning_config):
     finetuned_model_dir = os.path.dirname(finetuned_model_path)
 
     if finetuning_epochs == 0:
-        return command_config
+        is_pretrained = False
+        return command_config, is_pretrained
 
     finetuning_config, command_config.flags = \
         parsing.handle_finetuning_flags(finetuning_config, command_config.flags)
@@ -120,7 +122,7 @@ def handle_finetuning(command_config, finetuning_config):
                                 command_config, 
                                 finetuning_epochs, 
                                 new_model_path)
-    return command_config
+    return command_config, is_pretrained
 
 def train(
     data_ingestion_config,
@@ -134,6 +136,7 @@ def train(
     temp_dir = create_checkpoint_temp_dir_name(run_id)
     trained_flags = [default_flags]
     from_flag, to_flag = 2*[None]
+    is_pretrained = False
 
     if hyperparameter_tuning_config is not None:
         hyperparamter_grids = hyperparameter_tuning_config.tuning_grid_files
@@ -166,15 +169,16 @@ def train(
         save_checkpoint(temp_dir, str(idx))
         logging.info('Training checkpoint: {} saved correctly'.format(idx))
 
-        if data_ingestion_config:
+        if data_ingestion_config is not None:
             data_ingestion.ingest_data(data_ingestion_config)
 
-        if command_config:
+        if command_config is not None:
             command_config.flags = current_flags
 
-            if finetuning_config:
-                command_config = handle_finetuning(command_config, finetuning_config)
+            if finetuning_config is not None:
+                command_config, is_pretrained = handle_finetuning(command_config, finetuning_config)
 
+            command_config.flags = parsing.handle_vocabularies(command_config.flags, is_pretrained=is_pretrained)
             model_trainer.train(command_config)
 
         idx += 1

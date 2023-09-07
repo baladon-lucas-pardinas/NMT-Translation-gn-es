@@ -1,6 +1,6 @@
 import os
 
-from ..config.command_config import CommandConfig
+from src.config.command_config import CommandConfig
 
 VALIDATION_FLAGS = ['valid-sets', 'valid-translation-output', 'valid-metrics']
 
