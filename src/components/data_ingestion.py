@@ -3,7 +3,7 @@ import os
 
 from src.config.ingestion_config import DataIngestionConfig
 from src.logger import logging
-from src.components.processing import tokenization
+from src.domain.processing import tokenization
 
 def __persist_split_data(splits, split):
         splits[split]['file'].write('\n'.join(splits[split]['data']))

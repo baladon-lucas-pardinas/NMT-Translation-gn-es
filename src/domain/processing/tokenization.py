@@ -2,7 +2,7 @@ import pickle
 import os
 from abc import ABC, abstractmethod
 
-from src.components.processing.cleaning import clean_text, clean_token
+from src.domain.processing.cleaning import clean_text, clean_token
 
 class Tokenizer(ABC):
     def __init__(self, tokenizer):

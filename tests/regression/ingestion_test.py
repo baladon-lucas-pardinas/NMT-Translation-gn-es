@@ -11,7 +11,7 @@ from src.config.config import load_config_variables, \
     RAW_DATA_TEST_COLUMN
 
 from src.components import data_ingestion
-from src.components.processing.search_duplicates import search_duplicates
+from src.domain.processing.search_duplicates import search_duplicates
 
 # TODO: Test if there are empty lines or the default vocabulary is not at the beginning of the file
 class TestIngestion(unittest.TestCase):
@@ -47,12 +47,9 @@ class TestIngestion(unittest.TestCase):
                 test_output=self.test_output_dir,
                 persist_each=1000
             )
-            data_ingestion.create_vocabularies(
-                raw_data_file_path=self.raw_data_filepath_dataset,
-                raw_data_train_column=self.raw_data_train_column,
-                raw_data_split_column=self.raw_data_split_column,
-                column_to_ingest=self.column_to_ingest,
-                train_vocab_output=self.vocab_output_dir,
+            data_ingestion.create_vocabulary(
+                input_path=self.train_output_dir+'.gn',
+                output_path=self.vocab_output_dir,
                 default_vocabulary=self.default_vocabulary
             )
 
@@ -60,14 +57,14 @@ class TestIngestion(unittest.TestCase):
             self.fail("Ingestion failed with exception {}".format(e))
 
         should_exist_paths = [self.train_output_dir, self.validation_output_dir, self.test_output_dir, self.vocab_output_dir]
-        vocabulary_indexes = [should_exist_paths.index(self.vocab_output_dir)]
+        vocabulary_indices = [should_exist_paths.index(self.vocab_output_dir)]
         should_exist_paths = [path + '.' + self.column_to_ingest for path in should_exist_paths]
         
         for path in should_exist_paths:
             if not os.path.exists(path):
                 self.fail("Ingestion failed to create file {}".format(path))
             else:
-                for index in vocabulary_indexes:
+                for index in vocabulary_indices:
                     vocabulary_path = should_exist_paths[index]
                     _, duplicate_indexes = search_duplicates(vocabulary_path, verbose=False)
                     if len(duplicate_indexes.keys()) > 0:

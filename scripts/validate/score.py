@@ -6,7 +6,7 @@ import os
 current_dir = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(1, os.path.join(current_dir, '..', '..'))
 
-from src.components.evaluation import metrics
+from src.domain.evaluation import metrics
 from src.utils import wrappers
 
 def parse_args():

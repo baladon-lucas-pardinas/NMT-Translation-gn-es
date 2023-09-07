@@ -3,7 +3,7 @@ import os
 from ..utils import process_manager
 from ..utils import parsing
 from ..utils import file_manager
-from src.components.evaluation import metrics
+from src.domain.evaluation import metrics
 from ..config import command_config
 
 # https://marian-nmt.github.io/docs/cmd/marian/
