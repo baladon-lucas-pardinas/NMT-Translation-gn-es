@@ -1,0 +1,15 @@
+[2023-07-16 10:07:10] [valid] References contain unknown word, metric scores may be inaccurate
+[2023-07-16 10:07:10] [valid] First sentence's tokens as scored:
+[2023-07-16 10:07:10] [valid] DefaultVocab keeps original segments for scoring
+[2023-07-16 10:07:10] [valid]   Hyp: P o r o t r a p a r t e , h a c e q u e e s e l t i t u l a r d e l a s a c t i v i d a d e s e n l a s c a l l e s l o c a l e s d e l a e c o n o m í a d e l q u e e s d e c i r , t o d a l a e c o n o m í a d e l p a í s , a s í c o m o a s í c o m o a s í c o m o a s í c o m o a s í c o m o a s í c o m o a s í c o m o a s í c o m o t a m b i é n l a g e n t e e n e l á r e a d e l o s n i ñ o s e n e l á r e a c e n t r a l d e l o s c u a l e s e l á r e a c e n t r a l d e l m i s m o t i e m p o d e l o s d i f e r e n t e s l a s p e r s o n a s q u e t o d o s l o s 6 d e l a e c o n o m í a d e l m i s m o t i e m p o d e l a d o c u m e n t a c i ó n d e l a d o c u m e n t a c i ó n d e l a e c o n o m í a d e l a e c o n o m í a d e l E s t a d o e n e l á r e a d e a u t o r i d a d e s l o c a l e s d e s u s h o g a r e s d e l a e d u c a c i ó n .
+[2023-07-16 10:07:10] [valid]   Ref: < u n k > i m p o r t a n t e c i t a r q u e l o s d a ñ o s < u n k > a l o s u s u a r i o s p o r e s t a s i t u a c i ó n a f e c t a n s e r i a m e n t e a l a e c o n o m í a e n g e n e r a l , a l á r e a s o c i a l e < u n k > a l a i n t e g r i d a d f í s i c a d e l a s p e r s o n a s q u e t r a n s i t a n p o r d i c h a r u t a < u n k > < u n k > p é r d i d a d e v i d a s y l e s i o n e s < u n k > d a ñ o a l o s v e h í c u l o s d e < u n k > a l o s a n i m a l e s y m e r c a d e r í a s e n g e n e r a l < u n k > s o b r e c o s t o s e n t i e m p o y d i n e r o a l < u n k > < u n k > e x p r e s a l a n o t a < u n k > p o r e l t i t u l a r d e l a < u n k > L u i s < u n k > y e l s e c r e t a r i o d e l < u n k > J o r g e < u n k >
+[2023-07-16 10:09:37] [valid] Ep. 11 : Up. 3000 : chrf : 24.4164 : new best
+[2023-07-16 10:09:37] [valid] Ep. 11 : Up. 3000 : bleu : 12.4164 : new best
+[2023-07-16 10:09:38] [valid] Ep. 21 : Up. 3000 : chrf : 25.4164 : new best
+[2023-07-16 10:09:38] [valid] Ep. 21 : Up. 3000 : bleu : 13.4164 : new best
+[2023-07-16 10:09:39] [valid] Ep. 31 : Up. 3000 : chrf : 26.4164 : new best
+[2023-07-16 10:09:39] [valid] Ep. 31 : Up. 3000 : bleu : 14.4164 : new best
+[2023-07-16 10:09:40] [valid] Ep. 41 : Up. 3000 : chrf : 20.4164 : new best
+[2023-07-16 10:09:40] [valid] Ep. 41 : Up. 3000 : bleu : 10.4164 : new best
+[2023-07-16 10:09:40] [valid] Ep. 51 : Up. 3000 : chrf : 15.4164 : new best
+[2023-07-16 10:09:40] [valid] Ep. 51 : Up. 3000 : bleu : 5.4164 : new best

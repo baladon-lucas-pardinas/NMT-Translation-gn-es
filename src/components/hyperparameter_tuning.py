@@ -11,26 +11,25 @@ from src.utils import file_manager
 
 PRETRAINING_EPOCHS = 'finetuning-epochs'
 
-def get_cached_model_path(cache_dir_template, new_model_path, pretraining_epochs):
-    # type: (str, str, str) -> (str, int)
+def get_cached_model_dir(cache_dir_template, pretraining_epochs):
+    # type: (str, str) -> (str, int)
     pretraining_epochs = int(pretraining_epochs)
-    new_model_dir = os.path.dirname(new_model_path)
-    new_model_filename = os.path.basename(new_model_path)
 
     for i in reversed(range(pretraining_epochs)): # The more trained the model the better
         cached_model_path_i = cache_dir_template.format(str(i))
+
         if os.path.isdir(cached_model_path_i):
-            file_manager.save_copy(cached_model_path_i, new_model_dir)
-            for new_dir_file in os.listdir(new_model_dir):
-                if new_dir_file.endswith('.npz') \
-                   and not new_dir_file.endswith('optimizer.npz'):
-                    new_cached_model_path = \
-                        os.path.join(new_model_dir, new_dir_file)
-                    renamed_new_cached_model_path = \
-                        os.path.join(new_model_dir, new_model_filename)
-                    os.rename(new_cached_model_path, 
-                              renamed_new_cached_model_path)
-                    return renamed_new_cached_model_path, i
+            # file_manager.save_copy(cached_model_path_i, new_model_dir)
+            # for new_dir_file in os.listdir(new_model_dir):
+            #     if new_dir_file.endswith('.npz') \
+            #        and not new_dir_file.endswith('optimizer.npz'):
+            #         new_cached_model_path = \
+            #             os.path.join(new_model_dir, new_dir_file)
+            #         renamed_new_cached_model_path = \
+            #             os.path.join(new_model_dir, new_model_filename)
+            #         os.rename(new_cached_model_path, 
+            #                   renamed_new_cached_model_path)
+            return cached_model_path_i, i
 
     return None, None
 

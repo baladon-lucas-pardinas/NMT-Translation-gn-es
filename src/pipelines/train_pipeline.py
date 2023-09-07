@@ -1,8 +1,7 @@
 import os
-import shutil
 
 from src.logger import logging
-from src.model import model
+from src.components import model_trainer
 from src.components import data_ingestion
 from src.config.ingestion_config import DataIngestionConfig
 from src.config.command_config import CommandConfig
@@ -25,8 +24,7 @@ def get_hyperparameter_flags(default_flags, hyperparameter_space, hyperparameter
         hyperparameter_flags.extend(hyperparameter_file_flags)
     hyperparameter_configs_flags = [
         hyperparameter_tuning.get_custom_config_flags(default_flags, hyperparamter_config) \
-            for hyperparamter_config in hyperparameter_configs
-    ]
+            for hyperparamter_config in hyperparameter_configs]
 
     trained_flags = [*hyperparameter_configs_flags, *hyperparameter_flags]
     return trained_flags
@@ -74,13 +72,14 @@ def already_exists_vocabulary(command_config):
 
 def handle_finetuning(command_config, finetuning_config):
     # type: (CommandConfig, FinetuningConfig) -> CommandConfig
-    cached_model_path = None
+    cached_model_dir = None
     new_model_path = None
     finetuning_epochs = int(finetuning_config.epochs)
     full_sets = finetuning_config.full_sets
     augmented_sets = finetuning_config.augmented_sets
     cache_dir_template = finetuning_config.cache_dir_template
-    old_model_path = command_config.flags.get('model')[0]
+    finetuned_model_path = command_config.flags.get('model')[0]
+    finetuned_model_dir = os.path.dirname(finetuned_model_path)
 
     if finetuning_epochs == 0:
         return command_config
@@ -95,30 +94,31 @@ def handle_finetuning(command_config, finetuning_config):
             finetuning.create_finetuning_vocabulary_train_config(
                                                 command_config, 
                                                 full_sets)
+        
         logging.info("Creating finetuning vocabulary...")
-        model.train(finetuning_vocabulary_command_config)
+        model_trainer.train(finetuning_vocabulary_command_config)
 
     if cache_dir_template is not None:
-        cached_model_path, epoch = hyperparameter_tuning.get_cached_model_path(
+        cached_model_dir, epoch = hyperparameter_tuning.get_cached_model_dir(
                                                         cache_dir_template,
-                                                        old_model_path,
                                                         finetuning_epochs)
-        if cached_model_path is not None:
-            new_model_path = cached_model_path
+        if cached_model_dir is not None:
+            file_manager.save_copy(cached_model_dir, finetuned_model_dir)
 
-    if cached_model_path is None or str(epoch) != str(finetuning_epochs):
+    if cached_model_dir is None or str(epoch) != str(finetuning_epochs):
         finetuning_command_config = \
             finetuning.create_finetuning_train_config(command_config, 
                                                       augmented_sets, 
-                                                      finetuning_epochs,
-                                                      cached_model_path)
-        logging.info("Creating finetuning train config...")
-        model.train(finetuning_command_config)
-
+                                                      finetuning_epochs,)
+        
+        # Save copy of pretrained model for future cache use
         if cache_dir_template is not None:
-            pretrained_model_path = finetuning_command_config.flags.get('model')[0]
             new_cache_dir = cache_dir_template.format(finetuning_epochs)
-            file_manager.save_copy(pretrained_model_path, new_cache_dir)
+            if not os.path.exists(new_cache_dir):
+                file_manager.save_copy(finetuned_model_dir, new_cache_dir)
+
+        logging.info("Training pretrained model...")
+        model_trainer.train(finetuning_command_config)
 
     command_config = finetuning.adapt_train_config(
                                 command_config, 
@@ -136,6 +136,7 @@ def train(
     # type: (DataIngestionConfig, DataTransformationConfig, CommandConfig, HyperparameterTuningConfig, FinetuningConfig) -> None
     default_flags, run_id = (command_config.flags, command_config.run_id) \
                                         if command_config else ({}, None)
+    temp_dir = create_checkpoint_temp_dir_name(run_id)
     trained_flags = [default_flags]
     from_flag, to_flag = 2*[None]
 
@@ -153,9 +154,9 @@ def train(
                                                  tuning_strategy, 
                                                  seed, 
                                                  max_iters)
+        
     logging.info('Starting training with {} flag combinations'.format(len(trained_flags)))
 
-    temp_dir = create_checkpoint_temp_dir_name(run_id)
     if from_flag is not None:
         logging.info('Starting training from flag combination {}'.format(from_flag))
     else:
@@ -164,6 +165,8 @@ def train(
 
     from_flag, to_flag = get_to_and_from_flags_indices(from_flag, to_flag, trained_flags)
     idx = from_flag # Enumerate shouldn't be used in loop as idx would start in 0 after the checkpoint is loaded
+
+    # Training loop
     for current_flags in trained_flags[from_flag:to_flag]:
         save_checkpoint(temp_dir, str(idx))
         logging.info('Training checkpoint: {} saved correctly'.format(idx))
@@ -180,7 +183,7 @@ def train(
             if finetuning_config:
                 command_config = handle_finetuning(command_config, finetuning_config)
 
-            model.train(command_config)
+            model_trainer.train(command_config)
 
         idx += 1
 

@@ -2,10 +2,27 @@ import os
 import shutil
 from ..logger import logging
 
+def move_files(src, dst):
+    # type: (str, str) -> None
+    files_in_src = os.listdir(src)
+    for src_filename in files_in_src:
+        src_old_file = os.path.join(src, src_filename)
+        dst_new_file = os.path.join(dst, src_filename)
+        os.rename(src_old_file, dst_new_file)
+
 def save_copy(src, dst):
     # type: (str, str) -> None
     logging.info('Saving copy from {} to {}'.format(src, dst))
-    shutil.copy2(src, dst) # Copy2 preserves metadata and accepts a dst directory
+
+    if os.path.isfile(src):
+        shutil.copy2(src, dst) # Copy2 preserves metadata and accepts a dst directory
+    elif os.path.isdir(src):
+        if os.path.isdir(dst):
+            move_files(src, dst)
+        else:
+            shutil.copytree(src, dst)
+    else:
+        raise FileExistsError("The source to copy does not exist")
 
 def get_file_lines(file_path):
     # type: (str) -> list[str]

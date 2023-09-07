@@ -6,21 +6,14 @@ import json
 
 from src.config.config import load_config_variables, \
     FLAG_SEPARATOR
-from src.config import command_config as command, hyperparameter_tuning_config as hyperparameter_tuning
-from src.model import model
-from src.components.evaluation import metrics
+from src.config import command_config as command, hyperparameter_tuning_config as hyperparameter_tuning, finetuning_config
+from src.components import model_trainer
+from src.domain.evaluation import metrics
 from src.pipelines import train_pipeline
 from src.utils import file_manager, parsing
 
 class TestTrain(unittest.TestCase):
-    def setUp(self) -> None:
-        self.config_variables = load_config_variables()
-        self.current_dir             = os.path.dirname(os.path.realpath(__file__))
-        self.test_data_dir           = os.path.join(self.current_dir, '..', 'data')
-        self.test_valid_data_dir_src = os.path.join(self.test_data_dir, 'valid_gn.txt.gn')
-        self.test_valid_data_dir_tgt = os.path.join(self.test_data_dir, 'valid_gn.txt.gn')
-
-        ############# Train Test #############
+    def _train_setup(self):
         # Command
         self.command_path = ''
         self.command_name = 'echo'
@@ -66,9 +59,9 @@ class TestTrain(unittest.TestCase):
         self.expected_output = parsing.create_command(self.command_config)
         self.expected_output = self.expected_output[command_length:-injected_length].strip()
 
-        ############# Hyperparameter tuning Test (Grid Search) #############
+    def _hyperparameter_tuning_gridsearch_setup(self):
         self.log_metric_count = 10
-        self.valid_log_dir = os.path.join(self.test_data_dir, 'test_log.log')
+        self.valid_log_dir = os.path.join(self.test_data_dir, 'hyperparameter_log.txt')
         self.hyperparameter_validation_output_dir = os.path.join(self.test_data_dir, 'hyperparameter_validation_output.txt')
         self.grid1 = {"k11": ['v11', 'v12'],"k12": ['v13', 'v14']}
         self.grid2 = {"k21": ['v22'],"k21": ['v22']}
@@ -97,7 +90,7 @@ class TestTrain(unittest.TestCase):
             not_delete_model_after=True,
         )
 
-        ############# Hyperparameter tuning Test (Random Search) #############
+    def _hyperparameter_tuning_randomsearch_setup(self):
         self.random_search_config = self.tuning_config.copy(deep=True)
         self.random_search_max_iters = 10
         self.random_search_seed = 42
@@ -110,24 +103,64 @@ class TestTrain(unittest.TestCase):
         self.random_search_command_config = self.tuning_command_config.copy(deep=True)
         self.random_search_command_config.__setattr__('validate_each_epochs', self.validate_each_epochs)
 
-        ############# Early stopping Test #############
+    def _early_stopping_setup(self):
         self.early_stopping_config = self.command_config.copy(deep=True)
         self.early_stopping_config.flags['early-stopping'] = ['2']
 
-    def clean_files(self, files):
+    def _pretraining_setup(self):
+        self.pretraining_epochs = 12
+        self.augmented_sets = [self.test_valid_data_dir_src, self.test_valid_data_dir_tgt]
+        self.full_sets = [self.test_valid_data_dir_src, self.test_valid_data_dir_tgt]
+        self.cache_dir_template = os.path.join(self.test_data_dir, 'cached_model_{}')
+        self.pretraining_log_path = os.path.join(self.test_data_dir, 'pretraining_log.txt')
+
+        self.pretraining_command_config = self.command_config.copy(deep=True)
+        self.pretraining_command_config.validate_each_epochs = str(self.pretraining_epochs)
+        self.pretraining_command_config.flags['model'] = [os.path.join(
+            os.path.dirname(self.model_dir),
+            'finetuning_model_dir',
+            os.path.basename(self.model_dir),
+        )]
+        
+        self.finetuning_config = finetuning_config.FinetuningConfig(
+            epochs=self.pretraining_epochs,
+            augmented_sets=self.augmented_sets,
+            full_sets=self.full_sets,
+            cache_dir_template=self.cache_dir_template,
+        )
+
+    def setUp(self) -> None:
+        self.config_variables = load_config_variables()
+        self.current_dir             = os.path.dirname(os.path.realpath(__file__))
+        self.test_data_dir           = os.path.join(self.current_dir, '..', 'data')
+        self.test_valid_data_dir_src = os.path.join(self.test_data_dir, 'valid_gn.txt.gn')
+        self.test_valid_data_dir_tgt = os.path.join(self.test_data_dir, 'valid_gn.txt.gn')
+
+        self._train_setup()
+        self._hyperparameter_tuning_gridsearch_setup()
+        self._hyperparameter_tuning_randomsearch_setup()
+        self._early_stopping_setup()
+        self._pretraining_setup()
+
+    def _clean_files(self, files):
         # type: (list[str]) -> None
         for file in files:
             if os.path.exists(file):
                 os.remove(file)
 
+    def _clean_dirs(self, dirs):
+        # type: (list[str]) -> None
+        for dir in dirs:
+            os.removedirs(dir)
+
     def test_train_marian(self):
         # Create mock translation output
-        first_output_filename = model.parse_output_filename(self.valid_translation_output, epoch=self.validate_each_epochs)
-        second_output_filename = model.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 2)
+        first_output_filename = model_trainer.parse_output_filename(self.valid_translation_output, epoch=self.validate_each_epochs)
+        second_output_filename = model_trainer.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 2)
         file_manager.save_copy(self.test_valid_data_dir_tgt, first_output_filename)
         file_manager.save_copy(self.test_valid_data_dir_tgt, second_output_filename)
-        first_checkpoint_filename = model.rename_checkpoint(self.model_dir, self.validate_each_epochs)
-        second_checkpoint_filename = model.rename_checkpoint(self.model_dir, int(self.validate_each_epochs) * 2)
+        first_checkpoint_filename = model_trainer.rename_checkpoint(self.model_dir, self.validate_each_epochs)
+        second_checkpoint_filename = model_trainer.rename_checkpoint(self.model_dir, int(self.validate_each_epochs) * 2)
         files_to_clean = [self.csv_file_name, self.valid_translation_output, first_output_filename, 
                           second_output_filename, first_checkpoint_filename, second_checkpoint_filename, 
                           self.command_output_dir, self.model_dir]
@@ -138,7 +171,7 @@ class TestTrain(unittest.TestCase):
 
         try:
             config = self.command_config.copy(deep=True)
-            model.train(config)
+            model_trainer.train(config)
 
             # Should run command (should echo something)
             with open(self.command_output_dir, 'r') as f:
@@ -163,9 +196,9 @@ class TestTrain(unittest.TestCase):
             self.assertTrue(os.path.exists(first_checkpoint_filename))
             self.assertTrue(os.path.exists(second_checkpoint_filename))
 
-            self.clean_files(files_to_clean)
+            self._clean_files(files_to_clean)
         except AssertionError as e:
-            self.clean_files(files_to_clean)
+            self._clean_files(files_to_clean)
             self.fail("Failed with assertion {}".format(e.with_traceback()))
 
     def test_grid_search(self):
@@ -205,9 +238,9 @@ class TestTrain(unittest.TestCase):
                 reader = csv.DictReader(f)
                 self.assertEqual(len(list(reader)), n_combinations)
 
-            self.clean_files(files_to_clean)
+            self._clean_files(files_to_clean)
         except AssertionError as e:
-            self.clean_files(files_to_clean)
+            self._clean_files(files_to_clean)
             self.fail("Failed with assertion {}".format(e.with_traceback()))
 
     def test_random_search(self):
@@ -253,9 +286,9 @@ class TestTrain(unittest.TestCase):
             # Test that both result are equal (reproductibility)
             self.assertEqual(metrics1_str, metrics2_str)
 
-            self.clean_files(files_to_clean)
+            self._clean_files(files_to_clean)
         except AssertionError as e:
-            self.clean_files(files_to_clean)
+            self._clean_files(files_to_clean)
             self.fail("Failed with assertion {}".format(e.with_traceback()))
 
     def test_early_stopping(self):
@@ -264,9 +297,9 @@ class TestTrain(unittest.TestCase):
             command_config = self.early_stopping_config
 
             # Create mock translation output
-            first_output_filename = model.parse_output_filename(self.valid_translation_output, epoch=self.validate_each_epochs)
-            second_output_filename = model.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 2)
-            third_output_filename = model.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 3)
+            first_output_filename = model_trainer.parse_output_filename(self.valid_translation_output, epoch=self.validate_each_epochs)
+            second_output_filename = model_trainer.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 2)
+            third_output_filename = model_trainer.parse_output_filename(self.valid_translation_output, epoch=int(self.validate_each_epochs) * 3)
             file_manager.save_copy(self.test_valid_data_dir_tgt, first_output_filename)
             file_manager.save_copy(self.test_valid_data_dir_tgt, second_output_filename)
             file_manager.save_copy(self.test_valid_data_dir_tgt, third_output_filename)
@@ -277,7 +310,7 @@ class TestTrain(unittest.TestCase):
                 f.write('')
 
             # Train with early stopping
-            model.train(command_config)
+            model_trainer.train(command_config)
 
             # Should exist only len(metrics)*early_stopping rows in csv
             with open(self.csv_file_name, 'r') as f:
@@ -289,9 +322,88 @@ class TestTrain(unittest.TestCase):
                 early_stopping = int(self.early_stopping_config.flags['early-stopping'][0])
                 self.assertEqual(n_rows, n_metrics * early_stopping)
 
-            self.clean_files(files_to_clean)
+            self._clean_files(files_to_clean)
         except AssertionError as e:
-            self.clean_files(files_to_clean)
+            self._clean_files(files_to_clean)
+            self.fail("Failed with assertion {}".format(e.with_traceback()))
+
+    def test_pretraining(self):
+        try:
+            command_config = self.pretraining_command_config
+            finetuning_config = self.finetuning_config
+            model_flag = command_config.flags['model'][0]
+            model_name = os.path.basename(model_flag)
+            model_dir = os.path.dirname(model_flag)
+            files_to_clean = [self.valid_translation_output, self.csv_file_name]
+            dirs_to_clean = []
+
+            # Create mock model folder
+            if not os.path.isdir(model_dir):
+                os.makedirs(model_dir)
+            
+            # Create mock validation output for final model
+            valid_output_filename = model_trainer.parse_output_filename(
+                self.valid_translation_output, 
+                epoch=str(int(finetuning_config.epochs) + int(command_config.flags['after-epochs'][0])))
+            
+            file_manager.save_copy(self.test_valid_data_dir_tgt, valid_output_filename)
+            files_to_clean.append(valid_output_filename)
+
+            # The model with most epochs that satisfies epochs < pretraining_epochs
+            # should be the one chosen (mock_template_minus2)
+            mock_template_minus4 = self.cache_dir_template.format(str(int(finetuning_config.epochs) - 4))
+            mock_template_minus2 = self.cache_dir_template.format(str(int(finetuning_config.epochs) - 2))
+            mock_template_plus2 = self.cache_dir_template.format(str(int(finetuning_config.epochs) + 2))
+            mock_templates = [mock_template_minus4, mock_template_minus2, mock_template_plus2]
+            dirs_to_clean.extend(mock_templates)
+
+            # Create mock pretrained models
+            for current_mock_pretrained_dir in mock_templates:
+                os.makedirs(current_mock_pretrained_dir, exist_ok=True)
+
+                new_model_path = os.path.join(current_mock_pretrained_dir, model_name)
+                new_optimizer_path = os.path.join(current_mock_pretrained_dir, model_name + '.optimizer.npz')
+                pretrained_model_files = [new_model_path, new_optimizer_path]
+                files_to_clean.extend(pretrained_model_files)
+
+                for file in pretrained_model_files:
+                    with open(file, 'w', encoding='utf-8') as f:
+                        f.write(file)
+
+            # Train with early stopping
+            train_pipeline.train(
+                data_ingestion_config=None,
+                data_transformation_config=None,
+                command_config=command_config,
+                hyperparameter_tuning_config=None,
+                finetuning_config=finetuning_config,
+            )
+
+
+            # Saved copy of final pretrained model should exist
+            checkpoint_dir = self.cache_dir_template.format(str(self.pretraining_epochs))
+            saved_checkpoint_dir_exists = os.path.isdir(checkpoint_dir)
+            files_to_clean.extend([os.path.join(checkpoint_dir, file) for file in os.listdir(checkpoint_dir)])
+            dirs_to_clean.append(checkpoint_dir)
+            self.assertTrue(saved_checkpoint_dir_exists)
+
+            # finetuned model should exist
+            saved_checkpoint_dir_exists = os.path.isfile(model_flag)
+            self.assertTrue(saved_checkpoint_dir_exists)
+
+            # finetuned model should be finetuned from pretrained - 2 (highest pretrained model)
+            finetuned_model_content = None
+            with open(model_flag, 'r', encoding='utf-8') as f:
+                finetuned_model_content, = f.readlines()
+            pretrained_from_model = os.path.join(mock_template_minus2, model_name)
+            files_to_clean.extend([os.path.join(model_dir, file) for file in os.listdir(model_dir)])
+            self.assertEqual(finetuned_model_content, pretrained_from_model)
+
+            self._clean_files(files_to_clean)
+            self._clean_dirs(dirs_to_clean)
+        except AssertionError as e:
+            self._clean_files(files_to_clean)
+            self._clean_dirs(dirs_to_clean)
             self.fail("Failed with assertion {}".format(e.with_traceback()))
 
 def main():
