@@ -16,7 +16,7 @@ class TestTrain(unittest.TestCase):
     def _train_setup(self):
         # Command
         self.command_path = ''
-        self.command_name = 'echo'
+        self.command_name = 'echo' # The command to execute will be -printing the flags-
         self.command_dir = os.path.join(self.command_path, self.command_name)
         self.command_output_dir = os.path.join(self.test_data_dir, 'output.txt')
 
@@ -39,7 +39,7 @@ class TestTrain(unittest.TestCase):
             'after-epochs': [self.after_epochs],
             'valid-translation-output': [self.valid_translation_output],
             'valid-metrics': ['translation'], # The model needs this to validate
-            'echo-injection': [f' > {self.command_output_dir}'],
+            'echo-injection': [f' > {self.command_output_dir}'], # As the used command is 'echo', this trick will save the flags in a file.
         }
 
         self.command_config = command.CommandConfig(
@@ -223,7 +223,6 @@ class TestTrain(unittest.TestCase):
             train_pipeline.train(
                 command_config=command_config,
                 data_ingestion_config=None,
-                data_transformation_config=None,
                 hyperparameter_tuning_config=hyperparameter_tuning_config,
                 finetuning_config=None,
             )
@@ -260,7 +259,6 @@ class TestTrain(unittest.TestCase):
                 command_config = command_configs[i]
                 train_pipeline.train(
                     data_ingestion_config=None,
-                    data_transformation_config=None,
                     hyperparameter_tuning_config=hyperparameter_tuning_config,
                     command_config=command_config,
                     finetuning_config=None
@@ -370,10 +368,9 @@ class TestTrain(unittest.TestCase):
                     with open(file, 'w', encoding='utf-8') as f:
                         f.write(file)
 
-            # Train with early stopping
+            # Train with pretraining
             train_pipeline.train(
                 data_ingestion_config=None,
-                data_transformation_config=None,
                 command_config=command_config,
                 hyperparameter_tuning_config=None,
                 finetuning_config=finetuning_config,
