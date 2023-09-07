@@ -79,6 +79,14 @@ def validation_enabled(validation_metrics, artificial_epoch_training, validation
     
     return False
 
+def handle_non_first_config(marian_config, to_delete_flags=['no-restore-corpus']):
+    # type: (command_config.CommandConfig, list[str]) -> command_config.CommandConfig
+    for to_delete_flag in to_delete_flags:
+        if to_delete_flag in marian_config.flags:
+            print("🧐")
+            del marian_config.flags[to_delete_flag]
+        return marian_config
+
 def simple_training(
     marian_config, 
     is_validation_enabled, 
@@ -135,6 +143,9 @@ def training_with_artificial_epochs(
     
     for i in range(first_epoch_idx, artificial_epochs):
         current_after_epochs = validate_each_epochs * (i+1)
+
+        if i > first_epoch_idx:
+            marian_config = handle_non_first_config(marian_config)
 
         marian_config.flags['after-epochs'] = [str(current_after_epochs)]
         logged_flags['after-epochs'] = [str(current_after_epochs)]
