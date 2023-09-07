@@ -3,7 +3,7 @@ import argparse
 from src.pipelines import train_pipeline
 from src.utils import parsing
 from src.logger import logging
-from src.config import command_config as command, ingestion_config as ingestion, data_transformation_config, hyperparameter_tuning_config, finetuning_config
+from src.config import command_config as command, ingestion_config as ingestion, hyperparameter_tuning_config, finetuning_config
 from src.config.config import load_config_variables, FLAG_SEPARATOR
 
 def parse_args():
