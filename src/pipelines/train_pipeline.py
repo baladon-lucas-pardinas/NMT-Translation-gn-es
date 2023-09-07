@@ -5,7 +5,6 @@ from src.components import model_trainer
 from src.components import data_ingestion
 from src.config.ingestion_config import DataIngestionConfig
 from src.config.command_config import CommandConfig
-from src.config.data_transformation_config import DataTransformationConfig
 from src.config.hyperparameter_tuning_config import HyperparameterTuningConfig
 from src.config.finetuning_config import FinetuningConfig
 from src.components import hyperparameter_tuning, finetuning
@@ -128,12 +127,11 @@ def handle_finetuning(command_config, finetuning_config):
 
 def train(
     data_ingestion_config,
-    data_transformation_config,
     command_config,
     hyperparameter_tuning_config,
     finetuning_config,
 ):
-    # type: (DataIngestionConfig, DataTransformationConfig, CommandConfig, HyperparameterTuningConfig, FinetuningConfig) -> None
+    # type: (DataIngestionConfig, CommandConfig, HyperparameterTuningConfig, FinetuningConfig) -> None
     default_flags, run_id = (command_config.flags, command_config.run_id) \
                                         if command_config else ({}, None)
     temp_dir = create_checkpoint_temp_dir_name(run_id)
@@ -173,9 +171,6 @@ def train(
 
         if data_ingestion_config:
             data_ingestion.ingest_data(data_ingestion_config)
-
-        if data_transformation_config: # Data transformation not implemented
-            pass
 
         if command_config:
             command_config.flags = current_flags

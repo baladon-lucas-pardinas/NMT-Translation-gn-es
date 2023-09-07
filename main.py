@@ -16,7 +16,6 @@ def parse_args():
     # Pipeline steps
     parser.add_argument('--ingest', action='store_true', required=False, default=False)
     parser.add_argument('--train', action='store_true', required=False, default=False)
-    parser.add_argument('--transform', action='store_true', required=False, default=False)
     parser.add_argument('--finetuning', action='store_true', required=False, default=None)
 
     # Ingestion
@@ -64,7 +63,6 @@ if __name__ == '__main__':
 
     # Steps
     ingest                        = args.get('ingest')
-    transform                     = args.get('transform')
     finetune                      = args.get('finetuning')
     train                         = args.get('train')
 
@@ -89,7 +87,7 @@ if __name__ == '__main__':
     
     config_variables = load_config_variables()
     flag_separator   = config_variables.get(FLAG_SEPARATOR, ' ')
-    command_config, ingestion_config, transformation_config, tuning_config, finetune_config = 5*[None]
+    command_config, ingestion_config, tuning_config, finetune_config = 4*[None]
 
     flags = parsing.parse_flags(flags, flag_separator=flag_separator)
     train_dirs = flags.get('train-sets', [])
@@ -100,10 +98,6 @@ if __name__ == '__main__':
         vocab_dirs = flags.get('vocabs', [])
         ingestion_config = ingestion.get_data_ingestion_config(config_variables, train_dirs, val_dirs, vocab_dirs, ingest_augmented_data, persist_each=1000)
         logging.info('Ingesting data with config {}'.format(ingestion_config))
-
-    if transform:
-        transformation_config = data_transformation_config.get_data_transformation_config()
-        logging.info('Transforming data with config {}'.format(transformation_config))
 
     if train:
         validation_metrics = validation_metrics.split(' ') if validation_metrics  else None
@@ -139,7 +133,6 @@ if __name__ == '__main__':
     try:
         train_pipeline.train(command_config=command_config, 
                              data_ingestion_config=ingestion_config,
-                             data_transformation_config=transformation_config,
                              hyperparameter_tuning_config=tuning_config,
                              finetuning_config=finetune_config)
     except Exception as e:
