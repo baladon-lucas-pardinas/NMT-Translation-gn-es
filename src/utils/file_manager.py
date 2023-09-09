@@ -9,7 +9,7 @@ def move_files(src, dst, copy=True):
         src_old_file = os.path.join(src, src_filename)
         dst_new_file = os.path.join(dst, src_filename)
         if copy:
-            shutil.copy2(src, dst)
+            shutil.copy2(src_old_file, dst_new_file)
         else:
             os.rename(src_old_file, dst_new_file)
 

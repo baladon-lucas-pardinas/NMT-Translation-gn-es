@@ -28,25 +28,34 @@ def handle_validation_flags(finetuning_command_config, validation_flags=VALIDATI
 def create_finetuning_vocabulary_train_config(command_config, full_sets):
     # type: (CommandConfig, list) -> CommandConfig
     finetuning_vocabulary_command_config = command_config.copy(deep=True)
-    finetuning_vocabulary_command_config.flags['train-sets'] = full_sets.copy()
-    finetuning_vocabulary_command_config.flags['after-epochs'] = ['1']
     finetuning_vocabulary_command_config.not_delete_model_after = False
     finetuning_vocabulary_command_config = handle_validation_flags(finetuning_vocabulary_command_config)
-    return finetuning_vocabulary_command_config
 
-def create_finetuning_train_config(command_config, augmented_sets, finetuning_epochs):
-    # type: (CommandConfig, list, int) -> CommandConfig
+    finetuning_vocabulary_command_config.flags['train-sets'] = full_sets.copy()
+    finetuning_vocabulary_command_config.flags['after-epochs'] = ['1']
+
+    current_vocabs = finetuning_vocabulary_command_config.flags['vocabs']
+    full_vocabs = [vocab.replace('.spm', '_full.spm') for vocab in current_vocabs]
+    finetuning_vocabulary_command_config.flags['vocabs'] = full_vocabs
+        
+    return finetuning_vocabulary_command_config, full_vocabs
+
+def create_finetuning_train_config(command_config, augmented_sets, finetuning_epochs, full_vocabs):
+    # type: (CommandConfig, list, int, list) -> CommandConfig
     finetuning_command_config = command_config.copy(deep=True)
     finetuning_command_config.flags['after-epochs'] = [str(finetuning_epochs)]  
     finetuning_command_config.flags['early-stopping'] = ['1000']
     finetuning_command_config.flags['train-sets'] = augmented_sets.copy()
+    finetuning_command_config.flags['vocabs'] = full_vocabs.copy()
     finetuning_command_config.not_delete_model_after = True
 
     finetuning_command_config = handle_validation_flags(finetuning_command_config)
     return finetuning_command_config
 
-def adapt_train_config(command_config, finetuning_epochs, new_model_path=None):
-    # type: (CommandConfig, int, str) -> CommandConfig
+def adapt_train_config(command_config, finetuning_epochs, full_vocabs, new_model_path=None):
+    # type: (CommandConfig, int, list, str) -> CommandConfig
+    command_config.flags['vocabs'] = full_vocabs.copy()
+
     if new_model_path is not None:
         command_config.flags['model'] = [new_model_path]
 

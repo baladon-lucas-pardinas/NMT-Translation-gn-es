@@ -88,7 +88,7 @@ def handle_finetuning(command_config, finetuning_config):
 
     if has_sentencepiece_vocabulary(command_config) \
         and not already_exists_vocabulary(command_config):
-        finetuning_vocabulary_command_config = \
+        finetuning_vocabulary_command_config, full_vocabs = \
             finetuning.create_finetuning_vocabulary_train_config(
                                                 command_config, 
                                                 full_sets)
@@ -106,7 +106,8 @@ def handle_finetuning(command_config, finetuning_config):
         finetuning_command_config = \
             finetuning.create_finetuning_train_config(command_config, 
                                                       augmented_sets, 
-                                                      finetuning_epochs,)
+                                                      finetuning_epochs,
+                                                      full_vocabs)
         
         # Save copy of pretrained model for future cache use
         if cache_dir_template is not None:
@@ -120,6 +121,7 @@ def handle_finetuning(command_config, finetuning_config):
     command_config = finetuning.adapt_train_config(
                                 command_config, 
                                 finetuning_epochs, 
+                                full_vocabs,
                                 new_model_path)
     return command_config, is_pretrained
 
