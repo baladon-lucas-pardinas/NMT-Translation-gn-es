@@ -77,9 +77,13 @@ def handle_finetuning(command_config, finetuning_config):
     cache_dir_template = finetuning_config.cache_dir_template
     finetuned_model_path = command_config.flags.get('model')[0]
     finetuned_model_dir = os.path.dirname(finetuned_model_path)
+    finetuned_model_vocabs = command_config.flags.get('vocabs')
+    full_vocabs = list(map(finetuning.get_full_vocab_filename, 
+                           finetuned_model_vocabs))
 
     finetuning_config, command_config.flags = \
-        parsing.handle_finetuning_flags(finetuning_config, command_config.flags)
+        parsing.handle_finetuning_flags(finetuning_config,
+                                        command_config.flags)
     finetuning_epochs = int(finetuning_config.epochs)
 
     if finetuning_epochs == 0:
@@ -88,10 +92,11 @@ def handle_finetuning(command_config, finetuning_config):
 
     if has_sentencepiece_vocabulary(command_config) \
         and not already_exists_vocabulary(command_config):
-        finetuning_vocabulary_command_config, full_vocabs = \
+        finetuning_vocabulary_command_config = \
             finetuning.create_finetuning_vocabulary_train_config(
                                                 command_config, 
-                                                full_sets)
+                                                full_sets,
+                                                full_vocabs)
         logging.info("Creating finetuning vocabulary...")
         model_trainer.train(finetuning_vocabulary_command_config)
 

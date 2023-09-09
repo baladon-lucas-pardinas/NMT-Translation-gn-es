@@ -4,6 +4,10 @@ from src.config.command_config import CommandConfig
 
 VALIDATION_FLAGS = ['valid-sets', 'valid-translation-output', 'valid-metrics']
 
+def get_full_vocab_filename(filename):
+    # type: (str) -> str
+    return filename.replace('.spm', '_full.spm')
+
 def get_cached_pretrained_model_dir(cache_dir_template, pretraining_epochs):
     # type: (str, str) -> (str, int)
     pretraining_epochs = int(pretraining_epochs)
@@ -25,20 +29,17 @@ def handle_validation_flags(finetuning_command_config, validation_flags=VALIDATI
             del finetuning_command_config.flags[validation_flag]
     return finetuning_command_config
 
-def create_finetuning_vocabulary_train_config(command_config, full_sets):
-    # type: (CommandConfig, list) -> CommandConfig
+def create_finetuning_vocabulary_train_config(command_config, full_sets, full_vocabs):
+    # type: (CommandConfig, list, list) -> CommandConfig
     finetuning_vocabulary_command_config = command_config.copy(deep=True)
     finetuning_vocabulary_command_config.not_delete_model_after = False
     finetuning_vocabulary_command_config = handle_validation_flags(finetuning_vocabulary_command_config)
 
     finetuning_vocabulary_command_config.flags['train-sets'] = full_sets.copy()
+    finetuning_vocabulary_command_config.flags['vocabs'] = full_vocabs.copy()
     finetuning_vocabulary_command_config.flags['after-epochs'] = ['1']
-
-    current_vocabs = finetuning_vocabulary_command_config.flags['vocabs']
-    full_vocabs = [vocab.replace('.spm', '_full.spm') for vocab in current_vocabs]
-    finetuning_vocabulary_command_config.flags['vocabs'] = full_vocabs
         
-    return finetuning_vocabulary_command_config, full_vocabs
+    return finetuning_vocabulary_command_config
 
 def create_finetuning_train_config(command_config, augmented_sets, finetuning_epochs, full_vocabs):
     # type: (CommandConfig, list, int, list) -> CommandConfig

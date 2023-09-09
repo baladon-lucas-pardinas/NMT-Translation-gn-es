@@ -121,6 +121,7 @@ class TestTrain(unittest.TestCase):
             'finetuning_model_dir',
             os.path.basename(self.model_dir),
         )]
+        self.pretraining_command_config.flags['vocabs'] = ['gn.spm', 'es.spm']
         
         self.finetuning_config = finetuning_config.FinetuningConfig(
             epochs=self.pretraining_epochs,
