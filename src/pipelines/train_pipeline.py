@@ -97,7 +97,8 @@ def handle_finetuning(command_config, finetuning_config):
                                                 command_config, 
                                                 full_sets,
                                                 full_vocabs)
-        logging.info("Creating finetuning vocabulary...")
+        logging.info("Creating finetuning vocabulary with config " + \
+                     str(finetuning_vocabulary_command_config))
         model_trainer.train(finetuning_vocabulary_command_config)
 
     if cache_dir_template is not None:
@@ -113,19 +114,19 @@ def handle_finetuning(command_config, finetuning_config):
                                                       augmented_sets, 
                                                       finetuning_epochs,
                                                       full_vocabs)
-        
+        logging.info("Training pretrained model with config: " + \
+                     str(finetuning_command_config))
+        model_trainer.train(finetuning_command_config)
+
         # Save copy of pretrained model for future cache use
         if cache_dir_template is not None:
             new_cache_dir = cache_dir_template.format(finetuning_epochs)
             if not os.path.exists(new_cache_dir):
                 file_manager.save_copy(finetuned_model_dir, new_cache_dir)
 
-        logging.info("Training pretrained model...")
-        model_trainer.train(finetuning_command_config)
-
     command_config = finetuning.adapt_train_config(
-                                command_config, 
-                                finetuning_epochs, 
+                                command_config,
+                                finetuning_epochs,
                                 full_vocabs,
                                 new_model_path)
     return command_config, is_pretrained
