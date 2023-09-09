@@ -2,13 +2,16 @@ import os
 import shutil
 from ..logger import logging
 
-def move_files(src, dst):
-    # type: (str, str) -> None
+def move_files(src, dst, copy=True):
+    # type: (str, str, bool) -> None
     files_in_src = os.listdir(src)
     for src_filename in files_in_src:
         src_old_file = os.path.join(src, src_filename)
         dst_new_file = os.path.join(dst, src_filename)
-        os.rename(src_old_file, dst_new_file)
+        if copy:
+            shutil.copy2(src, dst)
+        else:
+            os.rename(src_old_file, dst_new_file)
 
 def save_copy(src, dst):
     # type: (str, str) -> None
