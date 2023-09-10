@@ -12,15 +12,16 @@ def get_hyperparameter_flags(default_flags, hyperparameter_space, hyperparameter
     # type: (list[str], list[list[dict]], list[dict], str, int, int) -> list[dict]
     hyperparameter_flags = []
     for hyperparameters in hyperparameter_space:
-        hyperparameter_file_flags = hyperparameter_tuning.get_hyperparameters_flags(
-                                                                default_flags, 
-                                                                hyperparameters, 
-                                                                search_method, 
-                                                                seed=seed, 
-                                                                max_iters=max_iters)
+        hyperparameter_file_flags = \
+            hyperparameter_tuning.get_hyperparameters_flags(default_flags, 
+                                                            hyperparameters, 
+                                                            search_method, 
+                                                            seed=seed, 
+                                                            max_iters=max_iters)
         hyperparameter_flags.extend(hyperparameter_file_flags)
     hyperparameter_configs_flags = [
-        hyperparameter_tuning.get_custom_config_flags(default_flags, hyperparamter_config) \
+        hyperparameter_tuning.get_custom_config_flags(default_flags,
+                                                      hyperparamter_config) \
             for hyperparamter_config in hyperparameter_configs]
 
     trained_flags = [*hyperparameter_configs_flags, *hyperparameter_flags]
@@ -57,14 +58,14 @@ def get_to_and_from_flags_indices(from_flag, to_flag, flag_combinations):
 
     return from_flag, to_flag     
 
-def has_sentencepiece_vocabulary(command_config):
-    # type: (CommandConfig) -> bool
-    first_vocab_file = command_config.flags.get('vocabs', [''])[0]
+def has_sentencepiece_vocabulary(vocabs):
+    # type: (list) -> bool
+    first_vocab_file = vocabs[0]
     return first_vocab_file.endswith('.spm')
 
-def already_exists_vocabulary(command_config):
-    # type: (CommandConfig) -> bool
-    first_vocab_file = command_config.flags.get('vocabs', [''])[0]
+def already_exists_vocabulary(vocabs):
+    # type: (list) -> bool
+    first_vocab_file = vocabs[0]
     return os.path.isfile(first_vocab_file)
 
 def handle_finetuning(command_config, finetuning_config):
@@ -90,8 +91,8 @@ def handle_finetuning(command_config, finetuning_config):
         is_pretrained = False
         return command_config, is_pretrained
 
-    if has_sentencepiece_vocabulary(command_config) \
-        and not already_exists_vocabulary(command_config):
+    if has_sentencepiece_vocabulary(full_vocabs) \
+        and not already_exists_vocabulary(full_vocabs):
         finetuning_vocabulary_command_config = \
             finetuning.create_finetuning_vocabulary_train_config(
                                                 command_config, 
@@ -106,6 +107,7 @@ def handle_finetuning(command_config, finetuning_config):
                                                         cache_dir_template,
                                                         finetuning_epochs)
         if cached_model_dir is not None:
+            logging.info("Found cached model: " + cached_model_dir)
             file_manager.save_copy(cached_model_dir, finetuned_model_dir)
 
     if cached_model_dir is None or str(epoch) != str(finetuning_epochs):
