@@ -77,6 +77,7 @@ def handle_finetuning(command_config, finetuning_config):
     augmented_sets = finetuning_config.augmented_sets
     cache_dir_template = finetuning_config.cache_dir_template
     finetuned_model_path = command_config.flags.get('model')[0]
+    finetuned_model_name = os.path.basename(finetuned_model_path)
     finetuned_model_dir = os.path.dirname(finetuned_model_path)
     finetuned_model_vocabs = command_config.flags.get('vocabs')
     full_vocabs = list(map(finetuning.get_full_vocab_filename, 
@@ -109,6 +110,8 @@ def handle_finetuning(command_config, finetuning_config):
         if cached_model_dir is not None:
             logging.info("Found cached model: " + cached_model_dir)
             file_manager.save_copy(cached_model_dir, finetuned_model_dir)
+            file_manager.rename_prefixes(finetuned_model_dir, 
+                                         finetuned_model_name)
 
     if cached_model_dir is None or str(epoch) != str(finetuning_epochs):
         finetuning_command_config = \

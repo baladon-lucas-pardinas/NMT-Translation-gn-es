@@ -44,3 +44,16 @@ def delete_files(path):
         elif os.path.isfile(file_path):
             logging.info('Deleting file {}'.format(file_path))
             os.remove(file_path)
+
+def rename_prefixes(dir, filename_with_desired_prefix, prefix_sep='.'):
+    # type: (str, str, str) -> None
+    desired_prefix = filename_with_desired_prefix.split(prefix_sep)[0]
+    dir_filenames = os.listdir(dir)
+
+    for filename in dir_filenames:
+        old_prefix = filename.split(prefix_sep)[0]
+        desired_new_suffix = filename.removeprefix(old_prefix)
+        desired_new_filename = desired_prefix + desired_new_suffix
+        desired_new_filepath = os.path.join(dir, desired_new_filename)
+        current_filepath = os.path.join(dir, filename)
+        os.rename(current_filepath, desired_new_filepath)
