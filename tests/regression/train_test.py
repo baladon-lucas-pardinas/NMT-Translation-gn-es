@@ -222,8 +222,8 @@ class TestTrain(unittest.TestCase):
                 
             # Train with hyperparameter tuning
             train_pipeline.train(
-                command_config=command_config,
                 data_ingestion_config=None,
+                command_config=command_config,
                 hyperparameter_tuning_config=hyperparameter_tuning_config,
                 finetuning_config=None,
             )

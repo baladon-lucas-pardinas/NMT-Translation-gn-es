@@ -27,47 +27,6 @@ def get_hyperparameter_flags(default_flags, hyperparameter_space, hyperparameter
     trained_flags = [*hyperparameter_configs_flags, *hyperparameter_flags]
     return trained_flags
 
-def save_checkpoint(temp_file, checkpoint):
-    with open(temp_file, 'w') as f:
-        f.write(checkpoint)
-
-def load_checkpoint(temp_file):
-    if not os.path.isfile(temp_file):
-        return 0
-    
-    with open(temp_file, 'r') as f:
-        return int(f.read())
-
-def delete_checkpoint(temp_file):
-    os.remove(temp_file)
-
-def create_checkpoint_temp_dir_name(id):
-    return 'temp_{}.txt'.format(id)
-
-# from_flag and to_flag can be integers in {0, 1, .., |flag_combinations|} or floats in [0, 1]
-def get_to_and_from_flags_indices(from_flag, to_flag, flag_combinations):
-    # type: (int, int, list[dict]) -> tuple[int, int]
-    flag_combinations_n = len(flag_combinations) 
-    from_flag = from_flag if from_flag is not None else 0
-    to_flag = to_flag if to_flag is not None else flag_combinations_n
-
-    if '.' in str(from_flag) and (0 <= float(from_flag) <= 1):
-        from_flag = int(from_flag*flag_combinations_n)
-    if '.' in str(to_flag) and (0 <= float(to_flag) <= 1):
-        to_flag = int(to_flag*flag_combinations_n)
-
-    return from_flag, to_flag     
-
-def has_sentencepiece_vocabulary(vocabs):
-    # type: (list) -> bool
-    first_vocab_file = vocabs[0]
-    return first_vocab_file.endswith('.spm')
-
-def already_exists_vocabulary(vocabs):
-    # type: (list) -> bool
-    first_vocab_file = vocabs[0]
-    return os.path.isfile(first_vocab_file)
-
 def handle_finetuning(command_config, finetuning_config):
     # type: (CommandConfig, FinetuningConfig) -> (CommandConfig, bool)
     is_pretrained = True
@@ -78,7 +37,8 @@ def handle_finetuning(command_config, finetuning_config):
     finetuned_model_path = command_config.flags.get('model')[0]
     finetuned_model_name = os.path.basename(finetuned_model_path)
     finetuned_model_dir = os.path.dirname(finetuned_model_path)
-    finetuned_model_vocabs = command_config.flags.get('vocabs')
+    finetuned_model_vocab_src, finetuned_model_vocab_trg = \
+        command_config.flags.get('vocabs')
 
     finetuning_config, command_config.flags = \
         parsing.handle_finetuning_flags(finetuning_config,
@@ -86,11 +46,12 @@ def handle_finetuning(command_config, finetuning_config):
     finetuning_epochs = int(finetuning_config.epochs)
 
     if finetuning_epochs == 0:
-        is_pretrained = False
-        return command_config, is_pretrained
+        return command_config
 
-    if has_sentencepiece_vocabulary(finetuned_model_vocabs) \
-        and not already_exists_vocabulary(finetuned_model_vocabs):
+    if parsing.has_sentencepiece_vocabs(finetuned_model_vocab_src, 
+                                        finetuned_model_vocab_trg) \
+        and not parsing.already_exists_vocabulary(finetuned_model_vocab_src, 
+                                        finetuned_model_vocab_trg):
         finetuning_vocabulary_command_config = \
             finetuning.create_finetuning_vocabulary_train_config(
                                                 command_config)
@@ -128,6 +89,38 @@ def handle_finetuning(command_config, finetuning_config):
                                                 new_model_path)
     return command_config
 
+
+# from_flag and to_flag can be integers in {0, 1, .., |flag_combinations|} or floats in [0, 1]
+def get_to_and_from_flags_indices(from_flag, to_flag, flag_combinations):
+    # type: (int, int, list[dict]) -> tuple[int, int]
+    flag_combinations_n = len(flag_combinations) 
+    from_flag = from_flag if from_flag is not None else 0
+    to_flag = to_flag if to_flag is not None else flag_combinations_n
+
+    if '.' in str(from_flag) and (0 <= float(from_flag) <= 1):
+        from_flag = int(from_flag*flag_combinations_n)
+    if '.' in str(to_flag) and (0 <= float(to_flag) <= 1):
+        to_flag = int(to_flag*flag_combinations_n)
+
+    return from_flag, to_flag     
+
+def save_checkpoint(temp_file, checkpoint):
+    with open(temp_file, 'w') as f:
+        f.write(checkpoint)
+
+def load_checkpoint(temp_file):
+    if not os.path.isfile(temp_file):
+        return 0
+    
+    with open(temp_file, 'r') as f:
+        return int(f.read())
+
+def delete_checkpoint(temp_file):
+    os.remove(temp_file)
+
+def create_checkpoint_temp_dir_name(id):
+    return 'temp_{}.txt'.format(id)
+
 def train(
     data_ingestion_config,
     command_config,
@@ -140,7 +133,6 @@ def train(
     temp_dir = create_checkpoint_temp_dir_name(run_id)
     trained_flags = [default_flags]
     from_flag, to_flag = 2*[None]
-    is_pretrained = False
 
     if hyperparameter_tuning_config is not None:
         hyperparamter_grids = hyperparameter_tuning_config.tuning_grid_files

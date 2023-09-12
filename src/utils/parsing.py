@@ -56,6 +56,10 @@ def has_sentencepiece_vocabs(src_vocab, trg_vocab, spm_suffix=SPM_SUFFIX):
     
     return has_sentencepiece_vocabs
 
+def already_exists_vocabulary(src_vocab, trg_vocab):
+    # type: (str, str) -> bool
+    return os.path.isfile(src_vocab) and os.path.isfile(trg_vocab)
+
 # If the model uses sentencepiece, each vocabulary configuration must be in a different file.
 def handle_vocabularies(flags, spm_suffix=SPM_SUFFIX):
     # type: (dict[str, list], str) -> dict[str, list]
