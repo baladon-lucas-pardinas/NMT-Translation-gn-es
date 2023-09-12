@@ -73,15 +73,12 @@ def handle_finetuning(command_config, finetuning_config):
     is_pretrained = True
     cached_model_dir = None
     new_model_path = None
-    full_sets = finetuning_config.full_sets
     augmented_sets = finetuning_config.augmented_sets
     cache_dir_template = finetuning_config.cache_dir_template
     finetuned_model_path = command_config.flags.get('model')[0]
     finetuned_model_name = os.path.basename(finetuned_model_path)
     finetuned_model_dir = os.path.dirname(finetuned_model_path)
     finetuned_model_vocabs = command_config.flags.get('vocabs')
-    full_vocabs = list(map(finetuning.get_full_vocab_filename, 
-                           finetuned_model_vocabs))
 
     finetuning_config, command_config.flags = \
         parsing.handle_finetuning_flags(finetuning_config,
@@ -92,13 +89,11 @@ def handle_finetuning(command_config, finetuning_config):
         is_pretrained = False
         return command_config, is_pretrained
 
-    if has_sentencepiece_vocabulary(full_vocabs) \
-        and not already_exists_vocabulary(full_vocabs):
+    if has_sentencepiece_vocabulary(finetuned_model_vocabs) \
+        and not already_exists_vocabulary(finetuned_model_vocabs):
         finetuning_vocabulary_command_config = \
             finetuning.create_finetuning_vocabulary_train_config(
-                                                command_config, 
-                                                full_sets,
-                                                full_vocabs)
+                                                command_config)
         logging.info("Creating finetuning vocabulary with config " + \
                      str(finetuning_vocabulary_command_config))
         model_trainer.train(finetuning_vocabulary_command_config)
@@ -117,8 +112,7 @@ def handle_finetuning(command_config, finetuning_config):
         finetuning_command_config = \
             finetuning.create_finetuning_train_config(command_config, 
                                                       augmented_sets, 
-                                                      finetuning_epochs,
-                                                      full_vocabs)
+                                                      finetuning_epochs)
         logging.info("Training pretrained model with config: " + \
                      str(finetuning_command_config))
         model_trainer.train(finetuning_command_config)
@@ -129,12 +123,10 @@ def handle_finetuning(command_config, finetuning_config):
             if not os.path.exists(new_cache_dir):
                 file_manager.save_copy(finetuned_model_dir, new_cache_dir)
 
-    command_config = finetuning.adapt_train_config(
-                                command_config,
-                                finetuning_epochs,
-                                full_vocabs,
-                                new_model_path)
-    return command_config, is_pretrained
+    command_config = finetuning.adapt_train_config(command_config,
+                                                finetuning_epochs,
+                                                new_model_path)
+    return command_config
 
 def train(
     data_ingestion_config,
@@ -188,9 +180,8 @@ def train(
             command_config.flags = current_flags
 
             if finetuning_config is not None:
-                command_config, is_pretrained = handle_finetuning(command_config, finetuning_config)
+                command_config = handle_finetuning(command_config, finetuning_config)
 
-            command_config.flags = parsing.handle_vocabularies(command_config.flags, is_pretrained=is_pretrained)
             model_trainer.train(command_config)
 
         idx += 1

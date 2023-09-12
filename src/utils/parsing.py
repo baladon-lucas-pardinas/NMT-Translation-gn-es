@@ -45,7 +45,8 @@ def handle_boolean_flags(flags):
 
 def has_sentencepiece_vocabs(src_vocab, trg_vocab, spm_suffix=SPM_SUFFIX):
     # type: (str, str, str) -> bool
-    has_sentencepiece_vocabs = src_vocab.endswith(spm_suffix) or trg_vocab.endswith(spm_suffix)
+    has_sentencepiece_vocabs = src_vocab.endswith(spm_suffix) \
+                               or trg_vocab.endswith(spm_suffix)
 
     if not has_sentencepiece_vocabs:
         return False
@@ -56,8 +57,8 @@ def has_sentencepiece_vocabs(src_vocab, trg_vocab, spm_suffix=SPM_SUFFIX):
     return has_sentencepiece_vocabs
 
 # If the model uses sentencepiece, each vocabulary configuration must be in a different file.
-def handle_vocabularies(flags, is_pretrained=False, spm_suffix=SPM_SUFFIX):
-    # type: (dict[str, list], bool, str) -> dict[str, list]
+def handle_vocabularies(flags, spm_suffix=SPM_SUFFIX):
+    # type: (dict[str, list], str) -> dict[str, list]
     src_vocab, trg_vocab = flags.get('vocabs', ['', ''])
 
     if has_sentencepiece_vocabs(src_vocab, trg_vocab):
@@ -65,10 +66,6 @@ def handle_vocabularies(flags, is_pretrained=False, spm_suffix=SPM_SUFFIX):
         if dim_vocab is not None:
             dim_vocab = dim_vocab.replace(' ', '_') # In case dim-vocabs is passed as a string instead of a list of ints
             vocab_suffix_with_size = 'V' + dim_vocab + spm_suffix
-
-            if is_pretrained:
-                vocab_suffix_with_size = 'augmented_' + vocab_suffix_with_size
-
             src_new_name = src_vocab.replace(spm_suffix, vocab_suffix_with_size)
             trg_new_name = trg_vocab.replace(spm_suffix, vocab_suffix_with_size)
 
