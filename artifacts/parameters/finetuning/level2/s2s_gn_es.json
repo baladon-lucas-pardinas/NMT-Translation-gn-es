@@ -1,0 +1,9 @@
+{
+    "finetuning-epochs": [0, 1, 4, 16, 64],
+    "max-length": [187],
+    "learn-rate": [0.0016480446427978965],
+    "seed": [1234],
+    "dec-depth": [6],
+    "enc-depth": [6],
+    "dim-vocabs": ["6000 6000"]
+}
