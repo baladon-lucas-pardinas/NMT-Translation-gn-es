@@ -9,15 +9,10 @@ import argparse
 # # besteffort	1120	                5 días	       120
 NORMAL = 'normal'; BESTEFFORT = 'besteffort'; MAX_CPUS = 'max_cpus'; MAX_TIME = 'max_time'; MAX_JOBS = 'max_jobs'
 
-# QOS_INFO = {
-#     NORMAL: {MAX_CPUS: 560, MAX_TIME: '120:00:00', MAX_JOBS: 40},
-#     BESTEFFORT: {MAX_CPUS: 1120, MAX_TIME: '120:00:00', MAX_JOBS: 120},
-# }
-
 # # https://www.cluster.uy/ayuda/recursos_disponibles/
 # # NOMBRE	        PROCESADORES	    # NÚCLEOS  MEM.     GPU/NODE	      DISCO
 # # node[01-14][17]	Xeon Gold 6138	    40	       128 GB	NVIDIA P100	      300 GB SSD
-# # node[15][16]	    Xeon Gold 6138	    40	       128 GB	NVIDIA A100	      300 GB SSD
+# # node[15][16]	Xeon Gold 6138	    40	       128 GB	NVIDIA A100	      300 GB SSD
 # # node[26-28]	    Xeon Gold 6138	    40	       128 GB	   -	          300 GB SSD
 # # node[18-22]	    Xeon Gold 6138	    40	       128 GB	NVIDIA P100 x 2	  300 GB SSD
 # # node23	        Xeon Gold 6138	    40	       128 GB	NVIDIA P100 x 3	  300 GB SSD
@@ -25,15 +20,6 @@ NORMAL = 'normal'; BESTEFFORT = 'besteffort'; MAX_CPUS = 'max_cpus'; MAX_TIME = 
 # # node31	        AMD EPYC 7642	    96	       256 GB	   -	          150 GB SSD
 CORES = 'cores'; MEMORY_GB = 'memory_gb'; GPUS_N = 'gpus'; GPU_TYPE = 'gpu_type'; P100 = 'p100'; A100 = 'a100'
 
-# NODE_INFO = {
-#     **{f'node{i}': {CORES: 40, MEMORY_GB: 128, GPUS_N: 1, GPU_TYPE: P100} for i in range(1, 15)},
-#     **{f'node{i}': {CORES: 40, MEMORY_GB: 128, GPUS_N: 1, GPU_TYPE: A100} for i in range(15, 17)},
-#     **{f'node{i}': {CORES: 40, MEMORY_GB: 128, GPUS_N: 0, GPU_TYPE: None} for i in range(26, 29)},
-#     **{f'node{i}': {CORES: 40, MEMORY_GB: 128, GPUS_N: 2, GPU_TYPE: P100} for i in range(18, 23)},
-#     **{f'node{i}': {CORES: 40, MEMORY_GB: 128, GPUS_N: 3, GPU_TYPE: P100} for i in range(23, 24)},
-#     **{f'node{i}': {CORES: 40, MEMORY_GB: 512, GPUS_N: 0, GPU_TYPE: None} for i in range(24, 26)},
-#     **{f'node{i}': {CORES: 96, MEMORY_GB: 256, GPUS_N: 0, GPU_TYPE: None} for i in range(31, 32)},
-# }
 
 SLURM_TEMPLATE = """\
 #!/bin/bash
@@ -47,9 +33,6 @@ SLURM_TEMPLATE = """\
 #SBATCH --qos={qos}
 #SBATCH --output={output_filename}
 #SBATCH --gres=gpu:p100:{gpus_n}
-
-pwd
-ls
 
 SCRIPT_NAME=$1
 HOME=/docker/home
@@ -106,9 +89,13 @@ def create_slurm_file_content(output_filename, job_name, partition, qos, gpus_n,
         file_template = file_template.replace('{' + param + '}', str(value))
     return file_template
 
-def create_bash_file_content(bash_template_dir, devices, from_flag, to_flag):
+def create_bash_file_content(bash_template_dir, devices, from_flag, to_flag, src, trg):
     bash_lines = []
-    params_to_replace = [('^GPUS="([0-9] )*[0-9]"', 'GPUS="'+devices+'"'), ('^FROM=([0-9]+(\.[0-9]+)?)', 'FROM='+str(from_flag)), ('^TO=([0-9]+(\.[0-9]+)?)', 'TO='+str(to_flag))]
+    params_to_replace = [('^GPUS="([0-9] )*[0-9]"', 'GPUS="'+devices+'"'), 
+                         ('^FROM=([0-9]+(\.[0-9]+)?)', 'FROM='+str(from_flag)), 
+                         ('^TO=([0-9]+(\.[0-9]+)?)', 'TO='+str(to_flag)),
+                         ('^SRC="[^"]+"', 'SRC="'+src+'"'),
+                         ('^TRG="[^"]+"', 'TRG="'+trg+'"')]
     params_to_replace = [(re.compile(regex), value) for regex, value in params_to_replace]
 
     with open(bash_template_dir, 'r') as f:
@@ -134,7 +121,7 @@ def persist_file(filedir, content):
 def get_read_permissions_command(filedir):
     return 'chmod +x ' + filedir
 
-def run_script(bash_input_template_dir, outputs_scripts_folder, flags_partition, job_name, partition, qos, gpus_n, ntasks=4, cpus_per_task=9, mem='60G', debug=False):
+def run_script(bash_input_template_dir, outputs_scripts_folder, flags_partition, job_name, partition, qos, gpus_n, src, trg, ntasks=4, cpus_per_task=9, mem='60G', debug=False):
     gpu_devices = get_gpu_devices(gpus_n)
     slurm_filename = get_slurm_file_name(flags_partition[0], flags_partition[1], besteffort=qos==BESTEFFORT)
     bash_filename = get_bash_file_name(flags_partition[0], flags_partition[1], besteffort=qos==BESTEFFORT)
@@ -142,7 +129,7 @@ def run_script(bash_input_template_dir, outputs_scripts_folder, flags_partition,
     slurm_output_filename = os.path.join(outputs_scripts_folder, slurm_filename)
     bash_output_filename = os.path.join(outputs_scripts_folder, bash_filename)
     output_filename = os.path.join(outputs_scripts_folder, output_filename)
-    bash_script = create_bash_file_content(bash_input_template_dir, gpu_devices, flags_partition[0], flags_partition[1])
+    bash_script = create_bash_file_content(bash_input_template_dir, gpu_devices, flags_partition[0], flags_partition[1], src, trg)
     slurm_script = create_slurm_file_content(output_filename, job_name, partition, qos, gpus_n, ntasks, cpus_per_task, mem)
     persist_file(slurm_output_filename, slurm_script) 
     persist_file(bash_output_filename, bash_script)
@@ -160,7 +147,7 @@ def run_script(bash_input_template_dir, outputs_scripts_folder, flags_partition,
 
 GPU_LOG_REGEX = re.compile('^.+Using ([1-9]) GPUs$')
 
-def awake_jobs(grid_partitions, outputs_scripts_folder, bash_template_file, time_limit_message=TIME_LIMIT_MESSAGE, gpu_regex=GPU_LOG_REGEX, debug=False):
+def awake_jobs(grid_partitions, outputs_scripts_folder, bash_template_file, src, trg, time_limit_message=TIME_LIMIT_MESSAGE, gpu_regex=GPU_LOG_REGEX, debug=False):
     slept_jobs = []
     for grid_partition in grid_partitions:
         output_file_normal = get_out_file_name(grid_partition[0], grid_partition[1], besteffort=False)
@@ -192,13 +179,15 @@ def awake_jobs(grid_partitions, outputs_scripts_folder, bash_template_file, time
         job_name = get_job_name(*grid_partition)
         partition = BESTEFFORT if besteffort else NORMAL
         qos = BESTEFFORT if besteffort else NORMAL_QOS
-        run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, debug=debug)
+        run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, src, trg, debug=debug)
 
     return slept_jobs
 
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--mode', type=str, default='run', required=False, choices=['run', 'awake'])
+    parser.add_argument('--src', type=str, required=True, choices=['gn', 'es'])
+    parser.add_argument('--trg', type=str, required=True, choices=['gn', 'es'])
     parser.add_argument('--total_jobs_n', type=int, default=0, required=True)
     parser.add_argument('--jobs_n', type=int, default=0, required=True)
     parser.add_argument('--besteffort_rate', type=float, default=0.0, required=False)
@@ -232,7 +221,7 @@ def check_preconditions(mode, total_jobs_n, jobs_n, besteffort_n, from_flag, to_
 
 
 # Test examples local
-# python cluster_runner.py --debug --from_flag 0 --to_flag 20 --total_jobs_n 20 --jobs_n 10 --besteffort_rate 0.8 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file .\\scripts\\cluster\\train_gn_es_level2_s2s_grid.sh --outputs_scripts_folder ./tests/data/scripts
+# python cluster_runner.py --src gn --trg es --debug --from_flag 0 --to_flag 20 --total_jobs_n 20 --jobs_n 10 --besteffort_rate 0.8 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file .\\scripts\\cluster\\train_gn_es_level2_s2s_grid.sh --outputs_scripts_folder ./tests/data/scripts
 # python cluster_runner.py --mode awake --debug --jobs_n 12 --bash_template_file .\\scripts\\cluster\\train_gn_es_level2_s2s_grid.sh --outputs_scripts_folder ./tests/data/scripts
 
 # Test examples cluster
@@ -249,10 +238,17 @@ def check_preconditions(mode, total_jobs_n, jobs_n, besteffort_n, from_flag, to_
 # python cluster_runner.py --from_flag 0 --to_flag 20 --total_jobs_n 40 --jobs_n 10 --besteffort_rate 0.8 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file ../scripts/train_gn_es_level3_transformer_grid.sh --outputs_scripts_folder ../scripts/lvl3/transformer
 # python cluster_runner.py --mode awake --from_flag 0 --to_flag 20 --total_jobs_n 40 --jobs_n 10 --bash_template_file ../scripts/train_gn_es_level3_transformer_grid.sh --outputs_scripts_folder ../scripts/lvl3/transformer
 
+#########################################
+
+# TEST FINETUNING
+# python cluster_runner.py --from_flag 0 --to_flag 5 --total_jobs_n 5 --jobs_n 3 --besteffort_rate 0.9 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file ../scripts/finetuning.sh --outputs_scripts_folder ../scripts/finetuning/s2s/gn_es/
+
 
 if __name__ == '__main__':
     args = get_args()
     mode = args['mode']
+    src = args['src']
+    trg = args['trg']
     total_jobs_n = args['total_jobs_n']
     jobs_n = args['jobs_n']
     besteffort_n = int(round(args['besteffort_rate'] * jobs_n))
@@ -278,13 +274,13 @@ if __name__ == '__main__':
             partition = NORMAL
             qos = NORMAL_QOS
             gpus_n = normal_gpus
-            run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, debug=debug)
+            run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, src, trg, debug=debug)
 
         for grid_partition in besteffort_partitions:
             job_name = get_job_name(*grid_partition)
             partition = BESTEFFORT
             qos = BESTEFFORT
             gpus_n = besteffort_gpus
-            run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, debug=debug)
+            run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, src, trg, debug=debug)
     elif mode == 'awake':
-        awake_jobs(partitions, outputs_scripts_folder, bash_template_file, debug=debug)
+        awake_jobs(partitions, outputs_scripts_folder, bash_template_file, src, trg, debug=debug)
