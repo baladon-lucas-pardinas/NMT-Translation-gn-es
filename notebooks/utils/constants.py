@@ -9,5 +9,6 @@ METRIC_EVALUATION_FOLDER = os.path.join(INSPECTED_DATA_FOLDER, 'metric_evaluatio
 DECODED_OUTPUTS_FOLDER = os.path.join(INSPECTED_DATA_FOLDER, 'decoded_outputs')
 MULTIPROCESSING_DATA_FOLDER = os.path.join(INSPECTED_DATA_FOLDER, 'multiprocessing')
 TUNING_FOLDER = os.path.join(INSPECTED_DATA_FOLDER, 'tuning')
+TUNING_RAW_FOLDER = os.path.join(TUNING_FOLDER, 'raw')
 LOGS_FOLDER = os.path.join(INSPECTED_DATA_FOLDER, 'logs')
 AUGMENTATION_FOLDER =os.path.join(INSPECTED_DATA_FOLDER, 'augmentation')
