@@ -1,5 +1,5 @@
 {
-    "finetuning-epochs": [0, 1, 4, 16, 64],
+    "finetuning-epochs": [1, 4, 16, 64],
     "max-length": [153],
     "learn-rate": [0.00013075968199083676],
     "seed": [38006],
