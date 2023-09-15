@@ -89,13 +89,14 @@ def create_slurm_file_content(output_filename, job_name, partition, qos, gpus_n,
         file_template = file_template.replace('{' + param + '}', str(value))
     return file_template
 
-def create_bash_file_content(bash_template_dir, devices, from_flag, to_flag, src, trg):
+def create_bash_file_content(bash_template_dir, devices, from_flag, to_flag, src, trg, model_type):
     bash_lines = []
     params_to_replace = [('^GPUS="([0-9] )*[0-9]"', 'GPUS="'+devices+'"'), 
                          ('^FROM=([0-9]+(\.[0-9]+)?)', 'FROM='+str(from_flag)), 
                          ('^TO=([0-9]+(\.[0-9]+)?)', 'TO='+str(to_flag)),
                          ('^SRC="[^"]+"', 'SRC="'+src+'"'),
-                         ('^TRG="[^"]+"', 'TRG="'+trg+'"')]
+                         ('^TRG="[^"]+"', 'TRG="'+trg+'"'),
+                         ('^TYPE="[^"]+"', 'TYPE="'+model_type+'"'),]
     params_to_replace = [(re.compile(regex), value) for regex, value in params_to_replace]
 
     with open(bash_template_dir, 'r') as f:
@@ -121,7 +122,7 @@ def persist_file(filedir, content):
 def get_read_permissions_command(filedir):
     return 'chmod +x ' + filedir
 
-def run_script(bash_input_template_dir, outputs_scripts_folder, flags_partition, job_name, partition, qos, gpus_n, src, trg, ntasks=4, cpus_per_task=9, mem='60G', debug=False):
+def run_script(bash_input_template_dir, outputs_scripts_folder, flags_partition, job_name, partition, qos, gpus_n, src, trg, model_type, ntasks=4, cpus_per_task=9, mem='60G', debug=False):
     gpu_devices = get_gpu_devices(gpus_n)
     slurm_filename = get_slurm_file_name(flags_partition[0], flags_partition[1], besteffort=qos==BESTEFFORT)
     bash_filename = get_bash_file_name(flags_partition[0], flags_partition[1], besteffort=qos==BESTEFFORT)
@@ -129,7 +130,7 @@ def run_script(bash_input_template_dir, outputs_scripts_folder, flags_partition,
     slurm_output_filename = os.path.join(outputs_scripts_folder, slurm_filename)
     bash_output_filename = os.path.join(outputs_scripts_folder, bash_filename)
     output_filename = os.path.join(outputs_scripts_folder, output_filename)
-    bash_script = create_bash_file_content(bash_input_template_dir, gpu_devices, flags_partition[0], flags_partition[1], src, trg)
+    bash_script = create_bash_file_content(bash_input_template_dir, gpu_devices, flags_partition[0], flags_partition[1], src, trg, model_type)
     slurm_script = create_slurm_file_content(output_filename, job_name, partition, qos, gpus_n, ntasks, cpus_per_task, mem)
     persist_file(slurm_output_filename, slurm_script) 
     persist_file(bash_output_filename, bash_script)
@@ -147,7 +148,7 @@ def run_script(bash_input_template_dir, outputs_scripts_folder, flags_partition,
 
 GPU_LOG_REGEX = re.compile('^.+Using ([1-9]) GPUs$')
 
-def awake_jobs(grid_partitions, outputs_scripts_folder, bash_template_file, src, trg, time_limit_message=TIME_LIMIT_MESSAGE, gpu_regex=GPU_LOG_REGEX, debug=False):
+def awake_jobs(grid_partitions, outputs_scripts_folder, bash_template_file, src, trg, model_type, time_limit_message=TIME_LIMIT_MESSAGE, gpu_regex=GPU_LOG_REGEX, debug=False):
     slept_jobs = []
     for grid_partition in grid_partitions:
         output_file_normal = get_out_file_name(grid_partition[0], grid_partition[1], besteffort=False)
@@ -179,7 +180,7 @@ def awake_jobs(grid_partitions, outputs_scripts_folder, bash_template_file, src,
         job_name = get_job_name(*grid_partition)
         partition = BESTEFFORT if besteffort else NORMAL
         qos = BESTEFFORT if besteffort else NORMAL_QOS
-        run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, src, trg, debug=debug)
+        run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, src, trg, model_type, debug=debug)
 
     return slept_jobs
 
@@ -188,6 +189,7 @@ def get_args():
     parser.add_argument('--mode', type=str, default='run', required=False, choices=['run', 'awake'])
     parser.add_argument('--src', type=str, required=True, choices=['gn', 'es'])
     parser.add_argument('--trg', type=str, required=True, choices=['gn', 'es'])
+    parser.add_argument('--model_type', type=str, required=True, choices=['transformer', 's2s'])
     parser.add_argument('--total_jobs_n', type=int, default=0, required=True)
     parser.add_argument('--jobs_n', type=int, default=0, required=True)
     parser.add_argument('--besteffort_rate', type=float, default=0.0, required=False)
@@ -249,6 +251,7 @@ if __name__ == '__main__':
     mode = args['mode']
     src = args['src']
     trg = args['trg']
+    model_type = args['model_type']
     total_jobs_n = args['total_jobs_n']
     jobs_n = args['jobs_n']
     besteffort_n = int(round(args['besteffort_rate'] * jobs_n))
@@ -274,13 +277,13 @@ if __name__ == '__main__':
             partition = NORMAL
             qos = NORMAL_QOS
             gpus_n = normal_gpus
-            run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, src, trg, debug=debug)
+            run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, src, trg, model_type, debug=debug)
 
         for grid_partition in besteffort_partitions:
             job_name = get_job_name(*grid_partition)
             partition = BESTEFFORT
             qos = BESTEFFORT
             gpus_n = besteffort_gpus
-            run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, src, trg, debug=debug)
+            run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, src, trg, model_type, debug=debug)
     elif mode == 'awake':
-        awake_jobs(partitions, outputs_scripts_folder, bash_template_file, src, trg, debug=debug)
+        awake_jobs(partitions, outputs_scripts_folder, bash_template_file, src, trg, model_type, debug=debug)
