@@ -5,5 +5,6 @@
     "max-length": [198],
     "dec-depth": [2],
     "enc-depth": [2],
-    "dim-vocabs": ["2000 2000"]
+    "dim-vocabs": ["2000 2000"],
+    "transformer-dropout": [0.1]
 }
