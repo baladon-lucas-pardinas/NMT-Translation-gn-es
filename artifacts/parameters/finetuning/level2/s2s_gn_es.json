@@ -6,7 +6,7 @@
     "dec-depth": [6],
     "enc-depth": [6],
     "dim-vocabs": ["6000 6000"],
-    "skip": [],
+    "skip": [true],
     "dropout-rnn": [0.2],
     "dropout-src": [0.1],
     "dropout-trg": [0.1]
