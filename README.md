@@ -15,7 +15,22 @@ Its main features and content are:
 - Analysis of results using `bleu` and `chrf` as main `evaluation metrics`
 - `Bash` and `Slurm` scripts to run the project in a `cluster` (https://www.cluster.uy/) with parallel tasks inside a `singularity` container using multiple `GPUs`.
 
-# Results
+# Libraries
+
+The project mainly uses the next libraries:
+- [os] - Provides operative system functionalities in order to ease file handling.
+- [pandas] - Provides functionalities to manipulate structured data.
+- [matplotlib] - Plot functionalities for data analysis
+- [seaborn] - Wrapper around matplotlib to make the analysis faster.
+- [sacrebleu] - Library used to standarize metric evaluation without the need of tokenization.
+
+![os](./assets/icons/os.png)
+![pandas](./assets/icons/pandas.png)
+![matplotlib](./assets/icons/matplotlib.png)
+![seaborn](./assets/icons/seaborn.png)
+![sacrebleu](./assets/icons/sacrebleu.png)
+
+# Preliminar Results
 
 The most relevant results of our project are:
 - Generating a parallel Guaraní-Spanish using syntactically correct
@@ -37,22 +52,7 @@ using SOTA Deep Learning models (transformers and seq2seq) and regularization te
 ## Time duration tests to make a most efficient use of the GPU:
 ![output4](./assets/results/output4.png)
 
-# Libraries
-
-The project mainly uses the next libraries:
-- [os] - Provides operative system functionalities in order to ease file handling.
-- [pandas] - Provides functionalities to manipulate structured data.
-- [matplotlib] - Plot functionalities for data analysis
-- [seaborn] - Wrapper around matplotlib to make the analysis faster.
-- [sacrebleu] - Library used to standarize metric evaluation without the need of tokenization.
-
-![os](./assets/icons/os.png)
-![pandas](./assets/icons/pandas.png)
-![matplotlib](./assets/icons/matplotlib.png)
-![seaborn](./assets/icons/seaborn.png)
-![sacrebleu](./assets/icons/sacrebleu.png)
-
 # Folder structure:
 
 The project structure is based on many open-source Machine Learning projects,
-but the main inspiration is: https://github.com/krishnaik06/mlproject/ from Kirish Naik.
+but the main inspiration is: https://github.com/krishnaik06/mlproject/ from Krish Naik.
