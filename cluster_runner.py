@@ -243,8 +243,12 @@ def check_preconditions(mode, total_jobs_n, jobs_n, besteffort_n, from_flag, to_
 #########################################
 
 # TEST FINETUNING
-# python cluster_runner.py --from_flag 0 --to_flag 5 --total_jobs_n 5 --jobs_n 3 --besteffort_rate 0.9 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file ../scripts/finetuning.sh --outputs_scripts_folder ../scripts/finetuning/s2s/gn_es/
+# python cluster_runner.py --from_flag 0 --to_flag 5 --total_jobs_n 5 --jobs_n 1 --besteffort_rate 0 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file ../scripts/finetuning.sh --outputs_scripts_folder ../scripts/finetuning/s2s/es_gn/ --src es --trg gn --model_type s2s
+# LVL3
+# python cluster_runner.py --from_flag 0 --to_flag 5 --total_jobs_n 5 --jobs_n 1 --besteffort_rate 0 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file ../scripts/finetuning_level3.sh --outputs_scripts_folder ../scripts/finetuning_level3/s2s/es_gn/ --src es --trg gn --model_type s2s
 
+# TEST FULL AUGMENTATION
+# python cluster_runner.py --from_flag 0 --to_flag 1 --total_jobs_n 1 --jobs_n 1 --besteffort_rate 1 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file ../scripts/augmented_default.sh --outputs_scripts_folder ../scripts/augmentation/s2s/es_gn/ --src es --trg gn --model_type s2s
 
 if __name__ == '__main__':
     args = get_args()

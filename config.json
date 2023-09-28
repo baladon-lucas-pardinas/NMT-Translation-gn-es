@@ -8,7 +8,7 @@
     "test_src_corpus_filename": "test_gn.txt",
     "test_dst_corpus_filename": "test_es.txt",
     "model_results": "metrics.csv",
-    "raw_augmented_data_filename": "augmented_data.txt",
+    "raw_augmented_data_filename": "ancora.tsv",
     "raw_data_filename": "jojajovai_all.csv",
     "raw_data_columns_to_clean": ["gn", "es"],
     "raw_data_split_column": "split",

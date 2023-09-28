@@ -29,7 +29,6 @@ def get_hyperparameter_flags(default_flags, hyperparameter_space, hyperparameter
 
 def handle_finetuning(command_config, finetuning_config):
     # type: (CommandConfig, FinetuningConfig) -> (CommandConfig, bool)
-    is_pretrained = True
     cached_model_dir = None
     new_model_path = None
     augmented_sets = finetuning_config.augmented_sets

@@ -125,7 +125,7 @@ def training_with_artificial_epochs(
     if early_stopping is not None:
         early_stopping = int(early_stopping)
         marian_config = marian_config.copy(deep=True)
-        marian_config.flags['early-stopping'] = [str(after_epochs)] # The default Marian early-stopping is 5. after_epochs is high enough to avoid it.
+        marian_config.flags['early-stopping'] = ['10000'] # The default Marian early-stopping is 10. after_epochs is high enough to avoid it.
         early_stopping_metric_criteria = validation_metrics[0] if validation_metrics is not None else None # Take first metric as early-stopping criteria
         most_importance_scores = {early_stopping_metric_criteria: []}
     
@@ -170,8 +170,11 @@ def training_with_artificial_epochs(
                 continue
 
             if current_most_important_scores[-2] == current_most_important_scores[-1]:
-                print('Constant metric evaluations detected ({} -> {}). Stopping after {} epochs'.format(
-                    current_most_important_scores[-2], current_most_important_scores[-1], current_after_epochs))
+                print('Constant metric evaluations detected ({} -> {}). \
+                      Stopping after {} epochs'.format(
+                            current_most_important_scores[-2], 
+                            current_most_important_scores[-1], 
+                            current_after_epochs))
                 return
             
             if len(current_most_important_scores) <= early_stopping:
@@ -204,8 +207,12 @@ def train(command_config):
     command_name                  = marian_config.command_name
     not_delete_model_after        = marian_config.not_delete_model_after
     artificial_epoch_training     = validate_each_epochs is not None
-    is_validation_enabled         = validation_enabled(validation_metrics, artificial_epoch_training, validation_log, model_metrics, validation_translation_output)
     model_base_dir                = os.path.dirname(model_dir)
+    is_validation_enabled         = validation_enabled(validation_metrics, 
+                                                artificial_epoch_training, 
+                                                validation_log, 
+                                                model_metrics, 
+                                                validation_translation_output)
 
     if not artificial_epoch_training:
         simple_training(
