@@ -1,6 +1,6 @@
 # NLP - Neural Machine Translation (gn-es) using data augmentation
 
-The project is a wrapper around the MarianNMT Machine Translation software. 
+The project is a wrapper around the MarianNMT Machine Translation C++ software. 
 It is part of our university thesis project, where we try to enhance the Guaraní-Spanish
 translation quality by implementing a syntax grammar capable of generating millions of
 syntactically correct sentence pairs in both languages.
@@ -9,6 +9,8 @@ Its main features and content are:
 - Formatting raw data:
     - Guaraní-Spanish corpora from Chiruzzo et. al
     - Augmented data from parallel guaraní-spanish grammar (https://github.com/AlexisBaladon/tesis-guarani)
+    - Ancora-mini dataset translated to Guaraní by our syntax grammar.
+    - Parallel Guaraní-Spanish Bible corpus.
 - Model `training` and `validation` (with the aid of **MarianNMT**)
 - Parallel hyperparameter tuning using `grid search` or `random search`.
 - Generation of results using `cached` models through different experiments.
@@ -36,18 +38,15 @@ The most relevant results of our project are:
 - Generating a parallel Guaraní-Spanish using syntactically correct
 parallel phrases in both languages from which we used 1.000.000 tokens.
 - Achieving SOTA scores in the recently created Guaraní-Spanish benchmark parallel corpus (Chiruzzo et. al) 
-using SOTA Deep Learning models (transformers and seq2seq) and regularization techniques such as `dropout`, `label smoothing` and `exponential smoothing`.
+using Deep Learning models (`transformers` and `seq2seq`) and regularization techniques such as `dropout`, `label smoothing` and `exponential smoothing`.
 - Achieving a `chrF` score of 47 and a `BLEU` score of 25 for the best model and direction, using the `sacrebleu` library.
 - Testing the effectiveness of data augmentation in a low resource language (Guaraní) using our syntax grammar.
 
 ## Metrics per epoch of s2s model in es-gn direction:
 ![output1](./assets/results/output1.png)
 
-## Metrics per epoch of pretrained models by number of pretrained epochs:
-![output2](./assets/results/output2.png)
-
-## Ranking of each number of pretraining epochs for each model architecture (1st rank is the best):
-![output3](./assets/results/output3.png)
+## Automatic parsing and plotting of marianNMT logs using Regular Expressions:
+![output1](./assets/results/output.png)
 
 ## Time duration tests to make a most efficient use of the GPU:
 ![output4](./assets/results/output4.png)
