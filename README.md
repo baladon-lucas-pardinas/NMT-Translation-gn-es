@@ -1,7 +1,7 @@
 # NLP - Neural Machine Translation (gn-es) using data augmentation
 
-The project is a wrapper around the MarianNMT Machine Translation C++ software. 
-It is part of our university thesis project, where we try to enhance the Guaraní-Spanish
+The project is a wrapper around the MarianNMT C++ Machine Translation software. 
+It is part of our university thesis project, where we aim to enhance the Guaraní-Spanish
 translation quality by implementing a syntax grammar capable of generating millions of
 syntactically correct sentence pairs in both languages.
 
