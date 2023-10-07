@@ -22,7 +22,7 @@ Its main features and content are:
 - [marianNMT] - Efficient Open-Source C++ Neural Machine Translation framework supporting multi-GPU training and inference.
 - [Docker] - Containerization platform utilized for reproducibility and portability.
 
-![marianNMT](./assets/icons/marianNMT.png)
+![marianNMT](./assets/icons/MarianNMT.png)
 ![docker](./assets/icons/docker.png)
 
 # Libraries
