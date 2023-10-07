@@ -52,7 +52,8 @@ def get_out_file_name(from_flag, to_flag, besteffort=False):
     filename = "run"
     if besteffort:
         filename += "_besteffort"
-    filename += '{from_flag}-{to_flag}'.format(from_flag=from_flag, to_flag=to_flag)
+    filename += '{from_flag}-{to_flag}'.format(from_flag=from_flag, 
+                                               to_flag=to_flag)
     filename += ".out"
     return filename
 
@@ -60,7 +61,8 @@ def get_slurm_file_name(from_flag, to_flag, besteffort=False):
     filename = "run"
     if besteffort:
         filename += "_besteffort"
-    filename += '{from_flag}-{to_flag}'.format(from_flag=from_flag, to_flag=to_flag)
+    filename += '{from_flag}-{to_flag}'.format(from_flag=from_flag, 
+                                               to_flag=to_flag)
     filename += ".slurm"
     return filename
 
@@ -68,11 +70,13 @@ def get_bash_file_name(from_flag, to_flag, besteffort=False):
     filename = "run"
     if besteffort:
         filename += "_besteffort"
-    filename += '{from_flag}-{to_flag}'.format(from_flag=from_flag, to_flag=to_flag)
+    filename += '{from_flag}-{to_flag}'.format(from_flag=from_flag, 
+                                               to_flag=to_flag)
     filename += ".sh"
     return filename
 
-def get_grid_partitions(total_jobs_n, jobs_n, from_flag, to_flag):
+def get_grid_partitions(total_jobs_n, jobs_n, 
+                        from_flag, to_flag):
     flag_range = (to_flag - from_flag)
     flags_per_job = flag_range // jobs_n
     partitions = []
@@ -83,20 +87,44 @@ def get_grid_partitions(total_jobs_n, jobs_n, from_flag, to_flag):
     partitions[-1] = (partitions[-1][0], to_flag)
     return partitions
 
-def create_slurm_file_content(output_filename, job_name, partition, qos, gpus_n, ntasks=4, cpus_per_task=9, mem='60G', file_template=SLURM_TEMPLATE):
-    params_to_replace = {'job_name': job_name, 'partition': partition, 'qos': qos, 'gpus_n': gpus_n, 'ntasks': ntasks, 'cpus_per_task': cpus_per_task, 'mem': mem, 'output_filename': output_filename}
+def create_slurm_file_content(output_filename, 
+                              job_name, 
+                              partition, 
+                              qos, 
+                              gpus_n, 
+                              ntasks=4, 
+                              cpus_per_task=9, 
+                              mem='60G', 
+                              file_template=SLURM_TEMPLATE):
+    params_to_replace = {'job_name': job_name, 
+                         'partition': partition, 
+                         'qos': qos, 
+                         'gpus_n': gpus_n, 
+                         'ntasks': ntasks, 
+                         'cpus_per_task': cpus_per_task, 
+                         'mem': mem, 
+                         'output_filename': output_filename}
+    
     for param, value in params_to_replace.items():
         file_template = file_template.replace('{' + param + '}', str(value))
     return file_template
 
-def create_bash_file_content(bash_template_dir, devices, from_flag, to_flag, src, trg, model_type):
+def create_bash_file_content(bash_template_dir, 
+                             devices, 
+                             from_flag, 
+                             to_flag, 
+                             src, 
+                             trg,
+                             model_type,
+                             epochs):
     bash_lines = []
     params_to_replace = [('^GPUS="([0-9] )*[0-9]"', 'GPUS="'+devices+'"'), 
                          ('^FROM=([0-9]+(\.[0-9]+)?)', 'FROM='+str(from_flag)), 
                          ('^TO=([0-9]+(\.[0-9]+)?)', 'TO='+str(to_flag)),
                          ('^SRC="[^"]+"', 'SRC="'+src+'"'),
                          ('^TRG="[^"]+"', 'TRG="'+trg+'"'),
-                         ('^TYPE="[^"]+"', 'TYPE="'+model_type+'"'),]
+                         ('^TYPE="[^"]+"', 'TYPE="'+model_type+'"'),
+                         ('^EPOCHS=[1-9][0-9]*', 'EPOCHS='+str(epochs))]
     params_to_replace = [(re.compile(regex), value) for regex, value in params_to_replace]
 
     with open(bash_template_dir, 'r') as f:
@@ -110,7 +138,8 @@ def create_bash_file_content(bash_template_dir, devices, from_flag, to_flag, src
     return bash_lines
 
 def get_job_name(from_flag, to_flag):
-    return 'M-{from_flag}-{to_flag}'.format(from_flag=from_flag, to_flag=to_flag)
+    return 'M-{from_flag}-{to_flag}'.format(from_flag=from_flag, 
+                                            to_flag=to_flag)
 
 def get_gpu_devices(gpus_n=1):
     return ' '.join(map(str, range(gpus_n)))
@@ -122,16 +151,45 @@ def persist_file(filedir, content):
 def get_read_permissions_command(filedir):
     return 'chmod +x ' + filedir
 
-def run_script(bash_input_template_dir, outputs_scripts_folder, flags_partition, job_name, partition, qos, gpus_n, src, trg, model_type, ntasks=4, cpus_per_task=9, mem='60G', debug=False):
+def run_script(bash_input_template_dir, 
+               outputs_scripts_folder, 
+               flags_partition, 
+               job_name, 
+               partition, 
+               qos, 
+               gpus_n, 
+               src, trg, 
+               model_type,
+               epochs,
+               ntasks=4, 
+               cpus_per_task=9, 
+               mem='60G', 
+               debug=False):
     gpu_devices = get_gpu_devices(gpus_n)
-    slurm_filename = get_slurm_file_name(flags_partition[0], flags_partition[1], besteffort=qos==BESTEFFORT)
-    bash_filename = get_bash_file_name(flags_partition[0], flags_partition[1], besteffort=qos==BESTEFFORT)
-    output_filename = get_out_file_name(flags_partition[0], flags_partition[1], besteffort=qos==BESTEFFORT)
+    slurm_filename = get_slurm_file_name(flags_partition[0], flags_partition[1], 
+                                         besteffort=qos==BESTEFFORT)
+    bash_filename = get_bash_file_name(flags_partition[0], flags_partition[1], 
+                                       besteffort=qos==BESTEFFORT)
+    output_filename = get_out_file_name(flags_partition[0], flags_partition[1], 
+                                        besteffort=qos==BESTEFFORT)
     slurm_output_filename = os.path.join(outputs_scripts_folder, slurm_filename)
     bash_output_filename = os.path.join(outputs_scripts_folder, bash_filename)
     output_filename = os.path.join(outputs_scripts_folder, output_filename)
-    bash_script = create_bash_file_content(bash_input_template_dir, gpu_devices, flags_partition[0], flags_partition[1], src, trg, model_type)
-    slurm_script = create_slurm_file_content(output_filename, job_name, partition, qos, gpus_n, ntasks, cpus_per_task, mem)
+    bash_script = create_bash_file_content(bash_input_template_dir, 
+                                           gpu_devices, 
+                                           flags_partition[0], 
+                                           flags_partition[1], 
+                                           src, trg, 
+                                           model_type, 
+                                           epochs)
+    slurm_script = create_slurm_file_content(output_filename, 
+                                             job_name, 
+                                             partition, 
+                                             qos, 
+                                             gpus_n, 
+                                             ntasks, 
+                                             cpus_per_task, 
+                                             mem)
     persist_file(slurm_output_filename, slurm_script) 
     persist_file(bash_output_filename, bash_script)
     script = ['sbatch', slurm_output_filename, bash_output_filename]
@@ -148,15 +206,29 @@ def run_script(bash_input_template_dir, outputs_scripts_folder, flags_partition,
 
 GPU_LOG_REGEX = re.compile('^.+Using ([1-9]) GPUs$')
 
-def awake_jobs(grid_partitions, outputs_scripts_folder, bash_template_file, src, trg, model_type, time_limit_message=TIME_LIMIT_MESSAGE, gpu_regex=GPU_LOG_REGEX, debug=False):
+def awake_jobs(grid_partitions, outputs_scripts_folder, 
+               bash_template_file, 
+               src, trg, 
+               model_type,
+               epochs,
+               time_limit_message=TIME_LIMIT_MESSAGE, 
+               gpu_regex=GPU_LOG_REGEX, debug=False):
     slept_jobs = []
     for grid_partition in grid_partitions:
-        output_file_normal = get_out_file_name(grid_partition[0], grid_partition[1], besteffort=False)
-        output_file_besteffort = get_out_file_name(grid_partition[0], grid_partition[1], besteffort=True)
-        output_file_normal = os.path.join(outputs_scripts_folder, output_file_normal)
-        output_file_besteffort = os.path.join(outputs_scripts_folder, output_file_besteffort)
+        output_file_normal = get_out_file_name(grid_partition[0], 
+                                               grid_partition[1], 
+                                               besteffort=False)
+        output_file_besteffort = get_out_file_name(grid_partition[0], 
+                                                   grid_partition[1], 
+                                                   besteffort=True)
+        output_file_normal = os.path.join(outputs_scripts_folder, 
+                                          output_file_normal)
+        output_file_besteffort = os.path.join(outputs_scripts_folder, 
+                                              output_file_besteffort)
 
-        for output_file, besteffort in zip([output_file_normal, output_file_besteffort], [False, True]):
+        for output_file, besteffort in zip([output_file_normal, 
+                                            output_file_besteffort], 
+                                            [False, True]):
             if not os.path.isfile(output_file):
                 continue
 
@@ -166,7 +238,8 @@ def awake_jobs(grid_partitions, outputs_scripts_folder, bash_template_file, src,
                 if time_limit_message in last_output_line:
                     gpus_n = 1
                     print(last_output_line)
-                    gpu_line = [line for line in output_lines if gpu_regex.match(line)]
+                    gpu_line = [line for line in output_lines \
+                                if gpu_regex.match(line)]
                     if len(gpu_line) > 0:
                         print(gpu_line[0])
                         gpus_n = int(gpu_regex.match(gpu_line[0]).group(1))
@@ -180,7 +253,17 @@ def awake_jobs(grid_partitions, outputs_scripts_folder, bash_template_file, src,
         job_name = get_job_name(*grid_partition)
         partition = BESTEFFORT if besteffort else NORMAL
         qos = BESTEFFORT if besteffort else NORMAL_QOS
-        run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, src, trg, model_type, debug=debug)
+        run_script(bash_template_file, 
+                   outputs_scripts_folder, 
+                   grid_partition, 
+                   job_name, 
+                   partition, 
+                   qos, 
+                   gpus_n, 
+                   src, trg, 
+                   model_type,
+                   epochs,
+                   debug=debug)
 
     return slept_jobs
 
@@ -190,6 +273,7 @@ def get_args():
     parser.add_argument('--src', type=str, required=True, choices=['gn', 'es'])
     parser.add_argument('--trg', type=str, required=True, choices=['gn', 'es'])
     parser.add_argument('--model_type', type=str, required=True, choices=['transformer', 's2s'])
+    parser.add_argument('--epochs', type=int, required=True)
     parser.add_argument('--total_jobs_n', type=int, default=0, required=True)
     parser.add_argument('--jobs_n', type=int, default=0, required=True)
     parser.add_argument('--besteffort_rate', type=float, default=0.0, required=False)
@@ -223,7 +307,7 @@ def check_preconditions(mode, total_jobs_n, jobs_n, besteffort_n, from_flag, to_
 
 
 # Test examples local
-# python cluster_runner.py --src gn --trg es --debug --from_flag 0 --to_flag 20 --total_jobs_n 20 --jobs_n 10 --besteffort_rate 0.8 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file .\\scripts\\cluster\\train_gn_es_level2_s2s_grid.sh --outputs_scripts_folder ./tests/data/scripts
+# python cluster_runner.py --src gn --trg es --debug --from_flag 0 --to_flag 20 --model_type transformer --epochs 100 --total_jobs_n 20 --jobs_n 10 --besteffort_rate 0.8 --normal_gpus 1 --besteffort_gpus 1 --bash_template_file .\\scripts\\cluster\\train_gn_es_level2_s2s_grid.sh --outputs_scripts_folder ./tests/data/scripts
 # python cluster_runner.py --mode awake --debug --jobs_n 12 --bash_template_file .\\scripts\\cluster\\train_gn_es_level2_s2s_grid.sh --outputs_scripts_folder ./tests/data/scripts
 
 # Test examples cluster
@@ -256,6 +340,7 @@ if __name__ == '__main__':
     src = args['src']
     trg = args['trg']
     model_type = args['model_type']
+    epochs = args['epochs']
     total_jobs_n = args['total_jobs_n']
     jobs_n = args['jobs_n']
     besteffort_n = int(round(args['besteffort_rate'] * jobs_n))
@@ -266,10 +351,14 @@ if __name__ == '__main__':
     outputs_scripts_folder = args['outputs_scripts_folder']
     bash_template_file = args['bash_template_file']
     debug = args['debug']
-    partitions = get_grid_partitions(total_jobs_n, jobs_n, from_flag, to_flag)
+    partitions = get_grid_partitions(total_jobs_n, 
+                                     jobs_n, 
+                                     from_flag, to_flag)
 
     print('Generated partitions: ', partitions)
-    check_preconditions(mode, total_jobs_n, jobs_n, besteffort_n, from_flag, to_flag)
+    check_preconditions(mode, total_jobs_n, 
+                        jobs_n, besteffort_n, 
+                        from_flag, to_flag)
     
     if mode == 'run':
         normal_n = jobs_n - besteffort_n
@@ -281,13 +370,39 @@ if __name__ == '__main__':
             partition = NORMAL
             qos = NORMAL_QOS
             gpus_n = normal_gpus
-            run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, src, trg, model_type, debug=debug)
+            run_script(bash_template_file, 
+                       outputs_scripts_folder, 
+                       grid_partition, 
+                       job_name, 
+                       partition, 
+                       qos, 
+                       gpus_n, 
+                       src, trg, 
+                       model_type, 
+                       epochs,
+                       debug=debug)
 
         for grid_partition in besteffort_partitions:
             job_name = get_job_name(*grid_partition)
             partition = BESTEFFORT
             qos = BESTEFFORT
             gpus_n = besteffort_gpus
-            run_script(bash_template_file, outputs_scripts_folder, grid_partition, job_name, partition, qos, gpus_n, src, trg, model_type, debug=debug)
+            run_script(bash_template_file, 
+                       outputs_scripts_folder, 
+                       grid_partition, 
+                       job_name, 
+                       partition, 
+                       qos, 
+                       gpus_n, 
+                       src, trg, 
+                       model_type, 
+                       epochs,
+                       debug=debug)
     elif mode == 'awake':
-        awake_jobs(partitions, outputs_scripts_folder, bash_template_file, src, trg, model_type, debug=debug)
+        awake_jobs(partitions, 
+                   outputs_scripts_folder, 
+                   bash_template_file, 
+                   src, trg, 
+                   model_type,
+                   epochs,
+                   debug=debug)
