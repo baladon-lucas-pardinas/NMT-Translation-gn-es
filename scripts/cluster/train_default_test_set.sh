@@ -9,12 +9,12 @@ RUN_ID="default_${FINETUNING_EPOCHS}_${SRC}_${TRG}_${TYPE}"
 MODEL_NAME=${TYPE}_${RUN_ID}
 PROJECT_PATH=/docker/home/marianmt
 TRAIN_SETS="${PROJECT_PATH}/artifacts/data/train/train_${SRC}.txt.${SRC} ${PROJECT_PATH}/artifacts/data/train/train_${TRG}.txt.${TRG}"
-VALID_SETS="${PROJECT_PATH}/artifacts/data/validation/test_${SRC}.txt.${SRC} ${PROJECT_PATH}/artifacts/data/validation/test_${TRG}.txt.${TRG}"
+VALID_SETS="${PROJECT_PATH}/artifacts/data/test/test_${SRC}.txt.${SRC} ${PROJECT_PATH}/artifacts/data/test/test_${TRG}.txt.${TRG}"
 VOCABS="${PROJECT_PATH}/artifacts/data/vocabulary/train_vocab.${SRC}.spm ${PROJECT_PATH}/artifacts/data/vocabulary/train_vocab.${TRG}.spm"
 TRANSLATION_OUTPUT=${PROJECT_PATH}/evaluation/decoded_${RUN_ID}.txt
 HYPERPARAMETER_GRID_FILES="${PROJECT_PATH}/artifacts/parameters/train_augmentation/default/default.json"
 SPEED_FLAGS="--early-stopping 1000 --quiet-translation --overwrite"
-DEFAULT_FLAGS="--type ${TYPE}"
+DEFAULT_FLAGS="--dim-vocabs 16384 16384 --type ${TYPE}"
 SEED=1234
 
 export PYTHONPATH=${PROJECT_PATH}/libs

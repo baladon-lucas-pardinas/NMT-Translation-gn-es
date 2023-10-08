@@ -1,9 +1,0 @@
-{
-    "seed": [60438],
-    "learn-rate": [3.951712925855895e-05],
-    "max-length": [182],
-    "dec-depth": [3],
-    "enc-depth": [3],
-    "dim-vocabs": ["2000 2000"],
-    "transformer-dropout": [0.1]
-}
