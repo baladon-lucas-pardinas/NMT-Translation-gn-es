@@ -2,7 +2,7 @@
 
 📙 Don't forget to check our notebooks at `notebooks/src`!
 
-🌲 Check our [Syntax Grammar](https://github.com/AlexisBaladon/SyntaxGrammar-es-gn) for gn-es parsing and generation:
+🌲 Check our [Syntax Grammar](https://github.com/AlexisBaladon/SyntaxGrammar-es-gn) for gn-es parsing and generation!
 
 The project is a wrapper around the MarianNMT C++ Machine Translation software. 
 It is part of our university thesis project, where we aim to enhance the Guaraní-Spanish
