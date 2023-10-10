@@ -1,5 +1,7 @@
 # NLP - Neural Machine Translation (gn-es) using data augmentation
 
+📙 Don't forget to check our notebooks at `notebooks/src`!
+
 The project is a wrapper around the MarianNMT C++ Machine Translation software. 
 It is part of our university thesis project, where we aim to enhance the Guaraní-Spanish
 translation quality by implementing a syntax grammar capable of generating millions of
@@ -41,12 +43,14 @@ Its main features and content are:
 
 # Preliminar Results
 
+If you want to see all the results, I encourage you to check the notebooks in the `notebooks/src` folder :).
+
 The most relevant results of our project are:
 - Generating a parallel Guaraní-Spanish using syntactically correct
 parallel phrases in both languages from which we used 1.000.000 tokens.
-- Achieving SOTA scores in the recently created Guaraní-Spanish benchmark parallel corpus (Chiruzzo et. al) 
+- Achieving 49 chrF (only in the validation set by now) in the recently created Guaraní-Spanish benchmark parallel corpus (Chiruzzo et. al) 
 using Deep Learning models (`transformers` and `seq2seq`) and regularization techniques such as `dropout`, `label smoothing` and `exponential smoothing`.
-- Achieving a `chrF` score of 47 and a `BLEU` score of 25 for the best model and direction, using the `sacrebleu` library.
+- Achieving a `chrF` score of 49 and a `BLEU` score of 25 for the best model and direction, using the `sacrebleu` library.
 - Testing the effectiveness of data augmentation in a low resource language (Guaraní) using our syntax grammar.
 
 ## Metrics per epoch of s2s model in es-gn direction:
@@ -57,8 +61,3 @@ using Deep Learning models (`transformers` and `seq2seq`) and regularization tec
 
 ## Time duration tests to make a most efficient use of the GPU:
 ![output4](./assets/results/output4.png)
-
-# Folder structure:
-
-The project structure is based on many open-source Machine Learning projects,
-but the main inspiration is: https://github.com/krishnaik06/mlproject/ from Krish Naik.
