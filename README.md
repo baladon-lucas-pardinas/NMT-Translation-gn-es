@@ -1,6 +1,7 @@
 # NLP - Neural Machine Translation (gn-es) using data augmentation
 
 📙 Don't forget to check our notebooks at `notebooks/src`!
+
 🌲 Check our [Syntax Grammar](!https://github.com/AlexisBaladon/SyntaxGrammar-es-gn) for gn-es parsing and generation!
 
 The project is a wrapper around the MarianNMT C++ Machine Translation software. 
