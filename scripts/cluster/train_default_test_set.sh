@@ -12,7 +12,7 @@ TRAIN_SETS="${PROJECT_PATH}/artifacts/data/train/train_${SRC}.txt.${SRC} ${PROJE
 VALID_SETS="${PROJECT_PATH}/artifacts/data/test/test_${SRC}.txt.${SRC} ${PROJECT_PATH}/artifacts/data/test/test_${TRG}.txt.${TRG}"
 VOCABS="${PROJECT_PATH}/artifacts/data/vocabulary/train_vocab.${SRC}.spm ${PROJECT_PATH}/artifacts/data/vocabulary/train_vocab.${TRG}.spm"
 TRANSLATION_OUTPUT=${PROJECT_PATH}/evaluation/decoded_${RUN_ID}.txt
-HYPERPARAMETER_GRID_FILES="${PROJECT_PATH}/artifacts/parameters/train_augmentation/default/default.json"
+HYPERPARAMETER_GRID_FILES="${PROJECT_PATH}/artifacts/parameters/finetuning/default/epochs_test.json"
 SPEED_FLAGS="--early-stopping 1000 --quiet-translation --overwrite"
 DEFAULT_FLAGS="--dim-vocabs 16384 16384 --type ${TYPE}"
 SEED=1234
@@ -30,4 +30,8 @@ python3 ${PROJECT_PATH}/main.py --command-path /marian/build \
     --hyperparameter-tuning \
     --tuning-strategy "gridsearch" \
     --tuning-grid-files ${HYPERPARAMETER_GRID_FILES} \
+    --finetuning-cache-template-dir "${PROJECT_PATH}/artifacts/models/pretraining_merged_${TYPE}_${SRC}_${TRG}_epoch{}"\
+    --finetuning \
+    --finetuning-augmented-sets "${PROJECT_PATH}/artifacts/data/train/merged_corpora_without_train.${SRC} ${PROJECT_PATH}/artifacts/data/train/merged_corpora_without_train.${TRG}" \
+    --finetuning-full-sets "${PROJECT_PATH}/artifacts/data/train/full_augmented_data.txt.${SRC} ${PROJECT_PATH}/artifacts/data/train/full_augmented_data.txt.${TRG}" \
     --flags "${SPEED_FLAGS} ${DEFAULT_FLAGS} --devices ${GPUS} --tempdir ${PROJECT_PATH}/libs --valid-metrics cross-entropy translation --valid-sets ${VALID_SETS} --valid-translation-output ${TRANSLATION_OUTPUT} --train-sets ${TRAIN_SETS} --model ${PROJECT_PATH}/artifacts/models/model_${MODEL_NAME}/${MODEL_NAME}.npz --after-epochs ${EPOCHS} --valid-freq 50000000 --vocabs ${VOCABS} --seed ${SEED} --cpu-threads 0 --log ${PROJECT_PATH}/logs/marian/log_${MODEL_NAME}.log"
