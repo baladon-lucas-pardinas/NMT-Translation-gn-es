@@ -9,17 +9,17 @@ It is part of our university thesis project, where we aim to enhance the Guaran�
 translation quality by implementing a syntax grammar capable of generating millions of
 syntactically correct sentence pairs in both languages.
 
-Its main features and content are:
-- Formatting raw data:
-    - Guaraní-Spanish corpora from Chiruzzo et. al
-    - Augmented data from parallel guaraní-spanish grammar (https://github.com/AlexisBaladon/tesis-guarani)
-    - Ancora-mini dataset translated to Guaraní by our syntax grammar.
-    - Parallel Guaraní-Spanish Bible corpus.
-- Model `training` and `validation` (with the aid of **MarianNMT**)
-- Parallel hyperparameter tuning using `grid search` or `random search`.
-- Generation of results using `cached` models through different experiments.
-- Analysis of results using `bleu` and `chrf` as main `evaluation metrics`
-- `Bash` and `Slurm` scripts to run the project in a `cluster` (https://www.cluster.uy/) with parallel tasks inside a `singularity` container using multiple `GPUs`.
+# Results
+
+If you want to see all the results, I encourage you to check the notebooks in the `notebooks/src` folder :).
+
+The most relevant results of our project are:
+- Generating a parallel Guaraní-Spanish using syntactically correct
+parallel phrases in both languages from which we used 1.000.000 tokens.
+- Achieving 26.2075 BLEU in the Guaraní-Spanish parallel corpus (Chiruzzo et. al) test set **surpassing Google** in the es->gn direction and getting competitive results (less than 1 BLEU of difference) in gn->es.
+- Achieving more than 26 `BLEU` in both direction, applying Deep Learning models (`transformers` and `seq2seq`) and regularization techniques such as `dropout`, `label smoothing` and `exponential smoothing`.
+- Testing the effectiveness of data augmentation in a low resource language (Guaraní) using our syntax grammar.
+
 
 # Tech
 
@@ -43,17 +43,19 @@ Its main features and content are:
 ![sacrebleu](./assets/icons/sacrebleu.png)
 ![os](./assets/icons/os.png)
 
-# Preliminar Results
+# Features
 
-If you want to see all the results, I encourage you to check the notebooks in the `notebooks/src` folder :).
-
-The most relevant results of our project are:
-- Generating a parallel Guaraní-Spanish using syntactically correct
-parallel phrases in both languages from which we used 1.000.000 tokens.
-- Achieving 49 chrF (only in the validation set by now) in the recently created Guaraní-Spanish benchmark parallel corpus (Chiruzzo et. al) 
-using Deep Learning models (`transformers` and `seq2seq`) and regularization techniques such as `dropout`, `label smoothing` and `exponential smoothing`.
-- Achieving a `chrF` score of 49 and a `BLEU` score of 25 for the best model and direction, using the `sacrebleu` library.
-- Testing the effectiveness of data augmentation in a low resource language (Guaraní) using our syntax grammar.
+Its main features and content are:
+- Formatting raw data:
+    - Guaraní-Spanish corpora from Chiruzzo et. al
+    - Augmented data from parallel guaraní-spanish grammar (https://github.com/AlexisBaladon/tesis-guarani)
+    - Ancora-mini dataset translated to Guaraní by our syntax grammar.
+    - Parallel Guaraní-Spanish Bible corpus.
+- Model `training` and `validation` (with the aid of **MarianNMT**)
+- Parallel hyperparameter tuning using `grid search` or `random search`.
+- Generation of results using `cached` models through different experiments.
+- Analysis of results using `bleu` and `chrf` as main `evaluation metrics`
+- `Bash` and `Slurm` scripts to run the project in a `cluster` (https://www.cluster.uy/) with parallel tasks inside a `singularity` container using multiple `GPUs`.
 
 ## Metrics per epoch of s2s model in es-gn direction:
 ![output1](./assets/results/output1.png)
