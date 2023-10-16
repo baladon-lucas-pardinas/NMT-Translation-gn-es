@@ -1,9 +1,11 @@
 import os
 
-ROOT_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', '..')
+PROJECT_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', '..', '..')
+ROOT_DIR = os.path.join(PROJECT_DIR, 'notebooks')
 DATA_FOLDER = os.path.join(ROOT_DIR, 'data')
 INSPECTED_DATA_FOLDER = os.path.join(DATA_FOLDER, 'inspected')
 RESULTS_DATA_FOLDER = os.path.join(DATA_FOLDER, 'results')
+TEST_SET_FOLDER = os.path.join(DATA_FOLDER, 'test_set')
 CORPORA_FOLDER = os.path.join(INSPECTED_DATA_FOLDER, 'corpora')
 METRIC_EVALUATION_FOLDER = os.path.join(INSPECTED_DATA_FOLDER, 'metric_evaluation')
 DECODED_OUTPUTS_FOLDER = os.path.join(INSPECTED_DATA_FOLDER, 'decoded_outputs')

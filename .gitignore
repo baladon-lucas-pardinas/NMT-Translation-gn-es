@@ -1,6 +1,9 @@
 # Corpora
 #*/data/ TODO: make data dynamically generated
 
+client_secret*
+service.json
+
 # Pickled objects
 *.p
 *.pkl

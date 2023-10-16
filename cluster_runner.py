@@ -351,13 +351,13 @@ if __name__ == '__main__':
     outputs_scripts_folder = args['outputs_scripts_folder']
     bash_template_file = args['bash_template_file']
     debug = args['debug']
-    partitions = get_grid_partitions(total_jobs_n, 
-                                     jobs_n, 
+    partitions = get_grid_partitions(total_jobs_n,
+                                     jobs_n,
                                      from_flag, to_flag)
 
     print('Generated partitions: ', partitions)
-    check_preconditions(mode, total_jobs_n, 
-                        jobs_n, besteffort_n, 
+    check_preconditions(mode, total_jobs_n,
+                        jobs_n, besteffort_n,
                         from_flag, to_flag)
     
     if mode == 'run':
