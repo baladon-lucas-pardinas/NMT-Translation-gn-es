@@ -17,7 +17,7 @@ The most relevant results of our project are:
 - Generating a parallel Guaraní-Spanish using syntactically correct
 parallel phrases in both languages from which we used 1.000.000 tokens.
 - Achieving 26.2075 BLEU in the Guaraní-Spanish parallel corpus (Chiruzzo et. al) test set **surpassing Google** in the es->gn direction and getting competitive results (less than 1 BLEU of difference) in gn->es.
-- Achieving more than 26 `BLEU` in both direction, applying Deep Learning models (`transformers` and `seq2seq`) and regularization techniques such as `dropout`, `label smoothing` and `exponential smoothing`.
+- Achieving more than 26 `BLEU` in both directions, applying Deep Learning models (`transformers` and `seq2seq`) and regularization techniques such as `dropout`, `label smoothing` and `exponential smoothing`.
 - Testing the effectiveness of data augmentation in a low resource language (Guaraní) using our syntax grammar.
 
 
