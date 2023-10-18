@@ -22,6 +22,7 @@ def main(reference_file, translation_file, metric='sacrebleu_corpus_bleu'):
 
     with open(reference_file, 'r', encoding='utf-8') as f:
         reference_lines = f.readlines()
+
     with open(translation_file, 'r', encoding='utf-8') as f:
         translation_lines = f.readlines()
 
