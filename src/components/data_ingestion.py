@@ -6,7 +6,7 @@ from src.logger import logging
 from src.domain.processing import tokenization
 
 def __persist_split_data(splits, split):
-        splits[split]['file'].write('\n'.join(splits[split]['data']))
+        splits[split]['file'].write('\n'.join(splits[split]['data']) + '\n')
         splits[split]['data'] = []
 
 def rename_file(filename, language):
@@ -197,7 +197,6 @@ def ingest_data(data_ingestion_config):
         for train_dir, vocab_output, language in zip(train_split_outputs, 
                                                      vocab_outputs, 
                                                      columns_to_ingest):
-            break
             train_file = rename_file(train_dir, language)
             vocab_file = rename_file(vocab_output, language)
             create_vocabulary(train_file, vocab_file, 
@@ -215,7 +214,6 @@ def ingest_data(data_ingestion_config):
                                   persist_each=persist_each)
 
             for vocab_path, language in zip(vocab_outputs, columns_to_ingest):
-                break
                 vocabulary_dir = os.path.dirname(vocab_path)
                 full_augmented_vocab_path = os.path.join(vocabulary_dir, 
                                                          'full_augmented_vocab')
