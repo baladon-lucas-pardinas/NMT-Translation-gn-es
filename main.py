@@ -51,52 +51,57 @@ if __name__ == '__main__':
     args = parse_args()
 
     # Global
-    flags                         = args.get('flags')
-    seed                          = args.get('seed')
+    flags = args.get('flags')
+    seed = args.get('seed')
 
     # Training
-    command_path                  = args.get('command_path')
-    validate_each_epochs          = args.get('validate_each_epochs')
-    validation_metrics            = args.get('validation_metrics')
-    save_checkpoints              = args.get('save_checkpoints')
-    not_delete_model_after        = args.get('not_delete_model_after')
+    command_path = args.get('command_path')
+    validate_each_epochs = args.get('validate_each_epochs')
+    validation_metrics = args.get('validation_metrics')
+    save_checkpoints = args.get('save_checkpoints')
+    not_delete_model_after = args.get('not_delete_model_after')
 
     # Steps
-    ingest                        = args.get('ingest')
-    finetune                      = args.get('finetuning')
-    train                         = args.get('train')
+    ingest = args.get('ingest')
+    finetune = args.get('finetuning')
+    train = args.get('train')
 
     # Ingestion
-    ingest_augmented_data         = args.get('ingest_augmented_data')
+    ingest_augmented_data = args.get('ingest_augmented_data')
 
     # Finetuning
-    finetuning_epochs             = args.get('finetuning_epochs')
-    finetuning_full_sets          = args.get('finetuning_full_sets')
-    finetuning_augmented_sets     = args.get('finetuning_augmented_sets')
+    finetuning_epochs = args.get('finetuning_epochs')
+    finetuning_full_sets = args.get('finetuning_full_sets')
+    finetuning_augmented_sets = args.get('finetuning_augmented_sets')
     finetuning_cache_template_dir = args.get('finetuning_cache_template_dir')
 
     # Hyperparameter tuning
-    run_id                        = args.get('run_id')
-    hyperparameter_tuning         = args.get('hyperparameter_tuning')
-    tuning_grid_files             = args.get('tuning_grid_files')
-    tuning_params_files           = args.get('tuning_params_files')
-    from_flags                    = args.get('from_flags')
-    to_flags                      = args.get('to_flags')
-    tuning_strategy               = args.get('tuning_strategy')
-    max_iters                     = args.get('max_iters')
+    run_id = args.get('run_id')
+    hyperparameter_tuning = args.get('hyperparameter_tuning')
+    tuning_grid_files = args.get('tuning_grid_files')
+    tuning_params_files = args.get('tuning_params_files')
+    from_flags = args.get('from_flags')
+    to_flags = args.get('to_flags')
+    tuning_strategy = args.get('tuning_strategy')
+    max_iters = args.get('max_iters')
     
     config_variables = load_config_variables()
-    flag_separator   = config_variables.get(FLAG_SEPARATOR, ' ')
+    flag_separator = config_variables.get(FLAG_SEPARATOR, ' ')
     command_config, ingestion_config, tuning_config, finetune_config = 4*[None]
 
     flags = parsing.parse_flags(flags, flag_separator=flag_separator)
     train_dirs = flags.get('train-sets', [])
-    val_dirs   = flags.get('valid-sets', [])
+    val_dirs = flags.get('valid-sets', [])
     logging.info('Running with flags {}'.format(flags))
 
     if ingest:
         vocab_dirs = flags.get('vocabs', [])
-        ingestion_config = ingestion.get_data_ingestion_config(config_variables, train_dirs, val_dirs, vocab_dirs, ingest_augmented_data, persist_each=1000)
+        ingestion_config = ingestion.get_data_ingestion_config(config_variables, 
+                                                               train_dirs, 
+                                                               val_dirs, 
+                                                               vocab_dirs, 
+                                                               ingest_augmented_data, 
+                                                               persist_each=1000)
         logging.info('Ingesting data with config {}'.format(ingestion_config))
 
     if train:
@@ -136,5 +141,6 @@ if __name__ == '__main__':
                              hyperparameter_tuning_config=tuning_config,
                              finetuning_config=finetune_config)
     except Exception as e:
-        logging.error('Error while training with config {} and {}'.format(command_config, ingestion_config))
+        logging.error('Error while training with config {} and {}'.format(command_config, 
+                                                                          ingestion_config))
         raise e
