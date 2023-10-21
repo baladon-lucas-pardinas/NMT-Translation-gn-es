@@ -5,37 +5,37 @@ import re
 from typing import Callable
 import collections
 
-from src.utils import file_manager, parsing, arrays
+from src.utils import file_manager, parsing, arrays, wrappers
 
 import sacrebleu
 
-LOG_METRICS_REGEX = r'''
-    \[(\d{4})-(\d{2})-(\d{2})\s(\d{2}):(\d{2}):(\d{2})\]\s
-    \[valid\]\s
-    Ep\.\s(\S+)\s:\s
-    Up\.\s(\S+)\s
-    (?::\s(\S+)\s:\s(\S+))+\s
-    :\s(.+)
-'''
+LOG_METRICS_REGEX = r'''\[(\d{4})-(\d{2})-(\d{2})\s(\d{2}):(\d{2}):(\d{2})\]\s
+                        \[valid\]\s
+                        Ep\.\s(\S+)\s:\s
+                        Up\.\s(\S+)\s
+                        (?::\s(\S+)\s:\s(\S+))+\s
+                        :\s(.+)'''
 LOG_METRIX_COMPILED_REGEX = re.compile(LOG_METRICS_REGEX, re.VERBOSE)
 
 """
-https://www.nltk.org/api/nltk.translate.bleu_score.html
-hypothesis1 = ['It', 'is', 'a', 'guide', 'to', 'action', 'which', 'ensures',
-                'that', 'the', 'military', 'always', 'obeys', 'the',
-                'commands', 'of', 'the', 'party']
-reference1 = ['It', 'is', 'a', 'guide', 'to', 'action', 'that', 'ensures',
-              'that', 'the', 'military', 'will', 'forever', 'heed',
-              'Party', 'commands']
-print(sentence_bleu([reference1], hypothesis1))
+https://github.com/mjpost/sacrebleu/blob/e22640/sacrebleu/compat.py#L66-L67
+Disclaimer: computing BLEU on the sentence level is not its intended use,
+BLEU is a corpus-level metric.
 """
-# def calculate_sentence_bleu(references, translated):
-#     # type: (list[str], list[str]) -> float
-#     # Each reference is a list of references (in this case, of size 1).
-#     bleu_scores = [sacrebleu.sentence_bleu(translated, reference).score for reference in references]
-#     bleu_score = sum(bleu_scores) / len(bleu_scores)
-#     return bleu_score
+@wrappers.silence_warnings
+def calculate_sacrebleu_sentence(reference, 
+                                 translated, 
+                                 metric='sacrebleu_sentence_bleu'):
+    chrf_function = lambda reference, translated: \
+        sacrebleu.sentence_chrf(translated, [reference]).score
+    sacrebleu_function = lambda reference, translated: \
+        sacrebleu.sentence_bleu(translated, [reference]).score
+    
+    score_functions = {'sacrebleu_sentence_chrf': chrf_function,
+                       'sacrebleu_sentence_bleu': sacrebleu_function}
 
+    bleu_score = score_functions[metric](reference, translated)
+    return bleu_score
 
 """
 https://github.com/mjpost/sacrebleu
@@ -59,17 +59,12 @@ def calculate_sacrebleu_corpus_chrf(references, translated):
     chrf_score = sacrebleu.corpus_chrf(translated, references).score
     return chrf_score
 
-"""
-https://github.com/mjpost/sacrebleu/blob/e22640/sacrebleu/compat.py#L66-L67
-Disclaimer: computing BLEU on the sentence level is not its intended use,
-BLEU is a corpus-level metric.
-"""
-def calculate_metric(references, translated, bleu_score_type='sacrebleu_corpus_bleu', tokenize=lambda x: x.split()):
+def calculate_metric(references, translated, 
+                     bleu_score_type='sacrebleu_corpus_bleu', 
+                     tokenize=lambda x: x.split()):
     # type: (list[str], list[str], str, Callable[[str], list[str]]) -> float
-    score_functions = {
-        'sacrebleu_corpus_bleu': calculate_sacrebleu_corpus_bleu,
-        'sacrebleu_corpus_chrf': calculate_sacrebleu_corpus_chrf,
-    }
+    score_functions = {'sacrebleu_corpus_bleu': calculate_sacrebleu_corpus_bleu,
+                       'sacrebleu_corpus_chrf': calculate_sacrebleu_corpus_chrf}
 
     references = arrays.reshape_1rest(references)
     
@@ -83,7 +78,11 @@ def get_results_filename(file_name):
         file_name += '.csv'
     return file_name
 
-def get_results_from_translation_output(model_name, source, target, reference, translation_output, parameters, metrics=['sacrebleu_corpus_bleu']):
+def get_results_from_translation_output(model_name, 
+                                        source, target, 
+                                        reference, translation_output, 
+                                        parameters, 
+                                        metrics=['sacrebleu_corpus_bleu']):
     # type: (str, str, str, str, str, dict, list[str]) -> list
     epoch             = parameters.get('after-epochs', [''])[0]
     date              = datetime.datetime.now()
@@ -92,12 +91,22 @@ def get_results_from_translation_output(model_name, source, target, reference, t
     score_rows        = []
 
     for score_type in metrics:
-        bleu_score = calculate_metric(reference_lines, translation_lines, bleu_score_type=score_type)
-        score_rows.append([date, model_name, source, target, score_type, bleu_score, epoch, parameters,])
+        bleu_score = calculate_metric(reference_lines, 
+                                      translation_lines, 
+                                      bleu_score_type=score_type)
+        score_rows.append([date, 
+                           model_name, 
+                           source, target, 
+                           score_type, bleu_score, 
+                           epoch, 
+                           parameters])
 
     return score_rows
 
-def get_results_from_logs(model_name, source, target, validation_log, parameters):
+def get_results_from_logs(model_name, 
+                          source, target, 
+                          validation_log, 
+                          parameters):
     # type: (str, str, str, str, dict) -> list
     scores = []
 
@@ -112,37 +121,54 @@ def get_results_from_logs(model_name, source, target, validation_log, parameters
         metric, metric_value,\
         _ = line
 
-        date = datetime.datetime(int(year), int(month), int(day), int(hour), int(minute), int(second))
+        date = datetime.datetime(int(year), int(month), int(day), 
+                                 int(hour), int(minute), int(second))
         parameters['update'] = [update]
-        score_row = [date, model_name, source, target, metric, metric_value, epoch, parameters,]
+        score_row = [date, 
+                     model_name, 
+                     source, target, 
+                     metric, metric_value, 
+                     epoch, 
+                     parameters]
         scores.append(score_row)
     return scores
     
 # Saves results from logs if translation output is not available
-def save_results(
-    file_name,
-    model_dir,
-    parameters,
-    metrics=['sacrebleu_corpus_bleu'],
-    validation_log=None,
-    translation_output=None,
-    reference=None
-):
+def save_results(file_name,
+                 model_dir,
+                 parameters,
+                 metrics=['sacrebleu_corpus_bleu'],
+                 validation_log=None,
+                 translation_output=None,
+                 reference=None):
     # type: (str, str, dict, list[str], str, str, str) -> dict[str, list[float]]
-    columns           = ['date', 'model_name', 'source', 'target', 'score_type', 'score', 'epoch', 'parameters']
-    file_name         = get_results_filename(file_name)
+    columns = ['date',
+               'model_name',
+               'source', 'target',
+               'score_type', 'score',
+               'epoch',
+               'parameters']
+    file_name = get_results_filename(file_name)
     first_time_saving = not os.path.isfile(file_name)
-    parameters        = parsing.deep_copy_flags(parameters)
-    base_dir          = os.path.dirname(model_dir)
-    model_name        = os.path.basename(model_dir)
-    source, target    = parameters.get('valid-sets', ['', ''])
-    source, target    = [os.path.basename(path) for path in [source, target]]
-    scores            = []
+    parameters = parsing.deep_copy_flags(parameters)
+    base_dir = os.path.dirname(model_dir)
+    model_name = os.path.basename(model_dir)
+    source, target = parameters.get('valid-sets', ['', ''])
+    source, target = [os.path.basename(path) for path in [source, target]]
+    scores = []
 
     if translation_output is not None and reference is not None:
-        scores = get_results_from_translation_output(model_name, source, target, reference, translation_output, parameters, metrics=metrics)
+        scores = get_results_from_translation_output(model_name, 
+                                                     source, target, 
+                                                     reference, 
+                                                     translation_output,
+                                                     parameters, 
+                                                     metrics=metrics)
     elif validation_log is not None:
-        scores = get_results_from_logs(model_name, source, target, validation_log, parameters)
+        scores = get_results_from_logs(model_name, 
+                                       source, target, 
+                                       validation_log, 
+                                       parameters)
         
     if not os.path.isdir(base_dir):
         os.makedirs(base_dir)

@@ -2,6 +2,13 @@ import warnings
 import logging
 from functools import wraps
 
+def silence_warnings(func):
+    def wrapper(*args, **kwargs):
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            return func(*args, **kwargs)
+    return wrapper
+
 def warning_filter(logger=None):
     def decorator(func):
         @wraps(func)

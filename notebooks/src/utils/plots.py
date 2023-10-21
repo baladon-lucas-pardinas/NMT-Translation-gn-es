@@ -181,3 +181,22 @@ def plot_time_by_model(df: pd.DataFrame,
     plt.tight_layout()
     plt.xticks(rotation=45)
     plt.savefig(save_path) if save_path is not None else plt.show()
+
+def plot_values_by_index(title, values, color=None, ax=None):
+    sns.set_style('darkgrid')
+    y = list(range(len(values)))
+    x = values
+
+    if ax is None:
+        plt.figure(figsize=(20, 6))
+        ax = sns.lineplot(x=x, y=y, color=color)
+    else:
+        ax.plot(x, y, color=color)
+
+    ax.set_title(title)
+    ax.set_xlabel('Index')
+    ax.set_ylabel('Value')
+    plt.tight_layout()
+
+    if ax is None:
+        plt.show()
