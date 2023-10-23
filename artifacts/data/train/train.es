@@ -997,7 +997,8 @@ Ofreció amnistía a los militares que respalden la democratización, lo cual po
 Toma de colegio: piden identificación de padres
 Agentes de la comisaria 2ª Central vinieron a recabar los nombres de padres de familia apostados frente al colegio República Dominicana, de Fernando de la Mora, atendiendo que sus hijos están adentro.
 Los agentes dijeron que la identificación de los padres a los efectos de resguardar la institución y proteger a los manifestantes.
-Advirtieron que exalumnos no vengan a apoyar la medida.Las autoridades brasileñas reportaron el decomiso de un millonario cargamento de cigarrillos que ingresaron de contrabando.
+Advirtieron que exalumnos no vengan a apoyar la medida.
+Las autoridades brasileñas reportaron el decomiso de un millonario cargamento de cigarrillos que ingresaron de contrabando.
 Algunas de las cajetillas pertenecerían a marcas de la tabacalera de Horacio Cartes.
 De acuerdo a la prensa brasileña, la Policía Rodoviaria Federal interceptó seis camiones de gran porte que transportaban cigarrillos de contrabando desde Paraguay.
 Se trata de 2,4 millones de paquetes de cigarrillos valuados en 12 millones de reales, según el portal de noticias Midiamax.
@@ -1996,7 +1997,8 @@ El jurado resolvió de manera unánime aprobó el pedido de desafuero al agente 
 De acuerdo a los indicios de la Fiscalía, Yegros habría recibido supuestamente una coima de US$ 20.000 para dejar sin efecto una orden de allanamiento a un sujeto cercano a Cucho Cabaña.
 Ya sin su inmunidad como fiscal, Yegros comparecerá este jueves 4 para la audiencia de imposición de medidas ante el juez penal de Garantías Rubén Ayala Brun y será pasible de medidas restrictivas de libertad.
 La imputación tiene su origen en un allanamiento efectuado el pasado 6 de setiembre en la vivienda del agente fiscal, de donde se incautaron documentos varios relacionados a las causas que llevaba adelante.
-Entre las causas figura una orden de allanamiento a una vivienda de Presidente Franco, en el marco de una investigación de robo agravado, en aquella ocasión se solicitó una suma de USS 30.000 al propietario para dejar sin efecto el procedimiento.En la sesión del martes también se resolvió rechazar dos denuncias contra la fiscala Lorena Ledesma, una de ellas relacionada a la imputación de policías en el marco del operativo que derivó en la captura de “Cucho” y la desarticulación de su organización presumiblemente vinculada al narcotráfico y el lavado de dinero.
+Entre las causas figura una orden de allanamiento a una vivienda de Presidente Franco, en el marco de una investigación de robo agravado, en aquella ocasión se solicitó una suma de USS 30.000 al propietario para dejar sin efecto el procedimiento.
+En la sesión del martes también se resolvió rechazar dos denuncias contra la fiscala Lorena Ledesma, una de ellas relacionada a la imputación de policías en el marco del operativo que derivó en la captura de “Cucho” y la desarticulación de su organización presumiblemente vinculada al narcotráfico y el lavado de dinero.
 Denuncian arreo en hospital distrital de Itauguá
 En la tarde de este jueves varios pacientes del hospital distrital de esta ciudad se quejaron por el pésimo servicio médico.
 Dijeron que hoy casi no hubo atención porque fueron todos al cierre de campaña de Marito.
@@ -2995,7 +2997,8 @@ La Policía Nacional del departamento de San Pedro, a través del director de Po
 Se habla de que desde mañana ya se reforzarán las zonas en donde se realizan las protestas de camioneros, Capiibary, Guayaybí, entre otros lugares.
 En Capiibary los camioneros realizan constantes cortes de la ruta a la altura de la localidad de Calle Primero de Marzo, a la salida de la ciudad, en donde se encuentran apostados alrededor de 20 camiones y los manifestantes retienen a los camiones de gran porte por varias horas, según los datos.
 Aguardan reunirse este miércoles con el ministro de Obras, Ramón Jiménez Gaona, de lo contrario extremarán medidas, anunciaron.
-Pedirán en las misas limpiar criaderosEl arzobispo de Asunción, Edmundo Valenzuela, informó que mañana domingo, en todas las misas del país, se pedirá a los feligreses que limpien los potenciales criaderos de mosquitos en sus zonas a modo de paliar la propagación del dengue.
+Pedirán en las misas limpiar criaderos
+El arzobispo de Asunción, Edmundo Valenzuela, informó que mañana domingo, en todas las misas del país, se pedirá a los feligreses que limpien los potenciales criaderos de mosquitos en sus zonas a modo de paliar la propagación del dengue.
 “Reaccionemos y dediquemos tiempo y mingas a eliminar los criaderos de mosquito.
 El dengue está causando estragos, debemos parar el mal.
 En un 80% pasa por eliminación de criaderos.
@@ -3994,7 +3997,8 @@ Entre los artistas que estarán presentes se menciona a Francisco Russo, Las Her
 También habrá presentación de cuadros de danza paraguaya, a cargo de integrantes de diferentes academias.
 Asimismo, se tendrá la puesta en escena de una obra teatral, a cargo de jóvenes de la parroquia Virgen del Rosario, entre otros atractivos.
 Paraguay tiene la peor infraestructura escolar
-Paraguay es el peor posicionado en la región en cuanto a infraestructura escolar y eso repercute en el aprendizaje del alumnado, revela el informe del Banco Mundial.Hay 1.300 predios escolares que ni siquiera están titulados y el 80% son críticos.
+Paraguay es el peor posicionado en la región en cuanto a infraestructura escolar y eso repercute en el aprendizaje del alumnado, revela el informe del Banco Mundial.
+Hay 1.300 predios escolares que ni siquiera están titulados y el 80% son críticos.
 Fue divulgado el análisis del Banco Mundial (BM), que tras un exhaustivo estudio expone que existe un elevado déficit en infraestructura escolar en el Paraguay.
 “La mayoría de las instituciones educativas públicas no cumplen con los requerimientos mínimos ni de insumos básicos y eso afecta su capacidad operativa”, detalla.
 Seria deficiencia educativa, revela Banco Mundial
@@ -4993,7 +4997,8 @@ El gerente de la empresa Sol del Paraguay, Roberto Poletti, indicó que la suspe
 Las autoridades departamentales mostraron mucho interés en que los vuelos que conectan a Pedro Juan Caballero con Asunción puedan proseguir.
 Según lo manifestado por Poletti, los vuelos ya están normalizados, con lo que desde la semana pasada los habitantes de Pedro Juan Caballero tienen la opción de viajar a Asunción por vía aérea, de lunes a viernes.
 Embajador de la UE visitó Misiones
-El embajador de la Unión Europea (UE), Paolo Berizzi, realizó una visita oficial a distritos del departamento de Misiones, con el objetivo de observar de cerca proyectos financiados por la UE.Paolo Berizzi manifestó que su gira por Misiones se inició el jueves con un recorrido en San Ignacio Guazú, para ver unos medidores que se compraron a través de un proyecto financiado por la Unión Europea.
+El embajador de la Unión Europea (UE), Paolo Berizzi, realizó una visita oficial a distritos del departamento de Misiones, con el objetivo de observar de cerca proyectos financiados por la UE.
+Paolo Berizzi manifestó que su gira por Misiones se inició el jueves con un recorrido en San Ignacio Guazú, para ver unos medidores que se compraron a través de un proyecto financiado por la Unión Europea.
 La gira del diplomático incluyó una visita a la subestación de la Administración Nacional de Electricidad (ANDE) y la Central Hidroeléctrica Yacyretá (CHY) para poder ver el potencial de generación que se tiene en la usina.
 También estuvo el lugar donde se tiene planificado llevar adelante la maquinización del Brazo Aña Cua.
 Este viernes se dedicó a visitar los productores de miel de la isla Yacyretá, porque forma parte del proyecto pro cadena que sirve para desarrollar rubros como apicultura, producción de ovejas.
@@ -5992,7 +5997,8 @@ Además, recuerda lo establecido en el artículo 50 de la Ley 6026/2018 del pres
 Hacienda también emitió otro informe en el cual señala que el Ejecutivo estableció normas complementarias para ejecución de llamados a contratación plurianuales, a través del Decreto N° 9037 que se dio a conocer en la fecha y que la misma deberá tener la autorización del Equipo Económico Nacional.
 “Conforme al mismo se establece que en las etapas de difusión de los llamados a contratación para la adquisición de bienes y servicios que sean realizadas en carácter plurianual, para afectar parcial o totalmente los periodos 2019 y 2020, deberán contar además del reporte del Módulo Plurianual del SIPP (FG04), con la autorización expresa por escrito del Equipo Económico Nacional (EEN)”, añade el informe.
 La autorización del EEN deberá ser remitida a la Dirección Nacional de Contrataciones Públicas, dependiendo de la etapa en la que se encuentre el proceso, ya sea para la comunicación del llamado a contratación, de la adjudicación o cuando se solicite el Código de Contratación, expresa la nota.
-Adjudican obras del Brazo Aña CuaEl Consejo de Administración de la Entidad Binacional Yacyretá (EBY), en sesión extraordinaria realizada ayer en la central hidroeléctrica, decidió aprobar las licitaciones internacionales 669 y 670, referidas a las obras civiles y obras electromecánicas de la maquinización del Brazo Aña Cua.
+Adjudican obras del Brazo Aña Cua
+El Consejo de Administración de la Entidad Binacional Yacyretá (EBY), en sesión extraordinaria realizada ayer en la central hidroeléctrica, decidió aprobar las licitaciones internacionales 669 y 670, referidas a las obras civiles y obras electromecánicas de la maquinización del Brazo Aña Cua.
 Las obras civiles fueron adjudicadas sin ni un tipo de objeción al Consorcio Aña Cua, integrado por las empresas Astaldi-Rovella Carranza Tecnoedil, por US$ 193.247.60,85, mientras que las obras electromecánicas fueron adjudicadas a la firma Voith Hydro de Alemania, con una oferta de US$ 99.669.577,84.
 El proceso se llevó adelante como parte de un trabajo de evaluación que fue realizado por técnicos de ambas márgenes, que conformaron un grupo binacional que evaluó y determinó cada una de las ofertas en distintos aspectos, expresó Marcos Caballero Giret, consejero de Yacyretá.
 Por su parte, el director de la margen derecha de Yacyretá, Nicanor Duarte Frutos, dentro de su discurso, señaló que el proceso de licitación complejo se pudo abordar con transparencia, criterio de libre competencia, sin impugnación relevante.
@@ -6991,7 +6997,8 @@ Además del Salesianito, participaron de las Olimpiadas que duró dos días, el 
 El guarani fue reconocido como lengua nacional en la Carta Magna consagrada el 25 de agosto de de 1967.
 En la Constitución Nacional de 1992, que es la que nos rige, pasó a ser uno de los dos idiomas oficiales de Paraguay.
 Atacan cuestiones de “forma”
-La asesora jurídica de la Corte Suprema de Justicia defendió la acción de inconstitucionalidad promovida en lo referente a la solicitud de declaración de bienes.Recién el lunes 2 de abril cumplirán orden judicial
+La asesora jurídica de la Corte Suprema de Justicia defendió la acción de inconstitucionalidad promovida en lo referente a la solicitud de declaración de bienes.
+Recién el lunes 2 de abril cumplirán orden judicial
 Recriminó a las autoridades policiales por la decisión de posponer el encuentro para el lunes, asegurando que ni ella ni el equipo periodístico protagonizarán incidentes “o meterán una bomba”.
 Con respecto a las versiones de los diarios del grupo Cartes, que señalan a su cliente como único responsable de la muerte de Rodrigo Quintana, ironizó con que Florentín “estaba tan aburrido” con su arresto domiciliario que decidió salir a atacar el PLRA y además se llevó un pelotón con él, pese a su bajo rango de suboficial.
 Gobierno atribuye toda la culpa al policía imputado
@@ -7990,7 +7997,8 @@ Dicen que el Gobierno no cumplió con el acuerdo pactado y se quedarán hasta qu
 Esther Leiva, integrante de las organización campesina, afirmó en contacto con ABC Cardinal que a casi tres meses de que firmaron el acuerdo con el Gobierno, no se cumplieron algunos aspectos.
 Además trajeron sus aporte para los damnificados, informó la periodista de ABC Cardinal, Perla Silguero.
 “Dentro del acuerdo decía que se solucionaría el problema de la tierra.
-Entonces nosotros pedimos que a 10.000 familias les entreguen tierras, además de la legalización de los asentamientos campesinos”, indicó.En segundo lugar, habló de las deudas acumuladas.
+Entonces nosotros pedimos que a 10.000 familias les entreguen tierras, además de la legalización de los asentamientos campesinos”, indicó.
+En segundo lugar, habló de las deudas acumuladas.
 “Hay un abandono del Estado.
 Ya no hay un acompañamiento a los pequeños productores.
 Pedimos subsidio y para nosotros no hay voluntad, pero si piden los empresarios, sí hay.
@@ -8989,7 +8997,8 @@ El presidente de la Administración Nacional de Electricidad (ANDE), Ing. Luis V
 En la reunión, los representantes de la ANDE expusieron sobre la importancia del proyecto para la construcción de una nueva línea de transmisión 2 x 220 kV Villa Hayes –Puerto Botánico–Parque Caballero.
 Además, conversaron sobre los permisos correspondientes que debe otorgar el municipio para el inicio de las obras de construcción del tramo subterráneo de la mencionada línea, de acuerdo a lo estipulado en el contrato.
 Estas obras de interconexión eléctrica entre la Subestación Villa Hayes en 500 kV, ubicada en la localidad del mismo nombre en el departamento de Presidente Hayes, con las subestaciones en 220 kV de Puerto Botánico y Parque Caballero, ubicadas en Asunción, permitirán en el breve plazo reforzar la infraestructura eléctrica y asegurar el servicio para importantes zonas de la ciudad de Asunción, según indicaron.
-Conceden arresto domiciliario a Ronaldinho y a su hermanoSegún publicó el Post, el acuerdo conllevaría un pago de comisión de 26 millones de dólares a un abogado argentino de nombre Sebastián Vidal, que dijo actuar en nombre de PDVSA, un pago que el exfiscal general de Guaidó calificó de “desproporcionado”.
+Conceden arresto domiciliario a Ronaldinho y a su hermano
+Según publicó el Post, el acuerdo conllevaría un pago de comisión de 26 millones de dólares a un abogado argentino de nombre Sebastián Vidal, que dijo actuar en nombre de PDVSA, un pago que el exfiscal general de Guaidó calificó de “desproporcionado”.
 Demandan al Consejo de la Magistratura por supuesta arbitrariedad en conformación de ternas
 Una abogada del foro local, Primitiva Villalba Ferrari, planteó una demanda contra el Consejo de la Magistratura (CM) por considerar que este órgano le causó un perjuicio grave al impedir que integre una terna para elección de magistrados.
 La profesional señala que el Consejo mantuvo bloqueado en forma ilegal su nombre por espacio de 42 días, lo que no permitió que su nombre sea integrado a una lista de posibles elegidos para ocupar un cargo de juez en la Tercera Circunscripción Judicial de la República.
@@ -9988,7 +9997,8 @@ Desde la Asociación Industrial de Confeccionistas del Paraguay (AICP) reclamaro
 Se agudiza contrabando con la diferencia cambiaria, reconoce ministra
 Luego de un encuentro mantenido con intendentes del Departamento de Guairá y representantes de cañicultores, la ministra Cramer afirmó que la problemática que se plantea con el contrabando no es nueva pero “que se agudiza por la diferencia cambiaria que hay con los vecinos”.
 El encuentro se realizó hoy en la sede del MAG.
-También participaron los ministros de Agricultura y Ganadería, Rodolfo Max Friedmann, y de la Unidad Interinstitucional para la Prevención, Combate y Represión del Contrabando (UIC), Emilio Fúster, quienes evitaron dar declaraciones.Cramer anunció que las autoridades que integran la unidad de combate al contrabando se reunirán con la titular del Ministerio Público, Sandra Quiñonez, para solicitar que las intervenciones fiscales vayan más allá de los operativos de incautaciones de los productos.
+También participaron los ministros de Agricultura y Ganadería, Rodolfo Max Friedmann, y de la Unidad Interinstitucional para la Prevención, Combate y Represión del Contrabando (UIC), Emilio Fúster, quienes evitaron dar declaraciones.
+Cramer anunció que las autoridades que integran la unidad de combate al contrabando se reunirán con la titular del Ministerio Público, Sandra Quiñonez, para solicitar que las intervenciones fiscales vayan más allá de los operativos de incautaciones de los productos.
 Pedirán que se persiga a los financistas con la colaboración de los funcionarios de la Subsecretaría de Tributación (SET) y de la Secretaría de Prevención de Lavado de Dinero o Bienes (Seprelad).
 Hace dos semanas, estas autoridades ya se habían reunido en el MAG y abordaron distintos temas relacionados a este flagelo.
 El intendente de Tebicuarymí, Javier González (ANR), manifestó que quedó conforme con las promesas de las autoridades gubernamentales, de combatir el contrabando y de esta manera, asegurar el mercado para la venta de azúcar orgánica.
@@ -10987,7 +10997,8 @@ Con el lema “Te cuido, me cuidas y nos cuidamos," se dio inició hoy a la XVI 
 El horario de atención es de 08:00 a 20:00, estableciendo entradas por turnos de diez personas por vez.
 El lanzamiento del evento se realizó anoche en la peatonal Indio José, con la presencia del intendente Juan Carlos Matto y el presidente de la Asociación de Artesanos Atyreños Miguel Maidana, además de invitados especiales.
 En la ocasión se dieron a conocer los protocolos sanitarios a ser aplicados durante la realización del evento.
-Se tendrán definidos un punto de entrada y otro de salida, para el registro, desinfección y control de temperatura de los visitantes.Confirman prisión para Quintana, ante inminente expulsión de la Cámara
+Se tendrán definidos un punto de entrada y otro de salida, para el registro, desinfección y control de temperatura de los visitantes.
+Confirman prisión para Quintana, ante inminente expulsión de la Cámara
 El Tribunal de Apelaciones Primera Sala de la Capital confirmó la decisión de la jueza Alicia Pedrozo, que dispuso hace unas semanas que el diputado Ulises Quintana permanezca preso en la Agrupación Especializada, por su supuesta complicidad en narcotráfico y otros delitos.
 De esta manera, Quintana esta imposibilitado de asumir su banca en Diputados, que esta semana darían trámite a su expulsión.
 El Tribunal presidido por el juez Pedro Mayor Martínez e integrado por los magistrados Gustavo Santander y Gustavo Ocampos González resolvió confirmar lo dispuesto por la jueza Penal de Garantías Alicia Pedrozo el pasado 29 de noviembre, cuando se dictó la vuelta a prisión del Quintana.
@@ -11986,7 +11997,8 @@ JUAN DE FIDANZA conocido como SAN BUENAVENTURA DE BAGNOREGIO, nació en la ciuda
 Después de ordenarse en la Orden Seráfica (Franciscana), estudió en la Universidad de Paris, donde posteriormente enseñó desde el año 1248 hasta el año 1257: Teología y Sagrada Escritura.
 Fue obispo de Albano y cardenal italiano.
 En el año 1257 fue elegido como Superior General de los Franciscanos.
-Por su gran capacidad intelectual fue conocido como el “Doctor Seráfico”.De su rostro celestial estaba triste y sus lágrimas caían al suelo.
+Por su gran capacidad intelectual fue conocido como el “Doctor Seráfico”.
+De su rostro celestial estaba triste y sus lágrimas caían al suelo.
 Sus labios se abrieron para decir “oración, penitencia y reparación” y luego guardó silencio.
 Una segunda aparición se produjo el domingo 13 de junio del año 1947, otra vez en el hospital.
 La Virgen María apareció vestida de blanco y en vez de las tres espadas llevaba tres rosas: blanca, roja y dorada.
@@ -12985,7 +12997,8 @@ La solidaridad está en el perdón,
 La solidaridad está en la dación y no en la mezquindad,
 La solidaridad está en la paz,
 La solidaridad está en la alegría,
-La solidaridad está en una sonrisa,La solidaridad está en la necesidad,
+La solidaridad está en una sonrisa,
+La solidaridad está en la necesidad,
 La solidaridad está en el dolor,
 La solidaridad está en la tristeza,
 La solidaridad está en la pobreza,
@@ -13984,7 +13997,8 @@ Dirección de Planificación
 Director
 Disco
 Disco duro
-Discriminación lingüísticaDiscusión
+Discriminación lingüística
+Discusión
 Diseñadores gráficos
 Diseño adaptable
 Diseño asistido por ordenador
@@ -14983,7 +14997,8 @@ Tu grupo ha sido creado recientemente y ya está publicado.
 te ha enviado un nuevo mensaje.También puedes leer el nuevo mensaje aquí
 Un artículo reportado han llegado a su fecha límite y la acción predeterminada ha sido ejecutada.
 Para ver el evento, acceder a la URL en la siguiente ubicación
-Mis mensajesRegresar al Perfil
+Mis mensajes
+Regresar al Perfil
 Escribir mensaje
 Responder mensaje
 Sin asunto
@@ -15982,7 +15997,8 @@ En la República del Paraguay, existen una variedad de lenguas, entre las que se
 El guaraní, primeramente, fue declarado como lengua nacional en la Constitución Nacional de 1967, siendo un gran avance, ya que históricamente fue relegado en casi todos los ámbitos de uso .
 En total, aparte de las dos lenguas oficiales, existen diecinueve pueblos indígenas autóctonos con sus respectivas lenguas agrupadas en cinco familias lingüísticas (Susnik, B., 1981.  Los aborígenes del Paraguay), más una diversidad de lenguas de inmigrantes extranjeros que a lo largo de la historia del país han venido asentándose en este suelo guaraní .
 De esta diversidad lingüística que se menciona dentro de la realidad paraguaya, se debe destacar que la lengua guaraní, a pesar de su origen, ha sido adoptada como la lengua de comunicación diaria y coloquial de la mayoría de los paraguayos .
-Si bien en la actualidad el Estado paraguayo reconoce a la lengua guaraní con el estatus de lengua oficial, juntamente con el castellano, a partir de la Constitución Nacional de 1992 no se ha registrado hasta la fecha que la administración estatal funcione en las dos lenguas de manera equitativa, como para satisfacer la necesidad y el derecho de la mayoría de los habitantes del país .Se puede decir que los avances en materia legal están a la vanguardia, no solo a nivel local, sino también regional, empero la realidad sigue siendo la misma, el progresivo fortalecimiento del castellano en los medios de comunicación en detrimento del guaraní, a pesar de lo ya mencionado, que la mayor cantidad de habitantes del país son hablantes de la lengua guaraní .
+Si bien en la actualidad el Estado paraguayo reconoce a la lengua guaraní con el estatus de lengua oficial, juntamente con el castellano, a partir de la Constitución Nacional de 1992 no se ha registrado hasta la fecha que la administración estatal funcione en las dos lenguas de manera equitativa, como para satisfacer la necesidad y el derecho de la mayoría de los habitantes del país .
+Se puede decir que los avances en materia legal están a la vanguardia, no solo a nivel local, sino también regional, empero la realidad sigue siendo la misma, el progresivo fortalecimiento del castellano en los medios de comunicación en detrimento del guaraní, a pesar de lo ya mencionado, que la mayor cantidad de habitantes del país son hablantes de la lengua guaraní .
 Esta situación se debe a que, por muchas décadas, la democratización de la comunicación era una realidad postergada, ya que la mayoría de los medios de comunicación siempre han permanecido en manos de una minoría castellanohablante, colaborando así a que todo sea desarrollado en una sola lengua, en castellano, y dejando en estado de marginación al guaraní, lengua de una mayoría .
 Con esta realidad, se evidenciaba también la jerarquización de la lengua, se posicionaba como una lengua superior-dominante aquella más utilizada por los medios y como inferior-dominada la mayoritaria en cuanto a su uso y cantidad de hablantes dentro de la sociedad .
 Por mucho tiempo en el Paraguay, la visión instalada con respecto a la superioridad de una lengua y la inferioridad de otra ha sido muy fuerte, hasta llegar al punto de prohibir a muchas personas usuarias del guaraní expresarse en su lengua en público, en lugares de trabajos o en el ámbito educativo, reduciendo su uso solamente al entorno familiar –donde muchas veces los mismos miembros se encargaban de la prohibición–, a lo meramente folclórico e informal; en muchos casos, su pronunciación era considerada hasta grosera .
@@ -16981,7 +16997,8 @@ Distintas entidades del Estado y de la sociedad civil se hicieron presentes con 
 En la misma estuvo presente el asesor jurídico de la Secretaría de Políticas Lingüísticas (SPL), Osvaldo Núñez, quien en representación de la SPL informó la discusión que se genera en el Poder Legislativo sobre la introducción de la ley referente a lengua de señas; a su vez se debatió sobre el perfil docente y las competencias del futuro docente en lengua de señas..
 Con sanción favorable de Diputados, en instancias de la Cámara de Senadores se debate el proyecto de ley “Que otorga reconocimiento oficial a la Lengua de Señas Paraguaya (LSPy)”..
 Subcomisión de lengua de señas sesionó este viernes.
-La Subcomisión de Información, Comunicación y Lengua de Señas celebró este viernes la tercera sesión en lo que va de este año 2019. La reunión de trabajo se basó, entre otras cosas, en la aplicación de normativas que favorecen a la comunicación de las personas con discapacidad auditiva y visual..La actividad estuvo presidida por la ministra de la Secretaría de Políticas Lingüísticas, Ladislaa Alcaraz de Silvero, quien a su vez es la titular de la Subcomisión de Información, Comunicación y Lengua de Señas de la Comisión Nacional por los Derechos Humanos de las Personas con Discapacidad (Conadis)..
+La Subcomisión de Información, Comunicación y Lengua de Señas celebró este viernes la tercera sesión en lo que va de este año 2019. La reunión de trabajo se basó, entre otras cosas, en la aplicación de normativas que favorecen a la comunicación de las personas con discapacidad auditiva y visual..
+La actividad estuvo presidida por la ministra de la Secretaría de Políticas Lingüísticas, Ladislaa Alcaraz de Silvero, quien a su vez es la titular de la Subcomisión de Información, Comunicación y Lengua de Señas de la Comisión Nacional por los Derechos Humanos de las Personas con Discapacidad (Conadis)..
 Durante la reunión se presentaron los avances sobre el proyecto de ley; asimismo, se socializó el plan de acción para la aplicación de la Ley 6354/19
 Así también, los presentes analizaron las acciones para avanzar en la aplicación del Tratado de Marrakech en Paraguay, y establecieron algunos acuerdos de trabajo de la Subcomisión..
 Para la sesión fueron convocados representantes del MEC, Mitic, Senadis, STP, Mtess, SFP, Dinapi y Representantes de Organizaciones de/para Personas con Discapacidad (DSCPcD)..
@@ -17981,7 +17998,8 @@ La ministra de la SPL celebró la concreción del acuerdo, expresó que la Munic
 El intendente de Asunción expresó la importancia del acuerdo que significará la reivindicación de un derecho ciudadano cercenado en años.
 MINISTRA DE LA SPL ACOMPAÑÓ LA INAUGURACIÓN DE LA EtyC 2017
 La ministra de la Secretaría de Políticas Lingũísticas, Ladislaa Alcaraz de Silvero, acompañó este martes la inauguración de la XV edición de la Exposición Tecnológica y Científica – EtyC 2017 organizada por la Facultad Politécnica de la Universidad Nacional de Asunción.
-La mesa técnica se realizó en la Sala de Reuniones de la Biblioteca Central de la Universidad Nacional de Asunción, en la ciudad de San Lorenzo.MINISTRA DE LA SPL DISERTÓ EN VILLARRICA SOBRE LA REALIDAD LINGŨÍSTICA PARAGUAYA.
+La mesa técnica se realizó en la Sala de Reuniones de la Biblioteca Central de la Universidad Nacional de Asunción, en la ciudad de San Lorenzo.
+MINISTRA DE LA SPL DISERTÓ EN VILLARRICA SOBRE LA REALIDAD LINGŨÍSTICA PARAGUAYA.
 Tras la firma de convenio de cooperación entre la Secretaría de Políticas Lingũísticas (SPL) y la Universidad Nacional de Villarrica del Espíritu Santo (UNVES), la ministra Ladislaa Alcaraz de Silvero, dictó una conferencia magistral sobre la situación lingũística del Paraguay; el idioma guaraní, su estado actual y perspectivas.
 El evento se realizó ayer viernes en el salón de actos del Rectorado de la UNVES.
 Durante su ponencia, la ministra Alcaraz habló sobre el bilingũismo oficial, la implicancia de un Estado bilingũe oficial y los posibles casos de bilingũismos existentes en el país.
@@ -18985,7 +19003,8 @@ En el local del Instituto de Formación Docente (IFD) de la ciudad de Cnel. Ovie
 La Directora General de Planificación Lingũística de la Secretaría de Políticas Lingũísticas, Celia Godoy, y el técnico Alcibiades Brítez acompañó la actividad.
 Asimismo, en una conocida cooperativa de la ciudad de Misiones se desarrolló el seminario “El uso del guaraní junto al castellano como herramienta de trabajo”.
 Dicha actividad fue acompañada desde la SPL por los técnicos, Rossana Arias y Mario Gaona.
-ARRANCÓ LA SEMANA DE LA LENGUA GUARANÍ “ROHAYHU CHE ÑE'Ẽ”.En un ambiente de fiesta, este lunes se dio apertura oficial a la cuarta edición de “Rohayhu che ñe'ẽ” la semana de la lengua guaraní organizada por la Secretaría de Políticas Lingũísticas (SPL) que invita a toda la sociedad paraguaya a vivir en y con la lengua durante una semana.
+ARRANCÓ LA SEMANA DE LA LENGUA GUARANÍ “ROHAYHU CHE ÑE'Ẽ”.
+En un ambiente de fiesta, este lunes se dio apertura oficial a la cuarta edición de “Rohayhu che ñe'ẽ” la semana de la lengua guaraní organizada por la Secretaría de Políticas Lingũísticas (SPL) que invita a toda la sociedad paraguaya a vivir en y con la lengua durante una semana.
 La apertura oficial fue presidida por la ministra de la SPL, Ladislaa Alcaraz de Silvero, en compañía de altas autoridades y representantes de distintos sectores e instituciones de país.
 Durante su intervención, la ministra Alcaraz celebró que por cuarto año consecutivo se lleve adelante el mega evento con el que se pretende revalorizar y reposicionar el uso de la lengua guaraní en todos los ámbitos.
 dijo la Ministra.
@@ -19984,7 +20003,8 @@ Los eventos consistirán en charlas y debates, con participación de autoridades
 Autoridades de la Secretaría de Políticas Lingüísticas también estarán apoyando y acompañando la serie de actividades.
 La ministra de la Secretaría de Políticas Lingüísticas (SPL), Ladislaa Alcaraz de Silvero, en su carácter de presidenta de la CNCAILI, encabezó la reunión de trabajo, de la que también participaron representantes indígenas y autoridades de diferentes entidades, integrantes de la comisión.
 El encuentro fue propicio para analizar la vigencia y proyección de la Ley 6352/19, que crea la comisión.
-Asimismo, las distintas subcomisiones socializaron los avances de su gestión según los objetivos y metas de cada subgrupo.Además, se hizo la presentación y luego la validación del contenido del informe ejecutivo que será remitido a los tres poderes del Estado.
+Asimismo, las distintas subcomisiones socializaron los avances de su gestión según los objetivos y metas de cada subgrupo.
+Además, se hizo la presentación y luego la validación del contenido del informe ejecutivo que será remitido a los tres poderes del Estado.
 Asimismo, trataron otros puntos de interés de la comisión, que trabaja de manera interinstitucional a favor de las lenguas indígenas.
 Tercera Sesión de la Subcomisión de Información, Comunicación y Lengua de Señas
 Este viernes 11, a través de la plataforma virtual Zoom, integrantes de los distintos sectores de la Subcomisión de Información, Comunicación y Lengua de Señas sesionaron por tercera vez en lo que va de este 2020.

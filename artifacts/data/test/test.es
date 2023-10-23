@@ -997,7 +997,8 @@ Habíamos aclarado que fue la ciudadanía que sacó a Óscar González Daher y c
 Plantean hacer una huelga
 La Central Unitaria de Trabajadores Auténtica anunció que, si el pedido de reajuste del salario mínimo en el 25% no tiene respuesta positiva, podrían ir a una huelga general.
 Esta tarde se reunirá el Consejo Consultivo de centrales sindicales.
-Ayer por la tarde, la Central Unitaria de Trabajadores Auténtica (CUT-A) y la Central Unitaria de Trabajadores (CUT) presentaron oficialmente el pedido de reajuste del salario mínimo ante el Poder Ejecutivo.Con relación al estacionamiento sobre Jorge Memmel en doble fila de vehículos, afirmó que “los recursos humanos no alcanzan para controlar” esa falta grave.
+Ayer por la tarde, la Central Unitaria de Trabajadores Auténtica (CUT-A) y la Central Unitaria de Trabajadores (CUT) presentaron oficialmente el pedido de reajuste del salario mínimo ante el Poder Ejecutivo.
+Con relación al estacionamiento sobre Jorge Memmel en doble fila de vehículos, afirmó que “los recursos humanos no alcanzan para controlar” esa falta grave.
 “Veremos qué solución le damos.
 Pero el interés general debe primar sobre el particular, lo ideal es que más gente utilice el transporte público y no darle prioridad a los vehículos particulares”, expresó esta mañana el concejal municipal Andrés Morel (ANR).
 Un año de impunidad en caso de guardaparques asesinados
@@ -1996,7 +1997,8 @@ Admiten imputación contra sobrinos de Mario Ferreiro
 Este martes, el juez Gustavo Amarilla admitió la imputación contra Mauricio Ferreiro Paz y Fernando Ferreiro Ayala –sobrinos del exintendente Mario Ferreiro– por la comisión del hecho punible de tráfico de influencias.
 Finalmente, el juzgado aceptó la imputación fiscal contra los sobrinos del ex intendente de Asunción vinculados al esquema de recaudación paralela en la Comuna denunciada días atrás por Camilo Soares.
 Los procesados deberán comparecer ante el juzgado el próximo 13 de enero de 2020 entre las 8:30 y las 9:00.
-El juez Amarilla había devuelto la imputación contra Ferreiro Paz y Ferreiro Ayala para que el fiscal describa “sucintamente el o los hechos” penales que se les atribuye, debido a que en el escrito solo mencionan que estos forman parte de un grupo de Telegram que realizaría una red de recaudación paralela, sin brindar detalles del modus operandi.Capitalización de US$ 10 millones para ayudar a pequeños y medianos ganaderos
+El juez Amarilla había devuelto la imputación contra Ferreiro Paz y Ferreiro Ayala para que el fiscal describa “sucintamente el o los hechos” penales que se les atribuye, debido a que en el escrito solo mencionan que estos forman parte de un grupo de Telegram que realizaría una red de recaudación paralela, sin brindar detalles del modus operandi.
+Capitalización de US$ 10 millones para ayudar a pequeños y medianos ganaderos
 El fondo destinado a pequeños y medianos productores ganadores recibirá su primera capitalización por parte del Gobierno en 50 años.
 De esta manera se garantiza el cumplimiento de la Ley 2507/06 del medio pasaje estudiantil.
 Debe apartarse del servicio exterior a la mediocridad afiliada y recomendada
@@ -2995,7 +2997,8 @@ Nos quedamos en la misma casa toda la vida.
 Yo estaba como, OK, bueno, eso está bien, ya sabes, así.
 Dije que lo odiaba y que lo rechazaba enormemente
 Dije que me gustaba la nueva versión de la canción.
-Ya he dicho que tiene mi aprobación.Y las manchas de pintura cambiarían cada cien grados, podrían pasar de ser rojas a ser azules, por ejemplo.
+Ya he dicho que tiene mi aprobación.
+Y las manchas de pintura cambiarían cada cien grados, podrían pasar de ser rojas a ser azules, por ejemplo.
 La pintura cambia según el color.
 La pintura cambia para que puedas saber cómo de caliente está sin tener que medirlo.
 la pintura siempre es negra.
@@ -3994,7 +3997,8 @@ Correo Electrónico Requerido
 Crear información
 Cultura paraguaya
 Cultura y sociedad
-Derechos lingüísticosDesarrollar
+Derechos lingüísticos
+Desarrollar
 Descargar Firefox
 Developer Payments Terms
 Dibujo
@@ -4994,7 +4998,8 @@ Los jurados del concurso fueron los académicos: José Antonio Moreno Ruffinelli
 La investigación de Biera, que abarcó los años 2012 al 2018, se basó en un enfoque sociolingũístico sobre la influencia del inglés en el ámbito publicitario de la ciudad de Asunción, trabajo que concluyó con la comprobación de un fenómeno de estatus superior de la lengua norteamericana; es decir, antes que escribir en castellano o en guaraní, realizar en inglés conllevará a un mayor éxito comercial.
 Biera Yboty Cubilla Zadovsky es Licenciada en Letras, escritora, profesora universitaria, fotógrafa y lingũista.
 Nació en Asunción el 10 de marzo de 1988.
-El premio adjudicado a su trabajo consiste en una dotación económica de diez millones de guaraníes y un diploma conmemorativo.Organizan primera jornada de terminología, traducción e interpretación en guaraní.
+El premio adjudicado a su trabajo consiste en una dotación económica de diez millones de guaraníes y un diploma conmemorativo.
+Organizan primera jornada de terminología, traducción e interpretación en guaraní.
 La Asociación de Investigadores de Terminología, Traducción e Interpretación Guaraní (en guaraní: Avañe'ẽ Kuaareka Aty, AKA), organiza la Primera Jornada Nacional de AKA con énfasis en terminología, traducción e interpretación en lengua guaraní.
 La misma contará con la disertación de autoridades de entes y expertos de los temas que serán abordados sobre el idioma nativo.
 La actividad académica está prevista para el día sábado 10 de noviembre de 08:00 a 14:00 horas, en el Salón de Eventos LV Alquileres de la ciudad de Jataity del Norte, Dpto. de San Pedro.

@@ -997,7 +997,8 @@ Abdo: "No quedará impune"
 Que las instituciones profundicen su investigación", lanzó el presidente Mario Abdo Benítez, tras la confirmación del abandono de las obras por parte de la empresa Mota Engil.
 "Tiene todo nuestro apoyo Ministro" Arnoldo Wiens, agregó a través de Twitter el mandatario que se encuentra cumpliendo actividades oficiales en el departamento de Guairá.
 El caso Metrobús  no quedará impune!
-Que las instituciones profundicen su investigación.“Justamente hemos hablado con el presidente electo sobre organizar mejor nuestro plan maestro de la producción agropecuario”, dijo.
+Que las instituciones profundicen su investigación.
+“Justamente hemos hablado con el presidente electo sobre organizar mejor nuestro plan maestro de la producción agropecuario”, dijo.
 Consejo de la Magistratura expresa confianza en sus representantes
 El Consejo de la Magistratura se manifestó ante las recientes revelaciones sobre el funcionamiento del Jurado de Enjuiciamiento de Magistrados.
 Este martes, el Consejo de la Magistratura emitió un comunicado como reacción ante las revelaciones recientes sobre el Jurado de Enjuiciamiento de Magistrados (JEM) y su extitular Óscar González Daher, recientemente expulsado del Senado.
@@ -1996,7 +1997,8 @@ Este domingo, tras bajar 5 cm, el río Paraguay en la zona capitalina llegó a 0
 El cauce hídrico ya había llegado a una altura similar el 21 de mayo pasado, pero posteriormente volvió a subir de manera sostenida hasta el 14 de junio, cuando alcanzó los 1,36 m.
 Asimismo, en Villeta el río bajó 2 cm, posicionándose a los 1,15 m, mientras que su promedio diario histórico es de unos 3 m. En la ciudad de Alberdi, departamento de Ñeembucú, también descendió 2 cm, por lo que el nivel actual es de 2,03 cm, cuando la marca media diaria en este mes del año llega a los casi 6 m.
 En cuanto al río Paraná, por ejemplo, en Ayolas el nivel se encuentra solo en 0,68 m, lo cual también es bajo en relación con su promedio diario que es de unos 2 m.
-Alberto Fernández gana elecciones presidenciales en ArgentinaEl objetivo es lograr ese arancel cero para liberar a los estudiantes del pago de matrículas, derechos de exámenes y otros pagos por formatos de tesis, indicó Martínez.
+Alberto Fernández gana elecciones presidenciales en Argentina
+El objetivo es lograr ese arancel cero para liberar a los estudiantes del pago de matrículas, derechos de exámenes y otros pagos por formatos de tesis, indicó Martínez.
 Denuncian daño patrimonial a la histórica Casa de Indios de San Ignacio
 La comisión es presidida por Gloria Moreno de Del Puerto, siendo el coordinador el párroco de San Ignacio, padre David Hernández (S.
 Esta comisión, que vela por los valores patrimoniales, viene denunciando el atropello a la Casa de los Indios.
@@ -2995,7 +2997,8 @@ Realmente ni siquiera sé qué elegiría.
 Yo elegiría I'll Fly Away.
 I'll Fly Away es mi película favorita y la veo semanalmente.
 Sí, pero no creo que vayamos a hacerlo porque es que no se pueden obtener estaciones locales y esa es la noticia en la que estamos más interesados.
-El precio es bastante bueno.Definitivamente, vamos a tener que ver nuestras noticias locales.
+El precio es bastante bueno.
+Definitivamente, vamos a tener que ver nuestras noticias locales.
 No lo queremos porque nos gustan las noticias locales y no tiene estaciones locales.
 Me temo que creo que su nombre era Anderson, era el caballero que corrió para un tique independiente contra Reagan y
 Anderson venció a Reagan.
@@ -3994,7 +3997,8 @@ Formato de video comprimido para ordenador
 Funciones
 Genio de la lengua
 Gestor de bases de datos
-Glosario bilingüeGracias
+Glosario bilingüe
+Gracias
 Gráfico
 Graphic Content
 Guardar como audio
@@ -4994,7 +4998,8 @@ El Festival Internacional de Poesía de Medellín, uno de los más prestigiosos 
 El tradicional encuentro con la poesía, que reúne anualmente a un centenar de poetas del mundo entero, se perfila este año como un evento para el resurgimiento del mito y la utopía, ligados de manera esencial a la poesía.
 Alba Eiragi es una reconocida líder indígena, descendiente de una familia aché pero fue criada en una comunidad avá guaraní de Colonia Fortuna, departamento de Canindeyú.
 Tiene estudios superiores en las áreas de trabajo social y comunicación, así como un diplomado en educación intercultural.
-Publicó su primer poemario, titulado Ñe'ẽyvoty – Ñe'ẽpoty, el año pasado y fue recibida como integrante de la Sociedad de Escritores del Paraguay, como la primera mujer indígena en formar parte de la SEP.La poetisa indígena participará en las numerosas lecturas que anuncia el festival, además de ofrecer conferencias y participar de paneles.
+Publicó su primer poemario, titulado Ñe'ẽyvoty – Ñe'ẽpoty, el año pasado y fue recibida como integrante de la Sociedad de Escritores del Paraguay, como la primera mujer indígena en formar parte de la SEP.
+La poetisa indígena participará en las numerosas lecturas que anuncia el festival, además de ofrecer conferencias y participar de paneles.
 Dada su significativa trayectoria en las luchas por la defensa de su pueblo, fue invitada a dar una conferencia sobre “La escritura poética como forma de sanación” (Testimonio de su experiencia).
 La participación de la poetisa guaraní en el 28' Festival Internacional de Poesía de Medellín fue posible gracias a las gestiones de la directiva de la SEP.
 Invitan al primer festival de poesía bilingũe: guaraní-castellano.
