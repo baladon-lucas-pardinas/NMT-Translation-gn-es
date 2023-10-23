@@ -13,7 +13,11 @@ SPM_SUFFIX = '.spm'
 # Template parameters: {E} for epoch; {B} for No. of batches 
 # within epoch; {U} for total No. of updates; {T} for total 
 # No. of tokens seen.
-def parse_output_filename(output_filename, epoch=None, batch=None, updates=None, tokens=None):
+def parse_output_filename(output_filename, 
+                          epoch=None, 
+                          batch=None, 
+                          updates=None, 
+                          tokens=None):
     # type: (str, int, int, int, int) -> str
     to_substitute = {'{E}': epoch, '{B}': batch, '{U}': updates, '{T}': tokens}
     for key, value in to_substitute.items():
@@ -82,8 +86,11 @@ def rename_model_file(model_name, flags):
     model_name_extension = model_name.split('.')[-1]
     param_names = list(flags.keys())
     param_values = list(map(lambda v: str(v[0]), flags.values()))
-    param_names_and_values = [param_name + '_' + param_value for param_name, param_value in zip(param_names, param_values)]
-    model_name = model_name_without_extension + '_' + '_'.join(param_names_and_values) + '.' + model_name_extension
+    param_names_and_values = [param_name + '_' + param_value \
+                              for param_name, param_value in \
+                                zip(param_names, param_values)]
+    model_name = model_name_without_extension + \
+        '_' + '_'.join(param_names_and_values) + '.' + model_name_extension
     model_name = model_name.replace(' ', '')
     return model_name
 

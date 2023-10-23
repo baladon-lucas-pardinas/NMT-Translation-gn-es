@@ -26,7 +26,8 @@ def search_duplicates(file_dir, verbose=False):
 if __name__ == '__main__':
     file_dir = sys.argv[1]
     words, duplicate_indexes = search_duplicates(file_dir)
-    print('Duplicate indexes: {duplicate_indexes}'.format(duplicate_indexes=list(duplicate_indexes.keys())))
+    print('Duplicate indexes: {duplicate_indexes}'.format(
+        duplicate_indexes=list(duplicate_indexes.keys())))
     with open(file_dir + '.nodup', 'w', encoding='utf-8') as f:
         for idx, word in enumerate(words.keys()):
             if duplicate_indexes.get(word, None) is None:
