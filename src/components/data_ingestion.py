@@ -13,16 +13,14 @@ def rename_file(filename, language):
     # type: (str, str) -> str
     return filename + '.' + language
 
-def split_dataset(
-    raw_data_file_path, 
-    raw_data_columns, 
-    raw_data_split_column, 
-    column_to_clean, 
-    train_output, 
-    validation_output, 
-    test_output, 
-    persist_each=10000
-):
+def split_dataset(raw_data_file_path,
+                  raw_data_columns,
+                  raw_data_split_column,
+                  column_to_clean,
+                  train_output,
+                  validation_output,
+                  test_output,
+                  persist_each=10000):
     # type: (str, list, str, str, str, str, str, int) -> None
     logging.info("Splitting data from {}...".format(raw_data_file_path))
     train_output_path = train_output + '.' + column_to_clean
@@ -68,13 +66,11 @@ def split_dataset(
         logging.info("Test data count: {}".format(splits[test_column]['count']))
     logging.info("Ingestion complete.")
 
-def split_augmented_data(
-    raw_augmented_data_file_path,
-    augmented_data_output_path,
-    language_extensions,
-    persist_each,
-    separated_by='\t'
-):
+def split_augmented_data(raw_augmented_data_file_path,
+                         augmented_data_output_path,
+                         language_extensions,
+                         persist_each,
+                         separated_by='\t'):
     # type: (str, str, list, int, str) -> None
     logging.info("Creating augmented set from {}...".format(raw_augmented_data_file_path))
     raw_augmented_data_file_paths = [augmented_data_output_path + '.' + extension 
@@ -102,7 +98,10 @@ def split_augmented_data(
 
     logging.info("Vocabulary creation complete.")
 
-def create_vocabulary(input_path, output_path, tokenizer_type='spacy', default_vocabulary=[]):
+def create_vocabulary(input_path, 
+                      output_path, 
+                      tokenizer_type='spacy', 
+                      default_vocabulary=[]):
     # type: (str, str, str, list) -> None
     sentences = list()
 
@@ -120,13 +119,11 @@ def create_vocabulary(input_path, output_path, tokenizer_type='spacy', default_v
             f.write('\n')
         f.write('\n'.join(tokens))
     
-def append_augmented_data(
-    augmented_filename,
-    train_files,
-    language_extensions,
-    output_filename,
-    persist_each,
-):
+def append_augmented_data(augmented_filename,
+                         train_files,
+                         language_extensions,
+                         output_filename,
+                         persist_each):
     # type: (str, list, list, str, int) -> None
     augmented_files = [augmented_filename + '.' + extension 
                        for extension in language_extensions[::-1]]
