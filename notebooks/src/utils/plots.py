@@ -139,7 +139,7 @@ def plot_max_score_by_model(df: pd.DataFrame,
         sns.set(style='darkgrid')
         sns.barplot(x=SCORE_COL, y=y_col, data=metric_df, ax=ax_i)
         ax_i.set_title(metric)
-        ax_i.set_xticklabels(ax_i.get_xticklabels())#, rotation=45)
+        ax_i.set_xticklabels(ax_i.get_xticklabels()) #, rotation=45)
 
         for j in ax_i.containers:
             ax_i.bar_label(j,)
@@ -161,7 +161,6 @@ def plot_max_score_by_model(df: pd.DataFrame,
 
     plt.title(metric)
     plt.tight_layout()
-    plt.xticks(rotation=45)
     plt.savefig(save_path) if save_path is not None else plt.show()
 
 def plot_time_by_model(df: pd.DataFrame, 
