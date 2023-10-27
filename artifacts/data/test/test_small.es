@@ -8,4 +8,5 @@ Derechos lingüísticos
 Desarrollar
 El premio adjudicado a su trabajo consiste en una dotación económica de diez millones de guaraníes y un diploma conmemorativo.
 Organizan primera jornada de terminología, traducción e interpretación en guaraní.
+El objetivo de la sesión es analizar las propuestas de acción de las distintas subcomisiones, relacionadas a las jornadas de consulta y consentimiento previo, libre e informado, a ser realizadas por regiones geográficas del país.
 Desarrollar
