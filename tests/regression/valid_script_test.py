@@ -51,7 +51,7 @@ class TestValidationScript(unittest.TestCase):
             os.remove(reference_file)
             os.remove(translation_file)
 
-            output = process_result.stdout.decode('latin-1') # Accepts guaraní characters (unlike utf-8)
+            output = process_result.stdout.decode('latin-1')
             error = process_result.stderr.decode('utf-8')
             if process_result.stderr != b'':
                 print('Metric:', metric)

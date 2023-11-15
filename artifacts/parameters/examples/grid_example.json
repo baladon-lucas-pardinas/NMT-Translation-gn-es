@@ -4,5 +4,3 @@
     "enc-cell": ["gru", "lstm", "tanh"],
     "optimizer": ["adam", "sgd", "adagrad"]
 }
-
-    /* batch size? - weight_decay? */
