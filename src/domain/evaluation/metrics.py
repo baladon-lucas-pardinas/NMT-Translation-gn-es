@@ -59,12 +59,18 @@ def calculate_sacrebleu_corpus_chrf(references, translated):
     chrf_score = sacrebleu.corpus_chrf(translated, references).score
     return chrf_score
 
+def calculate_sacrebleu_corpus_ter(references, translated):
+    # type: (list[str], list[str]) -> float
+    ter_score = sacrebleu.corpus_ter(translated, references).score
+    return ter_score
+
 def calculate_metric(references, translated, 
                      bleu_score_type='sacrebleu_corpus_bleu', 
                      tokenize=lambda x: x.split()):
     # type: (list[str], list[str], str, Callable[[str], list[str]]) -> float
     score_functions = {'sacrebleu_corpus_bleu': calculate_sacrebleu_corpus_bleu,
-                       'sacrebleu_corpus_chrf': calculate_sacrebleu_corpus_chrf}
+                       'sacrebleu_corpus_chrf': calculate_sacrebleu_corpus_chrf,
+                       'sacrebleu_corpus_ter': calculate_sacrebleu_corpus_ter}
 
     references = arrays.reshape_1rest(references)
     

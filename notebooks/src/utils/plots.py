@@ -46,7 +46,10 @@ def plot_metric_by_x_foreach_model(df,
                                    metrics=None, 
                                    figsize=(12, 8), 
                                    legend=True, 
-                                   save_path=None):
+                                   save_path=None,
+                                   model_name=MODEL_ID,
+                                   score_name=SCORE_COL,
+                                   tight_layout=True):
     if metrics is None:
         metrics = [metric]
 
@@ -56,29 +59,35 @@ def plot_metric_by_x_foreach_model(df,
     for idx, metric in enumerate(metrics):
         ax_i = ax[idx] if len(metrics) > 1 else ax
         metric_df = df[df[SCORE_TYPE_COL] == metric]
+        
         sns.lineplot(x=x, 
-                     y=SCORE_COL, 
-                     hue=MODEL_ID, 
+                     y=score_name, 
+                     hue=model_name, 
                      data=metric_df, 
                      errorbar=None, 
                      legend=legend, 
                      ax=ax_i)
-        ax_i.set_title(metric)
-        plt.tight_layout()
+
+        ax_i.set_ylabel(metric)
+        ax_i.set_xlabel(x[0].upper() + x[1:])
+
+        if tight_layout:
+            plt.tight_layout()
 
     if title is None:
         source = df["source"].unique()[0]
         source = 'gn' if 'gn' in source else 'es'
         target = df["target"].unique()[0]
         target = 'gn' if 'gn' in target else 'es'
-        architecture = df["model_name"].unique()[0]
+        architecture = df[model_name].unique()[0]
         architecture = 's2s' if 's2s' in architecture else 'transformer'
 
         title = f'Metric comparison by {by} for direction {source}->{target} and {architecture} architecture'
         fig.suptitle(title)
-
-        # More space to title
-        plt.subplots_adjust(top=0.85)
+    else:
+        fig.suptitle(title)
+    
+    plt.subplots_adjust(top=0.95)
 
 
     plt.savefig(save_path) if save_path is not None else plt.show()
@@ -88,15 +97,23 @@ def plot_metric_by_epoch_foreach_model(df,
                                        metrics=None, 
                                        figsize=(12, 8), 
                                        legend=True, 
-                                       save_path=None):
+                                       save_path=None,
+                                       title=None,
+                                       model_name=MODEL_ID,
+                                       score_name=SCORE_COL,
+                                       tight_layout=True):
     plot_metric_by_x_foreach_model(df, 
                                    EPOCH_COL, 
+                                   title=title,
                                    by='epoch',
                                    metric=metric, 
                                    metrics=metrics, 
                                    figsize=figsize, 
                                    legend=legend, 
-                                   save_path=save_path)
+                                   save_path=save_path,
+                                   model_name=model_name,
+                                   score_name=score_name,
+                                   tight_layout=tight_layout)
 
 def plot_metric_by_time_foreach_model(df,
                                       metric=None, 
@@ -124,22 +141,26 @@ def plot_max_score_by_model(df: pd.DataFrame,
                             save_path=None, 
                             y_col=MODEL_ID, 
                             sort_by=SCORE_COL, 
-                            ascending=False):
+                            ascending=False,
+                            model_name=MODEL_ID,
+                            score_name=SCORE_COL):
     if metrics is None:
         metrics = [metric]
     
-    fig, ax = plt.subplots(figsize=figsize, ncols=len(metrics), nrows=1)
+    fig, ax = plt.subplots(figsize=figsize, 
+                           ncols=len(metrics), 
+                           nrows=1)
 
     for idx, metric in enumerate(metrics):
         ax_i = ax[idx] if len(metrics) > 1 else ax
         metric_df = df[df[SCORE_TYPE_COL] == metric]
-        group_cols = [SCORE_COL] + ([sort_by] if sort_by != SCORE_COL else [])
-        metric_df = metric_df.groupby(MODEL_ID)[group_cols].max().reset_index()
+        group_cols = [score_name] + ([sort_by] if sort_by != score_name else [])
+        metric_df = metric_df.groupby(model_name)[group_cols].max().reset_index()
         metric_df = metric_df.sort_values(by=sort_by, ascending=ascending)
         sns.set(style='darkgrid')
-        sns.barplot(x=SCORE_COL, y=y_col, data=metric_df, ax=ax_i)
-        ax_i.set_title(metric)
+        sns.barplot(x=score_name, y=y_col, data=metric_df, ax=ax_i, palette='coolwarm')
         ax_i.set_xticklabels(ax_i.get_xticklabels()) #, rotation=45)
+        ax_i.set_xlabel(metric)
 
         for j in ax_i.containers:
             ax_i.bar_label(j,)
@@ -149,7 +170,7 @@ def plot_max_score_by_model(df: pd.DataFrame,
         source = 'gn' if 'gn' in source else 'es'
         target = df["target"].unique()[0]
         target = 'gn' if 'gn' in target else 'es'
-        architecture = df["model_name"].unique()[0]
+        architecture = df[model_name].unique()[0]
         architecture = 's2s' if 's2s' in architecture else 'transformer'
 
         title = f'Metric comparison by {by} for direction {source}->{target} and {architecture} architecture'
@@ -158,8 +179,6 @@ def plot_max_score_by_model(df: pd.DataFrame,
         # More space to title
         plt.subplots_adjust(top=0.85)
 
-
-    plt.title(metric)
     plt.tight_layout()
     plt.savefig(save_path) if save_path is not None else plt.show()
 
