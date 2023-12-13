@@ -73,3 +73,22 @@ Its main features and content are:
 - Automatic parsing and plotting of marianNMT logs using Regular Expressions:
 
 ![output1](./assets/results/output.png)
+
+# Folder structure
+
+The project is composed by the following modules:
+
+- **Artifacts**: Contains the input data and output models. The created corpora and hyperparameters tuned are contained in this folder.
+- **Notebooks**: Contains the notebooks used for the analysis of the results.
+- **Scripts**: Contains the bash scripts used to run the project in a cluster:
+    - The `setup` folder contains scripts to setup the project environment, including the script to download the used docker container.
+    - The `cluster` folder contains scripts used to make experiments.
+    - The `ingestion.bat` script is used to create the vocabulary and divide the jojajovai dataset in train/dev/test subsets.
+    To reuse this scripts it is necessary to adjust directory paths to coincide with the current environment. No scripts receives extra flags.
+- **Src**: Contains the source code of the project with the features mentioned above.
+- **Tests**: Contains the unit tests used to test the features before using the software in the cluster.
+- **main.py**: Main file of the project used to run MarianNMT. Use main.py --help to see each flag's description.
+- **cluster_runner.py**: Script used to divide jobs within cluster nodes.
+
+
+
